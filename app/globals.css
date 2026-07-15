@@ -1,0 +1,590 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7f3ed;
+  color: #2f2a26;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+.container-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.section-space {
+  padding: 96px 0;
+}
+
+/* HOME HERO */
+
+.home-hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+  background: #f1f1ef;
+  transition:
+    background-color 900ms ease,
+    color 900ms ease;
+}
+
+.home-hero-warm {
+  background: #f7f3ed;
+}
+
+/* Temporary real-estate-listing style top bar */
+
+.home-hero-listing-bar {
+  position: relative;
+  z-index: 20;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  opacity: 1;
+  transition:
+    transform 800ms ease,
+    opacity 600ms ease;
+}
+
+.home-hero-warm .home-hero-listing-bar {
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Main hero layout */
+
+.home-hero-layout {
+  display: grid;
+  min-height: calc(100vh - 140px);
+  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+  align-items: center;
+  gap: 48px;
+  padding-top: 46px;
+  padding-bottom: 72px;
+}
+
+.home-hero-image-column {
+  min-width: 0;
+}
+
+.home-hero-image-frame {
+  position: relative;
+  min-height: 570px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #dedede;
+  box-shadow: 0 20px 60px rgba(47, 42, 38, 0.12);
+  transition:
+    border-radius 900ms ease,
+    transform 900ms ease,
+    box-shadow 900ms ease;
+}
+
+.home-hero-warm .home-hero-image-frame {
+  border-radius: 34px;
+  transform: translateY(-4px);
+  box-shadow: 0 28px 80px rgba(78, 58, 44, 0.2);
+}
+
+/* Before and after image pairs */
+
+.home-hero-property-pair {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.025);
+  transition:
+    opacity 800ms ease,
+    transform 3400ms ease;
+}
+
+.home-hero-property-pair.is-active {
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.home-hero-before-image,
+.home-hero-after-image {
+  object-fit: cover;
+}
+
+.home-hero-after-image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1150ms cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.home-hero-warm .home-hero-property-pair.is-active .home-hero-after-image-wrap {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Cool overlay shown during boring-listing opening */
+
+.home-hero-cold-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(235, 238, 240, 0.18),
+      rgba(220, 224, 226, 0.22)
+    ),
+    rgba(220, 224, 226, 0.08);
+  opacity: 1;
+  transition: opacity 900ms ease;
+}
+
+.home-hero-warm .home-hero-cold-overlay {
+  opacity: 0;
+}
+
+/* Warm colour treatment after transition */
+
+.home-hero-warm-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(194, 124, 82, 0.12),
+      rgba(244, 221, 190, 0.03) 48%,
+      rgba(71, 53, 40, 0.07)
+    ),
+    linear-gradient(to top, rgba(35, 26, 21, 0.15), transparent 48%);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1150ms cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.home-hero-warm .home-hero-warm-overlay {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Animated wipe line */
+
+.home-hero-wipe-line {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 6;
+  width: 3px;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.82);
+  opacity: 0;
+}
+
+.home-hero-warm .home-hero-wipe-line {
+  animation: hero-wipe 1150ms cubic-bezier(0.7, 0, 0.2, 1) forwards;
+}
+
+.home-hero-wipe-line span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  transform: translate(-50%, -50%);
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(47, 42, 38, 0.18);
+}
+
+/* Hero image labels */
+
+.home-hero-room-label {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  z-index: 8;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 10px 15px;
+  color: #2f2a26;
+  font-size: 13px;
+  font-weight: 700;
+  backdrop-filter: blur(12px);
+}
+
+.home-hero-image-count {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  z-index: 8;
+  border-radius: 999px;
+  background: rgba(35, 30, 27, 0.78);
+  padding: 9px 13px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(12px);
+}
+
+/* Floating warm-marketing labels */
+
+.home-hero-life-elements {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+}
+
+.life-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 250, 244, 0.92);
+  padding: 10px 15px;
+  box-shadow: 0 14px 30px rgba(44, 31, 23, 0.16);
+  color: #3b302a;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(16px);
+  backdrop-filter: blur(12px);
+}
+
+.life-card p {
+  margin: 0;
+}
+
+.life-card-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #b9785e;
+}
+
+.life-card-one {
+  left: 6%;
+  bottom: 15%;
+}
+
+.life-card-two {
+  top: 14%;
+  right: 5%;
+}
+
+.life-card-three {
+  right: 8%;
+  bottom: 28%;
+}
+
+.home-hero-warm .life-card-one {
+  animation: life-card-in 650ms ease 900ms forwards;
+}
+
+.home-hero-warm .life-card-two {
+  animation: life-card-in 650ms ease 1120ms forwards;
+}
+
+.home-hero-warm .life-card-three {
+  animation: life-card-in 650ms ease 1340ms forwards;
+}
+
+/* Thumbnail navigation */
+
+.home-hero-thumbnail-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  opacity: 0.55;
+  transition: opacity 700ms ease 600ms;
+}
+
+.home-hero-warm .home-hero-thumbnail-row {
+  opacity: 1;
+}
+
+.home-hero-thumbnail {
+  position: relative;
+  width: 88px;
+  height: 58px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  padding: 0;
+  opacity: 0.55;
+  transition:
+    border-color 200ms ease,
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.home-hero-thumbnail:hover,
+.home-hero-thumbnail.is-active {
+  border-color: #b9785e;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Hero text transition */
+
+.home-hero-copy-column {
+  position: relative;
+  min-height: 520px;
+}
+
+.home-hero-cold-copy,
+.home-hero-warm-copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-hero-cold-copy {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 450ms ease,
+    transform 650ms ease;
+}
+
+.home-hero-warm .home-hero-cold-copy {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.home-hero-warm-copy {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 800ms ease 560ms,
+    transform 800ms ease 560ms;
+}
+
+.home-hero-warm .home-hero-warm-copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-hero-scroll {
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(47, 42, 38, 0.58);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Before and after page sliders */
+
+input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 1px;
+  height: 1px;
+  border: 0;
+  background: transparent;
+}
+
+/* Animations */
+
+@keyframes hero-wipe {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes life-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .home-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 28px;
+  }
+
+  .home-hero-image-frame {
+    min-height: 520px;
+  }
+
+  .home-hero-copy-column {
+    min-height: 450px;
+  }
+
+  .home-hero-scroll {
+    display: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .section-space {
+    padding: 68px 0;
+  }
+
+  .home-hero {
+    min-height: auto;
+  }
+
+  .home-hero-layout {
+    min-height: auto;
+    padding-bottom: 48px;
+  }
+
+  .home-hero-image-frame {
+    min-height: 420px;
+  }
+
+  .home-hero-copy-column {
+    min-height: 560px;
+  }
+
+  .home-hero-thumbnail {
+    width: 72px;
+    height: 50px;
+  }
+
+  .life-card {
+    display: none;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 520px) {
+  .container-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .home-hero-image-frame {
+    min-height: 340px;
+    border-radius: 6px;
+  }
+
+  .home-hero-warm .home-hero-image-frame {
+    border-radius: 22px;
+  }
+
+  .home-hero-copy-column {
+    min-height: 650px;
+  }
+
+  .home-hero-thumbnail-row {
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .home-hero-room-label {
+    top: 14px;
+    left: 14px;
+  }
+
+  .home-hero-image-count {
+    right: 14px;
+    bottom: 14px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
