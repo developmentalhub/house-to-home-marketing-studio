@@ -25,49 +25,49 @@ const transformations = [
     number: "01",
     title: "Lifestyle",
     description:
-      "Add believable people, families, pets and everyday activity.",
+      "Turn a polished property image into a scene buyers can imagine themselves stepping into.",
   },
   {
     number: "02",
     title: "Food & Entertaining",
     description:
-      "Style kitchens, dining tables, outdoor areas and entertaining moments.",
+      "Give kitchens, dining spaces and outdoor areas the energy of a real moment.",
   },
   {
     number: "03",
     title: "Furniture & Styling",
     description:
-      "Add furniture, artwork, rugs, plants and finishing touches.",
+      "Complete empty or under styled spaces with furniture, art, rugs, plants and detail.",
   },
   {
     number: "04",
     title: "Lighting",
     description:
-      "Improve atmosphere, create golden hour or move the property into evening.",
+      "Shift the mood with warmer light, evening atmosphere or a more cinematic finish.",
   },
   {
     number: "05",
     title: "Landscape",
     description:
-      "Improve lawns, planting, gardens and mature the surroundings.",
+      "Strengthen lawns, gardens and planting so the outside feels as considered as the inside.",
   },
   {
     number: "06",
     title: "Pool",
     description:
-      "Bring water, reflections and poolside life into the scene.",
+      "Bring water, reflections, activity and poolside atmosphere into the scene.",
   },
   {
     number: "07",
     title: "Cars & Activity",
     description:
-      "Add vehicles, arrivals and believable exterior activity.",
+      "Introduce arrivals, vehicles and believable exterior activity to make the property feel active.",
   },
   {
     number: "08",
     title: "People & Pets",
     description:
-      "Create a more lived-in property with human and pet activity.",
+      "Add scale, warmth and everyday life to help buyers see more than an empty space.",
   },
 ];
 
@@ -76,21 +76,21 @@ const propertyTypes = [
     title: "Standard Home",
     eyebrow: "Residential",
     description:
-      "See how an everyday listing can be elevated with lifestyle, lighting, landscaping and short animation.",
+      "Give an everyday listing more reasons to be noticed with lifestyle, styling, lighting, landscape and motion.",
     image:
       "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
     tags: [
       "Lifestyle",
       "Lighting",
       "Landscape",
-      "Short Animation",
+      "Animation",
     ],
   },
   {
     title: "Premium Home",
     eyebrow: "Luxury Residential",
     description:
-      "Explore more cinematic treatments including golden hour, pool life, arrivals and premium motion.",
+      "Build a more cinematic campaign around architecture, entertaining, arrivals, pool life and atmosphere.",
     image:
       "/property-images/website/lifestyle/foyer-after.jpeg",
     tags: [
@@ -102,9 +102,9 @@ const propertyTypes = [
   },
   {
     title: "Commercial",
-    eyebrow: "Commercial / Development",
+    eyebrow: "Commercial & Development",
     description:
-      "Show more life, landscaping, cars, people and movement around larger commercial or development imagery.",
+      "Help people understand how the property will feel when it is active, occupied and complete.",
     image:
       "/property-images/website/staging/living-room-after.jpeg",
     tags: [
@@ -118,7 +118,7 @@ const propertyTypes = [
     title: "Childcare Transformation",
     eyebrow: "Development Story",
     description:
-      "From an existing site to demolition, construction, landscaping, car park and finished reveal.",
+      "Show the journey from the existing site through demolition, construction, landscaping and the finished centre.",
     image:
       "/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg",
     tags: [
@@ -133,27 +133,27 @@ const propertyTypes = [
 const process = [
   {
     number: "01",
-    title: "Start with the property media you already have",
+    title: "Send us the media you already have",
     text:
-      "Professional photography, architectural renders or existing footage become the starting point.",
+      "Start with the professional photography, architectural renders or footage already created for the property.",
   },
   {
     number: "02",
-    title: "Choose what should be brought to life",
+    title: "Tell us where the campaign needs more",
     text:
-      "We identify the scenes that suit lifestyle, furniture, lighting, landscaping or other visual enhancement.",
+      "We help identify the images with the most potential and the transformations that will give you something genuinely new to use.",
   },
   {
     number: "03",
-    title: "Make selected scenes move",
+    title: "We create the extra campaign moments",
     text:
-      "Animations can introduce cinematic camera movement, arrivals, lighting changes, build sequences and more.",
+      "We add lifestyle, styling, atmosphere, landscape and motion while keeping the property itself at the centre.",
   },
   {
     number: "04",
-    title: "Build the larger property story",
+    title: "You get more from the original shoot",
     text:
-      "Higher packages include more motion, with the Property Reel Campaign combining multiple animated scenes into a finished vertical Reel.",
+      "Receive finished property content ready to support the campaign across your digital marketing.",
   },
 ];
 
@@ -162,9 +162,9 @@ const packageCards = [
     name: "Property Refresh",
     price: "$495",
     href: "/packages/property-refresh",
-    eyebrow: "Entry Package",
+    eyebrow: "A focused lift",
     description:
-      "A focused refresh for a single property using enhanced still imagery and one short animated scene.",
+      "For a listing that needs fresh visual content without building a larger campaign.",
     images: "5 enhanced images",
     motion: "1 short animation",
     duration: "Up to 5 sec",
@@ -177,7 +177,7 @@ const packageCards = [
     href: "/packages/property-campaign",
     eyebrow: "Most Popular",
     description:
-      "More enhanced imagery and multiple animated moments across the property.",
+      "More transformed imagery and more moving moments to support the property campaign.",
     images: "8 enhanced images",
     motion: "2 animations",
     duration: "Up to 10 sec total",
@@ -190,7 +190,7 @@ const packageCards = [
     href: "/packages/premium-campaign",
     eyebrow: "Premium Property",
     description:
-      "A larger visual campaign with more enhanced stills and multiple animated scenes.",
+      "A broader creative campaign for properties where presentation is part of the value.",
     images: "12 enhanced images",
     motion: "3 animated scenes",
     duration: "Around 15 sec total",
@@ -203,10 +203,10 @@ const packageCards = [
     href: "/packages/property-reel-campaign",
     eyebrow: "Complete Property Story",
     description:
-      "Enhanced imagery, multiple animated scenes and one finished vertical Property Reel.",
+      "Turn multiple transformed scenes into one finished vertical property film.",
     images: "12 enhanced images",
-    motion: "3–4 animated scenes",
-    duration: "20–30 sec finished Reel",
+    motion: "3 to 4 animated scenes",
+    duration: "20 to 30 sec finished Reel",
     featured: false,
     reel: true,
   },
@@ -223,18 +223,20 @@ export default function HomePage() {
               Real Estate Media House
             </p>
 
-            <h1 className="mt-6 max-w-5xl font-display text-5xl font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl md:text-8xl lg:text-[7rem]">
-              Your property.
-              <span className="block text-white/35">
-                Choose what happens next.
+            <h1 className="mt-6 max-w-6xl font-display text-5xl font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl md:text-8xl lg:text-[6.7rem]">
+              Your listing is competing
+              <br />
+              with everything.
+              <span className="mt-2 block text-rust">
+                Give people a reason to stop.
               </span>
             </h1>
 
             <div className="mt-10 grid gap-9 lg:grid-cols-[1fr_auto] lg:items-end">
               <p className="max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
-                We transform the property photography and renders you already
-                have with lifestyle, furniture, lighting, landscaping and
-                cinematic animation.
+                You already paid for the photography. We turn those same
+                property images and renders into fresh visual content that
+                helps your campaign stay visible, feel current and work harder.
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -242,7 +244,7 @@ export default function HomePage() {
                   href="/explore"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
                 >
-                  Explore what&apos;s possible
+                  See what we can create
                   <ArrowRight size={17} />
                 </Link>
 
@@ -271,7 +273,7 @@ export default function HomePage() {
 
       {/* SISTER BRAND */}
       <section className="border-b border-black/10 bg-white">
-        <div className="container-shell py-7 md:py-8">
+        <div className="container-shell py-8 md:py-9">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-4xl">
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-rust">
@@ -285,9 +287,9 @@ export default function HomePage() {
                 is the sister brand of{" "}
                 <span className="font-semibold text-ink">
                   RP Images
-                </span>{" "}
-                — built on the belief that great real estate visuals should
-                keep working long after the original property shoot.
+                </span>
+                . We created it to help agents and developers get more campaign
+                value from the property media they already have.
               </p>
             </div>
 
@@ -295,7 +297,7 @@ export default function HomePage() {
               href="/services"
               className="group inline-flex shrink-0 items-center gap-3 font-semibold text-rust"
             >
-              See what we create
+              See how we support your campaign
 
               <span className="flex h-9 w-9 items-center justify-center rounded-full border border-rust/25 transition group-hover:bg-rust group-hover:text-white">
                 <ArrowRight size={16} />
@@ -305,33 +307,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BIG IDEA */}
+      {/* PAIN POINT */}
       <section className="bg-[#f7f5f1] py-20 md:py-28">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                See what can happen
+                One shoot. More campaign content.
               </p>
 
-              <h2 className="mt-4 max-w-2xl font-display text-4xl font-semibold leading-[1.04] tracking-tight md:text-6xl">
-                One property image can become a completely different marketing
-                moment.
+              <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.04] tracking-tight md:text-6xl">
+                Your best property images should not disappear after one post.
               </h2>
             </div>
 
             <div className="max-w-xl lg:ml-auto">
               <p className="text-lg leading-8 text-black/55">
-                We&apos;re not simply placing text over a property photograph.
-                We&apos;re changing what happens inside the scene — adding
-                lifestyle, atmosphere, styling, landscape, activity and motion.
+                Feeds move quickly. Listings compete with new properties,
+                personal content, video, advertising and everything else
+                fighting for attention. We give your existing property media
+                more ways to show up without asking you to organise another
+                shoot.
               </p>
 
               <Link
                 href="/explore"
                 className="mt-7 inline-flex items-center gap-3 font-semibold text-rust"
               >
-                Explore the transformations
+                See how one image can change
                 <MoveRight size={18} />
               </Link>
             </div>
@@ -379,12 +382,16 @@ export default function HomePage() {
           <div className="mt-8 grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
-                Lifestyle Enhancement
+                Same photography. New campaign value.
               </p>
 
-              <h3 className="mt-3 font-display text-3xl font-semibold">
-                Same room. Completely different feeling.
+              <h3 className="mt-3 max-w-2xl font-display text-3xl font-semibold">
+                Give buyers more than an empty room to look at.
               </h3>
+
+              <p className="mt-3 max-w-2xl leading-7 text-black/50">
+                The property stays the hero. We create the moment around it.
+              </p>
             </div>
 
             <Link
@@ -401,18 +408,22 @@ export default function HomePage() {
       {/* TRANSFORMATION CATEGORIES */}
       <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
         <div className="container-shell">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              Enhance the image
+              Create the moments buyers stop for
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              What would make the property feel more alive?
+              Great photography shows the property.
+              <br />
+              We help people feel something around it.
             </h2>
 
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-black/55">
-              Every property needs something different. These are some of the
-              creative transformations we can introduce into supplied imagery.
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
+              Add the details that create emotion, context and attention.
+              People, entertaining, styling, landscape, lighting and movement
+              can turn a static property image into a completely new piece of
+              campaign content.
             </p>
           </div>
 
@@ -420,7 +431,7 @@ export default function HomePage() {
             {transformations.map((item) => (
               <article
                 key={item.title}
-                className="group min-h-[250px] border-b border-r border-black/10 p-7 transition hover:bg-white md:p-8"
+                className="group min-h-[260px] border-b border-r border-black/10 p-7 transition hover:bg-white md:p-8"
               >
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
                   {item.number}
@@ -442,7 +453,7 @@ export default function HomePage() {
               href="/services"
               className="inline-flex items-center gap-2 font-semibold text-rust"
             >
-              Explore all enhancement options
+              Explore all transformations
               <ArrowRight size={17} />
             </Link>
           </div>
@@ -455,17 +466,17 @@ export default function HomePage() {
           <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Explore by property
+                Different property. Different opportunity.
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-                Different properties need different stories.
+                Not every listing should look like every other listing.
               </h2>
             </div>
 
             <p className="max-w-lg leading-7 text-black/50">
-              Explore four example property types and see the kinds of image
-              enhancements and animation that can work for each one.
+              We shape the treatment around the property, the audience and the
+              story you need the campaign to tell.
             </p>
           </div>
 
@@ -522,7 +533,7 @@ export default function HomePage() {
               href="/explore"
               className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-4 font-semibold text-white transition hover:bg-rust"
             >
-              Explore the property examples
+              Explore property examples
               <ArrowRight size={18} />
             </Link>
           </div>
@@ -535,24 +546,27 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Make it move
+                Property media made to move
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-                The still image is only the beginning.
+                The feed moves fast.
+                <br />
+                Your property should too.
               </h2>
 
               <p className="mt-5 max-w-xl leading-8 text-white/55">
-                Short animations turn static imagery into cinematic moments.
-                Bigger campaigns combine multiple animated scenes into a
-                finished Property Reel.
+                A still image can show the space. Motion can create a new reason
+                to notice it. We turn selected property images into cinematic
+                scenes that give your campaign another opportunity to earn
+                attention.
               </p>
 
               <Link
                 href="/video-library"
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-brassBright"
               >
-                Watch our animations
+                Watch the transformations
                 <ArrowRight size={17} />
               </Link>
             </div>
@@ -562,32 +576,32 @@ export default function HomePage() {
                 [
                   "01",
                   "Furniture Appearing",
-                  "Turn an empty or static room into a styled scene.",
+                  "Turn an empty room into a styled scene in motion.",
                 ],
                 [
                   "02",
-                  "Day → Night",
-                  "Move from daylight through golden hour into evening.",
+                  "Day to Night",
+                  "Move a property from daylight into warmer evening atmosphere.",
                 ],
                 [
                   "03",
-                  "Car Arrival",
-                  "Create movement and life around the property exterior.",
+                  "Show The Arrival",
+                  "Add cars, people and a sense of activity around the property.",
                 ],
                 [
                   "04",
-                  "Cinematic Motion",
-                  "Create depth, camera movement and a more film-like scene.",
+                  "Cinematic Movement",
+                  "Create depth and movement from an image that originally stood still.",
                 ],
                 [
                   "05",
                   "Build Sequence",
-                  "Show a building progressing from site to completion.",
+                  "Show a site or development progressing towards completion.",
                 ],
                 [
                   "06",
                   "Finished Property Reel",
-                  "Combine multiple animated moments into one property story.",
+                  "Bring multiple moving scenes together into one finished property story.",
                 ],
               ].map(([number, title, description]) => (
                 <div
@@ -621,16 +635,17 @@ export default function HomePage() {
           <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Video Library
+                See it in motion
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-                See the work actually move.
+                Static property media becomes something new.
               </h2>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-black/55">
-                Property photography and renders transformed into short
-                animations, motion scenes and finished vertical content.
+                We use the property media you already have to create fresh
+                moving content without sending another production crew back to
+                the property.
               </p>
             </div>
 
@@ -680,20 +695,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* SUPPORT */}
       <section className="bg-white py-20 md:py-28">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                How it works
+                Your creative property media partner
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Your photography starts the story.
+                Less for your team to organise.
                 <br />
-                We do the transforming.
+                More for your campaign to use.
               </h2>
+
+              <p className="mt-5 max-w-lg leading-8 text-black/50">
+                You focus on the vendor, the buyers, the launch and the listing.
+                We support the visual campaign by getting more from the media
+                already produced.
+              </p>
             </div>
 
             <div>
@@ -728,19 +749,19 @@ export default function HomePage() {
           <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Property Packages
+                Campaign support that scales
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight md:text-6xl">
-                More enhanced images.
+                Some listings need a lift.
                 <br />
-                More motion.
+                Others need a content runway.
               </h2>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-black/55">
-                Every residential package includes enhanced property imagery
-                and animation. Higher packages include more animated scenes,
-                longer motion and eventually a finished vertical Property Reel.
+                Choose the level of support that suits the property. Start with
+                a focused refresh or build a larger campaign with more enhanced
+                imagery, more motion and a finished Property Reel.
               </p>
             </div>
 
@@ -758,7 +779,7 @@ export default function HomePage() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`group relative flex min-h-[420px] flex-col rounded-[2rem] border p-7 transition hover:-translate-y-1 hover:shadow-soft ${
+                className={`group relative flex min-h-[430px] flex-col rounded-[2rem] border p-7 transition hover:-translate-y-1 hover:shadow-soft ${
                   item.featured
                     ? "border-rust bg-ink text-white"
                     : "border-black/10 bg-white"
@@ -847,7 +868,7 @@ export default function HomePage() {
                 <div className="mt-auto pt-8">
                   {item.reel && (
                     <p className="mb-4 font-mono text-[9px] font-semibold uppercase tracking-[0.15em] text-rust">
-                      Finished vertical Reel included
+                      Finished Property Reel included
                     </p>
                   )}
 
@@ -877,7 +898,7 @@ export default function HomePage() {
             <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
               <div>
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-rust">
-                  Custom Scope
+                  Developments need a different story
                 </p>
 
                 <h3 className="mt-3 font-display text-3xl font-semibold">
@@ -885,14 +906,15 @@ export default function HomePage() {
                 </h3>
 
                 <p className="mt-3 max-w-3xl leading-7 text-black/50">
-                  Demolition, construction stages, childcare centres,
-                  commercial developments, car parks, landscaping,
-                  render-to-reality and complex transformation sequences.
+                  Show people what is coming before they can see it for
+                  themselves. Create demolition, construction, landscape, car
+                  park, activity and finished development sequences from your
+                  existing project media.
                 </p>
               </div>
 
               <div className="flex items-center gap-3 font-semibold text-rust">
-                View development package
+                View Development Campaign
                 <ArrowRight
                   size={17}
                   className="transition group-hover:translate-x-1"
@@ -907,35 +929,35 @@ export default function HomePage() {
       <section className="bg-rust px-6 py-20 text-white md:py-28">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-            Real Estate Media House
+            Keep the campaign moving
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">
-            Have the photos?
+            The shoot is done.
             <br />
-            Let&apos;s bring them to life.
+            The campaign does not have to look done.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Start with the property photography or renders you already have.
-            We&apos;ll help you decide which scenes should be enhanced, which
-            should move and how far to take the campaign.
+            Send us the property media you already have. We&apos;ll turn it
+            into fresh campaign content that gives the listing more variety,
+            more visibility and more opportunities to earn attention.
           </p>
 
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <Link
-              href="/explore"
+              href="/enquire"
               className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
             >
-              Explore what&apos;s possible
+              Make this listing stand out
               <ArrowRight size={18} />
             </Link>
 
             <Link
-              href="/enquire"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
+              href="/explore"
+              className="inline-flex items-center rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
             >
-              Start a project
+              See what we can create
             </Link>
           </div>
         </div>
