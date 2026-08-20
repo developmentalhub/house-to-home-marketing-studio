@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Mail, ArrowUpRight } from "lucide-react";
 
 import {
   CONTACT_EMAIL,
@@ -7,7 +6,11 @@ import {
   SITE_NAME,
 } from "@/lib/site";
 
-const navigation = [
+const exploreLinks = [
+  {
+    label: "Explore",
+    href: "/explore",
+  },
   {
     label: "Videos",
     href: "/video-library",
@@ -20,113 +23,153 @@ const navigation = [
     label: "Services",
     href: "/services",
   },
+];
+
+const packageLinks = [
   {
-    label: "Packages",
+    label: "Compare Packages",
     href: "/packages",
   },
   {
-    label: "Enquire",
+    label: "Property Refresh",
+    href: "/packages/property-refresh",
+  },
+  {
+    label: "Property Campaign",
+    href: "/packages/property-campaign",
+  },
+  {
+    label: "Premium Campaign",
+    href: "/packages/premium-campaign",
+  },
+  {
+    label: "Property Reel Campaign",
+    href: "/packages/property-reel-campaign",
+  },
+  {
+    label: "Development Campaign",
+    href: "/packages/development-campaign",
+  },
+];
+
+const companyLinks = [
+  {
+    label: "How It Works",
+    href: "/how-it-works",
+  },
+  {
+    label: "Start a Project",
     href: "/enquire",
+  },
+  {
+    label: "Privacy",
+    href: "/privacy",
+  },
+  {
+    label: "Terms",
+    href: "/terms",
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-ink text-white">
-      <div className="container-shell py-16 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-              {SITE_NAME}
+    <footer className="bg-ink text-white">
+      <div className="container-shell">
+        <div className="grid gap-14 py-16 md:py-20 lg:grid-cols-[1.2fr_0.7fr_0.9fr_0.7fr]">
+          {/* BRAND */}
+          <div className="max-w-sm">
+            <Link
+              href="/"
+              className="inline-block font-display text-3xl font-semibold leading-none tracking-tight"
+            >
+              Real Estate
+              <span className="block text-rust">
+                Media House
+              </span>
+            </Link>
+
+            <p className="mt-6 text-lg leading-8 text-white/55">
+              Property media made to move.
             </p>
 
-            <h2 className="mt-5 max-w-2xl font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-              Property media
-              <span className="block text-white/35">made to move.</span>
-            </h2>
+            <p className="mt-3 max-w-xs leading-7 text-white/40">
+              First, we bring the image to life. Then, we make it move.
+            </p>
 
             <a
               href={CONTACT_EMAIL_LINK}
-              className="mt-8 inline-flex items-center gap-3 text-lg text-white/65 transition hover:text-brassBright"
+              className="mt-7 inline-block font-semibold text-brassBright transition hover:text-white"
             >
-              <Mail size={19} />
               {CONTACT_EMAIL}
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:justify-self-end">
-            <div>
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
-                Explore
-              </p>
+          {/* EXPLORE */}
+          <div>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
+              Explore
+            </p>
 
-              <nav className="mt-5 flex flex-col gap-3">
-                {navigation.slice(0, 3).map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-sm text-white/60 transition hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            <div>
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
-                Work with us
-              </p>
-
-              <nav className="mt-5 flex flex-col gap-3">
-                {navigation.slice(3).map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-sm text-white/60 transition hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            <div>
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
-                Legal
-              </p>
-
-              <nav className="mt-5 flex flex-col gap-3">
+            <nav className="mt-5 flex flex-col gap-3">
+              {exploreLinks.map((item) => (
                 <Link
-                  href="/privacy"
-                  className="text-sm text-white/60 transition hover:text-white"
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-white/55 transition hover:text-white"
                 >
-                  Privacy
+                  {item.label}
                 </Link>
+              ))}
+            </nav>
+          </div>
 
+          {/* PACKAGES */}
+          <div>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
+              Packages
+            </p>
+
+            <nav className="mt-5 flex flex-col gap-3">
+              {packageLinks.map((item) => (
                 <Link
-                  href="/terms"
-                  className="text-sm text-white/60 transition hover:text-white"
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-white/55 transition hover:text-white"
                 >
-                  Terms
+                  {item.label}
                 </Link>
-              </nav>
-            </div>
+              ))}
+            </nav>
+          </div>
+
+          {/* COMPANY */}
+          <div>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
+              Work with us
+            </p>
+
+            <nav className="mt-5 flex flex-col gap-3">
+              {companyLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-white/55 transition hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[10px] uppercase tracking-wider text-white/30">
-            © {new Date().getFullYear()} Real Estate Media House
+        <div className="flex flex-col gap-4 border-t border-white/10 py-7 text-xs text-white/30 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </p>
 
-          <a
-            href={CONTACT_EMAIL_LINK}
-            className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-white/35 transition hover:text-white"
-          >
-            Get in touch
-            <ArrowUpRight size={13} />
-          </a>
+          <p>
+            Property imagery transformed for digital marketing.
+          </p>
         </div>
       </div>
     </footer>

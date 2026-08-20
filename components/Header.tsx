@@ -11,6 +11,10 @@ const navigation = [
     href: "/",
   },
   {
+    label: "Explore",
+    href: "/explore",
+  },
+  {
     label: "Videos",
     href: "/video-library",
   },
@@ -52,7 +56,9 @@ export default function Header() {
           >
             <div className="font-display text-xl font-semibold leading-none tracking-tight text-ink">
               Real Estate
-              <span className="block text-rust">Media House</span>
+              <span className="block text-rust">
+                Media House
+              </span>
             </div>
           </Link>
 
@@ -65,7 +71,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+                  className={`rounded-full px-3.5 py-2 text-sm font-medium transition ${
                     active
                       ? "bg-ink text-white"
                       : "text-black/55 hover:bg-black/5 hover:text-ink"
@@ -78,7 +84,7 @@ export default function Header() {
           </nav>
 
           {/* DESKTOP CTA */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex">
             <Link
               href="/enquire"
               className="inline-flex items-center justify-center rounded-full bg-rust px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-ink"
@@ -95,7 +101,11 @@ export default function Header() {
             aria-expanded={mobileOpen}
             className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-ink lg:hidden"
           >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileOpen ? (
+              <X size={20} />
+            ) : (
+              <Menu size={20} />
+            )}
           </button>
         </div>
 
