@@ -1,79 +1,110 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Armchair,
   ArrowRight,
   Camera,
-  HeartHandshake,
-  Lamp,
+  Clapperboard,
+  MonitorPlay,
+  Send,
+  Sparkles,
+  Wand2,
 } from "lucide-react";
 
 const services = [
   {
-    title: "Lifestyle image enhancement",
+    title: "Digital Lifestyle Staging",
     description:
-      "We add carefully selected people, pets and everyday moments to help buyers picture themselves living in the property.",
+      "We transform empty or flat property photography into aspirational lifestyle imagery by adding realistic people, activity and atmosphere.",
     details: [
-      "Families and couples",
-      "Children and older adults",
-      "Dogs and other household pets",
-      "Dining, cooking and entertaining moments",
-      "Subtle signs of everyday life",
+      "A family enjoying an outdoor entertaining area",
+      "People around a pool",
+      "Diners in an empty restaurant or hospitality space",
+      "People walking through a development",
+      "Lifestyle activity on balconies, courtyards, kitchens or living spaces",
     ],
     image: "/property-images/website/lifestyle/foyer-after.jpeg",
     imageAlt:
-      "Warm foyer transformed through lifestyle-focused real estate marketing",
-    icon: HeartHandshake,
+      "Foyer transformed through digital lifestyle staging for real estate marketing",
+    icon: Sparkles,
   },
   {
-    title: "Virtual staging",
+    title: "Property Photo Enhancement",
     description:
-      "We turn empty or under-furnished rooms into warm, functional spaces while respecting the original room dimensions and architecture.",
+      "Transform ordinary listing photography into more polished, premium marketing visuals through creative editing and visual enhancement.",
     details: [
-      "Living and dining rooms",
-      "Bedrooms",
-      "Home offices",
-      "Outdoor entertaining areas",
-      "Consistent furniture and styling direction",
+      "Colour, tone and lighting correction",
+      "Sky and outlook replacement where needed",
+      "Clean up of distracting elements",
+      "Consistent, premium visual finish across a listing",
+      "Delivered in the formats you need",
     ],
     image: "/property-images/website/staging/living-room-after.jpeg",
     imageAlt:
-      "Contemporary living room transformed through professional virtual staging",
-    icon: Armchair,
+      "Living room after premium property photo enhancement",
+    icon: Wand2,
   },
   {
-    title: "Architectural feature highlights",
+    title: "Property Animations",
     description:
-      "We create polished close-up visuals that draw attention to premium materials and details that may be overlooked in wide listing photos.",
+      "Short, cinematic animations created from supplied still property photographs, suitable for Instagram Reels, Stories, property launches and digital advertising.",
     details: [
-      "Stone benchtops",
-      "Tapware and fixtures",
-      "Feature lighting",
-      "Timber and wall cladding",
-      "Tiles, cabinetry and joinery",
+      "Subtle camera movement across a still image",
+      "Day to night transitions",
+      "Before and after reveal animations",
+      "Construction or build reveal sequences",
+      "Delivered as ready to use video files",
     ],
-    image:
-      "/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg",
+    image: "/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg",
     imageAlt:
-      "Warm bathroom marketing image highlighting lighting, tapware, tiles and cabinetry",
-    icon: Lamp,
+      "Bathroom marketing image prepared for a property animation",
+    icon: Clapperboard,
   },
   {
-    title: "Social media campaigns",
+    title: "Motion Graphics",
     description:
-      "We turn completed property images into ready-to-use content for Instagram, Facebook and property launch campaigns.",
+      "We add subtle movement, text, graphic elements and visual effects to existing property photography.",
     details: [
-      "Instagram posts",
-      "Portrait Story graphics",
-      "Carousels",
-      "Short-form videos",
-      "Written captions and calls to action",
+      "Animated text and property details",
+      "Logo and branding overlays",
+      "Subtle particle and light effects",
+      "Price, feature or auction date call outs",
+      "Consistent motion style across a campaign",
     ],
-    image:
-      "/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg",
+    image: "/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg",
     imageAlt:
-      "Warm bedroom property image suitable for a real estate social media campaign",
+      "Bedroom marketing image prepared for motion graphics treatment",
+    icon: MonitorPlay,
+  },
+  {
+    title: "Property Reels",
+    description:
+      "Vertical short-form videos created using supplied property photos and footage. We provide the completed visual asset only, no caption writing or social media posting.",
+    details: [
+      "9 by 16 vertical format",
+      "Built from your existing photos and footage",
+      "Paced for Reels, TikTok and Stories",
+      "Delivered as a finished, ready to post file",
+      "No captions, hashtags or scheduling included",
+    ],
+    image: "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
+    imageAlt:
+      "Kitchen marketing image prepared for a vertical property Reel",
     icon: Camera,
+  },
+  {
+    title: "Launch Graphics",
+    description:
+      "Professionally designed property marketing graphics created from your supplied imagery, for every stage of a campaign.",
+    details: [
+      "Coming Soon and Just Listed",
+      "Now Selling and New Development",
+      "Open Home and Auction",
+      "Sold and Under Offer",
+      "Feature Property and Key Property Features",
+    ],
+    image: "/property-images/website/staging/kitchen-after.jpeg",
+    imageAlt: "Kitchen image prepared as a property launch graphic",
+    icon: Send,
   },
 ];
 
@@ -82,19 +113,17 @@ export default function ServicesPage() {
     <main>
       <section className="section-space bg-cream">
         <div className="container-shell">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-clay">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-rust">
             Our services
           </p>
 
-          <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-tight md:text-7xl">
-            Real estate images that feel lived in, considered and worth
-            remembering.
+          <h1 className="mt-4 max-w-4xl font-display text-5xl font-semibold leading-tight md:text-7xl">
+            Send us your photos. We turn them into content worth stopping for.
           </h1>
 
           <p className="mt-7 max-w-3xl text-lg leading-8 text-black/60">
-            Choose one type of transformation or combine lifestyle enhancement,
-            staging, feature imagery and social content into a complete property
-            campaign.
+            Choose one service or combine several into a complete visual
+            campaign, all created from the photography you already have.
           </p>
         </div>
       </section>
@@ -110,11 +139,7 @@ export default function ServicesPage() {
                 key={service.title}
                 className="grid overflow-hidden rounded-[2.5rem] bg-cream shadow-soft lg:grid-cols-2"
               >
-                <div
-                  className={`relative min-h-[420px] ${
-                    reverse ? "lg:order-2" : ""
-                  }`}
-                >
+                <div className={`relative min-h-[420px] ${reverse ? "lg:order-2" : ""}`}>
                   <Image
                     src={service.image}
                     alt={service.imageAlt}
@@ -124,17 +149,13 @@ export default function ServicesPage() {
                   />
                 </div>
 
-                <div
-                  className={`flex items-center p-8 md:p-12 ${
-                    reverse ? "lg:order-1" : ""
-                  }`}
-                >
+                <div className={`flex items-center p-8 md:p-12 ${reverse ? "lg:order-1" : ""}`}>
                   <div>
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sand">
                       <Icon size={23} />
                     </div>
 
-                    <h2 className="mt-6 text-3xl font-semibold md:text-4xl">
+                    <h2 className="mt-6 font-display text-3xl font-semibold md:text-4xl">
                       {service.title}
                     </h2>
 
@@ -145,7 +166,7 @@ export default function ServicesPage() {
                     <ul className="mt-6 grid gap-3 text-black/70">
                       {service.details.map((detail) => (
                         <li key={detail} className="flex items-start gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-clay" />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rust" />
                           <span>{detail}</span>
                         </li>
                       ))}
@@ -153,9 +174,9 @@ export default function ServicesPage() {
 
                     <Link
                       href="/enquire"
-                      className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-clay"
+                      className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
                     >
-                      Request a quote
+                      Transform My Property
                       <ArrowRight size={18} />
                     </Link>
                   </div>

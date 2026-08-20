@@ -4,130 +4,147 @@ import {
   CheckCircle2,
   Download,
   Images,
-  MessageSquareText,
+  Layers3,
+  Sparkles,
   WandSparkles,
 } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    title: "Send us your listing images",
+    title: "Send us your property photos",
     description:
-      "Provide your current high-resolution property photography through a shared folder or image link.",
+      "Send through your existing listing photography, branding and any key property details you want featured.",
     icon: Images,
   },
   {
     number: "02",
-    title: "Choose the transformation",
+    title: "Choose your content package",
     description:
-      "Select lifestyle enhancement, virtual staging, feature highlights or a combination of all three.",
-    icon: MessageSquareText,
+      "Select the mix of graphics, lifestyle-enhanced imagery, animations and reels you want created for the property.",
+    icon: Layers3,
   },
   {
     number: "03",
-    title: "Tell us about the likely buyer",
+    title: "Tell us the look you want",
     description:
-      "Let us know whether the property should appeal to families, couples, downsizers, pet owners or another buyer group.",
+      "Let us know the audience, mood or lifestyle you want the property to communicate, from family living to luxury or investor-focused content.",
     icon: CheckCircle2,
   },
   {
     number: "04",
-    title: "We create the visual story",
+    title: "We bring the photos to life",
     description:
-      "We develop a consistent direction for the images, paying attention to lighting, proportion, materials and believable everyday life.",
+      "We transform ordinary property images into polished visual content using lifestyle staging, motion, graphic design and creative editing.",
     icon: WandSparkles,
   },
   {
     number: "05",
-    title: "Review the first delivery",
+    title: "Review your content",
     description:
-      "You review the completed visuals and provide one clear round of reasonable changes where included.",
-    icon: CheckCircle2,
+      "You review the first delivery and provide one round of reasonable changes where included in your selected package.",
+    icon: Sparkles,
   },
   {
     number: "06",
-    title: "Receive your campaign folder",
+    title: "Receive ready-to-use assets",
     description:
-      "Download the approved website images and any selected social posts, Stories, videos and written captions.",
+      "Download your final graphics, enhanced images, animations and reels in social-ready formats.",
     icon: Download,
   },
 ];
 
 export default function HowItWorksPage() {
   return (
-    <main>
-      <section className="section-space bg-cream">
-        <div className="container-shell">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-clay">
+    <main className="bg-white text-neutral-950">
+      <section className="bg-[#f3efe9] py-20 md:py-28">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#9f725c]">
             How it works
           </p>
 
-          <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-tight md:text-7xl">
-            You already have the property photographs. We help you do more with
-            them.
+          <h1 className="mt-4 max-w-5xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl">
+            Send us your property photos.
+            <br />
+            We turn them into content.
           </h1>
 
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-black/60">
-            House to Home gives busy real estate agents a simple way to turn
-            existing listing images into warmer, more engaging visual
-            campaigns.
+          <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-600">
+            Real Estate Media House helps agents get more from the photography
+            they already have by transforming standard listing images into
+            premium social media and marketing content.
           </p>
         </div>
       </section>
 
-      <section className="section-space bg-white">
-        <div className="container-shell grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step) => {
-            const Icon = step.icon;
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
+          <div className="mb-12 max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#9f725c]">
+              Simple process
+            </p>
 
-            return (
-              <article
-                key={step.number}
-                className="rounded-[2rem] border border-black/10 bg-white p-8"
-              >
-                <div className="flex items-center justify-between gap-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sand">
-                    <Icon size={22} />
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
+              One property. One content pack. Everything ready to use.
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {steps.map((step) => {
+              const Icon = step.icon;
+
+              return (
+                <article
+                  key={step.number}
+                  className="group rounded-[2rem] border border-neutral-200 bg-[#faf9f7] p-8 transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div className="flex items-center justify-between gap-5">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#e8ddd2]">
+                      <Icon size={22} strokeWidth={1.8} />
+                    </div>
+
+                    <p className="text-sm font-semibold tracking-[0.16em] text-[#9f725c]">
+                      {step.number}
+                    </p>
                   </div>
 
-                  <p className="text-sm font-semibold tracking-[0.16em] text-clay">
-                    {step.number}
+                  <h3 className="mt-7 text-2xl font-semibold tracking-tight">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-neutral-600">
+                    {step.description}
                   </p>
-                </div>
-
-                <h2 className="mt-7 text-2xl font-semibold">{step.title}</h2>
-
-                <p className="mt-4 leading-7 text-black/60">
-                  {step.description}
-                </p>
-              </article>
-            );
-          })}
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="section-space bg-ink text-white">
-        <div className="container-shell flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+      <section className="bg-[#171717] py-20 text-white md:py-28">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 md:flex-row md:items-end md:justify-between lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/45">
-              Start with one property
+              Start with one listing
             </p>
 
-            <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
-              Tell us what your current listing images are missing.
+            <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+              Your property photos deserve more than one post.
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-white/65">
-              We will review the number of images and the transformation style
-              you need before preparing a tailored quote.
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/65">
+              Send us your existing listing images and we&apos;ll transform them
+              into premium graphics, lifestyle imagery, animations and reels
+              designed to help the property stand out.
             </p>
           </div>
 
           <Link
             href="/enquire"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-neutral-950 transition hover:bg-neutral-200"
           >
-            Request a quote
+            Start a project
             <ArrowRight size={18} />
           </Link>
         </div>

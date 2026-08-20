@@ -1,184 +1,340 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import {
-  Armchair,
   ArrowRight,
-  Camera,
-  HeartHandshake,
-  Lamp,
-  Layers3,
-  Quote,
+  Clapperboard,
+  MoveRight,
+  Play,
   Sparkles,
+  Wand2,
 } from "lucide-react";
-import HomeHero from "@/components/HomeHero";
+
+import SocialEmbed from "@/components/SocialEmbed";
 import PackageCard from "@/components/PackageCard";
 
-const transformations = [
+const featuredVideos = [
   {
-    title: "Lifestyle scenes",
-    description:
-      "Introduce families, couples, children, older adults and pets in ways that feel natural to the home and relevant to its likely buyer.",
-    image:
-      "/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg",
-    imageAlt:
-      "Bedroom transformed with warm lifestyle-focused property marketing",
-    icon: HeartHandshake,
+    url: "https://www.instagram.com/p/DcPX4nBB-Ps/",
+    caption: "Property Reel",
   },
   {
-    title: "Virtual staging",
+    url: "https://www.tiktok.com/@rpimages.au/video/7675941476982918418",
+    caption: "Property Animation",
+  },
+];
+
+const services = [
+  {
+    title: "Property Reels",
     description:
-      "Turn vacant or under-furnished rooms into warm, functional spaces that help buyers understand scale, purpose and possibility.",
-    image: "/property-images/website/staging/living-room-after.jpeg",
-    imageAlt:
-      "Living room furnished through professional virtual staging",
-    icon: Armchair,
+      "Vertical short-form video created from your existing property photography, renders and footage.",
+    icon: Play,
   },
   {
-    title: "Feature highlights",
+    title: "Property Animations",
     description:
-      "Bring attention to lighting, cladding, stone, tapware, joinery and finishes that can be lost inside a wide property photograph.",
-    image:
-      "/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg",
-    imageAlt:
-      "Warm bathroom marketing image highlighting lighting, tapware and finishes",
-    icon: Lamp,
+      "Turn still property imagery into cinematic motion designed to earn attention.",
+    icon: Clapperboard,
   },
   {
-    title: "Social campaigns",
+    title: "Lifestyle Enhancement",
     description:
-      "Turn completed property images into social posts, carousels, short videos and written captions ready for your campaign.",
-    image:
-      "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
-    imageAlt:
-      "Lifestyle kitchen image prepared for a real estate social media campaign",
-    icon: Camera,
+      "Add believable people, atmosphere and activity to bring ordinary property photography to life.",
+    icon: Sparkles,
+  },
+  {
+    title: "Property Graphics",
+    description:
+      "Premium launch, feature and campaign graphics created from the imagery you already have.",
+    icon: Wand2,
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Send us your media",
+    text: "Send through the property photos, renders or footage you already have.",
+  },
+  {
+    number: "02",
+    title: "Choose what you need",
+    text: "Select Reels, animations, lifestyle imagery, graphics or a complete content pack.",
+  },
+  {
+    number: "03",
+    title: "We bring it to life",
+    text: "We create the finished visual content and deliver it ready for your marketing.",
   },
 ];
 
 export default function HomePage() {
   return (
-    <main>
-      <HomeHero />
+    <main className="bg-[#f7f5f1] text-ink">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-ink text-white">
+        <div className="container-shell py-24 md:py-32 lg:py-40">
+          <div className="max-w-5xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+              Real Estate Media House
+            </p>
 
-      <section id="transformation" className="section-space bg-white">
+            <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.96] tracking-[-0.035em] sm:text-6xl md:text-8xl lg:text-[7rem]">
+              Property media
+              <span className="block text-white/35">
+                made to move.
+              </span>
+            </h1>
+
+            <div className="mt-9 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+              <p className="max-w-2xl text-lg leading-8 text-white/60 md:text-xl">
+                We turn the property photos, renders and footage you already
+                have into Reels, animations, lifestyle imagery and visual
+                campaigns built to earn attention.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="#video-library"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
+                >
+                  Watch our work
+                  <Play size={17} />
+                </Link>
+
+                <Link
+                  href="/enquire"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:border-white/60"
+                >
+                  Start a project
+                  <ArrowRight size={17} />
+                </Link>
+              </div>
+            </div>
+
+            <div className="mt-14 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">
+              <span>Property Reels</span>
+              <span>Animations</span>
+              <span>Build Reveals</span>
+              <span>Lifestyle Imagery</span>
+              <span>Campaign Graphics</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RP IMAGES SISTER BRAND BANNER */}
+      <section className="border-b border-black/10 bg-white">
+        <div className="container-shell py-7 md:py-8">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-4xl">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-rust">
+                From the team behind RP Images
+              </p>
+
+              <p className="mt-2 text-base leading-7 text-black/65 md:text-lg">
+                <span className="font-semibold text-ink">
+                  Real Estate Media House
+                </span>{" "}
+                is the sister brand of{" "}
+                <span className="font-semibold text-ink">RP Images</span> —
+                built on the belief that great real estate visuals should work
+                just as hard on social media as they do anywhere else.
+              </p>
+            </div>
+
+            <Link
+              href="/services"
+              className="group inline-flex shrink-0 items-center gap-3 font-semibold text-rust"
+            >
+              See what we create
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-rust/25 transition group-hover:bg-rust group-hover:text-white">
+                <ArrowRight size={16} />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO LIBRARY */}
+      <section
+        id="video-library"
+        className="border-b border-black/10 bg-[#f7f5f1] py-20 md:py-28"
+      >
         <div className="container-shell">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-clay">
-              From listing to lived experience
-            </p>
+          <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Video Library
+              </p>
 
-            <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
-              The room did not change. The way buyers experienced it did.
-            </h2>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+                Our latest property films, Reels and animations.
+              </h2>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-black/60">
-              Real estate photography records the property. House to Home adds
-              the warmth, detail and visual story that helps someone stop
-              scrolling and begin imagining their own life there.
-            </p>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-black/55">
+                Existing property photography and renders transformed into
+                visual content designed for modern property marketing.
+              </p>
+            </div>
+
+            <Link
+              href="/video-library"
+              className="group inline-flex items-center gap-3 font-semibold"
+            >
+              View full library
+
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-black/15 transition group-hover:bg-ink group-hover:text-white">
+                <ArrowRight size={17} />
+              </span>
+            </Link>
           </div>
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] bg-black/10 md:grid-cols-2 lg:grid-cols-4">
-            <div className="bg-cream p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-black/40">
-                Typical listing
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {featuredVideos.map((video, index) => (
+              <article
+                key={video.url}
+                className="overflow-hidden rounded-[2rem] bg-ink p-3 text-white"
+              >
+                <div className="overflow-hidden rounded-[1.5rem] bg-black">
+                  <SocialEmbed
+                    url={video.url}
+                    caption={video.caption}
+                  />
+                </div>
+
+                <div className="flex items-center justify-between px-4 py-5">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+                      0{index + 1}
+                    </p>
+
+                    <p className="mt-1 font-display text-xl">
+                      {video.caption}
+                    </p>
+                  </div>
+
+                  <Play
+                    size={18}
+                    className="text-brassBright"
+                  />
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="border border-black/10 bg-white p-6">
+              <p className="font-display text-3xl font-semibold">
+                Still → Reel
               </p>
 
-              <p className="mt-5 text-2xl font-semibold">
-                Empty rooms and standard wide-angle photographs
+              <p className="mt-2 text-sm leading-6 text-black/50">
+                Existing listing photography transformed into vertical video.
               </p>
             </div>
 
-            <div className="bg-cream p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-black/40">
-                Missed opportunity
+            <div className="border border-black/10 bg-white p-6">
+              <p className="font-display text-3xl font-semibold">
+                Render → Motion
               </p>
 
-              <p className="mt-5 text-2xl font-semibold">
-                Beautiful finishes that buyers barely notice
-              </p>
-            </div>
-
-            <div className="bg-cream p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-black/40">
-                House to Home
-              </p>
-
-              <p className="mt-5 text-2xl font-semibold">
-                Warm, styled and emotionally engaging
+              <p className="mt-2 text-sm leading-6 text-black/50">
+                Architectural renders turned into moving campaign assets.
               </p>
             </div>
 
-            <div className="bg-ink p-8 text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/45">
-                The result
+            <div className="border border-black/10 bg-white p-6">
+              <p className="font-display text-3xl font-semibold">
+                Photo → Lifestyle
               </p>
 
-              <p className="mt-5 text-2xl font-semibold">
-                Marketing that gives buyers a reason to look closer
+              <p className="mt-2 text-sm leading-6 text-black/50">
+                Property photography enhanced with believable people and
+                activity.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-space bg-cream">
+      {/* POSITIONING */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="container-shell">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                More from every image
+              </p>
+
+              <h2 className="mt-4 max-w-xl font-display text-4xl font-semibold leading-[1.08] tracking-tight md:text-6xl">
+                Your property photography shouldn&apos;t stop working after one
+                post.
+              </h2>
+            </div>
+
+            <div className="max-w-xl lg:ml-auto">
+              <p className="text-lg leading-8 text-black/60">
+                Agents and developers already invest in good imagery. We take
+                those existing assets and turn them into an entire library of
+                content without another property shoot.
+              </p>
+
+              <Link
+                href="/services"
+                className="mt-7 inline-flex items-center gap-3 font-semibold text-rust"
+              >
+                Explore our services
+                <MoveRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="bg-[#f7f5f1] py-20 md:py-28">
         <div className="container-shell">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-clay">
-              Our transformations
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              What we create
             </p>
 
-            <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
-              More than another set of property photographs
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+              A content studio for property.
             </h2>
-
-            <p className="mt-5 text-lg leading-8 text-black/60">
-              Choose one style of transformation or combine them into a
-              complete visual property campaign.
-            </p>
           </div>
 
-          <div className="mt-12 grid gap-7 md:grid-cols-2">
-            {transformations.map((item) => {
-              const Icon = item.icon;
+          <div className="mt-12 grid border-l border-t border-black/10 sm:grid-cols-2">
+            {services.map((service) => {
+              const Icon = service.icon;
 
               return (
                 <article
-                  key={item.title}
-                  className="group overflow-hidden rounded-[2rem] bg-white shadow-soft"
+                  key={service.title}
+                  className="group border-b border-r border-black/10 p-8 transition hover:bg-white md:p-10"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.imageAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition duration-700 group-hover:scale-[1.04]"
+                  <div className="flex items-start justify-between gap-5">
+                    <Icon
+                      size={24}
+                      strokeWidth={1.6}
+                      className="text-rust"
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-
-                    <div className="absolute bottom-5 left-5 flex h-12 w-12 items-center justify-center rounded-full bg-white">
-                      <Icon size={22} />
-                    </div>
+                    <ArrowRight
+                      size={18}
+                      className="-translate-x-2 text-black/20 opacity-0 transition group-hover:translate-x-0 group-hover:opacity-100"
+                    />
                   </div>
 
-                  <div className="p-7 md:p-8">
-                    <h3 className="text-2xl font-semibold">{item.title}</h3>
+                  <h3 className="mt-12 font-display text-2xl font-semibold">
+                    {service.title}
+                  </h3>
 
-                    <p className="mt-4 leading-7 text-black/60">
-                      {item.description}
-                    </p>
-
-                    <Link
-                      href="/services"
-                      className="mt-6 inline-flex items-center gap-2 font-semibold text-clay"
-                    >
-                      See this service
-                      <ArrowRight size={18} />
-                    </Link>
-                  </div>
+                  <p className="mt-4 max-w-md leading-7 text-black/55">
+                    {service.description}
+                  </p>
                 </article>
               );
             })}
@@ -186,175 +342,222 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-space overflow-hidden bg-ink text-white">
+      {/* PROCESS */}
+      <section className="bg-ink py-20 text-white md:py-28">
         <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/45">
-                Professional visual experience
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Simple by design
               </p>
 
-              <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
-                Created with an understanding of how homes are designed,
-                finished and lived in.
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                You already have the assets.
               </h2>
+
+              <p className="mt-5 max-w-md leading-7 text-white/55">
+                No ongoing social media management. No monthly contract. Just
+                professionally produced visual content for the property you
+                need to market.
+              </p>
             </div>
 
             <div>
-              <p className="text-lg leading-8 text-white/70">
-                House to Home combines professional experience in building
-                design, 3D architectural illustration and interior design. We
-                understand proportion, structure, lighting, spatial flow and
-                the small material details that make a property feel
-                considered.
-              </p>
-
-              <p className="mt-6 text-lg leading-8 text-white/70">
-                We also understand how busy buyers experience a listing. They
-                notice the dog beside the fireplace, hands preparing dinner, a
-                coffee near the bath and the warmth around a dining table.
-                Those moments help an image feel less like a building and more
-                like a possible home.
-              </p>
-
-              <div className="mt-9 grid gap-5 sm:grid-cols-2">
-                <div className="rounded-3xl border border-white/10 p-6">
-                  <Layers3 className="h-8 w-8 text-sand" />
-
-                  <h3 className="mt-5 text-xl font-semibold">
-                    Architectural visual expertise
-                  </h3>
-
-                  <p className="mt-3 leading-7 text-white/60">
-                    Building design knowledge with specialist experience in
-                    professional 3D architectural rendering.
+              {steps.map((step) => (
+                <div
+                  key={step.number}
+                  className="grid gap-5 border-t border-white/15 py-8 sm:grid-cols-[80px_1fr]"
+                >
+                  <p className="font-mono text-sm text-brassBright">
+                    {step.number}
                   </p>
+
+                  <div>
+                    <h3 className="font-display text-2xl font-semibold">
+                      {step.title}
+                    </h3>
+
+                    <p className="mt-3 max-w-xl leading-7 text-white/55">
+                      {step.text}
+                    </p>
+                  </div>
                 </div>
-
-                <div className="rounded-3xl border border-white/10 p-6">
-                  <Sparkles className="h-8 w-8 text-sand" />
-
-                  <h3 className="mt-5 text-xl font-semibold">
-                    Interior and buyer-focused storytelling
-                  </h3>
-
-                  <p className="mt-3 leading-7 text-white/60">
-                    Diploma-qualified interior design expertise shaped by a
-                    practical, family-centred view of property marketing.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-space bg-white">
+      {/* IMAGE TRANSFORMATIONS */}
+      <section className="bg-cream py-20 md:py-28">
         <div className="container-shell">
-          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div className="mb-12 flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-clay">
-                Packages
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Image Transformations
               </p>
 
-              <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
-                Start with the images you already have
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+                From property photograph to lived experience.
               </h2>
 
-              <p className="mt-5 text-lg leading-8 text-black/60">
-                Every quote is based on the number of images, complexity of the
-                transformation and whether you need a complete social campaign.
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-black/55">
+                Add believable people, activity and atmosphere to help buyers
+                imagine what living in the property could actually feel like.
               </p>
             </div>
 
             <Link
-              href="/packages"
-              className="inline-flex items-center gap-2 font-semibold text-clay"
+              href="/image-library"
+              className="group inline-flex items-center gap-3 font-semibold"
             >
-              View all packages
+              Explore image library
+
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-black/15 transition group-hover:bg-ink group-hover:text-white">
+                <ArrowRight size={17} />
+              </span>
+            </Link>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-2">
+            {/* BEFORE */}
+            <div className="relative overflow-hidden rounded-[2rem]">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/property-images/website/staging/kitchen-before.jpeg"
+                  alt="Original kitchen property photograph"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em]">
+                Original
+              </div>
+            </div>
+
+            {/* AFTER */}
+            <div className="relative overflow-hidden rounded-[2rem]">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
+                  alt="Kitchen property photograph enhanced with people and lifestyle"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="absolute left-5 top-5 rounded-full bg-ink/95 px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
+                Brought to life
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 max-w-2xl">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
+              Lifestyle Enhancement
+            </p>
+
+            <h3 className="mt-3 font-display text-3xl font-semibold">
+              Same room. Completely different feeling.
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      {/* PACKAGES */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="container-shell">
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Content packs
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight md:text-5xl">
+                Priced by property.
+                <br />
+                Not by month.
+              </h2>
+            </div>
+
+            <Link
+              href="/packages"
+              className="inline-flex items-center gap-2 font-semibold"
+            >
+              Compare packages
               <ArrowRight size={18} />
             </Link>
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             <PackageCard
-              name="Lifestyle Transformation"
-              price="From $390 + GST"
-              description="For listings that need warmth, people, pets and everyday moments."
+              name="Starter"
+              price="$495 + GST"
+              description="Essential creative content for one listing."
               items={[
-                "Lifestyle-enhanced property images",
-                "Families, couples, pets or subtle signs of life",
-                "Consistent creative direction",
-                "Listing and social media sizes",
+                "5 property graphics",
+                "1 short animation",
+                "Social-ready delivery",
+                "Client-supplied photography",
               ]}
             />
 
             <PackageCard
               featured
-              name="Complete Property Story"
-              price="From $690 + GST"
-              description="A tailored combination of staging, lifestyle imagery and feature details."
+              name="Property Content"
+              price="$795 + GST"
+              description="A complete content set built around one property."
               items={[
-                "Virtual staging",
-                "Lifestyle scenes",
-                "Architectural feature close-ups",
-                "A consistent visual story",
+                "8 property graphics",
+                "2 short animations",
+                "1 vertical Reel",
+                "Social-ready delivery",
               ]}
             />
 
             <PackageCard
-              name="Social Campaign"
-              price="Custom quote"
-              description="A complete folder of ready-to-use visual and written marketing content."
+              name="Premium Launch"
+              price="$1,295 + GST"
+              description="More content for premium listings and launches."
               items={[
-                "10 or 20 social posts",
-                "Short-form videos",
-                "Written captions",
-                "Organised campaign folder",
+                "12 property graphics",
+                "3 short animations",
+                "2 vertical Reels",
+                "2 launch graphics",
               ]}
             />
           </div>
         </div>
       </section>
 
-      <section className="section-space bg-cream">
-        <div className="container-shell">
-          <div className="grid overflow-hidden rounded-[2.5rem] bg-white shadow-soft lg:grid-cols-2">
-            <div className="relative min-h-[460px]">
-              <Image
-                src="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
-                alt="Warm lifestyle-focused kitchen property marketing image"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
+      {/* FINAL CTA */}
+      <section className="bg-rust px-6 py-20 text-white md:py-28">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+            Real Estate Media House
+          </p>
 
-            <div className="flex items-center p-8 md:p-12">
-              <div>
-                <Quote className="h-10 w-10 text-clay" />
+          <h2 className="mt-5 font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">
+            Send us your property.
+            <br />
+            We&apos;ll make it move.
+          </h2>
 
-                <h2 className="mt-6 text-4xl font-semibold leading-tight">
-                  You already have the property photos. We help you do more
-                  with them.
-                </h2>
+          <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
+            Start with the images, renders or footage you already have and turn
+            them into a library of visual content.
+          </p>
 
-                <p className="mt-6 text-lg leading-8 text-black/60">
-                  Send us the listing images, choose the transformation style
-                  and tell us who the likely buyer is. We take care of the
-                  visual direction and return a polished set of marketing
-                  assets ready for your campaign.
-                </p>
-
-                <Link
-                  href="/enquire"
-                  className="mt-8 inline-flex rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-clay"
-                >
-                  Request a tailored quote
-                </Link>
-              </div>
-            </div>
-          </div>
+          <Link
+            href="/enquire"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
+          >
+            Start a project
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </main>
