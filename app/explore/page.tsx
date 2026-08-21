@@ -3,11 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-import {
-  ArrowLeft,
-  ArrowRight,
-  Maximize2,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Maximize2 } from "lucide-react";
 
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import MediaLightbox from "@/components/MediaLightbox";
@@ -104,10 +100,8 @@ const projects: Record<PropertyType, Project[]> = {
       title: "Kitchen Lifestyle",
       description:
         "Turn clean property photography into another campaign image with more atmosphere and lifestyle.",
-      before:
-        "/property-images/website/lifestyle/kitchen-before.jpeg",
-      after:
-        "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
+      before: "/property-images/website/lifestyle/kitchen-before.jpeg",
+      after: "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
       beforeAlt: "Residential kitchen before lifestyle transformation",
       afterAlt: "Residential kitchen after lifestyle transformation",
       category: "Lifestyle",
@@ -118,10 +112,8 @@ const projects: Record<PropertyType, Project[]> = {
       title: "Bedroom Lifestyle",
       description:
         "Create a more lived in campaign moment from an existing residential property image.",
-      before:
-        "/property-images/website/lifestyle/bedroom-before.jpeg",
-      after:
-        "/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg",
+      before: "/property-images/website/lifestyle/bedroom-before.jpeg",
+      after: "/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg",
       beforeAlt: "Residential bedroom before lifestyle enhancement",
       afterAlt: "Residential bedroom after lifestyle enhancement",
       category: "Lifestyle",
@@ -132,10 +124,8 @@ const projects: Record<PropertyType, Project[]> = {
       title: "Living Room Styling",
       description:
         "Help buyers understand an empty living area with furniture and a clearer sense of scale.",
-      before:
-        "/property-images/website/staging/living-room-before.jpeg",
-      after:
-        "/property-images/website/staging/living-room-after.jpeg",
+      before: "/property-images/website/staging/living-room-before.jpeg",
+      after: "/property-images/website/staging/living-room-after.jpeg",
       beforeAlt: "Living room before virtual furniture",
       afterAlt: "Living room after virtual furniture and styling",
       category: "Furniture & Styling",
@@ -242,7 +232,7 @@ const featuredVideos = [
 ];
 
 export default function ExplorePage() {
-  const [activeType, setActiveType] = useState<PropertyType>("commercial");
+  const [activeType, setActiveType] = useState<PropertyType>("childcare");
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -436,7 +426,6 @@ export default function ExplorePage() {
             </div>
           </div>
 
-          {/* PROJECT STRIP */}
           <div className="mt-10 overflow-x-auto pb-3">
             <div className="flex min-w-max gap-3">
               {activeProjects.map((project, index) => {
@@ -504,7 +493,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* FROM STILL TO MOTION */}
+      {/* MOTION */}
       <section className="bg-ink py-20 text-white md:py-24">
         <div className="container-shell">
           <YouTubeVideoCarousel
@@ -526,7 +515,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* CHOOSE YOUR PATH */}
+      {/* CHOOSE PATH */}
       <section className="bg-white py-20 md:py-24">
         <div className="container-shell">
           <div className="mb-10 max-w-4xl">
@@ -559,10 +548,7 @@ export default function ExplorePage() {
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore images
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
 
@@ -584,10 +570,7 @@ export default function ExplorePage() {
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore videos
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
 
@@ -610,10 +593,7 @@ export default function ExplorePage() {
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore guides
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
           </div>

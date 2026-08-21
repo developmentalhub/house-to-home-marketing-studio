@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png`,
-        alt: "Commercial warehouse transformed into a gym marketing visual",
+        url: `${SITE_URL}/images/childcare/before-after-childcare/childcare-centre-new-build-after.png`,
+        alt: "Property transformed into a completed childcare development visual",
       },
     ],
   },
@@ -102,8 +102,8 @@ export default function ImageLibraryPage() {
               </p>
 
               <p className="mt-5 max-w-xl leading-8 text-white/45">
-                Residential lifestyle. Furniture and styling. Commercial use
-                concepts. Childcare development visualisation.
+                Residential lifestyle. Furniture and styling. Commercial
+                visualisation. Childcare development content.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -127,21 +127,21 @@ export default function ImageLibraryPage() {
             <div id="transformations" className="space-y-4">
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-2 shadow-soft">
                 <BeforeAfterSlider
-                  before="/images/commercial/warehouse-multiple-afters/warehouse-before-gym.png"
-                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png"
-                  beforeAlt="Vacant commercial warehouse before gym visualisation"
-                  afterAlt="Commercial warehouse transformed into a gym concept"
+                  before="/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg"
+                  after="/images/childcare/before-after-childcare/childcare-centre-new-build-after.png"
+                  beforeAlt="Property before childcare centre development visualisation"
+                  afterAlt="Property transformed into a completed childcare centre visual"
                 />
               </div>
 
               <div className="flex items-center justify-between gap-4 px-1">
                 <div>
                   <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                    Commercial
+                    Childcare Development
                   </p>
 
                   <p className="mt-1 font-display text-xl font-semibold">
-                    Warehouse to gym
+                    Future childcare centre
                   </p>
                 </div>
 
@@ -160,7 +160,7 @@ export default function ImageLibraryPage() {
           <div className="grid gap-3 md:grid-cols-3">
             <a
               href="#residential"
-              className="group rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
             >
               <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                 01
@@ -177,7 +177,7 @@ export default function ImageLibraryPage() {
 
             <a
               href="#commercial"
-              className="group rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
             >
               <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                 02
@@ -194,7 +194,7 @@ export default function ImageLibraryPage() {
 
             <a
               href="#childcare"
-              className="group rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
             >
               <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                 03
@@ -373,150 +373,12 @@ export default function ImageLibraryPage() {
             </div>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
-                <BeforeAfterSlider
-                  before="/images/commercial/warehouse-multiple-afters/warehouse-before-gym.png"
-                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png"
-                  beforeAlt="Vacant warehouse before gym visualisation"
-                  afterAlt="Warehouse transformed into a gym"
-                />
-              </div>
-
-              <div className="mt-5 flex items-end justify-between gap-4">
-                <div>
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                    Fitness
-                  </p>
-
-                  <h3 className="mt-2 font-display text-2xl font-semibold">
-                    Warehouse to gym
-                  </h3>
-                </div>
-
-                <Link
-                  href="/projects/warehouse-to-gym-visualisation"
-                  className="text-sm font-semibold text-rust"
-                >
-                  Case study
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
-                <BeforeAfterSlider
-                  before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
-                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-mechanic1.png"
-                  beforeAlt="Vacant warehouse before mechanic workshop visualisation"
-                  afterAlt="Warehouse transformed into a mechanic workshop"
-                />
-              </div>
-
-              <div className="mt-5 flex items-end justify-between gap-4">
-                <div>
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                    Automotive
-                  </p>
-
-                  <h3 className="mt-2 font-display text-2xl font-semibold">
-                    Warehouse to mechanic workshop
-                  </h3>
-                </div>
-
-                <Link
-                  href="/projects/warehouse-to-mechanic-workshop-visualisation"
-                  className="text-sm font-semibold text-rust"
-                >
-                  Case study
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
-                <BeforeAfterSlider
-                  before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
-                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-logistics.png"
-                  beforeAlt="Vacant warehouse before logistics visualisation"
-                  afterAlt="Warehouse transformed into a logistics operation"
-                />
-              </div>
-
-              <div className="mt-5 flex items-end justify-between gap-4">
-                <div>
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                    Logistics
-                  </p>
-
-                  <h3 className="mt-2 font-display text-2xl font-semibold">
-                    Warehouse to logistics
-                  </h3>
-                </div>
-
-                <Link
-                  href="/projects/warehouse-to-logistics-visualisation"
-                  className="text-sm font-semibold text-rust"
-                >
-                  Case study
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
-                <BeforeAfterSlider
-                  before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
-                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-photography-studio.png"
-                  beforeAlt="Vacant warehouse before photography studio visualisation"
-                  afterAlt="Warehouse transformed into a photography studio"
-                />
-              </div>
-
-              <div className="mt-5 flex items-end justify-between gap-4">
-                <div>
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                    Creative
-                  </p>
-
-                  <h3 className="mt-2 font-display text-2xl font-semibold">
-                    Warehouse to photography studio
-                  </h3>
-                </div>
-
-                <Link
-                  href="/projects/warehouse-to-photography-studio-visualisation"
-                  className="text-sm font-semibold text-rust"
-                >
-                  Case study
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* COMMERCIAL MULTIPLE OUTCOMES */}
-      <section className="border-y border-black/10 bg-white py-16 md:py-20">
-        <div className="container-shell">
-          <div className="mb-9 max-w-4xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              One Warehouse. Multiple Outcomes.
-            </p>
-
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-              Explore how one commercial property can carry several campaign
-              stories.
-            </h2>
-          </div>
-
           <CommercialOutcomeGallery />
         </div>
       </section>
 
       {/* CHILDCARE */}
-      <section id="childcare" className="bg-[#f7f5f1] py-16 md:py-20">
+      <section id="childcare" className="border-t border-black/10 bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -548,7 +410,7 @@ export default function ImageLibraryPage() {
 
           <div className="grid gap-8 lg:grid-cols-2">
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg"
                   after="/images/childcare/before-after-childcare/childcare-centre-new-build-after.png"
@@ -569,7 +431,7 @@ export default function ImageLibraryPage() {
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/room1-before.png"
                   after="/images/childcare/before-after-childcare/room1-after.png"
@@ -590,7 +452,7 @@ export default function ImageLibraryPage() {
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/Rearyard1-Before.png"
                   after="/images/childcare/before-after-childcare/Rearyard1-After.png"
@@ -611,7 +473,7 @@ export default function ImageLibraryPage() {
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/corner-site-childcare-before.png"
                   after="/images/childcare/before-after-childcare/corner-site-childcare-after.png"
@@ -631,23 +493,10 @@ export default function ImageLibraryPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* CHILDCARE STORY */}
-      <section className="border-y border-black/10 bg-white py-16 md:py-20">
-        <div className="container-shell">
-          <div className="mb-9 max-w-4xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              Explore The Development Story
-            </p>
-
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-              Move through the childcare project visually.
-            </h2>
+          <div className="mt-12">
+            <ChildcareDevelopmentStory />
           </div>
-
-          <ChildcareDevelopmentStory />
         </div>
       </section>
 
@@ -731,10 +580,7 @@ export default function ImageLibraryPage() {
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore videos
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
 
@@ -757,10 +603,7 @@ export default function ImageLibraryPage() {
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore services
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
 
@@ -783,10 +626,7 @@ export default function ImageLibraryPage() {
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore packages
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
           </div>
