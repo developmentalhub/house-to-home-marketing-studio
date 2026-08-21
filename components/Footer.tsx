@@ -20,8 +20,31 @@ const exploreLinks = [
     href: "/image-library",
   },
   {
+    label: "Before & After",
+    href: "/before-after",
+  },
+  {
     label: "Services",
     href: "/services",
+  },
+];
+
+const propertyTypeLinks = [
+  {
+    label: "Childcare Property Animation",
+    href: "/childcare-property-animation",
+  },
+  {
+    label: "Residential Property Animation",
+    href: "/residential-property-animation",
+  },
+  {
+    label: "Commercial Property Animation",
+    href: "/commercial-property-animation",
+  },
+  {
+    label: "Residential Case Study",
+    href: "/projects/residential-property-transformation",
   },
 ];
 
@@ -75,7 +98,7 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-white">
       <div className="container-shell">
-        <div className="grid gap-14 py-16 md:py-20 lg:grid-cols-[1.2fr_0.7fr_0.9fr_0.7fr]">
+        <div className="grid gap-14 py-16 md:py-20 lg:grid-cols-[1.2fr_0.75fr_1fr_0.95fr_0.7fr]">
           {/* BRAND */}
           <div className="max-w-sm">
             <Link
@@ -112,6 +135,25 @@ export default function Footer() {
 
             <nav className="mt-5 flex flex-col gap-3">
               {exploreLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-white/55 transition hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* PROPERTY TYPES */}
+          <div>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
+              Property Types
+            </p>
+
+            <nav className="mt-5 flex flex-col gap-3">
+              {propertyTypeLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}

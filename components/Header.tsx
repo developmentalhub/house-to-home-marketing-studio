@@ -32,9 +32,25 @@ const navigation = [
   },
 ];
 
+const specialistPages = [
+  {
+    label: "Childcare",
+    href: "/childcare-property-animation",
+  },
+  {
+    label: "Residential",
+    href: "/residential-property-animation",
+  },
+  {
+    label: "Commercial",
+    href: "/commercial-property-animation",
+  },
+];
+
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [specialistOpen, setSpecialistOpen] = useState(false);
 
   function isActive(href: string) {
     if (href === "/") {
@@ -44,14 +60,21 @@ export default function Header() {
     return pathname.startsWith(href);
   }
 
+  const specialistActive = specialistPages.some((item) =>
+    pathname.startsWith(item.href),
+  );
+
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f7f5f1]/95 backdrop-blur-xl">
       <div className="container-shell">
-        <div className="flex h-[76px] items-center justify-between gap-8">
+        <div className="flex h-[76px] items-center justify-between gap-6">
           {/* LOGO */}
           <Link
             href="/"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => {
+              setMobileOpen(false);
+              setSpecialistOpen(false);
+            }}
             className="group shrink-0"
           >
             <div className="font-display text-xl font-semibold leading-none tracking-tight text-ink">
@@ -71,7 +94,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3.5 py-2 text-sm font-medium transition ${
+                  className={`rounded-full px-3 py-2 text-sm font-medium transition ${
                     active
                       ? "bg-ink text-white"
                       : "text-black/55 hover:bg-black/5 hover:text-ink"
@@ -81,6 +104,64 @@ export default function Header() {
                 </Link>
               );
             })}
+
+            {/* SPECIALIST DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setSpecialistOpen(true)}
+              onMouseLeave={() => setSpecialistOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() =>
+                  setSpecialistOpen((current) => !current)
+                }
+                className={`rounded-full px-3 py-2 text-sm font-medium transition ${
+                  specialistActive
+                    ? "bg-ink text-white"
+                    : "text-black/55 hover:bg-black/5 hover:text-ink"
+                }`}
+              >
+                Property Types
+              </button>
+
+              {specialistOpen && (
+                <div className="absolute right-0 top-full pt-3">
+                  <div className="w-[280px] overflow-hidden rounded-[1.4rem] border border-black/10 bg-white p-2 shadow-xl">
+                    {specialistPages.map((item) => {
+                      const active = isActive(item.href);
+
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setSpecialistOpen(false)}
+                          className={`block rounded-[1rem] px-5 py-4 transition ${
+                            active
+                              ? "bg-ink text-white"
+                              : "hover:bg-[#f7f5f1]"
+                          }`}
+                        >
+                          <p className="font-display text-lg font-semibold">
+                            {item.label}
+                          </p>
+
+                          <p
+                            className={`mt-1 text-xs ${
+                              active
+                                ? "text-white/50"
+                                : "text-black/40"
+                            }`}
+                          >
+                            Property animation
+                          </p>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* DESKTOP CTA */}
@@ -111,7 +192,7 @@ export default function Header() {
 
         {/* MOBILE NAVIGATION */}
         {mobileOpen && (
-          <div className="border-t border-black/10 pb-6 pt-4 lg:hidden">
+          <div className="max-h-[calc(100vh-76px)] overflow-y-auto border-t border-black/10 pb-6 pt-4 lg:hidden">
             <nav className="flex flex-col">
               {navigation.map((item) => {
                 const active = isActive(item.href);
@@ -129,6 +210,31 @@ export default function Header() {
                   </Link>
                 );
               })}
+
+              <div className="border-b border-black/5 py-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-black/30">
+                  Property Types
+                </p>
+
+                <div className="mt-3 flex flex-col">
+                  {specialistPages.map((item) => {
+                    const active = isActive(item.href);
+
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`py-3 font-display text-xl font-semibold ${
+                          active ? "text-rust" : "text-ink"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
 
               <Link
                 href="/enquire"

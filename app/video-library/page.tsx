@@ -2,20 +2,23 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
 import {
   ArrowRight,
-  Building2,
-  Film,
-  Play,
-  Sparkles,
-  SunMedium,
-  Video,
+  Maximize2,
+  X,
 } from "lucide-react";
 
 import SocialEmbed from "@/components/SocialEmbed";
 
-const videos = [
+type SocialVideo = {
+  id: number;
+  title: string;
+  category: "Property Reels" | "Short Animations";
+  url: string;
+  description: string;
+};
+
+const videos: SocialVideo[] = [
   {
     id: 1,
     title: "Property Reel 01",
@@ -30,7 +33,7 @@ const videos = [
     category: "Property Reels",
     url: "https://www.instagram.com/rpimages.au/reel/DcPX4nBB-Ps/",
     description:
-      "Existing property imagery transformed into a polished vertical Reel.",
+      "Existing property imagery transformed into a polished vertical property Reel.",
   },
   {
     id: 3,
@@ -38,7 +41,7 @@ const videos = [
     category: "Property Reels",
     url: "https://www.instagram.com/rpimages.au/reel/DcOBs7AhSco/",
     description:
-      "A property campaign turned into a flowing short-form visual story.",
+      "A property campaign transformed into a flowing short form visual story.",
   },
   {
     id: 4,
@@ -46,7 +49,7 @@ const videos = [
     category: "Property Reels",
     url: "https://www.instagram.com/rpimages.au/reel/DcN5KYSBRYs/",
     description:
-      "Property photography transformed into moving vertical content.",
+      "Existing property photography transformed into moving vertical content.",
   },
   {
     id: 5,
@@ -54,7 +57,7 @@ const videos = [
     category: "Property Reels",
     url: "https://www.instagram.com/rpimages.au/reel/DcAYIiLhIWV/",
     description:
-      "Multiple property visuals edited together into a finished campaign Reel.",
+      "Multiple property visuals edited together into one finished campaign Reel.",
   },
   {
     id: 6,
@@ -62,7 +65,7 @@ const videos = [
     category: "Property Reels",
     url: "https://www.instagram.com/rpimages.au/reel/Db9vSsphbWj/",
     description:
-      "Still property assets reimagined as an engaging vertical property film.",
+      "Still property assets transformed into a more engaging vertical property film.",
   },
   {
     id: 7,
@@ -98,175 +101,254 @@ const videos = [
   },
 ];
 
-const categories = [
+const filters = [
   "All",
   "Short Animations",
   "Property Reels",
-];
+] as const;
 
-const futureMotion = [
+const specialistPages = [
   {
-    title: "Day → Night",
+    number: "01",
+    label: "Priority Sector",
+    title: "Childcare Property Animation",
     description:
-      "Move from daylight through golden hour and into evening as the property lights come on.",
-    icon: SunMedium,
+      "Show interiors, outdoor environments, demolition, construction and the finished childcare centre before it physically exists.",
+    href: "/childcare-property-animation",
+    cta: "Explore childcare",
   },
   {
-    title: "Cinematic Movement",
+    number: "02",
+    label: "Residential",
+    title: "Residential Property Animation",
     description:
-      "Create camera movement, depth and a more film-like feeling from a still property image.",
-    icon: Film,
+      "Turn existing listing photography into fresh campaign content with movement, lifestyle, atmosphere and visual ideas.",
+    href: "/residential-property-animation",
+    cta: "Explore residential",
   },
   {
-    title: "Lifestyle Motion",
+    number: "03",
+    label: "Commercial",
+    title: "Commercial Property Animation",
     description:
-      "Introduce believable people, activity and movement into property scenes.",
-    icon: Sparkles,
-  },
-  {
-    title: "Build Reveals",
-    description:
-      "Show demolition, construction stages and finished developments through animation.",
-    icon: Building2,
+      "Help buyers and tenants see how a warehouse or commercial property could be used, occupied or developed.",
+    href: "/commercial-property-animation",
+    cta: "Explore commercial",
   },
 ];
 
 export default function VideoLibraryPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeFilter, setActiveFilter] =
+    useState<(typeof filters)[number]>("All");
+
+  const [selectedVideo, setSelectedVideo] =
+    useState<SocialVideo | null>(null);
 
   const filteredVideos =
-    activeCategory === "All"
+    activeFilter === "All"
       ? videos
       : videos.filter(
-          (video) => video.category === activeCategory,
+          (video) => video.category === activeFilter,
         );
-
-  const featured = filteredVideos[0] ?? videos[0];
 
   return (
     <main className="bg-[#f7f5f1] text-ink">
       {/* HERO */}
-      <section className="border-b border-white/10 bg-ink text-white">
-        <div className="container-shell py-24 md:py-32">
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.65fr] lg:items-end">
+      <section className="bg-ink text-white">
+        <div className="container-shell py-20 md:py-28 lg:py-32">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.7fr] lg:items-end">
             <div className="max-w-5xl">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Video Library
+                Property Animation Library
               </p>
 
-              <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.96] tracking-[-0.035em] sm:text-6xl md:text-7xl lg:text-[5.7rem]">
-                First, bring it to life.
-                <span className="block text-white/35">
-                  Then make it move.
+              <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+                Your property media
+                <span className="block text-rust">
+                  does not have to stand still.
                 </span>
               </h1>
             </div>
 
             <div className="max-w-xl lg:ml-auto">
               <p className="text-lg leading-8 text-white/60">
-                Explore short property animations and finished
-                vertical Reels created from existing photography,
-                renders and property media.
+                Explore property animation across residential, childcare and
+                commercial projects. See how existing photography and renders
+                can become fresh moving content without another property shoot.
               </p>
 
               <Link
-                href="/explore"
+                href="/enquire"
                 className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
               >
-                Explore what&apos;s possible
-                <ArrowRight size={18} />
+                Start a project
+                <ArrowRight size={17} />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FILTERS */}
-      <section className="border-b border-black/10 bg-white">
-        <div className="container-shell py-6">
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => {
-              const active =
-                activeCategory === category;
+      {/* SPECIALIST CATEGORIES */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="container-shell">
+          <div className="max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Explore By Property Sector
+            </p>
 
-              return (
-                <button
-                  key={category}
-                  type="button"
-                  onClick={() =>
-                    setActiveCategory(category)
-                  }
-                  className={`rounded-full px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] transition ${
-                    active
-                      ? "bg-ink text-white"
-                      : "border border-black/10 bg-[#f7f5f1] text-black/50 hover:border-rust hover:text-rust"
-                  }`}
-                >
-                  {category}
-                </button>
-              );
-            })}
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+              Different properties need different stories.
+            </h2>
+
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
+              Choose the type of property you work with and explore animation
+              created around the problems that sector needs to solve.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            {specialistPages.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group flex min-h-[420px] flex-col rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:-translate-y-1 hover:border-rust hover:bg-white hover:shadow-soft"
+              >
+                <div className="flex items-center justify-between">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
+                    {item.number}
+                  </p>
+
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-black/30">
+                    {item.label}
+                  </p>
+                </div>
+
+                <div className="mt-auto pt-20">
+                  <h3 className="font-display text-3xl font-semibold leading-tight">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-black/50">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-8 flex items-center justify-between border-t border-black/10 pt-5 font-semibold text-rust">
+                    {item.cta}
+
+                    <ArrowRight
+                      size={17}
+                      className="transition group-hover:translate-x-1"
+                    />
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FEATURED */}
-      <section className="py-20 md:py-28">
+      {/* CHILDCARE FEATURE */}
+      <section className="bg-ink py-20 text-white md:py-28">
         <div className="container-shell">
-          <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Featured Motion
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Childcare Development
               </p>
 
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-                See the property move.
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+                Help people see the finished centre before it exists.
               </h2>
+
+              <p className="mt-6 max-w-xl text-lg leading-8 text-white/55">
+                Turn an existing home or development site into a visual journey
+                through demolition, construction, landscaping, car parks,
+                families and the completed childcare centre.
+              </p>
+
+              <Link
+                href="/childcare-property-animation"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
+              >
+                Explore childcare animation
+                <ArrowRight size={17} />
+              </Link>
             </div>
 
-            <p className="max-w-lg leading-7 text-black/50">
-              Motion adds another layer to the property image:
-              movement, atmosphere, transitions and story.
-            </p>
-          </div>
+            <div className="grid border-l border-t border-white/10 sm:grid-cols-2">
+              {[
+                {
+                  number: "01",
+                  title: "Interior Rooms",
+                  text: "Show future childcare environments furnished, active and ready for use.",
+                },
+                {
+                  number: "02",
+                  title: "Outdoor Play",
+                  text: "Create landscaped and active outdoor environments before they are complete.",
+                },
+                {
+                  number: "03",
+                  title: "Demolition",
+                  text: "Show an existing home or building being removed from the development site.",
+                },
+                {
+                  number: "04",
+                  title: "Final Centre",
+                  text: "Reveal the completed development with landscaping, cars, families and activity.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.number}
+                  className="min-h-[220px] border-b border-r border-white/10 p-7"
+                >
+                  <p className="font-mono text-[9px] uppercase tracking-[0.17em] text-brassBright">
+                    {item.number}
+                  </p>
 
-          <div className="grid overflow-hidden rounded-[2rem] bg-ink text-white lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="bg-black p-3">
-              <div className="overflow-hidden rounded-[1.4rem]">
-                <SocialEmbed
-                  url={featured.url}
-                  caption={featured.title}
-                />
-              </div>
-            </div>
+                  <h3 className="mt-9 font-display text-2xl font-semibold">
+                    {item.title}
+                  </h3>
 
-            <div className="flex items-center p-8 md:p-12">
-              <div>
-                <div className="flex items-center gap-2">
-                  <Film
-                    size={17}
-                    className="text-brassBright"
-                  />
-
-                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-white/40">
-                    {featured.category}
+                  <p className="mt-3 text-sm leading-7 text-white/45">
+                    {item.text}
                   </p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <h3 className="mt-5 font-display text-4xl font-semibold">
-                  {featured.title}
-                </h3>
+      {/* CASE STUDY */}
+      <section className="bg-[#f7f5f1] py-20 md:py-28">
+        <div className="container-shell">
+          <div className="rounded-[2rem] bg-white p-8 shadow-soft md:p-12">
+            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div>
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                  Residential Case Study
+                </p>
 
-                <p className="mt-5 max-w-lg text-lg leading-8 text-white/55">
-                  {featured.description}
+                <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                  One property became twelve pieces of moving content.
+                </h2>
+              </div>
+
+              <div>
+                <p className="max-w-2xl text-lg leading-8 text-black/55">
+                  Explore one residential property across the facade, kitchen,
+                  dining, living spaces, bedrooms, bathroom, study, laundry and
+                  backyard.
                 </p>
 
                 <Link
-                  href="/enquire"
-                  className="mt-8 inline-flex items-center gap-2 font-semibold text-brassBright"
+                  href="/projects/residential-property-transformation"
+                  className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
                 >
-                  Create something like this
-                  <ArrowRight size={18} />
+                  Open the full case study
+                  <ArrowRight size={17} />
                 </Link>
               </div>
             </div>
@@ -274,65 +356,92 @@ export default function VideoLibraryPage() {
         </div>
       </section>
 
-      {/* VIDEO GRID */}
-      <section className="border-t border-black/10 bg-white py-20 md:py-28">
+      {/* LEGACY SOCIAL LIBRARY */}
+      <section className="border-y border-black/10 bg-white py-20 md:py-28">
         <div className="container-shell">
-          <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <div>
+          <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-4xl">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Motion Library
+                More Property Motion
               </p>
 
-              <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight md:text-5xl">
-                Animations and Property Reels.
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+                Keep playing.
               </h2>
+
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
+                Browse more property animations and finished vertical Reels.
+                Tap any example to open it larger.
+              </p>
             </div>
 
-            <p className="max-w-lg leading-7 text-black/50">
-              A growing library of property scenes transformed
-              through motion.
-            </p>
+            <div className="flex gap-2 overflow-x-auto">
+              {filters.map((filter) => {
+                const active = activeFilter === filter;
+
+                return (
+                  <button
+                    key={filter}
+                    type="button"
+                    onClick={() => setActiveFilter(filter)}
+                    className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition ${
+                      active
+                        ? "bg-ink text-white"
+                        : "border border-black/10 bg-[#f7f5f1] text-black/50 hover:border-rust hover:text-rust"
+                    }`}
+                  >
+                    {filter}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="grid gap-x-7 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-x-7 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
             {filteredVideos.map((video, index) => (
               <article
                 key={video.id}
                 className="group"
               >
-                <div className="overflow-hidden rounded-[1.75rem] bg-ink p-2">
+                <div className="relative overflow-hidden rounded-[1.75rem] bg-ink p-2">
                   <div className="overflow-hidden rounded-[1.3rem] bg-black">
                     <SocialEmbed
                       url={video.url}
                       caption={video.title}
                     />
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedVideo(video)}
+                    aria-label={`Open ${video.title}`}
+                    className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-black/75 text-white backdrop-blur transition hover:bg-rust"
+                  >
+                    <Maximize2 size={17} />
+                  </button>
                 </div>
 
                 <div className="px-1 pt-5">
-                  <div className="flex items-start justify-between gap-5">
-                    <div>
-                      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
-                        {String(index + 1).padStart(
-                          2,
-                          "0",
-                        )}{" "}
-                        / {video.category}
-                      </p>
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
+                    {String(index + 1).padStart(2, "0")} / {video.category}
+                  </p>
 
-                      <h3 className="mt-2 font-display text-2xl font-semibold">
-                        {video.title}
-                      </h3>
-                    </div>
-
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 transition group-hover:bg-ink group-hover:text-white">
-                      <Play size={15} />
-                    </div>
-                  </div>
+                  <h3 className="mt-2 font-display text-2xl font-semibold">
+                    {video.title}
+                  </h3>
 
                   <p className="mt-3 max-w-md leading-7 text-black/50">
                     {video.description}
                   </p>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedVideo(video)}
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rust"
+                  >
+                    Open larger
+                    <ArrowRight size={15} />
+                  </button>
                 </div>
               </article>
             ))}
@@ -340,121 +449,57 @@ export default function VideoLibraryPage() {
         </div>
       </section>
 
-      {/* MOTION TYPES */}
+      {/* ANIMATION VS REEL */}
       <section className="bg-[#f7f5f1] py-20 md:py-28">
         <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                More ways to move
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Motion can tell different property stories.
-              </h2>
-
-              <p className="mt-5 max-w-lg leading-8 text-black/55">
-                As we build the new demonstration library,
-                these animation styles will become part of the
-                Explore experience.
-              </p>
-
-              <Link
-                href="/explore"
-                className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
-              >
-                Explore property examples
-                <ArrowRight size={17} />
-              </Link>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {futureMotion.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <div
-                    key={item.title}
-                    className="rounded-[1.7rem] border border-black/10 bg-white p-7"
-                  >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f7f5f1] text-rust">
-                      <Icon size={18} />
-                    </div>
-
-                    <h3 className="mt-8 font-display text-2xl font-semibold">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-3 leading-7 text-black/50">
-                      {item.description}
-                    </p>
-
-                    <p className="mt-6 font-mono text-[8px] font-semibold uppercase tracking-[0.15em] text-black/25">
-                      More examples coming
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ANIMATION VS REEL */}
-      <section className="bg-ink py-20 text-white md:py-28">
-        <div className="container-shell">
           <div className="grid gap-5 lg:grid-cols-2">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
-              <Film
-                size={25}
-                className="text-brassBright"
-              />
-
-              <p className="mt-8 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-brassBright">
+            <div className="rounded-[2rem] bg-ink p-8 text-white md:p-10">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-brassBright">
                 Animated Scene
               </p>
 
-              <h2 className="mt-3 font-display text-4xl font-semibold">
+              <h2 className="mt-5 font-display text-4xl font-semibold">
                 One image.
                 <br />
                 One moving moment.
               </h2>
 
               <p className="mt-5 max-w-xl leading-8 text-white/50">
-                A single property image transformed into a
-                short animation. This can include camera
-                movement, people, lighting, cars, furniture
-                or environmental motion.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] bg-white p-8 text-ink md:p-10">
-              <Video
-                size={25}
-                className="text-rust"
-              />
-
-              <p className="mt-8 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-rust">
-                Property Reel
-              </p>
-
-              <h2 className="mt-3 font-display text-4xl font-semibold">
-                Multiple scenes.
-                <br />
-                One finished story.
-              </h2>
-
-              <p className="mt-5 max-w-xl leading-8 text-black/50">
-                Several enhanced and animated scenes combined
-                with transitions into a finished vertical
-                property Reel.
+                A single property image transformed through camera movement,
+                people, lighting, cars, furniture, landscape or environmental
+                motion.
               </p>
 
               <Link
-                href="/packages"
+                href="/residential-property-animation"
+                className="mt-7 inline-flex items-center gap-2 font-semibold text-brassBright"
+              >
+                Explore animations
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+
+            <div className="rounded-[2rem] border border-black/10 bg-white p-8 md:p-10">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-rust">
+                Property Reel
+              </p>
+
+              <h2 className="mt-5 font-display text-4xl font-semibold">
+                Multiple scenes.
+                <br />
+                One finished property story.
+              </h2>
+
+              <p className="mt-5 max-w-xl leading-8 text-black/50">
+                Several enhanced and animated scenes are edited together into a
+                finished vertical property Reel ready to support the campaign.
+              </p>
+
+              <Link
+                href="/packages/property-reel-campaign"
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
               >
-                See Property Reel package
+                View Property Reel Campaign
                 <ArrowRight size={17} />
               </Link>
             </div>
@@ -462,32 +507,30 @@ export default function VideoLibraryPage() {
         </div>
       </section>
 
-      {/* PACKAGE NOTE */}
-      <section className="bg-white py-20 md:py-24">
+      {/* IMAGE LIBRARY */}
+      <section className="border-t border-black/10 bg-white py-20 md:py-24">
         <div className="container-shell">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div className="max-w-3xl">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Motion in our packages
+                Want to control the transformation?
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                More motion is what takes a campaign further.
+                Drag between the original and finished image yourself.
               </h2>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-black/55">
-                Property Refresh starts with one short
-                animation. Larger packages add more animated
-                scenes, while the $1,590 Property Reel
-                Campaign includes the finished vertical Reel.
+                Our interactive image library includes childcare, residential,
+                commercial and lifestyle transformations.
               </p>
             </div>
 
             <Link
-              href="/packages"
+              href="/image-library"
               className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
             >
-              Compare packages
+              Open Image Library
               <ArrowRight size={18} />
             </Link>
           </div>
@@ -497,19 +540,19 @@ export default function VideoLibraryPage() {
       {/* CTA */}
       <section className="bg-rust px-6 py-20 text-white md:py-28">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/55">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
             Real Estate Media House
           </p>
 
-          <h2 className="mt-5 font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">
-            Have the image?
+          <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
+            Have the property media?
             <br />
             Let&apos;s make it move.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Start with the property photography or renders
-            you already have.
+            Send us the photography, renders or project imagery you already have
+            and we&apos;ll help create the next layer of the campaign.
           </p>
 
           <Link
@@ -521,6 +564,52 @@ export default function VideoLibraryPage() {
           </Link>
         </div>
       </section>
+
+      {/* VIDEO MODAL */}
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 backdrop-blur-sm md:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedVideo.title}
+          onClick={() => setSelectedVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-xl overflow-hidden rounded-[1.5rem] bg-ink shadow-2xl md:rounded-[2rem]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedVideo(null)}
+              aria-label="Close video"
+              className="absolute right-4 top-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-black text-white transition hover:bg-rust"
+            >
+              <X size={19} />
+            </button>
+
+            <div className="bg-black">
+              <SocialEmbed
+                url={selectedVideo.url}
+                caption={selectedVideo.title}
+              />
+            </div>
+
+            <div className="p-6 text-white md:p-8">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
+                {selectedVideo.category}
+              </p>
+
+              <h2 className="mt-2 font-display text-3xl font-semibold">
+                {selectedVideo.title}
+              </h2>
+
+              <p className="mt-3 leading-7 text-white/50">
+                {selectedVideo.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
