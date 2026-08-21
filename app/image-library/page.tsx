@@ -42,25 +42,7 @@ const residentialGallery = [
       "/images/residential/residential-before-after/residential-home-after.png",
   },
   {
-    id: "residential-kitchen",
-    title: "Residential Kitchen",
-    category: "Residential",
-    description:
-      "Existing kitchen photography transformed into additional campaign content.",
-    image:
-      "/images/residential/residential-before-after/kitchen-after.png",
-  },
-  {
-    id: "lifestyle-kitchen",
-    title: "Kitchen Lifestyle",
-    category: "Lifestyle",
-    description:
-      "A clean kitchen image given more atmosphere and lifestyle context.",
-    image:
-      "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
-  },
-  {
-    id: "lifestyle-bedroom",
+    id: "residential-bedroom",
     title: "Bedroom Lifestyle",
     category: "Lifestyle",
     description:
@@ -76,6 +58,23 @@ const residentialGallery = [
       "An empty living area shown with furniture to improve scale and purpose.",
     image:
       "/property-images/website/staging/living-room-after.jpeg",
+  },
+  {
+    id: "bathroom-lifestyle",
+    title: "Bathroom Lifestyle",
+    category: "Lifestyle",
+    description:
+      "Existing bathroom photography developed into another campaign visual with more atmosphere.",
+    image:
+      "/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg",
+  },
+  {
+    id: "foyer",
+    title: "Foyer Transformation",
+    category: "Residential",
+    description:
+      "Existing property photography developed into another polished campaign image.",
+    image: "/property-images/website/lifestyle/foyer-after.jpeg",
   },
 ];
 
@@ -222,47 +221,49 @@ export default function ImageLibraryPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Help buyers feel more than an empty room.
+                Help buyers feel more than an empty property.
               </h2>
             </div>
 
             <div className="max-w-3xl">
               <p className="text-lg leading-8 text-black/55">
-                Existing residential photography can become lifestyle content,
-                furnished interiors and additional campaign images while the
+                Existing residential photography can become styled spaces,
+                lifestyle scenes and additional campaign images while the
                 original listing photography remains available.
               </p>
             </div>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
+            {/* RESIDENTIAL EXTERIOR */}
             <div>
               <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
                 <BeforeAfterSlider
-                  before="/property-images/website/lifestyle/kitchen-before.jpeg"
-                  after="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
-                  beforeAlt="Original residential kitchen property photograph"
-                  afterAlt="Residential kitchen transformed into lifestyle marketing content"
+                  before="/images/residential/residential-before-after/residential-home-before.png"
+                  after="/images/residential/residential-before-after/residential-home-after.png"
+                  beforeAlt="Original residential property exterior"
+                  afterAlt="Residential property exterior transformed into additional campaign content"
                 />
               </div>
 
               <div className="mt-5">
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                  Lifestyle
+                  Residential
                 </p>
 
                 <h3 className="mt-2 font-display text-2xl font-semibold">
-                  Kitchen
+                  Property exterior
                 </h3>
               </div>
             </div>
 
+            {/* LIVING ROOM */}
             <div>
               <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
                 <BeforeAfterSlider
                   before="/property-images/website/staging/living-room-before.jpeg"
                   after="/property-images/website/staging/living-room-after.jpeg"
-                  beforeAlt="Empty residential living room before virtual furniture"
+                  beforeAlt="Empty residential living room before styling"
                   afterAlt="Residential living room after furniture and styling"
                 />
               </div>
@@ -278,13 +279,14 @@ export default function ImageLibraryPage() {
               </div>
             </div>
 
+            {/* BEDROOM */}
             <div>
               <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
                 <BeforeAfterSlider
                   before="/property-images/website/lifestyle/bedroom-before.jpeg"
                   after="/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg"
-                  beforeAlt="Original residential bedroom"
-                  afterAlt="Residential bedroom transformed into lifestyle marketing content"
+                  beforeAlt="Original residential bedroom photograph"
+                  afterAlt="Residential bedroom transformed into lifestyle campaign content"
                 />
               </div>
 
@@ -299,23 +301,24 @@ export default function ImageLibraryPage() {
               </div>
             </div>
 
+            {/* BATHROOM */}
             <div>
               <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
                 <BeforeAfterSlider
-                  before="/property-images/website/staging/kitchen-before.jpeg"
-                  after="/property-images/website/staging/kitchen-after.jpeg"
-                  beforeAlt="Residential kitchen before styling"
-                  afterAlt="Residential kitchen after furniture and styling"
+                  before="/property-images/website/lifestyle/bathroom-before.jpeg"
+                  after="/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg"
+                  beforeAlt="Original residential bathroom photograph"
+                  afterAlt="Residential bathroom transformed into lifestyle campaign content"
                 />
               </div>
 
               <div className="mt-5">
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                  Styling
+                  Lifestyle
                 </p>
 
                 <h3 className="mt-2 font-display text-2xl font-semibold">
-                  Kitchen styling
+                  Bathroom
                 </h3>
               </div>
             </div>
@@ -378,7 +381,10 @@ export default function ImageLibraryPage() {
       </section>
 
       {/* CHILDCARE */}
-      <section id="childcare" className="border-t border-black/10 bg-white py-16 md:py-20">
+      <section
+        id="childcare"
+        className="border-t border-black/10 bg-white py-16 md:py-20"
+      >
         <div className="container-shell">
           <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>

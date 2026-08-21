@@ -97,26 +97,32 @@ const projects: Record<PropertyType, Project[]> = {
   residential: [
     {
       id: "residential-kitchen",
-      title: "Kitchen Lifestyle",
+      title: "Residential Kitchen",
       description:
-        "Turn clean property photography into another campaign image with more atmosphere and lifestyle.",
-      before: "/property-images/website/lifestyle/kitchen-before.jpeg",
-      after: "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
-      beforeAlt: "Residential kitchen before lifestyle transformation",
-      afterAlt: "Residential kitchen after lifestyle transformation",
-      category: "Lifestyle",
+        "Show the same residential space as a stronger finished campaign image using the property photography you already have.",
+      before:
+        "/images/residential/residential-before-after/kitchen-before.png",
+      after:
+        "/images/residential/residential-before-after/kitchen-after.png",
+      beforeAlt: "Original residential kitchen photograph",
+      afterAlt:
+        "Residential kitchen transformed into additional property marketing content",
+      category: "Residential Transformation",
       href: "/residential-property-animation",
     },
     {
-      id: "residential-bedroom",
-      title: "Bedroom Lifestyle",
+      id: "residential-home",
+      title: "Residential Exterior",
       description:
-        "Create a more lived in campaign moment from an existing residential property image.",
-      before: "/property-images/website/lifestyle/bedroom-before.jpeg",
-      after: "/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg",
-      beforeAlt: "Residential bedroom before lifestyle enhancement",
-      afterAlt: "Residential bedroom after lifestyle enhancement",
-      category: "Lifestyle",
+        "Create another finished campaign visual from an existing residential exterior image.",
+      before:
+        "/images/residential/residential-before-after/residential-home-before.png",
+      after:
+        "/images/residential/residential-before-after/residential-home-after.png",
+      beforeAlt: "Original residential exterior photograph",
+      afterAlt:
+        "Residential exterior transformed into additional property marketing content",
+      category: "Residential Transformation",
       href: "/projects/residential-property-transformation",
     },
     {
@@ -280,7 +286,6 @@ export default function ExplorePage() {
 
   return (
     <main className="bg-[#f7f5f1] text-ink">
-      {/* HERO */}
       <section className="bg-ink text-white">
         <div className="container-shell py-16 md:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -312,7 +317,6 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* PROPERTY TYPE SELECTOR */}
       <section className="border-b border-black/10 bg-white">
         <div className="container-shell py-7">
           <div className="grid gap-3 md:grid-cols-3">
@@ -356,7 +360,6 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* ACTIVE PROJECT */}
       <section className="py-14 md:py-20">
         <div className="container-shell">
           <div className="mx-auto max-w-4xl">
@@ -461,7 +464,6 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* GO DEEPER */}
       <section className="border-y border-black/10 bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
@@ -493,7 +495,6 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* MOTION */}
       <section className="bg-ink py-20 text-white md:py-24">
         <div className="container-shell">
           <YouTubeVideoCarousel
@@ -515,7 +516,6 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* CHOOSE PATH */}
       <section className="bg-white py-20 md:py-24">
         <div className="container-shell">
           <div className="mb-10 max-w-4xl">
@@ -600,7 +600,6 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-rust px-6 py-20 text-white md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
