@@ -146,7 +146,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative">
+            <div>
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-2 shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg"
@@ -170,29 +170,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* POSITIONING */}
+      {/* ONE SHOOT */}
       <section className="bg-white py-20 md:py-28">
         <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
+              <Image
+                src="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
+                alt="Property kitchen transformed into lifestyle campaign content"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+                priority
+              />
+
+              <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/65 to-transparent" />
+
+              <div className="absolute bottom-5 left-5 right-5 text-white">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60">
+                  Existing property media
+                </p>
+
+                <p className="mt-2 font-display text-2xl font-semibold">
+                  Turn one image into another campaign moment.
+                </p>
+              </div>
+            </div>
+
+            <div className="max-w-3xl lg:pl-6">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
                 One shoot. More campaign content.
               </p>
-            </div>
 
-            <div className="max-w-4xl">
-              <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
+              <h2 className="mt-5 font-display text-4xl font-semibold leading-tight md:text-6xl">
                 Your listing is competing with everything.
                 <span className="block text-rust">
                   Give people a reason to stop.
                 </span>
               </h2>
 
-              <p className="mt-7 max-w-3xl text-lg leading-8 text-black/55">
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-black/55">
                 You already invested in the property photography. We help you
                 get more visibility, more campaign mileage and more value from
                 those same assets.
               </p>
+
+              <Link
+                href="/image-library"
+                className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
+              >
+                See what your images can become
+                <ArrowRight size={17} />
+              </Link>
             </div>
           </div>
         </div>
@@ -258,7 +287,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FIRST IMAGE THEN MOTION */}
+      {/* PROCESS */}
       <section className="bg-ink py-20 text-white md:py-28">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
