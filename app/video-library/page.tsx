@@ -1,615 +1,723 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useState } from "react";
-import {
-  ArrowRight,
-  Maximize2,
-  X,
-} from "lucide-react";
 
-import SocialEmbed from "@/components/SocialEmbed";
+import { ArrowRight } from "lucide-react";
 
-type SocialVideo = {
-  id: number;
-  title: string;
-  category: "Property Reels" | "Short Animations";
-  url: string;
-  description: string;
+import YouTubeVideoCarousel from "@/components/YouTubeVideoCarousel";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Property Video Library | Real Estate Media House",
+  description:
+    "Explore residential, commercial and childcare property animations created from existing property photography, renders and campaign media.",
+  alternates: {
+    canonical: `${SITE_URL}/video-library`,
+  },
+  openGraph: {
+    title: "Property Video Library | Real Estate Media House",
+    description:
+      "See existing property media transformed into animated residential, commercial and childcare campaign content.",
+    url: `${SITE_URL}/video-library`,
+    type: "website",
+  },
 };
 
-const videos: SocialVideo[] = [
+const residentialShorts = [
   {
-    id: 1,
-    title: "Property Reel 01",
-    category: "Property Reels",
-    url: "https://www.instagram.com/rpimages.au/reel/DcP0_PoA7L6/",
+    id: "residential-kitchen-short",
+    title: "Kitchen Animation",
+    url: "https://www.youtube.com/shorts/5NP5Ay_3SBY",
+    category: "Residential",
     description:
-      "Multiple property scenes brought together into one finished vertical property story.",
+      "Existing kitchen photography turned into short moving campaign content.",
+    orientation: "portrait" as const,
   },
   {
-    id: 2,
-    title: "Property Reel 02",
-    category: "Property Reels",
-    url: "https://www.instagram.com/rpimages.au/reel/DcPX4nBB-Ps/",
+    id: "facade-coming-soon",
+    title: "Coming Soon Facade",
+    url: "https://www.youtube.com/shorts/7sLtp4cucnU",
+    category: "Facade",
     description:
-      "Existing property imagery transformed into a polished vertical property Reel.",
+      "A still facade image turned into another campaign moment.",
+    orientation: "portrait" as const,
   },
   {
-    id: 3,
-    title: "Property Reel 03",
-    category: "Property Reels",
-    url: "https://www.instagram.com/rpimages.au/reel/DcOBs7AhSco/",
+    id: "facade-balloons",
+    title: "Facade With Balloons",
+    url: "https://www.youtube.com/shorts/npBU8mNYw0o",
+    category: "Facade",
     description:
-      "A property campaign transformed into a flowing short form visual story.",
+      "Another visual direction created from existing residential property media.",
+    orientation: "portrait" as const,
   },
   {
-    id: 4,
-    title: "Property Reel 04",
-    category: "Property Reels",
-    url: "https://www.instagram.com/rpimages.au/reel/DcN5KYSBRYs/",
+    id: "facade-day-night",
+    title: "Facade Day To Night",
+    url: "https://www.youtube.com/shorts/UMWARuYjMSU",
+    category: "Day To Night",
     description:
-      "Existing property photography transformed into moving vertical content.",
-  },
-  {
-    id: 5,
-    title: "Property Reel 05",
-    category: "Property Reels",
-    url: "https://www.instagram.com/rpimages.au/reel/DcAYIiLhIWV/",
-    description:
-      "Multiple property visuals edited together into one finished campaign Reel.",
-  },
-  {
-    id: 6,
-    title: "Property Reel 06",
-    category: "Property Reels",
-    url: "https://www.instagram.com/rpimages.au/reel/Db9vSsphbWj/",
-    description:
-      "Still property assets transformed into a more engaging vertical property film.",
-  },
-  {
-    id: 7,
-    title: "Property Animation 01",
-    category: "Short Animations",
-    url: "https://www.tiktok.com/@rpimages.au/video/7675941476982918418",
-    description:
-      "A still property image transformed into a cinematic moving scene.",
-  },
-  {
-    id: 8,
-    title: "Property Animation 02",
-    category: "Short Animations",
-    url: "https://www.tiktok.com/@rpimages.au/video/7675941178067488007",
-    description:
-      "Existing real estate imagery brought to life through movement and depth.",
-  },
-  {
-    id: 9,
-    title: "Property Animation 03",
-    category: "Short Animations",
-    url: "https://www.tiktok.com/@rpimages.au/video/7675892331488218386",
-    description:
-      "Property imagery transformed into a short animated moment.",
-  },
-  {
-    id: 10,
-    title: "Property Animation 04",
-    category: "Short Animations",
-    url: "https://www.tiktok.com/@rpimages.au/video/7675368129895075079",
-    description:
-      "Static property media transformed with cinematic motion.",
+      "An exterior image turned into a second campaign moment with atmosphere and lighting.",
+    orientation: "portrait" as const,
   },
 ];
 
-const filters = [
-  "All",
-  "Short Animations",
-  "Property Reels",
-] as const;
+const residentialLandscape = [
+  {
+    id: "res-bathroom",
+    title: "Bathroom",
+    url: "https://www.youtube.com/watch?v=rwduPrHJmrU",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-bedroom",
+    title: "Bedroom",
+    url: "https://www.youtube.com/watch?v=dQjStlhEGzI",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-dining",
+    title: "Dining",
+    url: "https://www.youtube.com/watch?v=b_iS2Uz8L-I",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-facade",
+    title: "Facade",
+    url: "https://www.youtube.com/watch?v=ezOd5jztwcI",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-baby-room",
+    title: "Baby Room",
+    url: "https://www.youtube.com/watch?v=Z_aNTKvrD74",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-laundry",
+    title: "Laundry",
+    url: "https://www.youtube.com/watch?v=W2uLloIY8o4",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-living-one",
+    title: "Living Room",
+    url: "https://www.youtube.com/watch?v=5_j6Nd7QxJA",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-living-hand",
+    title: "Living Room Furniture Drop",
+    url: "https://www.youtube.com/watch?v=psc1vhNWgXs",
+    category: "Residential",
+    description:
+      "A more playful living room transformation showing furniture arriving into the scene.",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-living-two",
+    title: "Living Room Animation",
+    url: "https://www.youtube.com/watch?v=-LY8KI3cmmA",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-study",
+    title: "Study",
+    url: "https://www.youtube.com/watch?v=hQa0O5RQwkk",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-kitchen",
+    title: "Kitchen",
+    url: "https://www.youtube.com/watch?v=E6sOWBaJP38",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+  {
+    id: "res-backyard",
+    title: "Backyard",
+    url: "https://www.youtube.com/watch?v=4vz-HSeqEh4",
+    category: "Residential",
+    orientation: "landscape" as const,
+  },
+];
 
-const specialistPages = [
+const childcareVideos = [
   {
-    number: "01",
-    label: "Priority Sector",
-    title: "Childcare Property Animation",
-    description:
-      "Show interiors, outdoor environments, demolition, construction and the finished childcare centre before it physically exists.",
-    href: "/childcare-property-animation",
-    cta: "Explore childcare",
+    id: "childcare-1",
+    title: "Childcare Animation 01",
+    url: "https://www.youtube.com/shorts/quxLhvqpAEQ",
+    category: "Childcare",
+    orientation: "portrait" as const,
   },
   {
-    number: "02",
-    label: "Residential",
-    title: "Residential Property Animation",
-    description:
-      "Turn existing listing photography into fresh campaign content with movement, lifestyle, atmosphere and visual ideas.",
-    href: "/residential-property-animation",
-    cta: "Explore residential",
+    id: "childcare-2",
+    title: "Childcare Animation 02",
+    url: "https://www.youtube.com/shorts/VNgAj19pqJc",
+    category: "Childcare",
+    orientation: "portrait" as const,
   },
   {
-    number: "03",
-    label: "Commercial",
-    title: "Commercial Property Animation",
+    id: "childcare-3",
+    title: "Childcare Animation 03",
+    url: "https://www.youtube.com/shorts/m3xlOPyhYe8",
+    category: "Childcare",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "childcare-4",
+    title: "Childcare Animation 04",
+    url: "https://www.youtube.com/shorts/4MduhCc7tOU",
+    category: "Childcare",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "childcare-5",
+    title: "Childcare Animation 05",
+    url: "https://www.youtube.com/shorts/al5ui0K4D98",
+    category: "Childcare",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "childcare-6",
+    title: "Childcare Animation 06",
+    url: "https://www.youtube.com/shorts/GnoYNXeTZaA",
+    category: "Childcare",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "childcare-7",
+    title: "Childcare Animation 07",
+    url: "https://www.youtube.com/shorts/5WQoWJR4qjc",
+    category: "Childcare",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "childcare-8",
+    title: "Childcare Build Transformation",
+    url: "https://www.youtube.com/shorts/Jvr3HdGMBAo",
+    category: "Development",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "childcare-9",
+    title: "Childcare Animation 09",
+    url: "https://www.youtube.com/shorts/fDUWkWFLUrM",
+    category: "Childcare",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "childcare-10",
+    title: "Childcare Animation 10",
+    url: "https://www.youtube.com/shorts/kdFOHfqTHLw",
+    category: "Childcare",
+    orientation: "portrait" as const,
+  },
+];
+
+const commercialVideos = [
+  {
+    id: "commercial-1",
+    title: "Commercial Property Animation 01",
+    url: "https://www.youtube.com/shorts/7YJSGYg99q0",
+    category: "Commercial",
     description:
-      "Help buyers and tenants see how a warehouse or commercial property could be used, occupied or developed.",
-    href: "/commercial-property-animation",
-    cta: "Explore commercial",
+      "Existing warehouse media turned into moving commercial campaign content.",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "commercial-2",
+    title: "Commercial Property Animation 02",
+    url: "https://www.youtube.com/shorts/bJCRltJn_vY",
+    category: "Commercial",
+    description:
+      "Another moving commercial property concept created from existing campaign media.",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "commercial-3",
+    title: "Commercial Development Transformation",
+    url: "https://www.youtube.com/shorts/2DXsq8mXemI",
+    category: "Development",
+    description:
+      "A commercial development progression shown as short moving content.",
+    orientation: "portrait" as const,
   },
 ];
 
 export default function VideoLibraryPage() {
-  const [activeFilter, setActiveFilter] =
-    useState<(typeof filters)[number]>("All");
-
-  const [selectedVideo, setSelectedVideo] =
-    useState<SocialVideo | null>(null);
-
-  const filteredVideos =
-    activeFilter === "All"
-      ? videos
-      : videos.filter(
-          (video) => video.category === activeFilter,
-        );
-
   return (
     <main className="bg-[#f7f5f1] text-ink">
       {/* HERO */}
       <section className="bg-ink text-white">
-        <div className="container-shell py-20 md:py-28 lg:py-32">
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.7fr] lg:items-end">
-            <div className="max-w-5xl">
+        <div className="container-shell py-14 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+            <div className="lg:sticky lg:top-28">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Property Animation Library
+                Property Video Library
               </p>
 
               <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Your property media
-                <span className="block text-rust">
-                  does not have to stand still.
-                </span>
+                Do not read about it.
+                <span className="block text-rust">Watch the property move.</span>
               </h1>
-            </div>
 
-            <div className="max-w-xl lg:ml-auto">
-              <p className="text-lg leading-8 text-white/60">
-                Explore property animation across residential, childcare and
-                commercial projects. See how existing photography and renders
-                can become fresh moving content without another property shoot.
+              <p className="mt-7 max-w-xl text-lg leading-8 text-white/60 md:text-xl">
+                Existing real estate photography can become short moving
+                campaign content without organising another property shoot.
               </p>
 
-              <Link
-                href="/enquire"
-                className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-              >
-                Start a project
-                <ArrowRight size={17} />
-              </Link>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#residential"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
+                >
+                  Start watching
+                  <ArrowRight size={17} />
+                </a>
+
+                <Link
+                  href="/image-library"
+                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
+                >
+                  See before and after
+                </Link>
+              </div>
+
+              <div className="mt-10 grid grid-cols-3 gap-3 border-t border-white/10 pt-6">
+                <div>
+                  <p className="font-display text-3xl font-semibold">01</p>
+                  <p className="mt-2 text-xs leading-5 text-white/40">
+                    Residential
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-display text-3xl font-semibold">02</p>
+                  <p className="mt-2 text-xs leading-5 text-white/40">
+                    Commercial
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-display text-3xl font-semibold">03</p>
+                  <p className="mt-2 text-xs leading-5 text-white/40">
+                    Childcare
+                  </p>
+                </div>
+              </div>
             </div>
+
+            <YouTubeVideoCarousel
+              items={[
+                residentialShorts[0],
+                commercialVideos[0],
+                childcareVideos[7],
+              ]}
+              eyebrow="Featured"
+              heading="Pick a property type and press play."
+              description="The fastest way to understand the service is to see what happens to the property media."
+            />
           </div>
         </div>
       </section>
 
-      {/* SPECIALIST CATEGORIES */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="container-shell">
-          <div className="max-w-4xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              Explore By Property Sector
-            </p>
-
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-              Different properties need different stories.
-            </h2>
-
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
-              Choose the type of property you work with and explore animation
-              created around the problems that sector needs to solve.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {specialistPages.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group flex min-h-[420px] flex-col rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:-translate-y-1 hover:border-rust hover:bg-white hover:shadow-soft"
-              >
-                <div className="flex items-center justify-between">
-                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
-                    {item.number}
-                  </p>
-
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-black/30">
-                    {item.label}
-                  </p>
-                </div>
-
-                <div className="mt-auto pt-20">
-                  <h3 className="font-display text-3xl font-semibold leading-tight">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-4 leading-7 text-black/50">
-                    {item.description}
-                  </p>
-
-                  <div className="mt-8 flex items-center justify-between border-t border-black/10 pt-5 font-semibold text-rust">
-                    {item.cta}
-
-                    <ArrowRight
-                      size={17}
-                      className="transition group-hover:translate-x-1"
-                    />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CHILDCARE FEATURE */}
-      <section className="bg-ink py-20 text-white md:py-28">
-        <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Childcare Development
+      {/* FAST NAV */}
+      <section className="border-b border-black/10 bg-white">
+        <div className="container-shell py-7">
+          <div className="grid gap-3 md:grid-cols-3">
+            <a
+              href="#residential"
+              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                01
               </p>
 
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Help people see the finished centre before it exists.
+              <h2 className="mt-3 font-display text-2xl font-semibold">
+                Residential
               </h2>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-white/55">
-                Turn an existing home or development site into a visual journey
-                through demolition, construction, landscaping, car parks,
-                families and the completed childcare centre.
+              <p className="mt-3 text-sm leading-6 text-black/45">
+                Lifestyle, room animation, facade content and day to night.
+              </p>
+            </a>
+
+            <a
+              href="#commercial"
+              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                02
               </p>
 
-              <Link
-                href="/childcare-property-animation"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-              >
-                Explore childcare animation
-                <ArrowRight size={17} />
-              </Link>
+              <h2 className="mt-3 font-display text-2xl font-semibold">
+                Commercial
+              </h2>
+
+              <p className="mt-3 text-sm leading-6 text-black/45">
+                Vacant warehouses, industry specific use and development motion.
+              </p>
+            </a>
+
+            <a
+              href="#childcare"
+              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                03
+              </p>
+
+              <h2 className="mt-3 font-display text-2xl font-semibold">
+                Childcare
+              </h2>
+
+              <p className="mt-3 text-sm leading-6 text-black/45">
+                Interiors, outdoor activity and development transformations.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* RESIDENTIAL SHORTS */}
+      <section id="residential" className="bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <YouTubeVideoCarousel
+            items={residentialShorts}
+            eyebrow="Residential Short Form"
+            heading="Give the listing another reason to appear."
+            description="Use existing residential property photography to create short campaign moments for rooms, facades, coming soon content and day to night transformations."
+          />
+
+          <div className="mt-9">
+            <Link
+              href="/residential-property-animation"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+            >
+              Explore residential animation
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* RESIDENTIAL LANDSCAPE */}
+      <section className="border-y border-black/10 bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <YouTubeVideoCarousel
+            items={residentialLandscape}
+            eyebrow="Residential Animation Library"
+            heading="Room by room."
+            description="Explore longer residential animation examples across kitchens, bedrooms, bathrooms, living rooms, facades, studies, laundries and outdoor areas."
+          />
+        </div>
+      </section>
+
+      {/* COMMERCIAL */}
+      <section id="commercial" className="bg-ink py-16 text-white md:py-20">
+        <div className="container-shell">
+          <YouTubeVideoCarousel
+            items={commercialVideos}
+            eyebrow="Commercial Property"
+            heading="Show the property working, not just waiting."
+            description="Commercial animation can add use, movement and development progression to property media that already exists."
+          />
+
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link
+              href="/commercial-property-animation"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
+            >
+              Explore commercial animation
+              <ArrowRight size={17} />
+            </Link>
+
+            <Link
+              href="/commercial-property-visualisation"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
+            >
+              See commercial visualisation
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CHILDCARE */}
+      <section id="childcare" className="bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <YouTubeVideoCarousel
+            items={childcareVideos}
+            eyebrow="Childcare"
+            heading="Make the future centre easier to understand."
+            description="Move through childcare interiors, outdoor areas and development transformations using project imagery that already exists."
+          />
+
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link
+              href="/childcare-property-animation"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+            >
+              Explore childcare animation
+              <ArrowRight size={17} />
+            </Link>
+
+            <Link
+              href="/childcare-development-visualisation"
+              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-6 py-3.5 font-semibold transition hover:border-rust"
+            >
+              Childcare development visualisation
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* AGENT USE */}
+      <section className="border-y border-black/10 bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                For The Campaign
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Motion should have a job.
+              </h2>
             </div>
 
-            <div className="grid border-l border-t border-white/10 sm:grid-cols-2">
+            <div className="space-y-3">
               {[
                 {
-                  number: "01",
-                  title: "Interior Rooms",
-                  text: "Show future childcare environments furnished, active and ready for use.",
+                  problem: "The listing has already been seen",
+                  answer:
+                    "Give a familiar property image another campaign moment with movement.",
                 },
                 {
-                  number: "02",
-                  title: "Outdoor Play",
-                  text: "Create landscaped and active outdoor environments before they are complete.",
+                  problem: "The room needs more atmosphere",
+                  answer:
+                    "Bring the still to life first, then animate the finished scene.",
                 },
                 {
-                  number: "03",
-                  title: "Demolition",
-                  text: "Show an existing home or building being removed from the development site.",
+                  problem: "The commercial use is hard to picture",
+                  answer:
+                    "Show the relevant business environment, then add activity and movement.",
                 },
                 {
-                  number: "04",
-                  title: "Final Centre",
-                  text: "Reveal the completed development with landscaping, cars, families and activity.",
+                  problem: "The development is not finished",
+                  answer:
+                    "Use motion to communicate progression toward the completed property.",
                 },
-              ].map((item) => (
-                <div
-                  key={item.number}
-                  className="min-h-[220px] border-b border-r border-white/10 p-7"
+                {
+                  problem: "The campaign needs a finished short video",
+                  answer:
+                    "Combine several animated scenes into a property Reel.",
+                },
+              ].map((item, index) => (
+                <article
+                  key={item.problem}
+                  className="grid gap-4 border-b border-black/10 py-6 sm:grid-cols-[55px_0.8fr_1.2fr]"
                 >
-                  <p className="font-mono text-[9px] uppercase tracking-[0.17em] text-brassBright">
-                    {item.number}
+                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-rust">
+                    {String(index + 1).padStart(2, "0")}
                   </p>
 
-                  <h3 className="mt-9 font-display text-2xl font-semibold">
-                    {item.title}
+                  <h3 className="font-display text-xl font-semibold">
+                    {item.problem}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-white/45">
-                    {item.text}
-                  </p>
-                </div>
+                  <p className="leading-7 text-black/50">{item.answer}</p>
+                </article>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CASE STUDY */}
-      <section className="bg-[#f7f5f1] py-20 md:py-28">
+      {/* SIMPLE PROCESS */}
+      <section className="bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
-          <div className="rounded-[2rem] bg-white p-8 shadow-soft md:p-12">
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-              <div>
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                  Residential Case Study
-                </p>
-
-                <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                  One property became twelve pieces of moving content.
-                </h2>
-              </div>
-
-              <div>
-                <p className="max-w-2xl text-lg leading-8 text-black/55">
-                  Explore one residential property across the facade, kitchen,
-                  dining, living spaces, bedrooms, bathroom, study, laundry and
-                  backyard.
-                </p>
-
-                <Link
-                  href="/projects/residential-property-transformation"
-                  className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
-                >
-                  Open the full case study
-                  <ArrowRight size={17} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* LEGACY SOCIAL LIBRARY */}
-      <section className="border-y border-black/10 bg-white py-20 md:py-28">
-        <div className="container-shell">
-          <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-4xl">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                More Property Motion
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Keep playing.
-              </h2>
-
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
-                Browse more property animations and finished vertical Reels.
-                Tap any example to open it larger.
-              </p>
-            </div>
-
-            <div className="flex gap-2 overflow-x-auto">
-              {filters.map((filter) => {
-                const active = activeFilter === filter;
-
-                return (
-                  <button
-                    key={filter}
-                    type="button"
-                    onClick={() => setActiveFilter(filter)}
-                    className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-                      active
-                        ? "bg-ink text-white"
-                        : "border border-black/10 bg-[#f7f5f1] text-black/50 hover:border-rust hover:text-rust"
-                    }`}
-                  >
-                    {filter}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="mt-12 grid gap-x-7 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredVideos.map((video, index) => (
-              <article
-                key={video.id}
-                className="group"
-              >
-                <div className="relative overflow-hidden rounded-[1.75rem] bg-ink p-2">
-                  <div className="overflow-hidden rounded-[1.3rem] bg-black">
-                    <SocialEmbed
-                      url={video.url}
-                      caption={video.title}
-                    />
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => setSelectedVideo(video)}
-                    aria-label={`Open ${video.title}`}
-                    className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-black/75 text-white backdrop-blur transition hover:bg-rust"
-                  >
-                    <Maximize2 size={17} />
-                  </button>
-                </div>
-
-                <div className="px-1 pt-5">
-                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
-                    {String(index + 1).padStart(2, "0")} / {video.category}
-                  </p>
-
-                  <h3 className="mt-2 font-display text-2xl font-semibold">
-                    {video.title}
-                  </h3>
-
-                  <p className="mt-3 max-w-md leading-7 text-black/50">
-                    {video.description}
-                  </p>
-
-                  <button
-                    type="button"
-                    onClick={() => setSelectedVideo(video)}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rust"
-                  >
-                    Open larger
-                    <ArrowRight size={15} />
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ANIMATION VS REEL */}
-      <section className="bg-[#f7f5f1] py-20 md:py-28">
-        <div className="container-shell">
-          <div className="grid gap-5 lg:grid-cols-2">
-            <div className="rounded-[2rem] bg-ink p-8 text-white md:p-10">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-brassBright">
-                Animated Scene
-              </p>
-
-              <h2 className="mt-5 font-display text-4xl font-semibold">
-                One image.
-                <br />
-                One moving moment.
-              </h2>
-
-              <p className="mt-5 max-w-xl leading-8 text-white/50">
-                A single property image transformed through camera movement,
-                people, lighting, cars, furniture, landscape or environmental
-                motion.
-              </p>
-
-              <Link
-                href="/residential-property-animation"
-                className="mt-7 inline-flex items-center gap-2 font-semibold text-brassBright"
-              >
-                Explore animations
-                <ArrowRight size={17} />
-              </Link>
-            </div>
-
-            <div className="rounded-[2rem] border border-black/10 bg-white p-8 md:p-10">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-rust">
-                Property Reel
-              </p>
-
-              <h2 className="mt-5 font-display text-4xl font-semibold">
-                Multiple scenes.
-                <br />
-                One finished property story.
-              </h2>
-
-              <p className="mt-5 max-w-xl leading-8 text-black/50">
-                Several enhanced and animated scenes are edited together into a
-                finished vertical property Reel ready to support the campaign.
-              </p>
-
-              <Link
-                href="/packages/property-reel-campaign"
-                className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
-              >
-                View Property Reel Campaign
-                <ArrowRight size={17} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* IMAGE LIBRARY */}
-      <section className="border-t border-black/10 bg-white py-20 md:py-24">
-        <div className="container-shell">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div className="max-w-3xl">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Want to control the transformation?
+                How It Works
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Drag between the original and finished image yourself.
+                Start with the property media already created.
               </h2>
-
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-black/55">
-                Our interactive image library includes childcare, residential,
-                commercial and lifestyle transformations.
-              </p>
             </div>
 
+            <div className="space-y-4">
+              {[
+                {
+                  number: "01",
+                  title: "Send The Existing Media",
+                  text: "Supply property photography, renders or footage already created for the campaign.",
+                },
+                {
+                  number: "02",
+                  title: "Choose The Scene",
+                  text: "Pick the rooms, facades, commercial uses or development moments worth extending.",
+                },
+                {
+                  number: "03",
+                  title: "Bring The Image To Life",
+                  text: "Add the visual detail, people, activity or atmosphere needed for the scene.",
+                },
+                {
+                  number: "04",
+                  title: "Make It Move",
+                  text: "Turn the finished property visual into short animated content.",
+                },
+                {
+                  number: "05",
+                  title: "Build A Reel",
+                  text: "Combine several animated scenes when the campaign needs a finished vertical property video.",
+                },
+              ].map((step) => (
+                <article
+                  key={step.number}
+                  className="grid gap-5 rounded-[2rem] border border-black/10 bg-white p-7 sm:grid-cols-[80px_1fr]"
+                >
+                  <p className="font-mono text-sm font-semibold text-rust">
+                    {step.number}
+                  </p>
+
+                  <div>
+                    <h3 className="font-display text-2xl font-semibold">
+                      {step.title}
+                    </h3>
+
+                    <p className="mt-3 leading-7 text-black/50">{step.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEXT */}
+      <section className="border-t border-black/10 bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-5 lg:grid-cols-3">
             <Link
               href="/image-library"
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
             >
-              Open Image Library
-              <ArrowRight size={18} />
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Before Motion
+              </p>
+
+              <h2 className="mt-4 font-display text-3xl font-semibold">
+                Explore Image Transformations
+              </h2>
+
+              <p className="mt-4 leading-7 text-black/50">
+                Drag through the still transformations that can become the
+                starting point for animation.
+              </p>
+
+              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
+                Explore images
+                <ArrowRight
+                  size={17}
+                  className="transition group-hover:translate-x-1"
+                />
+              </div>
+            </Link>
+
+            <Link
+              href="/packages/property-reel-campaign"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Finished Video
+              </p>
+
+              <h2 className="mt-4 font-display text-3xl font-semibold">
+                Property Reel Campaign
+              </h2>
+
+              <p className="mt-4 leading-7 text-black/50">
+                Combine multiple transformed and animated scenes into a finished
+                vertical property video.
+              </p>
+
+              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
+                View Reel package
+                <ArrowRight
+                  size={17}
+                  className="transition group-hover:translate-x-1"
+                />
+              </div>
+            </Link>
+
+            <Link
+              href="/blog/how-to-get-more-marketing-content-from-one-property-shoot"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Agent Guide
+              </p>
+
+              <h2 className="mt-4 font-display text-3xl font-semibold">
+                Get More From One Property Shoot
+              </h2>
+
+              <p className="mt-4 leading-7 text-black/50">
+                See how existing photography can support more campaign content
+                without another shoot.
+              </p>
+
+              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
+                Read guide
+                <ArrowRight
+                  size={17}
+                  className="transition group-hover:translate-x-1"
+                />
+              </div>
             </Link>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-rust px-6 py-20 text-white md:py-28">
+      <section className="bg-rust px-6 py-20 text-white md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-            Real Estate Media House
+            Property Media Made To Move
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-            Have the property media?
+            Already have the property photos?
             <br />
-            Let&apos;s make it move.
+            Give people something new to watch.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Send us the photography, renders or project imagery you already have
-            and we&apos;ll help create the next layer of the campaign.
+            Send us the property media you already have and tell us which parts
+            of the campaign need movement.
           </p>
 
           <Link
             href="/enquire"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
           >
-            Start a project
+            Discuss property animation
             <ArrowRight size={18} />
           </Link>
         </div>
       </section>
-
-      {/* VIDEO MODAL */}
-      {selectedVideo && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 backdrop-blur-sm md:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label={selectedVideo.title}
-          onClick={() => setSelectedVideo(null)}
-        >
-          <div
-            className="relative w-full max-w-xl overflow-hidden rounded-[1.5rem] bg-ink shadow-2xl md:rounded-[2rem]"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setSelectedVideo(null)}
-              aria-label="Close video"
-              className="absolute right-4 top-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-black text-white transition hover:bg-rust"
-            >
-              <X size={19} />
-            </button>
-
-            <div className="bg-black">
-              <SocialEmbed
-                url={selectedVideo.url}
-                caption={selectedVideo.title}
-              />
-            </div>
-
-            <div className="p-6 text-white md:p-8">
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                {selectedVideo.category}
-              </p>
-
-              <h2 className="mt-2 font-display text-3xl font-semibold">
-                {selectedVideo.title}
-              </h2>
-
-              <p className="mt-3 leading-7 text-white/50">
-                {selectedVideo.description}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }

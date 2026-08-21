@@ -1,543 +1,645 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useState } from "react";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
+
+import { SITE_URL } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Property Media Packages | Real Estate Media House",
+  description:
+    "Compare five property media campaign packages for enhanced images, property animation and finished Reels using the property media you already have.",
+  alternates: {
+    canonical: `${SITE_URL}/packages`,
+  },
+  openGraph: {
+    title: "Property Media Packages | Real Estate Media House",
+    description:
+      "Choose the amount of enhanced imagery, animation and finished property video your campaign needs.",
+    url: `${SITE_URL}/packages`,
+    type: "website",
+  },
+};
 
 const packages = [
   {
-    id: "refresh",
+    number: "01",
     name: "Property Refresh",
     price: "$495",
-    href: "/packages/property-refresh",
-    eyebrow: "Entry Package",
-    description:
-      "A focused visual refresh using enhanced still imagery and one short animated scene.",
-    images: "5 enhanced images",
-    motion: "1 short animation",
-    duration: "Up to 5 sec",
+    suffix: "+ GST",
+    intro: "A quick visual refresh when the campaign needs something new.",
     bestFor:
-      "Residential listings that need more life without a larger campaign.",
-    included: [
+      "Agents who already have the listing photography and want a small amount of fresh content.",
+    features: [
       "5 enhanced property images",
-      "1 short animation",
+      "1 short property animation",
       "Up to 5 seconds of animation",
-      "Lifestyle, furniture, lighting, plants, landscaping, food or pool styling where appropriate",
-      "Finished files ready for digital marketing",
+      "Created from your existing property media",
     ],
+    href: "/packages/property-refresh",
   },
   {
-    id: "campaign",
+    number: "02",
     name: "Property Campaign",
     price: "$895",
-    href: "/packages/property-campaign",
-    eyebrow: "Most Popular",
-    description:
-      "More enhanced imagery and multiple animated moments across the property.",
-    images: "8 enhanced images",
-    motion: "2 animations",
-    duration: "Up to 10 sec total",
+    suffix: "+ GST",
+    intro:
+      "More stills and motion for a property campaign that needs several fresh moments.",
     bestFor:
-      "Listings that need a broader visual campaign across multiple scenes.",
-    included: [
+      "Listings that need more campaign variety without moving into a full Reel.",
+    features: [
       "8 enhanced property images",
-      "2 animations",
-      "Up to 10 seconds of total animation",
-      "Can include day-to-night",
-      "Can include furniture appearing",
-      "Can include car arrival",
-      "Can include cinematic camera movement",
+      "2 property animations",
+      "Up to 10 seconds total animation",
+      "Created from your existing property media",
     ],
+    href: "/packages/property-campaign",
   },
   {
-    id: "premium",
+    number: "03",
     name: "Premium Campaign",
     price: "$1,295",
-    href: "/packages/premium-campaign",
-    eyebrow: "Premium Property",
-    description:
-      "A larger visual campaign with more enhanced stills and more advanced animation.",
-    images: "12 enhanced images",
-    motion: "3 animated scenes",
-    duration: "Around 15 sec total",
+    suffix: "+ GST",
+    intro:
+      "A larger image and animation campaign for properties that need more visual depth.",
     bestFor:
-      "Premium and luxury properties where presentation is a major part of the campaign.",
-    included: [
+      "Higher value campaigns that need a broader collection of transformed stills and animated scenes.",
+    features: [
       "12 enhanced property images",
       "3 animated scenes",
-      "Around 15 seconds of total motion",
-      "More advanced multi-scene animation",
-      "Lifestyle, golden hour, arrivals, pool activation and cinematic movement where appropriate",
-      "Individual animated scenes",
-      "Finished Property Reel not included",
+      "Around 15 seconds total animation",
+      "No finished Reel included",
     ],
+    href: "/packages/premium-campaign",
   },
   {
-    id: "reel",
+    number: "04",
     name: "Property Reel Campaign",
     price: "$1,590",
-    href: "/packages/property-reel-campaign",
-    eyebrow: "Complete Property Story",
-    description:
-      "Enhanced imagery, multiple animated scenes and one finished vertical Property Reel.",
-    images: "12 enhanced images",
-    motion: "3–4 animated scenes",
-    duration: "20–30 sec finished Reel",
+    suffix: "+ GST",
+    intro:
+      "The full campaign option when you want transformed images, animation and a finished vertical Reel.",
     bestFor:
-      "Premium listings that need a finished vertical property film rather than individual animations alone.",
-    included: [
+      "Agents who want a larger bank of visual content plus a finished short form property video.",
+    features: [
       "12 enhanced property images",
-      "3–4 animated scenes",
-      "1 finished vertical Property Reel",
-      "Approx. 20–30 seconds finished duration",
-      "Transitions between scenes",
-      "Walkthrough-style movement where appropriate",
-      "Cinematic transitions and reveals",
-      "More complex property transformations",
+      "3 to 4 animated scenes",
+      "Finished vertical property Reel",
+      "Approximately 20 to 30 seconds",
     ],
+    href: "/packages/property-reel-campaign",
+    featured: true,
+  },
+  {
+    number: "05",
+    name: "Development Campaign",
+    price: "Custom",
+    suffix: "",
+    intro:
+      "A tailored campaign for developments that need more than a standard property package.",
+    bestFor:
+      "Childcare, commercial and property development projects with multiple stages, spaces or visual requirements.",
+    features: [
+      "Custom image requirements",
+      "Custom animation requirements",
+      "Development transformation options",
+      "Scope built around the project",
+    ],
+    href: "/packages/development-campaign",
   },
 ];
 
 const comparisonRows = [
   {
     label: "Enhanced images",
-    refresh: "5",
-    campaign: "8",
-    premium: "12",
-    reel: "12",
+    values: ["5", "8", "12", "12", "Custom"],
   },
   {
     label: "Animated scenes",
-    refresh: "1",
-    campaign: "2",
-    premium: "3",
-    reel: "3–4",
+    values: ["1", "2", "3", "3 to 4", "Custom"],
   },
   {
-    label: "Total motion",
-    refresh: "Up to 5 sec",
-    campaign: "Up to 10 sec",
-    premium: "Around 15 sec",
-    reel: "20–30 sec Reel",
+    label: "Animation length",
+    values: [
+      "Up to 5 sec",
+      "Up to 10 sec",
+      "Around 15 sec",
+      "20 to 30 sec Reel",
+      "Custom",
+    ],
   },
   {
-    label: "Lifestyle enhancement",
-    refresh: "Included",
-    campaign: "Included",
-    premium: "Included",
-    reel: "Included",
-  },
-  {
-    label: "Furniture & styling",
-    refresh: "Available",
-    campaign: "Available",
-    premium: "Available",
-    reel: "Available",
-  },
-  {
-    label: "Day → Night",
-    refresh: "—",
-    campaign: "Available",
-    premium: "Available",
-    reel: "Available",
-  },
-  {
-    label: "Advanced motion",
-    refresh: "—",
-    campaign: "Selected",
-    premium: "Included",
-    reel: "Included",
-  },
-  {
-    label: "Finished Property Reel",
-    refresh: "—",
-    campaign: "—",
-    premium: "—",
-    reel: "Included",
+    label: "Finished Reel",
+    values: ["No", "No", "No", "Yes", "Optional"],
   },
 ];
 
 export default function PackagesPage() {
-  const [activePackage, setActivePackage] = useState("campaign");
-
-  const selectedPackage =
-    packages.find((item) => item.id === activePackage) ?? packages[1];
-
   return (
     <main className="bg-[#f7f5f1] text-ink">
-      {/* HERO */}
+      {/* COMPACT HERO */}
       <section className="bg-ink text-white">
-        <div className="container-shell py-20 md:py-28 lg:py-32">
-          <div className="max-w-5xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-              Property Packages
+        <div className="container-shell py-14 md:py-16">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Property Media Packages
+              </p>
+
+              <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+                Choose how much
+                <span className="block text-rust">
+                  campaign content you need.
+                </span>
+              </h1>
+            </div>
+
+            <div className="max-w-2xl lg:pb-2">
+              <p className="text-lg leading-8 text-white/60 md:text-xl">
+                Start with the property photography, renders or footage you
+                already have. Then choose how far you want to extend the
+                campaign.
+              </p>
+
+              <p className="mt-4 leading-7 text-white/40">
+                Five options. From a quick visual refresh to a finished property
+                Reel or custom development campaign.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAST PACKAGE SELECTOR */}
+      <section className="border-b border-black/10 bg-white">
+        <div className="container-shell py-6">
+          <div className="overflow-x-auto pb-2">
+            <div className="flex min-w-max gap-3">
+              {packages.map((item) => (
+                <a
+                  key={item.name}
+                  href={`#${item.name
+                    .toLowerCase()
+                    .replaceAll(" ", "-")}`}
+                  className={`w-[230px] shrink-0 rounded-[1.4rem] border p-5 transition ${
+                    item.featured
+                      ? "border-rust bg-rust text-white"
+                      : "border-black/10 bg-[#f7f5f1] hover:border-rust hover:bg-white"
+                  }`}
+                >
+                  <p
+                    className={`font-mono text-[9px] font-semibold uppercase tracking-[0.16em] ${
+                      item.featured ? "text-white/60" : "text-rust"
+                    }`}
+                  >
+                    {item.number}
+                  </p>
+
+                  <h2 className="mt-3 font-display text-xl font-semibold">
+                    {item.name}
+                  </h2>
+
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="font-display text-3xl font-semibold">
+                      {item.price}
+                    </span>
+
+                    {item.suffix && (
+                      <span
+                        className={`text-xs ${
+                          item.featured ? "text-white/50" : "text-black/40"
+                        }`}
+                      >
+                        {item.suffix}
+                      </span>
+                    )}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DECISION INTRO */}
+      <section className="py-14 md:py-18">
+        <div className="container-shell">
+          <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Start Here
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                What does the campaign need next?
+              </h2>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[1.75rem] border border-black/10 bg-white p-6">
+                <p className="font-display text-2xl font-semibold">
+                  Just needs fresh content?
+                </p>
+
+                <p className="mt-3 leading-7 text-black/50">
+                  Start with Property Refresh or Property Campaign.
+                </p>
+              </div>
+
+              <div className="rounded-[1.75rem] border border-black/10 bg-white p-6">
+                <p className="font-display text-2xl font-semibold">
+                  Needs more visual variety?
+                </p>
+
+                <p className="mt-3 leading-7 text-black/50">
+                  Premium Campaign gives you more transformed stills and motion.
+                </p>
+              </div>
+
+              <div className="rounded-[1.75rem] border border-black/10 bg-white p-6">
+                <p className="font-display text-2xl font-semibold">
+                  Needs a finished Reel?
+                </p>
+
+                <p className="mt-3 leading-7 text-black/50">
+                  Go straight to the Property Reel Campaign.
+                </p>
+              </div>
+
+              <div className="rounded-[1.75rem] border border-black/10 bg-white p-6">
+                <p className="font-display text-2xl font-semibold">
+                  Marketing a development?
+                </p>
+
+                <p className="mt-3 leading-7 text-black/50">
+                  Use the custom Development Campaign.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INTERACTIVE PACKAGE DETAILS */}
+      <section className="border-y border-black/10 bg-white py-14 md:py-18">
+        <div className="container-shell">
+          <div className="mb-8 max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Compare The Five Packages
             </p>
 
-            <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-              Start with the photos.
-              <span className="block text-white/35">
-                Choose how far we take them.
-              </span>
-            </h1>
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+              Open the package that matches the amount of content you need.
+            </h2>
+          </div>
 
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
-              Every residential package starts with the property photography
-              you already have. We enhance selected images, then make the
-              strongest scenes move.
+          <div className="space-y-3">
+            {packages.map((item) => {
+              const id = item.name
+                .toLowerCase()
+                .replaceAll(" ", "-");
+
+              return (
+                <details
+                  key={item.name}
+                  id={id}
+                  open={item.featured}
+                  className={`group scroll-mt-28 overflow-hidden rounded-[1.75rem] border ${
+                    item.featured
+                      ? "border-rust"
+                      : "border-black/10"
+                  }`}
+                >
+                  <summary className="cursor-pointer list-none bg-[#f7f5f1] p-6 marker:hidden md:p-7">
+                    <div className="grid gap-5 sm:grid-cols-[60px_1fr_auto] sm:items-center">
+                      <p className="font-mono text-xs font-semibold text-rust">
+                        {item.number}
+                      </p>
+
+                      <div>
+                        <div className="flex flex-wrap items-center gap-3">
+                          <h3 className="font-display text-2xl font-semibold md:text-3xl">
+                            {item.name}
+                          </h3>
+
+                          {item.featured && (
+                            <span className="rounded-full bg-rust px-3 py-1 font-mono text-[8px] font-semibold uppercase tracking-[0.15em] text-white">
+                              Includes Finished Reel
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="mt-2 max-w-2xl text-sm leading-6 text-black/45">
+                          {item.intro}
+                        </p>
+                      </div>
+
+                      <div className="flex items-baseline gap-1 sm:text-right">
+                        <span className="font-display text-3xl font-semibold">
+                          {item.price}
+                        </span>
+
+                        {item.suffix && (
+                          <span className="text-xs text-black/40">
+                            {item.suffix}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </summary>
+
+                  <div className="border-t border-black/10 bg-white p-6 md:p-8">
+                    <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                      <div>
+                        <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                          Best For
+                        </p>
+
+                        <p className="mt-4 text-lg leading-8 text-black/60">
+                          {item.bestFor}
+                        </p>
+
+                        <Link
+                          href={item.href}
+                          className="mt-7 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+                        >
+                          View {item.name}
+                          <ArrowRight size={17} />
+                        </Link>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {item.features.map((feature) => (
+                          <div
+                            key={feature}
+                            className="flex gap-3 rounded-[1.25rem] bg-[#f7f5f1] p-5"
+                          >
+                            <Check
+                              size={17}
+                              className="mt-1 shrink-0 text-rust"
+                            />
+
+                            <p className="text-sm leading-6 text-black/60">
+                              {feature}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* COMPARISON TABLE */}
+      <section className="bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="mb-9">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Quick Comparison
             </p>
+
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+              See the differences without opening five pages.
+            </h2>
+          </div>
+
+          <div className="overflow-x-auto rounded-[2rem] border border-black/10 bg-white shadow-soft">
+            <table className="min-w-[1000px] w-full border-collapse text-left">
+              <thead>
+                <tr className="border-b border-black/10">
+                  <th className="p-5 font-mono text-[9px] uppercase tracking-[0.15em] text-black/35">
+                    Package
+                  </th>
+
+                  {packages.map((item) => (
+                    <th key={item.name} className="p-5 align-top">
+                      <p className="font-display text-xl font-semibold">
+                        {item.name}
+                      </p>
+
+                      <p className="mt-2 font-display text-2xl font-semibold text-rust">
+                        {item.price}
+                      </p>
+
+                      {item.suffix && (
+                        <p className="mt-1 text-xs font-normal text-black/35">
+                          {item.suffix}
+                        </p>
+                      )}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+
+              <tbody>
+                {comparisonRows.map((row) => (
+                  <tr
+                    key={row.label}
+                    className="border-b border-black/10 last:border-b-0"
+                  >
+                    <th className="p-5 text-sm font-semibold">
+                      {row.label}
+                    </th>
+
+                    {row.values.map((value, index) => (
+                      <td
+                        key={`${row.label}-${packages[index].name}`}
+                        className={`p-5 text-sm ${
+                          packages[index].featured
+                            ? "font-semibold text-rust"
+                            : "text-black/55"
+                        }`}
+                      >
+                        {value}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       {/* PACKAGE CARDS */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="border-y border-black/10 bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Five Ways To Build The Campaign
+              </p>
+            </div>
+
+            <div>
+              <h2 className="max-w-4xl font-display text-4xl font-semibold leading-tight md:text-5xl">
+                You do not need the biggest package.
+                <span className="block text-rust">
+                  You need the one that solves the next campaign problem.
+                </span>
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-2">
             {packages.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setActivePackage(item.id)}
-                className={`relative min-h-[410px] rounded-[2rem] border p-7 text-left transition ${
-                  activePackage === item.id
-                    ? "border-rust bg-ink text-white shadow-soft"
-                    : "border-black/10 bg-[#f7f5f1] hover:border-rust"
+              <Link
+                key={`card-${item.name}`}
+                href={item.href}
+                className={`group flex min-h-[320px] flex-col rounded-[2rem] border p-8 transition ${
+                  item.featured
+                    ? "border-rust bg-ink text-white"
+                    : "border-black/10 bg-[#f7f5f1] hover:border-rust hover:bg-white hover:shadow-soft"
                 }`}
               >
-                <p
-                  className={`font-mono text-[9px] font-semibold uppercase tracking-[0.17em] ${
-                    activePackage === item.id
-                      ? "text-brassBright"
-                      : "text-rust"
-                  }`}
-                >
-                  {item.eyebrow}
-                </p>
-
-                <h2 className="mt-5 font-display text-3xl font-semibold leading-tight">
-                  {item.name}
-                </h2>
-
-                <div className="mt-5">
-                  <span className="font-display text-4xl font-semibold">
-                    {item.price}
-                  </span>
-
-                  <span
-                    className={`ml-2 text-xs ${
-                      activePackage === item.id
-                        ? "text-white/35"
-                        : "text-black/35"
+                <div className="flex items-start justify-between gap-5">
+                  <p
+                    className={`font-mono text-xs font-semibold ${
+                      item.featured ? "text-brassBright" : "text-rust"
                     }`}
                   >
-                    + GST
-                  </span>
+                    {item.number}
+                  </p>
+
+                  <div className="text-right">
+                    <p className="font-display text-3xl font-semibold">
+                      {item.price}
+                    </p>
+
+                    {item.suffix && (
+                      <p
+                        className={`mt-1 text-xs ${
+                          item.featured ? "text-white/40" : "text-black/35"
+                        }`}
+                      >
+                        {item.suffix}
+                      </p>
+                    )}
+                  </div>
                 </div>
 
+                <h3 className="mt-10 font-display text-3xl font-semibold">
+                  {item.name}
+                </h3>
+
                 <p
-                  className={`mt-6 leading-7 ${
-                    activePackage === item.id
-                      ? "text-white/55"
-                      : "text-black/50"
+                  className={`mt-5 flex-1 leading-7 ${
+                    item.featured ? "text-white/50" : "text-black/50"
                   }`}
                 >
-                  {item.description}
+                  {item.intro}
                 </p>
 
                 <div
-                  className={`mt-8 border-t pt-6 ${
-                    activePackage === item.id
-                      ? "border-white/10"
-                      : "border-black/10"
+                  className={`mt-7 inline-flex items-center gap-2 font-semibold ${
+                    item.featured ? "text-brassBright" : "text-rust"
                   }`}
                 >
-                  <p className="text-sm">{item.images}</p>
-                  <p className="mt-2 text-sm">{item.motion}</p>
-                  <p
-                    className={`mt-2 text-sm ${
-                      activePackage === item.id
-                        ? "text-white/40"
-                        : "text-black/40"
-                    }`}
-                  >
-                    {item.duration}
-                  </p>
+                  View package
+                  <ArrowRight
+                    size={17}
+                    className="transition group-hover:translate-x-1"
+                  />
                 </div>
-              </button>
+              </Link>
             ))}
-          </div>
-
-          {/* SELECTED PACKAGE */}
-          <div className="mt-8 rounded-[2rem] bg-[#f7f5f1] p-8 md:p-12">
-            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-              <div>
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
-                  Selected package
-                </p>
-
-                <h2 className="mt-4 font-display text-4xl font-semibold">
-                  {selectedPackage.name}
-                </h2>
-
-                <p className="mt-5 leading-8 text-black/55">
-                  {selectedPackage.bestFor}
-                </p>
-
-                <Link
-                  href={selectedPackage.href}
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
-                >
-                  View full package
-                  <ArrowRight size={17} />
-                </Link>
-              </div>
-
-              <div className="border-t border-black/10">
-                {selectedPackage.included.map((item, index) => (
-                  <div
-                    key={item}
-                    className="grid grid-cols-[55px_1fr] border-b border-black/10 py-5"
-                  >
-                    <p className="font-mono text-xs text-rust">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-
-                    <p>{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* COMPARISON */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
-        <div className="container-shell">
-          <div className="max-w-3xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              Compare packages
-            </p>
-
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-              More images. More movement. Bigger story.
-            </h2>
-          </div>
-
-          <div className="mt-12 overflow-x-auto">
-            <div className="min-w-[900px]">
-              <div className="grid grid-cols-[1.3fr_repeat(4,1fr)] border-l border-t border-black/10">
-                <div className="border-b border-r border-black/10 p-5" />
-
-                {packages.map((item) => (
-                  <div
-                    key={item.id}
-                    className="border-b border-r border-black/10 p-5"
-                  >
-                    <p className="font-display text-xl font-semibold">
-                      {item.name}
-                    </p>
-
-                    <p className="mt-2 font-mono text-xs text-rust">
-                      {item.price} + GST
-                    </p>
-                  </div>
-                ))}
-
-                {comparisonRows.map((row) => (
-                  <div
-                    key={row.label}
-                    className="contents"
-                  >
-                    <div className="border-b border-r border-black/10 p-5 font-semibold">
-                      {row.label}
-                    </div>
-
-                    <div className="border-b border-r border-black/10 p-5 text-sm text-black/55">
-                      {row.refresh}
-                    </div>
-
-                    <div className="border-b border-r border-black/10 p-5 text-sm text-black/55">
-                      {row.campaign}
-                    </div>
-
-                    <div className="border-b border-r border-black/10 p-5 text-sm text-black/55">
-                      {row.premium}
-                    </div>
-
-                    <div className="border-b border-r border-black/10 p-5 text-sm text-black/55">
-                      {row.reel}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* REEL DISTINCTION */}
-      <section className="bg-ink py-20 text-white md:py-28">
-        <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Animation vs Property Reel
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                An animation is one moving scene.
-                <br />
-                A Reel is the finished story.
-              </h2>
-            </div>
-
-            <div className="max-w-3xl">
-              <p className="text-lg leading-8 text-white/55">
-                Property Refresh, Property Campaign and Premium Campaign give
-                you individual moving scenes. Property Reel Campaign takes
-                multiple animated scenes and edits them together with
-                transitions into one finished vertical property film.
-              </p>
-
-              <div className="mt-9 grid border-l border-t border-white/10 sm:grid-cols-2">
-                <div className="border-b border-r border-white/10 p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-brassBright">
-                    Animation
-                  </p>
-
-                  <h3 className="mt-6 font-display text-2xl font-semibold">
-                    One scene moves.
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-white/45">
-                    Camera movement, furniture appearing, arrivals, lighting
-                    changes, pool activation and other single-scene motion.
-                  </p>
-                </div>
-
-                <div className="border-b border-r border-white/10 p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-brassBright">
-                    Property Reel
-                  </p>
-
-                  <h3 className="mt-6 font-display text-2xl font-semibold">
-                    The scenes become a film.
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-white/45">
-                    Multiple animated moments are sequenced and edited into one
-                    finished 20–30 second vertical property story.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DEVELOPMENT */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="container-shell">
-          <div className="rounded-[2rem] bg-sand p-8 md:p-12">
-            <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-              <div>
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
-                  Development Campaign
-                </p>
-
-                <h2 className="mt-4 font-display text-4xl font-semibold md:text-5xl">
-                  Some projects need a custom story.
-                </h2>
-
-                <p className="mt-5 max-w-3xl leading-8 text-black/55">
-                  Childcare centres, commercial developments, construction
-                  projects and larger transformations can include demolition,
-                  build stages, landscaping, car parks, people, cars and
-                  render-to-reality sequences.
-                </p>
-              </div>
-
-              <div>
-                <p className="font-display text-3xl font-semibold">
-                  Custom quote
-                </p>
-
-                <Link
-                  href="/packages/development-campaign"
-                  className="mt-5 inline-flex items-center gap-2 font-semibold text-rust"
-                >
-                  View Development Campaign
-                  <ArrowRight size={17} />
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* PAYMENT */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+      <section className="bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-white p-8 shadow-soft md:p-12">
+            <div className="grid gap-8 md:grid-cols-[0.65fr_1.35fr]">
+              <div>
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                  Payment
+                </p>
+
+                <p className="mt-5 font-display text-5xl font-semibold">
+                  50 / 50
+                </p>
+              </div>
+
+              <div>
+                <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
+                  50% to begin. 50% before the finished content is used.
+                </h2>
+
+                <p className="mt-5 leading-8 text-black/50">
+                  A 50% deposit is required to begin. The remaining 50% is due
+                  before the client may publish, post, distribute, advertise or
+                  otherwise use the finished content.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NOT SURE */}
+      <section className="bg-ink py-16 text-white md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Payment
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Not Sure Which One?
               </p>
 
-              <h2 className="mt-4 font-display text-3xl font-semibold">
-                50% to begin.
-                <br />
-                50% before publishing.
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Start with what the listing needs, not the package name.
               </h2>
             </div>
 
-            <div className="max-w-3xl">
-              <p className="leading-8 text-black/55">
-                A 50% deposit is required before production begins. The
-                remaining 50% must be paid before finished content can be
-                published, posted, advertised or distributed.
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-white/55">
+                Send us the property media you already have and tell us what is
+                happening with the campaign. We can work out whether you need a
+                small refresh, several animated moments or a finished Reel.
               </p>
+
+              <Link
+                href="/enquire"
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-rust hover:text-white"
+              >
+                Show us the campaign
+                <ArrowRight size={17} />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-rust px-6 py-20 text-white md:py-28">
+      <section className="bg-rust px-6 py-20 text-white md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-            Real Estate Media House
+            One Shoot. More Campaign Content.
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-            Already have the photos?
+            Already paid for the photography?
             <br />
-            Choose what happens next.
+            Get more from it.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Send us your existing property photography or renders and we&apos;ll
-            help you choose the campaign that best suits the property.
+            Choose a package or send us the property media and tell us what the
+            campaign needs next.
           </p>
 
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/enquire"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
-            >
-              Start a project
-              <ArrowRight size={18} />
-            </Link>
-
-            <Link
-              href="/explore"
-              className="inline-flex items-center rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
-            >
-              Explore transformations
-            </Link>
-          </div>
+          <Link
+            href="/enquire"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
+          >
+            Discuss your campaign
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </main>

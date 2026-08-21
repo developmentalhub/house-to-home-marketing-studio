@@ -1,530 +1,825 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+
 import { ArrowRight } from "lucide-react";
 
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ChildcareDevelopmentStory from "@/components/ChildcareDevelopmentStory";
 import CommercialOutcomeGallery from "@/components/CommercialOutcomeGallery";
-import MediaLightbox, {
-  type MediaLightboxItem,
-} from "@/components/MediaLightbox";
-import SwipeGallery, {
-  type SwipeGalleryItem,
-} from "@/components/SwipeGallery";
+import SwipeGallery from "@/components/SwipeGallery";
+import { SITE_URL } from "@/lib/site";
 
-type Transformation = {
-  id: string;
-  title: string;
-  category:
-    | "Childcare"
-    | "Residential"
-    | "Lifestyle"
-    | "Styling";
-  before: string;
-  after: string;
-  description: string;
+export const metadata: Metadata = {
+  title: "Property Image Transformations | Real Estate Media House",
+  description:
+    "Explore before and after property image transformations across residential, commercial and childcare property using existing photography and project media.",
+  alternates: {
+    canonical: `${SITE_URL}/image-library`,
+  },
+  openGraph: {
+    title: "Property Image Transformations | Real Estate Media House",
+    description:
+      "See existing property photography transformed into lifestyle scenes, furniture, commercial use concepts and development marketing visuals.",
+    url: `${SITE_URL}/image-library`,
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png`,
+        alt: "Commercial warehouse transformed into a gym marketing visual",
+      },
+    ],
+  },
 };
 
-const transformations: Transformation[] = [
-  {
-    id: "childcare-new-build",
-    title: "Childcare Centre New Build",
-    category: "Childcare",
-    before:
-      "/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg",
-    after:
-      "/images/childcare/before-after-childcare/childcare-centre-new-build-after.png",
-    description:
-      "See an existing property transformed into a clearer vision of the future childcare centre.",
-  },
-  {
-    id: "childcare-corner-site",
-    title: "Corner Site Childcare Centre",
-    category: "Childcare",
-    before:
-      "/images/childcare/before-after-childcare/corner-site-childcare-before.png",
-    after:
-      "/images/childcare/before-after-childcare/corner-site-childcare-after.png",
-    description:
-      "Help developers and stakeholders understand what the finished corner site could become.",
-  },
-  {
-    id: "childcare-yard",
-    title: "Childcare Outdoor Yard",
-    category: "Childcare",
-    before:
-      "/images/childcare/before-after-childcare/Rearyard1-Before.png",
-    after:
-      "/images/childcare/before-after-childcare/Rearyard1-After.png",
-    description:
-      "Bring the outdoor environment to life with a more complete and engaging finished scene.",
-  },
-  {
-    id: "childcare-room-one",
-    title: "Childcare Interior 01",
-    category: "Childcare",
-    before:
-      "/images/childcare/before-after-childcare/room1-before.png",
-    after:
-      "/images/childcare/before-after-childcare/room1-after.png",
-    description:
-      "Transform a static room into a clearer picture of how the finished environment could feel.",
-  },
-  {
-    id: "childcare-room-two",
-    title: "Childcare Interior 02",
-    category: "Childcare",
-    before:
-      "/images/childcare/before-after-childcare/room2-before.png",
-    after:
-      "/images/childcare/before-after-childcare/room2-after.png",
-    description:
-      "Show the future use and atmosphere of the room before the centre opens.",
-  },
-  {
-    id: "childcare-room-three",
-    title: "Childcare Interior 03",
-    category: "Childcare",
-    before:
-      "/images/childcare/before-after-childcare/room3-before.png",
-    after:
-      "/images/childcare/before-after-childcare/room3-after.png",
-    description:
-      "Give operators, developers and families a better sense of the completed space.",
-  },
+const residentialGallery = [
   {
     id: "residential-home",
     title: "Residential Exterior",
     category: "Residential",
-    before:
-      "/images/residential/residential-before-after/residential-home-before.png",
-    after:
-      "/images/residential/residential-before-after/residential-home-after.png",
     description:
-      "Turn an existing residential image into a stronger visual moment for the property campaign.",
+      "An existing residential property image developed into another finished campaign visual.",
+    image:
+      "/images/residential/residential-before-after/residential-home-after.png",
   },
   {
     id: "residential-kitchen",
     title: "Residential Kitchen",
     category: "Residential",
-    before:
-      "/images/residential/residential-before-after/kitchen-before.png",
-    after:
-      "/images/residential/residential-before-after/kitchen-after.png",
     description:
-      "Use the photography already supplied to create another piece of campaign content.",
+      "Existing kitchen photography transformed into additional campaign content.",
+    image:
+      "/images/residential/residential-before-after/kitchen-after.png",
   },
   {
-    id: "kitchen-lifestyle",
+    id: "lifestyle-kitchen",
     title: "Kitchen Lifestyle",
     category: "Lifestyle",
-    before:
-      "/property-images/website/staging/kitchen-before.jpeg",
-    after:
-      "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
     description:
-      "Introduce believable people, activity and atmosphere to an existing kitchen photograph.",
+      "A clean kitchen image given more atmosphere and lifestyle context.",
+    image:
+      "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
   },
   {
-    id: "bedroom-lifestyle",
+    id: "lifestyle-bedroom",
     title: "Bedroom Lifestyle",
     category: "Lifestyle",
-    before:
-      "/property-images/website/lifestyle/bedroom-before.jpeg",
-    after:
+    description:
+      "Existing bedroom photography turned into another lifestyle campaign moment.",
+    image:
       "/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg",
-    description:
-      "Create a warmer and more aspirational scene from the original bedroom photography.",
   },
   {
-    id: "bathroom-lifestyle",
-    title: "Bathroom Lifestyle",
-    category: "Lifestyle",
-    before:
-      "/property-images/website/lifestyle/bathroom-before.jpeg",
-    after:
-      "/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg",
-    description:
-      "Bring an existing bathroom photograph to life with human presence and atmosphere.",
-  },
-  {
-    id: "foyer-lifestyle",
-    title: "Foyer Lifestyle",
-    category: "Lifestyle",
-    before:
-      "/property-images/website/lifestyle/foyer-before.jpeg",
-    after:
-      "/property-images/website/lifestyle/foyer-after.jpeg",
-    description:
-      "Turn a static entrance into a more welcoming property moment.",
-  },
-  {
-    id: "kitchen-styling",
-    title: "Kitchen Styling",
-    category: "Styling",
-    before:
-      "/property-images/website/staging/kitchen-before.jpeg",
-    after:
-      "/property-images/website/staging/kitchen-after.jpeg",
-    description:
-      "Refine the presentation of an existing kitchen photograph with styling and finishing touches.",
-  },
-  {
-    id: "living-styling",
+    id: "staged-living",
     title: "Living Room Styling",
-    category: "Styling",
-    before:
-      "/property-images/website/staging/living-room-before.jpeg",
-    after:
+    category: "Furniture & Styling",
+    description:
+      "An empty living area shown with furniture to improve scale and purpose.",
+    image:
       "/property-images/website/staging/living-room-after.jpeg",
-    description:
-      "Turn an empty living space into a more complete and marketable property image.",
-  },
-  {
-    id: "ensuite-styling",
-    title: "Ensuite Styling",
-    category: "Styling",
-    before:
-      "/property-images/website/staging/ensuite-before.jpeg",
-    after:
-      "/property-images/website/staging/ensuite-after.jpeg",
-    description:
-      "Give an existing ensuite photograph a more polished presentation.",
-  },
-];
-
-const filters = [
-  "All",
-  "Childcare",
-  "Residential",
-  "Lifestyle",
-  "Styling",
-] as const;
-
-const childcareGallery: SwipeGalleryItem[] = [
-  {
-    id: "childcare-facade-1",
-    title: "Future Childcare Centre",
-    category: "Development",
-    image:
-      "/images/childcare/childcare-facade/build centre.png",
-    description:
-      "A future centre visual created to help people understand the development before completion.",
-  },
-  {
-    id: "childcare-facade-2",
-    title: "Childcare Development View",
-    category: "Development",
-    image:
-      "/images/childcare/childcare-facade/build centre3.png",
-    description:
-      "Another perspective of the proposed childcare development.",
-  },
-  {
-    id: "childcare-facade-3",
-    title: "Corner Site ELC",
-    category: "Development",
-    image:
-      "/images/childcare/childcare-facade/corner site ELC.png",
-    description:
-      "A finished visual showing how the corner site could become an early learning centre.",
   },
 ];
 
 export default function ImageLibraryPage() {
-  const [activeFilter, setActiveFilter] =
-    useState<(typeof filters)[number]>("All");
-
-  const [lightboxIndex, setLightboxIndex] =
-    useState<number | null>(null);
-
-  const filteredTransformations = useMemo(() => {
-    if (activeFilter === "All") {
-      return transformations;
-    }
-
-    return transformations.filter(
-      (item) => item.category === activeFilter,
-    );
-  }, [activeFilter]);
-
-  const lightboxItems = useMemo<MediaLightboxItem[]>(
-    () =>
-      filteredTransformations.map((item) => ({
-        id: item.id,
-        title: item.title,
-        category: item.category,
-        description: item.description,
-        before: item.before,
-        after: item.after,
-      })),
-    [filteredTransformations],
-  );
-
   return (
     <main className="bg-[#f7f5f1] text-ink">
       {/* HERO */}
       <section className="bg-ink text-white">
-        <div className="container-shell py-20 md:py-28 lg:py-32">
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.7fr] lg:items-end">
-            <div className="max-w-5xl">
+        <div className="container-shell py-14 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+            <div className="lg:sticky lg:top-28">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Interactive Image Library
+                Property Image Library
               </p>
 
               <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                The original image
-                <span className="block text-rust">
-                  is only the starting point.
-                </span>
+                Do not imagine
+                <span className="block text-rust">what we mean.</span>
               </h1>
-            </div>
 
-            <div className="max-w-xl lg:ml-auto">
-              <p className="text-lg leading-8 text-white/60">
-                Drag between before and after, swipe through project
-                possibilities and open the work full screen.
+              <p className="mt-7 max-w-xl text-lg leading-8 text-white/60 md:text-xl">
+                Drag the images and see what existing property photography can
+                become.
               </p>
+
+              <p className="mt-5 max-w-xl leading-8 text-white/45">
+                Residential lifestyle. Furniture and styling. Commercial use
+                concepts. Childcare development visualisation.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#transformations"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
+                >
+                  Start exploring
+                  <ArrowRight size={17} />
+                </a>
+
+                <Link
+                  href="/video-library"
+                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white hover:text-ink"
+                >
+                  See them move
+                </Link>
+              </div>
+            </div>
+
+            <div id="transformations" className="space-y-4">
+              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-2 shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/commercial/warehouse-multiple-afters/warehouse-before-gym.png"
+                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png"
+                  beforeAlt="Vacant commercial warehouse before gym visualisation"
+                  afterAlt="Commercial warehouse transformed into a gym concept"
+                />
+              </div>
+
+              <div className="flex items-center justify-between gap-4 px-1">
+                <div>
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
+                    Commercial
+                  </p>
+
+                  <p className="mt-1 font-display text-xl font-semibold">
+                    Warehouse to gym
+                  </p>
+                </div>
+
+                <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/35">
+                  Drag to compare
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FILTERS */}
-      <section className="sticky top-[76px] z-30 border-b border-black/10 bg-[#f7f5f1]/95 backdrop-blur-xl">
-        <div className="container-shell py-4">
-          <div className="flex gap-2 overflow-x-auto pb-1">
-            {filters.map((filter) => {
-              const active = activeFilter === filter;
+      {/* FAST CHOICE */}
+      <section className="border-b border-black/10 bg-white">
+        <div className="container-shell py-7">
+          <div className="grid gap-3 md:grid-cols-3">
+            <a
+              href="#residential"
+              className="group rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                01
+              </p>
 
-              return (
-                <button
-                  key={filter}
-                  type="button"
-                  onClick={() => {
-                    setActiveFilter(filter);
-                    setLightboxIndex(null);
-                  }}
-                  className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-                    active
-                      ? "bg-ink text-white"
-                      : "border border-black/10 bg-white text-black/55 hover:border-rust hover:text-rust"
-                  }`}
-                >
-                  {filter}
-                </button>
-              );
-            })}
+              <h2 className="mt-3 font-display text-2xl font-semibold">
+                Residential
+              </h2>
+
+              <p className="mt-3 text-sm leading-6 text-black/45">
+                Lifestyle, furniture and finished property transformations.
+              </p>
+            </a>
+
+            <a
+              href="#commercial"
+              className="group rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                02
+              </p>
+
+              <h2 className="mt-3 font-display text-2xl font-semibold">
+                Commercial
+              </h2>
+
+              <p className="mt-3 text-sm leading-6 text-black/45">
+                Show vacant property as relevant industry specific uses.
+              </p>
+            </a>
+
+            <a
+              href="#childcare"
+              className="group rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                03
+              </p>
+
+              <h2 className="mt-3 font-display text-2xl font-semibold">
+                Childcare
+              </h2>
+
+              <p className="mt-3 text-sm leading-6 text-black/45">
+                Development, interiors and outdoor environments brought to life.
+              </p>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* BEFORE AFTER LIBRARY */}
-      <section className="bg-white py-20 md:py-28">
+      {/* RESIDENTIAL */}
+      <section id="residential" className="py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+          <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Before & After
+                Residential
               </p>
 
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Drag the image yourself.
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Help buyers feel more than an empty room.
               </h2>
             </div>
 
-            <p className="max-w-2xl text-lg leading-8 text-black/55">
-              Use your finger on mobile or your mouse on desktop. Tap any
-              transformation to open it full screen and move through the rest
-              of the gallery.
-            </p>
+            <div className="max-w-3xl">
+              <p className="text-lg leading-8 text-black/55">
+                Existing residential photography can become lifestyle content,
+                furnished interiors and additional campaign images while the
+                original listing photography remains available.
+              </p>
+            </div>
           </div>
 
-          <div className="mt-12 grid gap-x-8 gap-y-14 lg:grid-cols-2">
-            {filteredTransformations.map((item, index) => (
-              <article key={item.id}>
-                <button
-                  type="button"
-                  onClick={() => setLightboxIndex(index)}
-                  className="block w-full overflow-hidden rounded-[1.75rem] bg-[#f7f5f1] text-left shadow-soft"
-                >
-                  <BeforeAfterSlider
-                    before={item.before}
-                    after={item.after}
-                    beforeAlt={`Original ${item.title}`}
-                    afterAlt={`Enhanced ${item.title}`}
-                  />
-                </button>
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/property-images/website/lifestyle/kitchen-before.jpeg"
+                  after="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
+                  beforeAlt="Original residential kitchen property photograph"
+                  afterAlt="Residential kitchen transformed into lifestyle marketing content"
+                />
+              </div>
 
-                <div className="mt-5 grid grid-cols-[42px_1fr] gap-3">
-                  <p className="pt-1 font-mono text-[10px] font-semibold text-rust">
-                    {String(index + 1).padStart(2, "0")}
+              <div className="mt-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Lifestyle
+                </p>
+
+                <h3 className="mt-2 font-display text-2xl font-semibold">
+                  Kitchen
+                </h3>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/property-images/website/staging/living-room-before.jpeg"
+                  after="/property-images/website/staging/living-room-after.jpeg"
+                  beforeAlt="Empty residential living room before virtual furniture"
+                  afterAlt="Residential living room after furniture and styling"
+                />
+              </div>
+
+              <div className="mt-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Furniture & Styling
+                </p>
+
+                <h3 className="mt-2 font-display text-2xl font-semibold">
+                  Living room
+                </h3>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/property-images/website/lifestyle/bedroom-before.jpeg"
+                  after="/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg"
+                  beforeAlt="Original residential bedroom"
+                  afterAlt="Residential bedroom transformed into lifestyle marketing content"
+                />
+              </div>
+
+              <div className="mt-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Lifestyle
+                </p>
+
+                <h3 className="mt-2 font-display text-2xl font-semibold">
+                  Bedroom
+                </h3>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/property-images/website/staging/kitchen-before.jpeg"
+                  after="/property-images/website/staging/kitchen-after.jpeg"
+                  beforeAlt="Residential kitchen before styling"
+                  afterAlt="Residential kitchen after furniture and styling"
+                />
+              </div>
+
+              <div className="mt-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Styling
+                </p>
+
+                <h3 className="mt-2 font-display text-2xl font-semibold">
+                  Kitchen styling
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RESIDENTIAL SWIPE */}
+      <section className="border-y border-black/10 bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="mb-9 max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              More Residential Outcomes
+            </p>
+
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+              Swipe through more finished campaign images.
+            </h2>
+          </div>
+
+          <SwipeGallery items={residentialGallery} />
+        </div>
+      </section>
+
+      {/* COMMERCIAL */}
+      <section id="commercial" className="bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Commercial
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                One vacant property.
+                <br />
+                Several possible audiences.
+              </h2>
+            </div>
+
+            <div className="max-w-3xl">
+              <p className="text-lg leading-8 text-black/55">
+                Instead of describing a warehouse as flexible, create visual
+                content around the industries the campaign actually wants to
+                reach.
+              </p>
+
+              <Link
+                href="/commercial-property-visualisation"
+                className="mt-6 inline-flex items-center gap-2 font-semibold text-rust"
+              >
+                Explore commercial visualisation
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/commercial/warehouse-multiple-afters/warehouse-before-gym.png"
+                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png"
+                  beforeAlt="Vacant warehouse before gym visualisation"
+                  afterAlt="Warehouse transformed into a gym"
+                />
+              </div>
+
+              <div className="mt-5 flex items-end justify-between gap-4">
+                <div>
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                    Fitness
                   </p>
 
-                  <div>
-                    <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-black/35">
-                      {item.category}
-                    </p>
-
-                    <h3 className="mt-2 font-display text-2xl font-semibold">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-3 max-w-lg text-sm leading-7 text-black/50">
-                      {item.description}
-                    </p>
-
-                    <button
-                      type="button"
-                      onClick={() => setLightboxIndex(index)}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rust"
-                    >
-                      Open full screen
-                      <ArrowRight size={15} />
-                    </button>
-                  </div>
+                  <h3 className="mt-2 font-display text-2xl font-semibold">
+                    Warehouse to gym
+                  </h3>
                 </div>
-              </article>
-            ))}
+
+                <Link
+                  href="/projects/warehouse-to-gym-visualisation"
+                  className="text-sm font-semibold text-rust"
+                >
+                  Case study
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
+                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-mechanic1.png"
+                  beforeAlt="Vacant warehouse before mechanic workshop visualisation"
+                  afterAlt="Warehouse transformed into a mechanic workshop"
+                />
+              </div>
+
+              <div className="mt-5 flex items-end justify-between gap-4">
+                <div>
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                    Automotive
+                  </p>
+
+                  <h3 className="mt-2 font-display text-2xl font-semibold">
+                    Warehouse to mechanic workshop
+                  </h3>
+                </div>
+
+                <Link
+                  href="/projects/warehouse-to-mechanic-workshop-visualisation"
+                  className="text-sm font-semibold text-rust"
+                >
+                  Case study
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
+                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-logistics.png"
+                  beforeAlt="Vacant warehouse before logistics visualisation"
+                  afterAlt="Warehouse transformed into a logistics operation"
+                />
+              </div>
+
+              <div className="mt-5 flex items-end justify-between gap-4">
+                <div>
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                    Logistics
+                  </p>
+
+                  <h3 className="mt-2 font-display text-2xl font-semibold">
+                    Warehouse to logistics
+                  </h3>
+                </div>
+
+                <Link
+                  href="/projects/warehouse-to-logistics-visualisation"
+                  className="text-sm font-semibold text-rust"
+                >
+                  Case study
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
+                  after="/images/commercial/warehouse-multiple-afters/warehouse-after-photography-studio.png"
+                  beforeAlt="Vacant warehouse before photography studio visualisation"
+                  afterAlt="Warehouse transformed into a photography studio"
+                />
+              </div>
+
+              <div className="mt-5 flex items-end justify-between gap-4">
+                <div>
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                    Creative
+                  </p>
+
+                  <h3 className="mt-2 font-display text-2xl font-semibold">
+                    Warehouse to photography studio
+                  </h3>
+                </div>
+
+                <Link
+                  href="/projects/warehouse-to-photography-studio-visualisation"
+                  className="text-sm font-semibold text-rust"
+                >
+                  Case study
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CHILDCARE STORY */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      {/* COMMERCIAL MULTIPLE OUTCOMES */}
+      <section className="border-y border-black/10 bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="mb-10 max-w-4xl">
+          <div className="mb-9 max-w-4xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              Childcare Development
+              One Warehouse. Multiple Outcomes.
             </p>
 
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-              Move through the project instead of looking at one image.
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+              Explore how one commercial property can carry several campaign
+              stories.
             </h2>
-
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
-              Explore the site, future centre, interiors and outdoor
-              environment as a visual development story.
-            </p>
-          </div>
-
-          <ChildcareDevelopmentStory />
-        </div>
-      </section>
-
-      {/* CHILDCARE FACADES */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="container-shell">
-          <SwipeGallery
-            items={childcareGallery}
-            eyebrow="Childcare Development Views"
-            heading="Swipe through more future centre visuals."
-            description="These project images help developers, operators and stakeholders see the proposed centre from more than one perspective."
-          />
-        </div>
-      </section>
-
-      {/* COMMERCIAL OUTCOMES */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
-        <div className="container-shell">
-          <div className="mb-10 max-w-4xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              Commercial Property
-            </p>
-
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-              One warehouse.
-              <br />
-              Seven different possibilities.
-            </h2>
-
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
-              Swipe through multiple ways the same commercial property can be
-              presented to different buyers or tenants.
-            </p>
           </div>
 
           <CommercialOutcomeGallery />
         </div>
       </section>
 
-      {/* NEXT STEP */}
-      <section className="bg-ink py-20 text-white md:py-28">
+      {/* CHILDCARE */}
+      <section id="childcare" className="bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                From Still To Motion
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Childcare
               </p>
 
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Once the image works harder, make it move.
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Show the centre before the finished centre can be photographed.
               </h2>
             </div>
 
-            <div className="max-w-2xl lg:ml-auto">
-              <p className="text-lg leading-8 text-white/55">
-                See how residential, childcare and commercial property imagery
-                can become animated campaign content.
+            <div className="max-w-3xl">
+              <p className="text-lg leading-8 text-black/55">
+                Development imagery can become completed property visuals,
+                active rooms and outdoor environments that make the future
+                childcare centre easier to understand.
               </p>
 
               <Link
-                href="/video-library"
-                className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
+                href="/childcare-development-visualisation"
+                className="mt-6 inline-flex items-center gap-2 font-semibold text-rust"
               >
-                Explore property animation
+                Explore childcare visualisation
                 <ArrowRight size={17} />
               </Link>
             </div>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg"
+                  after="/images/childcare/before-after-childcare/childcare-centre-new-build-after.png"
+                  beforeAlt="Property before childcare development visualisation"
+                  afterAlt="Property transformed into a completed childcare centre"
+                />
+              </div>
+
+              <div className="mt-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Development
+                </p>
+
+                <h3 className="mt-2 font-display text-2xl font-semibold">
+                  Future childcare centre
+                </h3>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/childcare/before-after-childcare/room1-before.png"
+                  after="/images/childcare/before-after-childcare/room1-after.png"
+                  beforeAlt="Childcare room before visual transformation"
+                  afterAlt="Childcare room transformed into an active environment"
+                />
+              </div>
+
+              <div className="mt-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Interior
+                </p>
+
+                <h3 className="mt-2 font-display text-2xl font-semibold">
+                  Active learning environment
+                </h3>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/childcare/before-after-childcare/Rearyard1-Before.png"
+                  after="/images/childcare/before-after-childcare/Rearyard1-After.png"
+                  beforeAlt="Childcare rear yard before visual transformation"
+                  afterAlt="Childcare rear yard transformed into an active outdoor environment"
+                />
+              </div>
+
+              <div className="mt-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Outdoor
+                </p>
+
+                <h3 className="mt-2 font-display text-2xl font-semibold">
+                  Rear yard environment
+                </h3>
+              </div>
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+                <BeforeAfterSlider
+                  before="/images/childcare/before-after-childcare/corner-site-childcare-before.png"
+                  after="/images/childcare/before-after-childcare/corner-site-childcare-after.png"
+                  beforeAlt="Corner site before childcare development visualisation"
+                  afterAlt="Corner site transformed into a childcare centre"
+                />
+              </div>
+
+              <div className="mt-5">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Development
+                </p>
+
+                <h3 className="mt-2 font-display text-2xl font-semibold">
+                  Corner site transformation
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CHILDCARE STORY */}
+      <section className="border-y border-black/10 bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="mb-9 max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Explore The Development Story
+            </p>
+
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+              Move through the childcare project visually.
+            </h2>
+          </div>
+
+          <ChildcareDevelopmentStory />
+        </div>
+      </section>
+
+      {/* WHY */}
+      <section className="bg-ink py-16 text-white md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Why Create Another Image?
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Because another image should solve another campaign problem.
+              </h2>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                {
+                  problem: "The room is empty",
+                  solution:
+                    "Show furniture, lifestyle or activity so buyers understand the space faster.",
+                },
+                {
+                  problem: "The commercial use is unclear",
+                  solution:
+                    "Create an industry specific version for the tenant or operator you want to reach.",
+                },
+                {
+                  problem: "The development is unfinished",
+                  solution:
+                    "Show the completed property story before it can be photographed.",
+                },
+                {
+                  problem: "The campaign has been seen",
+                  solution:
+                    "Create another visual moment from the media already produced.",
+                },
+              ].map((item, index) => (
+                <article
+                  key={item.problem}
+                  className="grid gap-4 border-b border-white/10 py-6 sm:grid-cols-[55px_0.8fr_1.2fr]"
+                >
+                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-brassBright">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+
+                  <h3 className="font-display text-xl font-semibold">
+                    {item.problem}
+                  </h3>
+
+                  <p className="leading-7 text-white/45">{item.solution}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEXT */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-5 lg:grid-cols-3">
+            <Link
+              href="/video-library"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Next Step
+              </p>
+
+              <h2 className="mt-4 font-display text-3xl font-semibold">
+                Make The Image Move
+              </h2>
+
+              <p className="mt-4 leading-7 text-black/50">
+                See existing property media transformed into animated campaign
+                content.
+              </p>
+
+              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
+                Explore videos
+                <ArrowRight
+                  size={17}
+                  className="transition group-hover:translate-x-1"
+                />
+              </div>
+            </Link>
+
+            <Link
+              href="/services"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Services
+              </p>
+
+              <h2 className="mt-4 font-display text-3xl font-semibold">
+                Choose The Transformation
+              </h2>
+
+              <p className="mt-4 leading-7 text-black/50">
+                Lifestyle, furniture, visualisation, animation and finished
+                campaign content.
+              </p>
+
+              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
+                Explore services
+                <ArrowRight
+                  size={17}
+                  className="transition group-hover:translate-x-1"
+                />
+              </div>
+            </Link>
+
+            <Link
+              href="/packages"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
+            >
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Packages
+              </p>
+
+              <h2 className="mt-4 font-display text-3xl font-semibold">
+                Build A Property Campaign
+              </h2>
+
+              <p className="mt-4 leading-7 text-black/50">
+                Combine several transformed images and animated scenes into a
+                larger campaign.
+              </p>
+
+              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
+                Explore packages
+                <ArrowRight
+                  size={17}
+                  className="transition group-hover:translate-x-1"
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-rust px-6 py-20 text-white md:py-28">
+      <section className="bg-rust px-6 py-20 text-white md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-            Real Estate Media House
+            Existing Property Photography
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-            You already have the media.
+            Already have the images?
             <br />
-            Get more campaign value from it.
+            Give them another job.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Send us the photography, renders or project imagery you already
-            have and we&apos;ll help identify what can be transformed.
+            Send us the property media you already have and tell us what the
+            campaign needs people to see next.
           </p>
 
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/enquire"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
-            >
-              Start a project
-              <ArrowRight size={18} />
-            </Link>
-
-            <Link
-              href="/packages"
-              className="inline-flex items-center rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
-            >
-              Compare packages
-            </Link>
-          </div>
+          <Link
+            href="/enquire"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
+          >
+            Show us your property images
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
-
-      <MediaLightbox
-        items={lightboxItems}
-        openIndex={lightboxIndex}
-        onClose={() => setLightboxIndex(null)}
-        onChange={setLightboxIndex}
-      />
     </main>
   );
 }

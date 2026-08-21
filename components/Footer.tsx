@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { ArrowRight } from "lucide-react";
+
 import {
   CONTACT_EMAIL,
   CONTACT_EMAIL_LINK,
@@ -12,45 +14,53 @@ const exploreLinks = [
     href: "/explore",
   },
   {
-    label: "Videos",
-    href: "/video-library",
-  },
-  {
-    label: "Images",
-    href: "/image-library",
-  },
-  {
     label: "Before & After",
     href: "/before-after",
   },
   {
-    label: "Services",
-    href: "/services",
+    label: "Image Library",
+    href: "/image-library",
+  },
+  {
+    label: "Video Library",
+    href: "/video-library",
+  },
+  {
+    label: "Property Marketing Guides",
+    href: "/blog",
   },
 ];
 
-const propertyTypeLinks = [
+const propertyLinks = [
   {
-    label: "Childcare Property Animation",
+    label: "Childcare",
     href: "/childcare-property-animation",
   },
   {
-    label: "Residential Property Animation",
+    label: "Residential",
     href: "/residential-property-animation",
   },
   {
-    label: "Commercial Property Animation",
-    href: "/commercial-property-animation",
+    label: "Commercial",
+    href: "/commercial-property-visualisation",
   },
   {
-    label: "Residential Case Study",
-    href: "/projects/residential-property-transformation",
+    label: "Commercial Animation",
+    href: "/commercial-property-animation",
   },
 ];
 
-const packageLinks = [
+const serviceLinks = [
   {
-    label: "Compare Packages",
+    label: "Services",
+    href: "/services",
+  },
+  {
+    label: "How It Works",
+    href: "/how-it-works",
+  },
+  {
+    label: "Packages",
     href: "/packages",
   },
   {
@@ -62,158 +72,239 @@ const packageLinks = [
     href: "/packages/property-campaign",
   },
   {
-    label: "Premium Campaign",
-    href: "/packages/premium-campaign",
-  },
-  {
     label: "Property Reel Campaign",
     href: "/packages/property-reel-campaign",
   },
-  {
-    label: "Development Campaign",
-    href: "/packages/development-campaign",
-  },
 ];
 
-const companyLinks = [
+const projectLinks = [
   {
-    label: "How It Works",
-    href: "/how-it-works",
+    label: "Warehouse to Gym",
+    href: "/projects/warehouse-to-gym-visualisation",
   },
   {
-    label: "Start a Project",
-    href: "/enquire",
+    label: "Warehouse to Mechanic Workshop",
+    href: "/projects/warehouse-to-mechanic-workshop-visualisation",
   },
   {
-    label: "Privacy",
-    href: "/privacy",
+    label: "Warehouse to Logistics",
+    href: "/projects/warehouse-to-logistics-visualisation",
   },
   {
-    label: "Terms",
-    href: "/terms",
+    label: "Warehouse to Photography Studio",
+    href: "/projects/warehouse-to-photography-studio-visualisation",
+  },
+  {
+    label: "Childcare Development",
+    href: "/projects/childcare-centre-development-transformation",
+  },
+  {
+    label: "Residential Transformation",
+    href: "/projects/residential-property-transformation",
   },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-ink text-white">
-      <div className="container-shell">
-        <div className="grid gap-14 py-16 md:py-20 lg:grid-cols-[1.2fr_0.75fr_1fr_0.95fr_0.7fr]">
-          {/* BRAND */}
-          <div className="max-w-sm">
-            <Link
-              href="/"
-              className="inline-block font-display text-3xl font-semibold leading-none tracking-tight"
-            >
-              Real Estate
-              <span className="block text-rust">
-                Media House
-              </span>
-            </Link>
+      {/* PRIMARY CTA */}
+      <section className="border-b border-white/10">
+        <div className="container-shell py-16 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+            <div className="max-w-4xl">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
+                Real Estate Media House
+              </p>
 
-            <p className="mt-6 text-lg leading-8 text-white/55">
-              Property media made to move.
-            </p>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+                Already have the property media?
+                <span className="block text-rust">
+                  Turn it into more campaign content.
+                </span>
+              </h2>
 
-            <p className="mt-3 max-w-xs leading-7 text-white/40">
-              First, we bring the image to life. Then, we make it move.
-            </p>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/50">
+                We transform existing property photography, renders and footage
+                into enhanced visuals, animation and finished property content.
+              </p>
+            </div>
 
-            <a
-              href={CONTACT_EMAIL_LINK}
-              className="mt-7 inline-block font-semibold text-brassBright transition hover:text-white"
-            >
-              {CONTACT_EMAIL}
-            </a>
-          </div>
-
-          {/* EXPLORE */}
-          <div>
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
-              Explore
-            </p>
-
-            <nav className="mt-5 flex flex-col gap-3">
-              {exploreLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-white/55 transition hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* PROPERTY TYPES */}
-          <div>
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
-              Property Types
-            </p>
-
-            <nav className="mt-5 flex flex-col gap-3">
-              {propertyTypeLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-white/55 transition hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* PACKAGES */}
-          <div>
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
-              Packages
-            </p>
-
-            <nav className="mt-5 flex flex-col gap-3">
-              {packageLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-white/55 transition hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* COMPANY */}
-          <div>
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
-              Work with us
-            </p>
-
-            <nav className="mt-5 flex flex-col gap-3">
-              {companyLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-white/55 transition hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            <div className="lg:text-right">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-rust hover:text-white"
+              >
+                Discuss your property media
+                <ArrowRight size={18} />
+              </Link>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div className="flex flex-col gap-4 border-t border-white/10 py-7 text-xs text-white/30 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
-          </p>
+      {/* LINK DIRECTORY */}
+      <section>
+        <div className="container-shell py-14 md:py-16">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.9fr_1.2fr]">
+            {/* BRAND */}
+            <div className="max-w-sm">
+              <Link href="/" className="inline-block">
+                <p className="font-display text-3xl font-semibold leading-none">
+                  Real Estate
+                </p>
 
-          <p>
-            Property imagery transformed for digital marketing.
-          </p>
+                <p className="mt-2 font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                  Media House
+                </p>
+              </Link>
+
+              <p className="mt-6 text-sm leading-7 text-white/45">
+                Property media made to do more. Enhanced stills, visual
+                transformation, animation and finished campaign content created
+                from media that already exists.
+              </p>
+
+              <div className="mt-7">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-white/30">
+                  Email
+                </p>
+
+                <a
+                  href={CONTACT_EMAIL_LINK}
+                  className="mt-2 inline-block text-sm font-semibold text-white transition hover:text-brassBright"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </div>
+            </div>
+
+            {/* EXPLORE */}
+            <div>
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-brassBright">
+                Explore
+              </p>
+
+              <div className="mt-5 grid gap-3">
+                {exploreLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm text-white/50 transition hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* PROPERTY TYPES */}
+            <div>
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-brassBright">
+                Property Types
+              </p>
+
+              <div className="mt-5 grid gap-3">
+                {propertyLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm text-white/50 transition hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* SERVICES */}
+            <div>
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-brassBright">
+                Work With Us
+              </p>
+
+              <div className="mt-5 grid gap-3">
+                {serviceLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm text-white/50 transition hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+
+                <Link
+                  href="/enquire"
+                  className="mt-2 text-sm font-semibold text-brassBright transition hover:text-white"
+                >
+                  Enquire
+                </Link>
+              </div>
+            </div>
+
+            {/* CASE STUDIES */}
+            <div>
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-brassBright">
+                Visual Case Studies
+              </p>
+
+              <div className="mt-5 grid gap-3">
+                {projectLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm leading-5 text-white/50 transition hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* SEO / POSITIONING STRIP */}
+      <section className="border-t border-white/10">
+        <div className="container-shell py-8">
+          <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+            <p className="max-w-4xl text-xs leading-6 text-white/30">
+              Real Estate Media House creates visual property marketing content
+              for real estate agents, developers and commercial property
+              professionals using supplied photography, renders and footage.
+            </p>
+
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/35 md:justify-end">
+              <Link
+                href="/privacy"
+                className="transition hover:text-white"
+              >
+                Privacy
+              </Link>
+
+              <Link
+                href="/terms"
+                className="transition hover:text-white"
+              >
+                Terms
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COPYRIGHT */}
+      <section className="border-t border-white/10">
+        <div className="container-shell py-6">
+          <div className="flex flex-col gap-3 text-[11px] text-white/25 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {new Date().getFullYear()} {SITE_NAME}
+            </p>
+
+            <p>Property media made to move.</p>
+          </div>
+        </div>
+      </section>
     </footer>
   );
 }
