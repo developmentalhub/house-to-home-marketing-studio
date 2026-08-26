@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Youtube, Instagram, Facebook } from "lucide-react";
 
 import {
   CONTACT_EMAIL,
@@ -104,6 +104,24 @@ const projectLinks = [
   },
 ];
 
+const socialLinks = [
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@rpimages",
+    icon: Youtube,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/real_estate_media_house/",
+    icon: Instagram,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/realestatemediahouse",
+    icon: Facebook,
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-ink text-white">
@@ -175,6 +193,31 @@ export default function Footer() {
                 >
                   {CONTACT_EMAIL}
                 </a>
+              </div>
+
+              <div className="mt-7">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-white/30">
+                  Follow
+                </p>
+
+                <div className="mt-3 flex items-center gap-4">
+                  {socialLinks.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={item.label}
+                        className="text-white/50 transition hover:text-brassBright"
+                      >
+                        <Icon size={20} />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import YouTubeVideoCarousel from "@/components/YouTubeVideoCarousel";
+import { fetchLatestYouTubeVideos } from "@/lib/youtube";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -22,45 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-const residentialShorts = [
-  {
-    id: "residential-kitchen-short",
-    title: "Kitchen Animation",
-    url: "https://www.youtube.com/shorts/5NP5Ay_3SBY",
-    category: "Residential",
-    description:
-      "Existing kitchen photography turned into short moving campaign content.",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "facade-coming-soon",
-    title: "Coming Soon Facade",
-    url: "https://www.youtube.com/shorts/7sLtp4cucnU",
-    category: "Facade",
-    description:
-      "A still facade image turned into another campaign moment.",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "facade-balloons",
-    title: "Facade With Balloons",
-    url: "https://www.youtube.com/shorts/npBU8mNYw0o",
-    category: "Facade",
-    description:
-      "Another visual direction created from existing residential property media.",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "facade-day-night",
-    title: "Facade Day To Night",
-    url: "https://www.youtube.com/shorts/UMWARuYjMSU",
-    category: "Day To Night",
-    description:
-      "An exterior image turned into a second campaign moment with atmosphere and lighting.",
-    orientation: "portrait" as const,
-  },
-];
-
+// Kept as its own case study, shown further down the page.
 const residentialLandscape = [
   {
     id: "res-bathroom",
@@ -150,268 +113,84 @@ const residentialLandscape = [
   },
 ];
 
-const childcareVideos = [
-  {
-    id: "childcare-1",
-    title: "Childcare Animation 01",
-    url: "https://www.youtube.com/shorts/quxLhvqpAEQ",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-2",
-    title: "Childcare Animation 02",
-    url: "https://www.youtube.com/shorts/VNgAj19pqJc",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-3",
-    title: "Childcare Animation 03",
-    url: "https://www.youtube.com/shorts/m3xlOPyhYe8",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-4",
-    title: "Childcare Animation 04",
-    url: "https://www.youtube.com/shorts/4MduhCc7tOU",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-5",
-    title: "Childcare Animation 05",
-    url: "https://www.youtube.com/shorts/al5ui0K4D98",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-6",
-    title: "Childcare Animation 06",
-    url: "https://www.youtube.com/shorts/GnoYNXeTZaA",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-7",
-    title: "Childcare Animation 07",
-    url: "https://www.youtube.com/shorts/5WQoWJR4qjc",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-8",
-    title: "Childcare Build Transformation",
-    url: "https://www.youtube.com/shorts/Jvr3HdGMBAo",
-    category: "Development",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-9",
-    title: "Childcare Animation 09",
-    url: "https://www.youtube.com/shorts/fDUWkWFLUrM",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "childcare-10",
-    title: "Childcare Animation 10",
-    url: "https://www.youtube.com/shorts/kdFOHfqTHLw",
-    category: "Childcare",
-    orientation: "portrait" as const,
-  },
-];
+export default async function VideoLibraryPage() {
+  // Auto-pulled from the YouTube channel via the Data API. Falls back to an
+  // empty array (and the section just doesn't render) if the API key isn't
+  // configured yet or the request fails for any reason.
+  const latestVideos = await fetchLatestYouTubeVideos(12);
 
-const commercialVideos = [
-  {
-    id: "commercial-1",
-    title: "Commercial Property Animation 01",
-    url: "https://www.youtube.com/shorts/7YJSGYg99q0",
-    category: "Commercial",
-    description:
-      "Existing warehouse media turned into moving commercial campaign content.",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "commercial-2",
-    title: "Commercial Property Animation 02",
-    url: "https://www.youtube.com/shorts/bJCRltJn_vY",
-    category: "Commercial",
-    description:
-      "Another moving commercial property concept created from existing campaign media.",
-    orientation: "portrait" as const,
-  },
-  {
-    id: "commercial-3",
-    title: "Commercial Development Transformation",
-    url: "https://www.youtube.com/shorts/2DXsq8mXemI",
-    category: "Development",
-    description:
-      "A commercial development progression shown as short moving content.",
-    orientation: "portrait" as const,
-  },
-];
-
-export default function VideoLibraryPage() {
   return (
     <main className="bg-[#f7f5f1] text-ink">
       {/* HERO */}
       <section className="bg-ink text-white">
         <div className="container-shell py-14 md:py-20">
-          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-            <div className="lg:sticky lg:top-28">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Property Video Library
-              </p>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+              Property Video Library
+            </p>
 
-              <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Do not read about it.
-                <span className="block text-rust">Watch the property move.</span>
-              </h1>
+            <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+              See The Property
+              <span className="block text-rust">Come To Life.</span>
+            </h1>
 
-              <p className="mt-7 max-w-xl text-lg leading-8 text-white/60 md:text-xl">
-                Existing real estate photography can become short moving
-                campaign content without organising another property shoot.
-              </p>
+            <p className="mx-auto mt-7 max-w-xl text-lg leading-8 text-white/60 md:text-xl">
+              Existing real estate photography can become short moving
+              campaign content without organising another property shoot.
+            </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="#residential"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-                >
-                  Start watching
-                  <ArrowRight size={17} />
-                </a>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href="#latest"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
+              >
+                Start watching
+                <ArrowRight size={17} />
+              </a>
 
-                <Link
-                  href="/image-library"
-                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
-                >
-                  See before and after
-                </Link>
-              </div>
-
-              <div className="mt-10 grid grid-cols-3 gap-3 border-t border-white/10 pt-6">
-                <div>
-                  <p className="font-display text-3xl font-semibold">01</p>
-                  <p className="mt-2 text-xs leading-5 text-white/40">
-                    Residential
-                  </p>
-                </div>
-
-                <div>
-                  <p className="font-display text-3xl font-semibold">02</p>
-                  <p className="mt-2 text-xs leading-5 text-white/40">
-                    Commercial
-                  </p>
-                </div>
-
-                <div>
-                  <p className="font-display text-3xl font-semibold">03</p>
-                  <p className="mt-2 text-xs leading-5 text-white/40">
-                    Childcare
-                  </p>
-                </div>
-              </div>
+              <Link
+                href="/image-library"
+                className="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
+              >
+                See before and after
+              </Link>
             </div>
 
+            <div className="mx-auto mt-10 grid max-w-sm grid-cols-2 gap-3 border-t border-white/10 pt-6">
+              <div>
+                <p className="font-display text-3xl font-semibold">01</p>
+                <p className="mt-2 text-xs leading-5 text-white/40">
+                  Latest Uploads
+                </p>
+              </div>
+
+              <div>
+                <p className="font-display text-3xl font-semibold">02</p>
+                <p className="mt-2 text-xs leading-5 text-white/40">
+                  Room By Room
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LATEST FROM YOUTUBE (auto-pulled, leads the page) */}
+      {latestVideos.length > 0 && (
+        <section id="latest" className="border-b border-black/10 bg-white py-16 md:py-20">
+          <div className="container-shell">
             <YouTubeVideoCarousel
-              items={[
-                residentialShorts[0],
-                commercialVideos[0],
-                childcareVideos[7],
-              ]}
-              eyebrow="Featured"
-              heading="Pick a property type and press play."
-              description="The fastest way to understand the service is to see what happens to the property media."
+              items={latestVideos}
+              eyebrow="Latest From YouTube"
+              heading="Fresh off the channel."
+              description="Automatically pulled from our YouTube channel so this stays current without extra work."
             />
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* FAST NAV */}
-      <section className="border-b border-black/10 bg-white">
-        <div className="container-shell py-7">
-          <div className="grid gap-3 md:grid-cols-3">
-            <a
-              href="#residential"
-              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                01
-              </p>
-
-              <h2 className="mt-3 font-display text-2xl font-semibold">
-                Residential
-              </h2>
-
-              <p className="mt-3 text-sm leading-6 text-black/45">
-                Lifestyle, room animation, facade content and day to night.
-              </p>
-            </a>
-
-            <a
-              href="#commercial"
-              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                02
-              </p>
-
-              <h2 className="mt-3 font-display text-2xl font-semibold">
-                Commercial
-              </h2>
-
-              <p className="mt-3 text-sm leading-6 text-black/45">
-                Vacant warehouses, industry specific use and development motion.
-              </p>
-            </a>
-
-            <a
-              href="#childcare"
-              className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-5 transition hover:border-rust hover:bg-white"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                03
-              </p>
-
-              <h2 className="mt-3 font-display text-2xl font-semibold">
-                Childcare
-              </h2>
-
-              <p className="mt-3 text-sm leading-6 text-black/45">
-                Interiors, outdoor activity and development transformations.
-              </p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* RESIDENTIAL SHORTS */}
-      <section id="residential" className="bg-[#f7f5f1] py-16 md:py-20">
-        <div className="container-shell">
-          <YouTubeVideoCarousel
-            items={residentialShorts}
-            eyebrow="Residential Short Form"
-            heading="Give the listing another reason to appear."
-            description="Use existing residential property photography to create short campaign moments for rooms, facades, coming soon content and day to night transformations."
-          />
-
-          <div className="mt-9">
-            <Link
-              href="/residential-property-animation"
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
-            >
-              Explore residential animation
-              <ArrowRight size={17} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* RESIDENTIAL LANDSCAPE */}
-      <section className="border-y border-black/10 bg-white py-16 md:py-20">
+      {/* RESIDENTIAL LANDSCAPE (kept case study) */}
+      <section id="room-by-room" className="bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <YouTubeVideoCarousel
             items={residentialLandscape}
@@ -419,64 +198,6 @@ export default function VideoLibraryPage() {
             heading="Room by room."
             description="Explore longer residential animation examples across kitchens, bedrooms, bathrooms, living rooms, facades, studies, laundries and outdoor areas."
           />
-        </div>
-      </section>
-
-      {/* COMMERCIAL */}
-      <section id="commercial" className="bg-ink py-16 text-white md:py-20">
-        <div className="container-shell">
-          <YouTubeVideoCarousel
-            items={commercialVideos}
-            eyebrow="Commercial Property"
-            heading="Show the property working, not just waiting."
-            description="Commercial animation can add use, movement and development progression to property media that already exists."
-          />
-
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="/commercial-property-animation"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-            >
-              Explore commercial animation
-              <ArrowRight size={17} />
-            </Link>
-
-            <Link
-              href="/commercial-property-visualisation"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
-            >
-              See commercial visualisation
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CHILDCARE */}
-      <section id="childcare" className="bg-[#f7f5f1] py-16 md:py-20">
-        <div className="container-shell">
-          <YouTubeVideoCarousel
-            items={childcareVideos}
-            eyebrow="Childcare"
-            heading="Make the future centre easier to understand."
-            description="Move through childcare interiors, outdoor areas and development transformations using project imagery that already exists."
-          />
-
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="/childcare-property-animation"
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
-            >
-              Explore childcare animation
-              <ArrowRight size={17} />
-            </Link>
-
-            <Link
-              href="/childcare-development-visualisation"
-              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-6 py-3.5 font-semibold transition hover:border-rust"
-            >
-              Childcare development visualisation
-            </Link>
-          </div>
         </div>
       </section>
 
