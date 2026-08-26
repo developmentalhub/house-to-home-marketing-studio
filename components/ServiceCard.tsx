@@ -25,7 +25,7 @@ export default function ServiceCard({
             </span>
           )}
 
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f7f5f1] text-rust transition duration-300 group-hover:bg-rust group-hover:text-white">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 text-rust transition duration-300 group-hover:border-rust">
             {icon}
           </div>
         </div>
@@ -37,13 +37,17 @@ export default function ServiceCard({
         )}
       </div>
 
-      <div className="mt-auto pt-14">
+      <div className="mt-auto pt-12">
         <h3 className="font-display text-3xl font-semibold leading-tight">
           {title}
         </h3>
 
         <p className="mt-4 max-w-lg leading-7 text-black/50">
           {description}
+        </p>
+
+        <p className="mt-6 border-t border-black/10 pt-5 font-display text-xl leading-7 text-rust">
+          Show more than the space. Show what could happen there.
         </p>
       </div>
     </article>

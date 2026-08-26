@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import {
-  ArrowRight,
-  Check,
-} from "lucide-react";
+
+import { ArrowRight, Check } from "lucide-react";
 
 type CampaignOption = {
   id: string;
@@ -19,58 +17,58 @@ type CampaignOption = {
 const options: CampaignOption[] = [
   {
     id: "lifestyle",
-    title: "Lifestyle",
+    title: "Lifestyle Moments",
     description:
-      "Add believable people, pets, entertaining and lived in moments.",
+      "Help someone picture the morning coffee, the family dinner, the quiet afternoon or the everyday life that could happen there.",
     weight: 1,
   },
   {
     id: "furniture",
     title: "Furniture & Styling",
     description:
-      "Furnish empty spaces or refine the styling of existing rooms.",
+      "Give an empty or lightly presented room purpose so people can understand how their life might fit inside it.",
     weight: 1,
   },
   {
     id: "lighting",
-    title: "Lighting",
+    title: "Light & Atmosphere",
     description:
-      "Create warmer interiors, golden hour or day to night transformations.",
+      "Change the emotional feeling of a scene with warmer interiors, golden hour or evening atmosphere.",
     weight: 1,
   },
   {
     id: "landscape",
-    title: "Landscape",
+    title: "Outdoor Story",
     description:
-      "Improve lawns, planting, outdoor areas and the surrounding environment.",
+      "Strengthen lawns, planting and outdoor areas so the exterior feels like somewhere people would actually spend time.",
     weight: 1,
   },
   {
     id: "people",
     title: "People & Activity",
     description:
-      "Introduce families, cars, pedestrians, pets and believable movement.",
+      "Introduce believable life, movement and activity so the property feels occupied rather than simply photographed.",
     weight: 1,
   },
   {
     id: "animation",
     title: "Property Animation",
     description:
-      "Turn selected still images into moving scenes with camera motion and depth.",
+      "Turn selected stills into moving moments that catch attention and give the campaign another emotional beat.",
     weight: 2,
   },
   {
     id: "day-night",
     title: "Day To Night",
     description:
-      "Animate the property through daylight, sunset and evening.",
+      "Take a familiar property image and give it a completely different mood, occasion and reason to be seen again.",
     weight: 2,
   },
   {
     id: "build",
-    title: "Build Transformation",
+    title: "Development Story",
     description:
-      "Show demolition, construction, landscaping and the finished development.",
+      "Show the journey from what exists now to the future place people will eventually live, work, learn or gather.",
     weight: 4,
     development: true,
   },
@@ -78,7 +76,7 @@ const options: CampaignOption[] = [
     id: "reel",
     title: "Finished Property Reel",
     description:
-      "Combine multiple enhanced and animated scenes into one finished vertical property story.",
+      "Bring several visual moments together into one short property story with a beginning, build and emotional close.",
     weight: 4,
     reel: true,
   },
@@ -116,56 +114,54 @@ export default function CampaignBuilder() {
       (option) => option.development,
     );
 
-    const needsReel = selectedOptions.some(
-      (option) => option.reel,
-    );
+    const needsReel = selectedOptions.some((option) => option.reel);
 
     if (needsDevelopment) {
       return {
-        name: "Development Campaign",
-        href: "/packages/development-campaign",
-        price: "Custom",
+        name: "Story Custom",
+        href: "/packages/story-custom",
+        price: "Custom scope",
         description:
-          "Best suited to demolition, build stages, future developments and more complex project sequences.",
+          "For developments and more complex projects where the visual story needs to evolve from possibility through progress to the finished environment.",
       };
     }
 
     if (needsReel || score >= 9) {
       return {
-        name: "Property Reel Campaign",
-        href: "/packages/property-reel-campaign",
-        price: "$1,590 + GST",
+        name: "The Full Story",
+        href: "/packages/the-full-story",
+        price: "$1,990 + GST",
         description:
-          "Best suited to campaigns that need multiple enhanced scenes, animation and a finished vertical Property Reel.",
+          "For a complete listing campaign with enhanced visuals, several animated scenes, a finished Reel and a story that runs from Coming Soon through to Sold.",
       };
     }
 
     if (score >= 6) {
       return {
-        name: "Premium Campaign",
-        href: "/packages/premium-campaign",
-        price: "$1,295 + GST",
+        name: "Story Deep Dive",
+        href: "/packages/story-deep-dive",
+        price: "$1,595 + GST",
         description:
-          "Best suited to campaigns that need more enhanced images and several animated scenes.",
+          "For a property with several emotional and visual moments worth exploring through a five part narrative arc.",
       };
     }
 
     if (score >= 3) {
       return {
-        name: "Property Campaign",
-        href: "/packages/property-campaign",
-        price: "$895 + GST",
+        name: "Story Builder",
+        href: "/packages/story-builder",
+        price: "$995 + GST",
         description:
-          "Best suited to listings that need a stronger mix of enhanced imagery and motion.",
+          "For a listing that needs a small campaign with a clear progression from attention to property detail to lifestyle.",
       };
     }
 
     return {
-      name: "Property Refresh",
-      href: "/packages/property-refresh",
-      price: "$495 + GST",
+      name: "Story Starter",
+      href: "/packages/story-starter",
+      price: "$595 + GST",
       description:
-        "A simple starting point for giving existing property photography more campaign life.",
+        "For beautiful property photography that needs something more to say. Five enhanced images, one moving moment and five individual story hooks.",
     };
   }, [selected]);
 
@@ -176,16 +172,16 @@ export default function CampaignBuilder() {
         <div className="p-6 md:p-8 lg:p-10">
           <div className="max-w-3xl">
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
-              Build Your Campaign
+              Build Your Story
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-              Choose the transformations you want.
+              What do you want people to imagine?
             </h2>
 
             <p className="mt-5 max-w-2xl leading-8 text-black/50">
-              Tap the ideas that suit your property and we&apos;ll show you
-              which package is the closest fit.
+              Choose the ideas that suit the property. We will show you which
+              story package is the closest fit.
             </p>
           </div>
 
@@ -205,15 +201,13 @@ export default function CampaignBuilder() {
                   }`}
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p
-                        className={`font-display text-xl font-semibold ${
-                          active ? "text-white" : "text-ink"
-                        }`}
-                      >
-                        {option.title}
-                      </p>
-                    </div>
+                    <p
+                      className={`font-display text-xl font-semibold ${
+                        active ? "text-white" : "text-ink"
+                      }`}
+                    >
+                      {option.title}
+                    </p>
 
                     <div
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition ${
@@ -228,7 +222,7 @@ export default function CampaignBuilder() {
 
                   <p
                     className={`mt-3 text-sm leading-6 ${
-                      active ? "text-white/70" : "text-black/50"
+                      active ? "text-white/75" : "text-black/50"
                     }`}
                   >
                     {option.description}
@@ -243,7 +237,7 @@ export default function CampaignBuilder() {
         <div className="flex flex-col justify-between bg-ink p-6 text-white md:p-8 lg:p-10">
           <div>
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
-              Recommended Package
+              Your Closest Story
             </p>
 
             <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.15em] text-white/35">
@@ -258,21 +252,31 @@ export default function CampaignBuilder() {
               {recommendation.price}
             </p>
 
-            <p className="mt-6 max-w-xl leading-8 text-white/50">
+            <p className="mt-6 max-w-xl leading-8 text-white/55">
               {recommendation.description}
             </p>
+
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="font-display text-2xl leading-8 text-white/75">
+                The goal is not simply more content.
+              </p>
+
+              <p className="mt-2 leading-7 text-white/45">
+                It is to give someone another reason to picture themselves,
+                their family, their business or their future inside the
+                property.
+              </p>
+            </div>
 
             {selected.length > 0 && (
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-white/30">
-                  Your selections
+                  Your Story Ideas
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-2">
                   {options
-                    .filter((option) =>
-                      selected.includes(option.id),
-                    )
+                    .filter((option) => selected.includes(option.id))
                     .map((option) => (
                       <span
                         key={option.id}
@@ -291,7 +295,7 @@ export default function CampaignBuilder() {
               href={recommendation.href}
               className="flex items-center justify-between rounded-full bg-white px-6 py-4 font-semibold text-ink transition hover:bg-brassBright"
             >
-              View recommended package
+              Explore {recommendation.name}
               <ArrowRight size={17} />
             </Link>
 
@@ -299,7 +303,7 @@ export default function CampaignBuilder() {
               href="/enquire"
               className="mt-3 flex items-center justify-between rounded-full border border-white/15 px-6 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
             >
-              Start a project
+              Show us your property
               <ArrowRight size={17} />
             </Link>
 

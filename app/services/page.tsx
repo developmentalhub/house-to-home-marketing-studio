@@ -8,22 +8,22 @@ import YouTubeVideoCarousel from "@/components/YouTubeVideoCarousel";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Property Media Services | Real Estate Media House",
+  title: "Property Storytelling & Media Services | Real Estate Media House",
   description:
-    "Transform existing real estate photography, renders and footage into enhanced property visuals, lifestyle scenes, commercial visualisation, animation and finished property video.",
+    "Turn existing property photography, renders and footage into emotionally engaging campaign content with enhanced visuals, animation, narrative, captions and finished property video.",
   alternates: {
     canonical: `${SITE_URL}/services`,
   },
   openGraph: {
-    title: "Property Media Services | Real Estate Media House",
+    title: "Property Storytelling & Media Services | Real Estate Media House",
     description:
-      "Get more campaign value from the property media you already have with enhanced stills, visualisation, animation and finished property content.",
+      "Beautiful property media can show the room. We help people imagine the life that could happen inside it.",
     url: `${SITE_URL}/services`,
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png`,
-        alt: "Existing commercial property photography transformed into additional marketing content",
+        url: `${SITE_URL}/images/childcare/before-after-childcare/childcare-centre-new-build-after.png`,
+        alt: "Existing property imagery transformed into a more complete marketing story",
       },
     ],
   },
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Property Media Transformation",
+  name: "Property Storytelling and Media Transformation",
   description:
-    "Real Estate Media House transforms supplied property photography, renders and footage into enhanced visuals, commercial property visualisation, animation and finished property campaign content.",
+    "Real Estate Media House transforms supplied property photography, renders and footage into enhanced visuals, animation, campaign narrative, captions and finished property storytelling content.",
   provider: {
     "@type": "Organization",
     name: "Real Estate Media House",
@@ -76,57 +76,57 @@ const services = [
     number: "01",
     title: "Enhanced Property Images",
     description:
-      "Create additional finished stills from existing photography with stronger atmosphere, lighting, landscaping, people or visual polish.",
+      "Take an already strong property image and give it more atmosphere, emotion and campaign purpose.",
     href: "/image-library",
   },
   {
     number: "02",
-    title: "Lifestyle Visuals",
+    title: "Lifestyle Storytelling",
     description:
-      "Add people and everyday activity to clean property photography so the space feels more lived in and easier to connect with.",
+      "Add the human moments that help someone imagine being there: coffee at the breakfast bar, friends in the backyard, a quiet corner at the end of the day.",
     href: "/image-library",
   },
   {
     number: "03",
     title: "Furniture & Styling",
     description:
-      "Show an empty or lightly presented room with a clearer furnishing and styling direction using the original property image.",
+      "Turn an empty room into a space with purpose so people do not have to work so hard to imagine how their life might fit.",
     href: "/image-library",
   },
   {
     number: "04",
     title: "Commercial Property Visualisation",
     description:
-      "Show a vacant commercial property as a relevant possible use for a gym, mechanic, logistics operator, photographer or another target audience.",
+      "Show a vacant commercial property as a relevant environment for the operator you actually want to attract.",
     href: "/commercial-property-visualisation",
   },
   {
     number: "05",
     title: "Property Animation",
     description:
-      "Turn still property images into short moving scenes using people, vehicles, atmosphere, environmental movement or camera motion.",
+      "Turn still property images into moving moments using people, atmosphere, environmental movement and camera motion.",
     href: "/video-library",
   },
   {
     number: "06",
-    title: "Development Transformation",
+    title: "Development Storytelling",
     description:
-      "Use existing project media to communicate a future completed property, build progression, landscaping and activity.",
+      "Use existing project media to help people understand and feel the future property before it is complete.",
     href: "/childcare-development-visualisation",
   },
   {
     number: "07",
     title: "Day To Night",
     description:
-      "Create another campaign moment from existing exterior photography with evening light and atmosphere.",
+      "Take a familiar exterior and change the emotional temperature with evening light, atmosphere and a different sense of occasion.",
     href: "/image-library",
   },
   {
     number: "08",
     title: "Finished Property Reels",
     description:
-      "Combine transformed stills and animated scenes into a finished short vertical property video.",
-    href: "/packages/property-reel-campaign",
+      "Combine transformed visuals, motion and a clear narrative arc into a finished short vertical property story.",
+    href: "/packages/the-full-story",
   },
 ];
 
@@ -146,25 +146,26 @@ export default function ServicesPage() {
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Property Media Services
+                Property Storytelling Services
               </p>
 
               <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                You already have the property media.
+                The photo shows the room.
                 <span className="block text-rust">
-                  Make it do more.
+                  The story shows the life.
                 </span>
               </h1>
 
-              <p className="mt-7 max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
-                We transform existing property photography, renders and footage
-                into more useful visual marketing content.
+              <p className="mt-7 max-w-3xl text-lg leading-8 text-white/65 md:text-xl">
+                A listing can be beautifully photographed and still feel like
+                a collection of rooms. We help turn those rooms into moments
+                people can picture themselves living.
               </p>
 
-              <p className="mt-5 max-w-3xl leading-8 text-white/50">
-                Enhanced stills. Lifestyle scenes. Furniture. Commercial
-                visualisation. Animation. Development transformations. Finished
-                property video.
+              <p className="mt-5 max-w-3xl leading-8 text-white/45">
+                The breakfast bar becomes Sunday morning coffee. The outdoor
+                area becomes dinner that runs late. The spare room becomes the
+                nursery, study or space someone has been waiting for.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -180,7 +181,7 @@ export default function ServicesPage() {
                   href="/enquire"
                   className="inline-flex items-center rounded-full border border-white/25 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
                 >
-                  Show us your media
+                  Show us your property
                 </Link>
               </div>
             </div>
@@ -188,15 +189,15 @@ export default function ServicesPage() {
             <div className="mx-auto w-full max-w-2xl">
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-2 shadow-soft">
                 <BeforeAfterSlider
-                  before="/property-images/website/lifestyle/kitchen-before.jpeg"
-                  after="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
-                  beforeAlt="Original property photography before lifestyle enhancement"
-                  afterAlt="Existing property photography transformed into additional lifestyle marketing content"
+                  before="/images/residential/residential-before-after/residential-home-before.png"
+                  after="/images/residential/residential-before-after/residential-home-after.png"
+                  beforeAlt="Original residential property image"
+                  afterAlt="Residential property transformed into additional campaign content"
                 />
               </div>
 
               <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.16em] text-white/40">
-                Existing media in. More campaign content out.
+                The property is the same. The way people feel about it changes.
               </p>
             </div>
           </div>
@@ -204,38 +205,49 @@ export default function ServicesPage() {
       </section>
 
       {/* POSITIONING */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
-          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 shadow-soft md:p-12">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              What We Actually Do
-            </p>
+          <div className="grid gap-10 lg:grid-cols-[0.68fr_1.32fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                What We Actually Do
+              </p>
 
-            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-5xl">
-              We do not replace the original property shoot.
-              <br />
-              We build on it.
-            </h2>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                We do not replace good photography.
+                <span className="block text-rust">
+                  We give it somewhere to go.
+                </span>
+              </h2>
+            </div>
 
-            <p className="mt-6 text-lg leading-8 text-black/60">
-              Send us the property photography, renders or footage that already
-              exists. We use those assets as the starting point for additional
-              visual marketing content.
-            </p>
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                Good photography proves the property looks beautiful.
+                Storytelling helps someone imagine what it might feel like to
+                live, work or grow there.
+              </p>
 
-            <p className="mt-5 leading-8 text-black/50">
-              That means the original property stays recognisable while the
-              campaign gains new visual stories, new formats and more reasons to
-              put the property back in front of people.
-            </p>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-black/50">
+                We start with the photography, renders or footage you already
+                have. Then we build new visual moments, motion, captions and
+                narrative around the strongest emotional opportunities inside
+                the property.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                First, we bring the image to life. Then, we make it move.
+                Then, we tell you why it matters.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SERVICES GRID */}
+      {/* SERVICES */}
       <section
         id="services"
-        className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28"
+        className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24"
       >
         <div className="container-shell">
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
@@ -247,9 +259,9 @@ export default function ServicesPage() {
 
             <div className="max-w-4xl">
               <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Choose the content based on
+                Start with what you want someone
                 <span className="block text-rust">
-                  the problem the campaign needs to solve.
+                  to notice, imagine or feel.
                 </span>
               </h2>
             </div>
@@ -286,16 +298,84 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* RESIDENTIAL PROOF */}
-      <section className="bg-white py-20 md:py-28">
+      {/* STORY EXAMPLES */}
+      <section className="bg-ink py-18 text-white md:py-24">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.68fr_1.32fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                The Emotional Layer
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Features tell people what is there.
+                <span className="block text-rust">
+                  Story tells them why it matters.
+                </span>
+              </h2>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                {
+                  feature: "Breakfast bar",
+                  story:
+                    "Sunday morning coffee while the house is still quiet and nobody is rushing anywhere.",
+                },
+                {
+                  feature: "Large backyard",
+                  story:
+                    "The place where lunch becomes dinner because nobody really wants to leave.",
+                },
+                {
+                  feature: "Light filled living room",
+                  story:
+                    "The patch of afternoon sun that becomes everyone's favourite place to sit.",
+                },
+                {
+                  feature: "Extra bedroom",
+                  story:
+                    "A nursery now, a study later, a room that changes as life changes.",
+                },
+              ].map((item, index) => (
+                <article
+                  key={item.feature}
+                  className="grid gap-4 border-b border-white/10 py-6 sm:grid-cols-[55px_0.8fr_1.2fr]"
+                >
+                  <p className="font-mono text-[9px] text-brassBright">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+
+                  <div>
+                    <p className="text-sm text-white/30">The property has</p>
+                    <h3 className="mt-1 font-display text-xl font-semibold">
+                      {item.feature}
+                    </h3>
+                  </div>
+
+                  <div>
+                    <p className="text-sm text-white/30">The story becomes</p>
+                    <p className="mt-1 font-display text-2xl leading-8 text-white/75">
+                      {item.story}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RESIDENTIAL */}
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
               <BeforeAfterSlider
                 before="/property-images/website/staging/living-room-before.jpeg"
                 after="/property-images/website/staging/living-room-after.jpeg"
-                beforeAlt="Residential living room before virtual furniture and styling"
-                afterAlt="Residential living room transformed with furniture and styling"
+                beforeAlt="Residential living room before furniture and styling"
+                afterAlt="Residential living room shown as a more complete lifestyle space"
               />
             </div>
 
@@ -305,21 +385,21 @@ export default function ServicesPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Help people understand the room before asking them to imagine
-                it.
+                Help people picture the moments between the rooms.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                Existing residential photography can become furnished,
-                lifestyle driven or animated campaign content while the
-                original listing images remain available.
+                A furnished room is useful. A room with a sense of life is more
+                powerful. The goal is not simply to show where the sofa goes.
+                It is to make the property feel like somewhere life already has
+                a rhythm.
               </p>
 
               <Link
                 href="/residential-property-animation"
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
               >
-                Explore residential property content
+                Explore residential property stories
                 <ArrowRight size={17} />
               </Link>
             </div>
@@ -327,8 +407,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* COMMERCIAL PROOF */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      {/* COMMERCIAL */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div>
@@ -337,14 +417,14 @@ export default function ServicesPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Make an empty warehouse relevant to the operator you want to
-                reach.
+                Do not ask the tenant to imagine an empty warehouse.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                Create industry specific versions of existing commercial
-                property photography rather than asking one vacant image to
-                speak to every possible tenant.
+                Show the gym operator training zones and activity. Show the
+                mechanic vehicles on hoists. Show the logistics business stock,
+                movement and workflow. Make the property relevant to the person
+                you actually want to reach.
               </p>
 
               <Link
@@ -360,16 +440,16 @@ export default function ServicesPage() {
               <BeforeAfterSlider
                 before="/images/commercial/warehouse-multiple-afters/warehouse-before-gym.png"
                 after="/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png"
-                beforeAlt="Vacant commercial warehouse before industry specific visualisation"
-                afterAlt="Commercial warehouse transformed into a gym concept"
+                beforeAlt="Vacant commercial warehouse before gym visualisation"
+                afterAlt="Commercial warehouse transformed into an active gym environment"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* CHILDCARE PROOF */}
-      <section className="bg-white py-20 md:py-28">
+      {/* CHILDCARE */}
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
@@ -377,7 +457,7 @@ export default function ServicesPage() {
                 before="/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg"
                 after="/images/childcare/before-after-childcare/childcare-centre-new-build-after.png"
                 beforeAlt="Property before childcare development visualisation"
-                afterAlt="Property transformed into a childcare development marketing visual"
+                afterAlt="Property transformed into a completed childcare centre story"
               />
             </div>
 
@@ -387,21 +467,21 @@ export default function ServicesPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Communicate the finished centre before the finished centre
-                exists.
+                A future centre is more than a future building.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                Existing development media can become completed visual
-                concepts, active childcare environments and moving build
-                transformations.
+                It is drop offs in the morning, children moving through the
+                rooms, play outside, families arriving and a centre becoming
+                part of a community. We help the campaign show that future
+                before the finished centre exists.
               </p>
 
               <Link
                 href="/childcare-development-visualisation"
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
               >
-                Explore childcare visualisation
+                Explore childcare storytelling
                 <ArrowRight size={17} />
               </Link>
             </div>
@@ -410,57 +490,62 @@ export default function ServicesPage() {
       </section>
 
       {/* MOTION */}
-      <section className="bg-ink py-20 text-white md:py-28">
+      <section className="bg-ink py-18 text-white md:py-24">
         <div className="container-shell">
           <YouTubeVideoCarousel
             items={videos}
-            eyebrow="Property Media In Motion"
-            heading="First, bring the image to life. Then, make it move."
-            description="Existing residential, commercial and development media can become animated campaign content without another property shoot."
+            eyebrow="Property Stories In Motion"
+            heading="First, bring the image to life. Then, make it move. Then, tell people why it matters."
+            description="Motion catches the eye. Story gives the movement meaning."
           />
         </div>
       </section>
 
       {/* PROBLEMS */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                What Problem Are You Trying To Solve?
+                What Is Missing?
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Start there.
+                Sometimes the problem is not the photography.
               </h2>
+
+              <p className="mt-5 leading-8 text-black/50">
+                Sometimes the photography is excellent. It just has not been
+                given a human story yet.
+              </p>
             </div>
 
             <div className="space-y-4">
               {[
                 {
-                  problem: "The property is empty",
+                  problem: "The listing looks beautiful but feels flat",
                   solution:
-                    "Add furniture, lifestyle, people or a relevant commercial use.",
+                    "Find the human moments inside the strongest images and build the campaign around them.",
                 },
                 {
-                  problem: "The listing needs more attention",
+                  problem: "The property has been seen before",
                   solution:
-                    "Create another visual campaign moment from the existing photography.",
+                    "Create another visual and emotional angle from the media already produced.",
                 },
                 {
-                  problem: "The campaign has gone stale",
+                  problem: "The room is empty",
                   solution:
-                    "Give the property another story instead of repeating the same images.",
+                    "Add styling, activity and purpose so someone can understand how the space might feel to use.",
                 },
                 {
                   problem: "The future property does not exist yet",
                   solution:
-                    "Use existing project media to communicate the completed outcome.",
+                    "Turn project imagery into a story about possibility, progress and the completed environment.",
                 },
                 {
                   problem: "You need moving content",
                   solution:
-                    "Turn selected still images into property animation or a finished Reel.",
+                    "Animate the strongest visual moments and give them a narrative reason to be there.",
                 },
               ].map((item, index) => (
                 <article
@@ -483,8 +568,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* WHAT WE DON'T DO */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-24">
+      {/* CLEAR SCOPE */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-22">
         <div className="container-shell">
           <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-white p-8 shadow-soft md:p-12">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
@@ -492,26 +577,28 @@ export default function ServicesPage() {
             </p>
 
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-5xl">
-              We create property marketing content.
+              We create the story.
               <br />
-              We do not manage your social accounts.
+              You decide where it lives.
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-black/60">
-              We do not handle posting, captions, hashtags, scheduling or social
-              media management.
+              We write the narrative, the captions and the sequencing included
+              in your package so the visual content has a clear emotional
+              direction.
             </p>
 
             <p className="mt-5 leading-8 text-black/50">
-              We create the visual property assets. You, your agency or your
-              marketing team decide where and how they are used.
+              What we do not do is manage your accounts, schedule your posts or
+              run your day to day social presence. That stays with you, your
+              agency or your marketing team.
             </p>
           </div>
         </div>
       </section>
 
       {/* PROCESS */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -520,9 +607,9 @@ export default function ServicesPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Existing media in.
+                Start with the property.
                 <br />
-                New campaign assets out.
+                Find the human story.
               </h2>
             </div>
 
@@ -531,22 +618,22 @@ export default function ServicesPage() {
                 {
                   number: "01",
                   title: "Send The Property Media",
-                  text: "Supply the property photography, renders or footage you already have.",
+                  text: "Supply the photography, renders or footage you already have.",
                 },
                 {
                   number: "02",
-                  title: "Tell Us The Marketing Problem",
-                  text: "Explain what the next piece of content needs to achieve or who it needs to speak to.",
+                  title: "Find The Strongest Moments",
+                  text: "We look for the rooms, details and scenes with the most visual and emotional potential.",
                 },
                 {
                   number: "03",
-                  title: "Choose The Transformation",
-                  text: "Enhanced still, lifestyle, furniture, commercial use, animation, build transformation or finished property video.",
+                  title: "Build The Visual Story",
+                  text: "Rob develops the enhanced visuals and motion. Robyn develops the emotional angle, captions and narrative sequence.",
                 },
                 {
                   number: "04",
-                  title: "Create More Campaign Content",
-                  text: "Use the finished assets alongside the original property media throughout the campaign.",
+                  title: "Put The Story Into The Campaign",
+                  text: "Use the finished images, animation, captions and narrative alongside the original property media.",
                 },
               ].map((step) => (
                 <article
@@ -572,7 +659,7 @@ export default function ServicesPage() {
       </section>
 
       {/* NEXT PATH */}
-      <section className="border-t border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      <section className="border-t border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-5 lg:grid-cols-3">
             <Link
@@ -584,20 +671,16 @@ export default function ServicesPage() {
               </p>
 
               <h2 className="mt-4 font-display text-2xl font-semibold">
-                See What Property Media Can Become
+                See What The Media Can Become
               </h2>
 
               <p className="mt-4 leading-7 text-black/50">
-                Explore transformations across residential, commercial and
-                childcare property.
+                Explore residential, commercial and childcare transformations.
               </p>
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore the work
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
 
@@ -610,19 +693,17 @@ export default function ServicesPage() {
               </p>
 
               <h2 className="mt-4 font-display text-2xl font-semibold">
-                Choose The Amount Of Content You Need
+                Choose How Far The Story Goes
               </h2>
 
               <p className="mt-4 leading-7 text-black/50">
-                Compare property refresh, campaign and finished Reel options.
+                From five individual story hooks through to a complete listing
+                lifecycle campaign.
               </p>
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore packages
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
 
@@ -635,20 +716,17 @@ export default function ServicesPage() {
               </p>
 
               <h2 className="mt-4 font-display text-2xl font-semibold">
-                Solve The Marketing Problem First
+                Start With The Marketing Problem
               </h2>
 
               <p className="mt-4 leading-7 text-black/50">
-                Browse practical guides built around real property marketing
-                problems.
+                Browse practical property marketing guides built around what
+                the campaign needs to achieve.
               </p>
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
                 Explore guides
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
+                <ArrowRight size={17} />
               </div>
             </Link>
           </div>
@@ -659,25 +737,25 @@ export default function ServicesPage() {
       <section className="bg-rust px-6 py-20 text-white md:py-28">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-            Work With Existing Property Media
+            Start With What You Already Have
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-            Show us what you have.
+            Show us the property.
             <br />
-            Tell us what the campaign needs.
+            We’ll find the story inside it.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            We can help turn existing property photography, renders and footage
-            into more useful visual marketing content.
+            The photography may already be beautiful. We help turn it into a
+            campaign that gives people something to imagine, remember and feel.
           </p>
 
           <Link
             href="/enquire"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
           >
-            Discuss your property media
+            Discuss your property
             <ArrowRight size={18} />
           </Link>
         </div>

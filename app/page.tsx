@@ -35,49 +35,72 @@ const propertyTypes = [
     number: "01",
     title: "Residential",
     description:
-      "Turn existing property photography into lifestyle scenes, furnished interiors, day to night content and property animation.",
+      "Take beautiful property photography beyond rooms and features. Create the moments that help someone picture mornings, dinners, weekends and everyday life there.",
     href: "/residential-property-animation",
   },
   {
     number: "02",
     title: "Commercial",
     description:
-      "Show buyers and tenants what a vacant commercial property could become with industry specific visualisation and moving content.",
+      "Turn an empty commercial property into something the right operator can immediately understand, whether that is a gym, workshop, logistics space or creative studio.",
     href: "/commercial-property-visualisation",
   },
   {
     number: "03",
     title: "Childcare",
     description:
-      "Help people understand a future childcare centre before construction is complete or before opening day.",
+      "Help families, operators and stakeholders see more than a future building. Show the rooms active, the outdoor spaces alive and the centre becoming part of a community.",
     href: "/childcare-development-visualisation",
   },
 ];
 
 const solutions = [
   {
-    problem: "The listing needs more attention",
+    problem: "The photography is beautiful but the campaign still feels flat",
     solution:
-      "Create another visual campaign moment from the photography you already have.",
+      "Find the human story inside the strongest images and give people something more meaningful to imagine.",
     href: "/blog/how-to-make-a-property-listing-stand-out-without-another-photo-shoot",
   },
   {
-    problem: "The campaign feels stale",
+    problem: "The listing has already been seen",
     solution:
-      "Refresh the story without organising another property shoot.",
+      "Create a fresh visual and emotional angle from the photography you already paid for.",
     href: "/blog/how-to-refresh-a-property-campaign-that-has-gone-stale",
   },
   {
     problem: "The property is empty",
     solution:
-      "Add furniture, lifestyle, people or a relevant commercial use.",
+      "Add furniture, activity, lifestyle or a relevant future use so people can understand how the space could feel.",
     href: "/blog/how-to-market-a-vacant-commercial-property",
   },
   {
-    problem: "The campaign needs video",
+    problem: "The campaign needs movement",
     solution:
-      "Turn selected still images into animated property content.",
+      "Turn selected images into animated moments with a reason for every scene to be there.",
     href: "/blog/how-to-turn-commercial-property-photos-into-video",
+  },
+];
+
+const storyMoments = [
+  {
+    feature: "Breakfast bar",
+    story:
+      "Sunday morning coffee while the house is still quiet and nobody needs to be anywhere yet.",
+  },
+  {
+    feature: "Outdoor entertaining area",
+    story:
+      "Lunch turns into dinner because everyone is comfortable and nobody is ready to leave.",
+  },
+  {
+    feature: "Light filled living room",
+    story:
+      "That warm patch of afternoon sun that quietly becomes the favourite place in the house.",
+  },
+  {
+    feature: "Spare bedroom",
+    story:
+      "A nursery now. A study later. A room that changes as life changes.",
   },
 ];
 
@@ -94,19 +117,21 @@ export default function HomePage() {
               </p>
 
               <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                You already have
-                <span className="block text-rust">the property media.</span>
+                The photo shows
+                <span className="block text-rust">the property.</span>
+                <span className="block">We show the life inside it.</span>
               </h1>
 
-              <p className="mt-7 max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
-                We turn existing property photography, renders and footage into
-                more useful visual marketing content.
+              <p className="mt-7 max-w-3xl text-lg leading-8 text-white/65 md:text-xl">
+                Your photography may already be beautiful. But beautiful
+                photographs alone do not always give someone a reason to stop,
+                feel something and picture themselves there.
               </p>
 
-              <p className="mt-5 max-w-3xl leading-8 text-white/50">
-                Enhanced stills. Lifestyle scenes. Commercial visualisation.
-                Property animation. Development transformations. Finished
-                property video.
+              <p className="mt-5 max-w-3xl leading-8 text-white/45">
+                We turn existing property photography, renders and footage into
+                visual stories, animation, captions and campaign moments that
+                make the property easier to imagine and harder to forget.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -114,7 +139,7 @@ export default function HomePage() {
                   href="/explore"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-brassBright"
                 >
-                  Explore the work
+                  See the stories
                   <ArrowRight size={18} />
                 </Link>
 
@@ -122,7 +147,7 @@ export default function HomePage() {
                   href="/enquire"
                   className="inline-flex items-center rounded-full border border-white/25 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
                 >
-                  Show us your media
+                  Show us your property
                 </Link>
               </div>
             </div>
@@ -138,7 +163,7 @@ export default function HomePage() {
               </div>
 
               <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.16em] text-white/40">
-                Drag to compare the original with the transformed property
+                Drag to see the property story change
               </p>
             </div>
           </div>
@@ -146,36 +171,161 @@ export default function HomePage() {
       </section>
 
       {/* CORE POSITIONING */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+          <div className="grid gap-12 lg:grid-cols-[0.68fr_1.32fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                One Shoot. More Campaign Content.
+                Beautiful Is Only The Beginning
               </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                A beautiful room can still feel emotionally empty.
+              </h2>
             </div>
 
             <div className="max-w-4xl">
-              <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-                The property shoot is not the end of the content.
-              </h2>
-
-              <p className="mt-7 text-xl leading-9 text-black/60">
-                It is the starting point.
+              <p className="text-xl leading-9 text-black/60">
+                A photograph can show polished stone, beautiful light and a
+                generous breakfast bar.
               </p>
 
-              <p className="mt-5 leading-8 text-black/50">
-                Existing property photography can become another still, another
-                audience angle, another campaign moment or moving property
-                content without organising another shoot.
+              <p className="mt-5 text-xl leading-9 text-black/60">
+                A story helps someone picture Sunday morning there. Coffee on
+                the bench. Bare feet. The house still quiet. Nothing urgent
+                waiting for them.
+              </p>
+
+              <p className="mt-6 font-display text-3xl leading-10">
+                That is where a property stops being a list of features and
+                starts becoming a life someone can imagine.
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* STORY EXAMPLES */}
+      <section className="border-y border-black/10 bg-ink py-18 text-white md:py-24">
+        <div className="container-shell">
+          <div className="grid gap-12 lg:grid-cols-[0.68fr_1.32fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Features Versus Feelings
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                The listing tells them what it has.
+                <span className="block text-rust">
+                  The story shows them why they might want it.
+                </span>
+              </h2>
+            </div>
+
+            <div className="space-y-3">
+              {storyMoments.map((item, index) => (
+                <article
+                  key={item.feature}
+                  className="grid gap-4 border-b border-white/10 py-6 sm:grid-cols-[55px_0.75fr_1.25fr]"
+                >
+                  <p className="font-mono text-[9px] text-brassBright">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+
+                  <div>
+                    <p className="text-sm text-white/30">The property has</p>
+
+                    <h3 className="mt-1 font-display text-xl font-semibold">
+                      {item.feature}
+                    </h3>
+                  </div>
+
+                  <div>
+                    <p className="text-sm text-white/30">The story becomes</p>
+
+                    <p className="mt-1 font-display text-2xl leading-8 text-white/75">
+                      {item.story}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ROB + ROBYN */}
+      <section className="bg-white py-18 md:py-24">
+        <div className="container-shell">
+          <div className="mb-10 max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Two Parts Of The Same Story
+            </p>
+
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+              One builds the world.
+              <span className="block text-rust">
+                One finds the feeling inside it.
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-2">
+            <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 md:p-10">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Rob
+              </p>
+
+              <h3 className="mt-4 font-display text-4xl font-semibold">
+                Makes the visual believable.
+              </h3>
+
+              <p className="mt-5 leading-8 text-black/50">
+                Twenty years of architectural illustration and animation go
+                into the craft, lighting, movement, atmosphere and visual truth
+                of each scene.
+              </p>
+
+              <p className="mt-5 leading-8 text-black/50">
+                The aim is not to overwhelm the original photography. It is to
+                reveal more of its potential.
+              </p>
+            </article>
+
+            <article className="rounded-[2rem] border border-rust bg-ink p-8 text-white md:p-10">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
+                Robyn
+              </p>
+
+              <h3 className="mt-4 font-display text-4xl font-semibold">
+                Finds the moment people remember.
+              </h3>
+
+              <p className="mt-5 leading-8 text-white/55">
+                With an interior design background and an instinct for story,
+                Robyn looks beyond what is in the photograph to what someone
+                could experience there.
+              </p>
+
+              <p className="mt-5 leading-8 text-white/55">
+                That emotional thread becomes the hook, caption, sequence or
+                script that gives the campaign its shape.
+              </p>
+            </article>
+          </div>
+
+          <p className="mt-10 font-display text-3xl leading-10 md:text-4xl">
+            First, we bring the image to life. Then, we make it move.
+            <span className="text-rust">
+              {" "}
+              Then, we tell you why it matters.
+            </span>
+          </p>
+        </div>
+      </section>
+
       {/* COMMERCIAL PROOF */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="overflow-hidden rounded-[2rem] bg-white shadow-soft">
@@ -193,25 +343,26 @@ export default function HomePage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Turn one image into another campaign moment.
+                Do not ask the right tenant to imagine an empty box.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                A vacant commercial property can be shown differently to the
-                audiences the campaign actually needs to reach.
+                Show the logistics operator stock moving through the warehouse.
+                Show the mechanic cars on hoists. Show the gym owner what
+                training zones could feel like when the doors are open and the
+                place is busy.
               </p>
 
               <p className="mt-5 leading-8 text-black/50">
-                The same warehouse can become a gym, mechanic workshop,
-                logistics operation, photography studio or another relevant
-                visual concept.
+                The property becomes relevant because the audience can finally
+                see their own business inside it.
               </p>
 
               <Link
                 href="/commercial-property-visualisation"
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
               >
-                Explore commercial visualisation
+                Explore commercial stories
                 <ArrowRight size={17} />
               </Link>
             </div>
@@ -220,7 +371,7 @@ export default function HomePage() {
       </section>
 
       {/* PROPERTY TYPES */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -233,7 +384,7 @@ export default function HomePage() {
               <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
                 Different properties.
                 <span className="block text-rust">
-                  Different marketing problems.
+                  Different stories worth telling.
                 </span>
               </h2>
             </div>
@@ -244,7 +395,7 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group flex min-h-[320px] flex-col rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
+                className="group flex min-h-[340px] flex-col rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
               >
                 <p className="font-mono text-xs font-semibold text-rust">
                   {item.number}
@@ -272,17 +423,22 @@ export default function HomePage() {
       </section>
 
       {/* PROBLEM SOLVING */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Start With The Problem
+                Start With What Is Missing
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                What does the campaign need to do next?
+                The problem may not be your photography.
               </h2>
+
+              <p className="mt-5 leading-8 text-black/50">
+                Sometimes the images are excellent. They just have not been
+                given enough to say.
+              </p>
             </div>
 
             <div className="space-y-4">
@@ -314,7 +470,7 @@ export default function HomePage() {
       </section>
 
       {/* PROCESS */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -323,9 +479,9 @@ export default function HomePage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Existing media in.
+                Start with the image.
                 <br />
-                More useful content out.
+                Find the story.
               </h2>
             </div>
 
@@ -338,18 +494,18 @@ export default function HomePage() {
                 },
                 {
                   number: "02",
-                  title: "Tell Us The Campaign Problem",
-                  text: "Explain what needs more attention, what is hard to picture or which audience you want to reach.",
+                  title: "Find The Moment",
+                  text: "We look for the images, spaces and details with the strongest visual and emotional potential.",
                 },
                 {
                   number: "03",
-                  title: "Choose The Transformation",
-                  text: "Lifestyle, furniture, enhanced still, commercial use, animation, build transformation or finished video.",
+                  title: "Build The Visual Story",
+                  text: "Rob develops the visual treatment and motion. Robyn develops the hook, narrative and emotional angle.",
                 },
                 {
                   number: "04",
-                  title: "Use It Alongside The Original Media",
-                  text: "Create more campaign moments while keeping the original property photography available.",
+                  title: "Give The Campaign Somewhere To Go",
+                  text: "Use the enhanced images, animation, captions and story alongside the original property media.",
                 },
               ].map((step) => (
                 <article
@@ -375,13 +531,13 @@ export default function HomePage() {
       </section>
 
       {/* MOTION */}
-      <section className="bg-ink py-20 text-white md:py-28">
+      <section className="bg-ink py-18 text-white md:py-24">
         <div className="container-shell">
           <YouTubeVideoCarousel
             items={featuredVideos}
-            eyebrow="Property Media In Motion"
-            heading="First, we bring the image to life. Then, we make it move."
-            description="Existing residential, commercial and development media can become animated property content and short campaign video."
+            eyebrow="Property Stories In Motion"
+            heading="First, we bring the image to life. Then, we make it move. Then, we tell you why it matters."
+            description="Movement earns attention. Story gives that attention somewhere to go."
           />
 
           <div className="mt-10">
@@ -389,7 +545,7 @@ export default function HomePage() {
               href="/video-library"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white hover:text-ink"
             >
-              Explore more property video
+              Explore property video
               <ArrowRight size={17} />
             </Link>
           </div>
@@ -397,29 +553,30 @@ export default function HomePage() {
       </section>
 
       {/* RESIDENTIAL PROOF */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Lifestyle Transformation
+                Residential Storytelling
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Clean property photography can become a more human campaign
-                moment.
+                Do not just show where the furniture goes.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                Add atmosphere and lifestyle without replacing the original
-                image.
+                Show why someone might want to spend time there. A quiet
+                morning. Friends around for dinner. A bath at the end of a long
+                day. A room that becomes part of a routine they have not even
+                started yet.
               </p>
 
               <Link
                 href="/image-library"
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
               >
-                Explore image transformations
+                Explore image stories
                 <ArrowRight size={17} />
               </Link>
             </div>
@@ -437,20 +594,20 @@ export default function HomePage() {
       </section>
 
       {/* CAMPAIGN BUILDER */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="mb-10 max-w-4xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              Build Your Campaign
+              Build Your Story
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-              Choose what you want your existing property media to become.
+              Choose how far you want the property story to go.
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-black/55">
-              Select the types of content you need and see which package may
-              fit the campaign.
+              Start with a few stronger campaign moments or build a complete
+              listing story from the first teaser through to the final Reel.
             </p>
           </div>
 
@@ -458,8 +615,41 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PACKAGES CTA */}
+      <section className="bg-white py-18 md:py-24">
+        <div className="container-shell">
+          <div className="grid gap-10 rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 md:grid-cols-[0.75fr_1.25fr] md:p-12">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Story Packages
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Every package includes the visual and the story.
+              </h2>
+            </div>
+
+            <div>
+              <p className="text-lg leading-8 text-black/55">
+                From five individual story hooks through to a complete listing
+                lifecycle campaign with enhanced visuals, animation and a
+                finished Reel.
+              </p>
+
+              <Link
+                href="/packages"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+              >
+                Compare story packages
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* GUIDES */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -468,16 +658,16 @@ export default function HomePage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Find the problem before choosing the content.
+                Start with what the campaign is missing.
               </h2>
             </div>
 
             <div>
               <p className="max-w-3xl text-lg leading-8 text-black/55">
-                Our guides are built around practical property marketing
-                questions: vacant spaces, stale campaigns, different tenant
-                audiences, development marketing and getting more value from one
-                property shoot.
+                Explore practical guides around listings that have gone quiet,
+                vacant property, development marketing, different commercial
+                audiences and getting more value from property photography you
+                already have.
               </p>
 
               <Link
@@ -493,7 +683,7 @@ export default function HomePage() {
       </section>
 
       {/* SISTER BRAND */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
             <div>
@@ -508,9 +698,9 @@ export default function HomePage() {
               </h2>
 
               <p className="mt-5 leading-8 text-black/50">
-                Real Estate Media House focuses on transforming property media
-                that already exists. Photography is handled separately through
-                our sister real estate photography brand, RP Images.
+                Real Estate Media House begins with property media that already
+                exists. Photography is handled separately through our sister
+                real estate photography brand, RP Images.
               </p>
             </div>
           </div>
@@ -527,19 +717,19 @@ export default function HomePage() {
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
             Your listing is competing with everything.
             <br />
-            Give people a reason to stop.
+            Give people something to feel.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Show us the property media you already have and tell us what the
-            campaign needs to do next.
+            Show us the property media you already have. We’ll find the visual
+            moments and human story that can make the campaign mean more.
           </p>
 
           <Link
             href="/enquire"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
           >
-            Discuss your property media
+            Show us your property
             <ArrowRight size={18} />
           </Link>
         </div>
