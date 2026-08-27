@@ -8,14 +8,14 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Property Story Packages | Real Estate Media House",
   description:
-    "Property storytelling packages combining enhanced real estate visuals, animation and emotionally driven campaign narrative built from the media you already have.",
+    "Property storytelling packages combining enhanced real estate images, animation and emotionally driven narrative built from the property media you already have.",
   alternates: {
     canonical: `${SITE_URL}/packages`,
   },
   openGraph: {
     title: "Property Story Packages | Real Estate Media House",
     description:
-      "Turn beautiful property photography into a campaign people can picture themselves living inside.",
+      "Turn existing property photography, renders and footage into enhanced images, animation and a stronger campaign story.",
     url: `${SITE_URL}/packages`,
     type: "website",
   },
@@ -30,23 +30,22 @@ const packages = [
     href: "/packages/story-starter",
     featured: false,
     summary:
-      "For a listing that already looks good but needs a stronger reason for someone to stop and feel something.",
-    painPoints: [
-      "The photography is beautiful, but it still feels like a gallery of rooms.",
-      "You want to test what happens when each image is given a more human story.",
-    ],
+      "For beautiful property photography that needs a stronger reason for someone to stop and feel something.",
     rob: [
       "5 enhanced property images",
-      "1 short property animation up to 5 sec",
+      "1 property animation up to 10 seconds",
     ],
     robyn: [
       "A story hook or caption angle for each of the 5 images",
-      "Emotional direction that turns a room into a moment someone can imagine living",
+      "Emotional direction for each image",
     ],
+    bestFor:
+      "A focused first step when the photography already looks good but the campaign needs more life, movement and story.",
     comparison: {
       images: "5",
-      animation: "1 · up to 5 sec",
-      story: "5 individual story hooks",
+      animations: "1",
+      duration: "Up to 10 sec",
+      narrative: "5 story hooks",
     },
   },
   {
@@ -58,22 +57,22 @@ const packages = [
     featured: false,
     summary:
       "For a listing that needs more than one attention grab. It needs a story that starts somewhere and keeps going.",
-    painPoints: [
-      "You have several strong images but no real reason for one post to lead into the next.",
-      "You want people to move from noticing the property to imagining how life there might actually feel.",
-    ],
     rob: [
       "8 enhanced property images",
-      "2 property animations up to 10 sec total",
+      "2 property animations up to 10 seconds each",
+      "Up to 20 seconds of animation in total",
     ],
     robyn: [
-      "A 3 post narrative sequence written to unfold in order",
+      "A 3 post narrative sequence",
       "Hook → Property moment → Lifestyle moment",
     ],
+    bestFor:
+      "A campaign that needs several connected moments rather than unrelated posts using the same listing photography.",
     comparison: {
       images: "8",
-      animation: "2 · up to 10 sec",
-      story: "3 post narrative sequence",
+      animations: "2",
+      duration: "Up to 20 sec total",
+      narrative: "3 post sequence",
     },
   },
   {
@@ -85,22 +84,22 @@ const packages = [
     featured: false,
     summary:
       "For a property where the feeling lives in more than one room, one view or one feature.",
-    painPoints: [
-      "The property has details that deserve their own moment instead of disappearing into the listing gallery.",
-      "You want to move beyond features and show the rhythm of what living there could feel like.",
-    ],
     rob: [
       "12 enhanced property images",
-      "3 animated scenes around 15 sec total",
+      "3 property animations up to 10 seconds each",
+      "Up to 30 seconds of animation in total",
     ],
     robyn: [
-      "A 5 post narrative arc that moves through the property",
+      "A 5 post narrative arc",
       "Arrival → connection → hero moment → lifestyle → emotional close",
     ],
+    bestFor:
+      "A property with several strong spaces, details and lifestyle moments that deserve their own place in the campaign.",
     comparison: {
       images: "12",
-      animation: "3 · around 15 sec",
-      story: "5 post narrative arc",
+      animations: "3",
+      duration: "Up to 30 sec total",
+      narrative: "5 post arc",
     },
   },
   {
@@ -111,25 +110,25 @@ const packages = [
     href: "/packages/the-full-story",
     featured: true,
     summary:
-      "For a listing that deserves a campaign people remember, not simply a collection of assets.",
-    painPoints: [
-      "You want the property story to build from the first teaser through to inspection and sale.",
-      "You want a Reel that feels like a story unfolding, not a slideshow of attractive rooms.",
-    ],
+      "For a listing that deserves a complete campaign story rather than simply a collection of individual assets.",
     rob: [
       "12 enhanced property images",
-      "3 to 4 animated scenes",
-      "Finished vertical property Reel · 20 to 30 sec",
+      "3 to 4 property animations up to 10 seconds each",
+      "Up to 40 seconds of animation in total",
+      "1 finished vertical property Reel from 20 to 30 seconds",
     ],
     robyn: [
       "Complete listing lifecycle narrative",
       "Coming Soon → Just Listed → Lifestyle → Open House → Sold",
-      "Reel story structure and narration direction",
+      "Reel script and narration structure",
     ],
+    bestFor:
+      "A complete listing campaign that needs to keep creating new reasons for people to notice, imagine and return.",
     comparison: {
       images: "12",
-      animation: "3 to 4 + Reel",
-      story: "Lifecycle story + Reel structure",
+      animations: "3 to 4",
+      duration: "Up to 40 sec total + Reel",
+      narrative: "Full lifecycle story",
     },
   },
   {
@@ -140,30 +139,63 @@ const packages = [
     href: "/packages/story-custom",
     featured: false,
     summary:
-      "For developments and larger projects where people need to feel the future before they can physically walk through it.",
-    painPoints: [
-      "The finished property does not exist yet, so photography alone cannot tell the whole story.",
-      "You need people to picture the completed environment, the activity and the life that could happen there.",
-    ],
+      "For residential, commercial, childcare and development projects that need a scope built around the property.",
     rob: [
-      "Custom enhanced visuals",
-      "Custom animation",
-      "Development transformation",
+      "Custom number of enhanced property images",
+      "Custom number of property animations",
+      "Animated scenes typically up to 10 seconds each",
+      "Development transformation where required",
       "Finished video where required",
     ],
     robyn: [
-      "Custom narrative arc matched to the project stage",
-      "Possibility → momentum → completed lifestyle story",
+      "Custom narrative arc matched to the project",
+      "Story hooks, captions and sequencing matched to the campaign",
     ],
+    bestFor:
+      "Larger, multi stage or unusual projects that do not fit comfortably inside a standard package.",
     comparison: {
       images: "Custom",
-      animation: "Custom",
-      story: "Custom narrative arc",
+      animations: "Custom",
+      duration: "Typically up to 10 sec each",
+      narrative: "Custom",
     },
   },
 ];
 
-const packageSchema = {
+const enhancedExamples = [
+  {
+    number: "01",
+    title: "People",
+    text: "Introduce believable human moments that help someone imagine how the property could feel in everyday use.",
+  },
+  {
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the architecture, room proportions and layout accurate.",
+  },
+  {
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Add selected appliances, styling and decorative details without redesigning the property itself.",
+  },
+  {
+    number: "04",
+    title: "Cars & Activity",
+    text: "Add appropriate vehicles, people and everyday activity to exterior scenes where they support the story.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Refine lawns, planting and surrounding atmosphere while keeping the built property true.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Use warmth, daylight, evening light and atmosphere to give the same property a different emotional moment.",
+  },
+];
+
+const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Real Estate Media House Property Story Packages",
@@ -184,13 +216,13 @@ export default function PackagesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(packageSchema),
+          __html: JSON.stringify(serviceSchema),
         }}
       />
 
-      {/* HERO */}
+      {/* HEADER */}
       <section className="bg-ink text-white">
-        <div className="container-shell py-14 md:py-18">
+        <div className="container-shell py-16 md:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
@@ -207,191 +239,166 @@ export default function PackagesPage() {
 
             <div className="max-w-2xl">
               <p className="text-lg leading-8 text-white/65 md:text-xl">
-                A beautiful kitchen photograph shows the breakfast bar.
-                A story helps someone picture coffee there on Sunday morning,
-                the house still quiet, sunlight coming through the window.
+                A beautiful photograph shows the room. A stronger property story
+                helps someone picture what life inside that room could actually
+                feel like.
               </p>
 
-              <p className="mt-5 text-lg leading-8 text-white/45">
-                That is the difference we build into every package. Rob creates
-                the visual moment. Robyn finds the human story inside it.
+              <p className="mt-5 leading-8 text-white/45">
+                We take the photography, renders or footage you already have and
+                turn selected moments into enhanced images, animation and a
+                narrative designed to give the campaign more emotional depth.
               </p>
 
-              <p className="mt-5 font-display text-2xl leading-8 text-white/80">
-                First, we bring the image to life. Then, we make it move.
-                Then, we tell you why it matters.
+              <p className="mt-6 font-display text-2xl leading-9 text-white/80">
+                First, we bring the image to life. Then, we make it move. Then,
+                we tell you why it matters.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAST SELECTOR */}
-      <section className="border-b border-black/10 bg-white">
-        <div className="container-shell py-7">
-          <div className="overflow-x-auto pb-2">
-            <div className="flex min-w-max gap-3">
-              {packages.map((item) => (
-                <a
-                  key={item.name}
-                  href={`#${item.number}`}
-                  className={`w-[230px] shrink-0 rounded-[1.5rem] border p-5 transition ${
-                    item.featured
-                      ? "border-rust bg-ink text-white"
-                      : "border-black/10 bg-[#f7f5f1] hover:border-rust hover:bg-white"
-                  }`}
-                >
-                  <p
-                    className={`font-mono text-[9px] font-semibold uppercase tracking-[0.16em] ${
-                      item.featured ? "text-brassBright" : "text-rust"
-                    }`}
-                  >
-                    {item.number}
-                  </p>
-
-                  <h2 className="mt-3 font-display text-2xl font-semibold">
-                    {item.name}
-                  </h2>
-
-                  <p
-                    className={`mt-3 font-display text-3xl font-semibold ${
-                      item.featured ? "text-white" : "text-ink"
-                    }`}
-                  >
-                    {item.price}
-
-                    {item.gst && (
-                      <span className="ml-2 font-sans text-xs font-normal opacity-50">
-                        {item.gst}
-                      </span>
-                    )}
-                  </p>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* THE DIFFERENCE */}
-      <section className="py-14 md:py-18">
+      {/* ENHANCED IMAGES */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.68fr_1.32fr]">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                The Difference
+                Enhanced Property Images
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                A room can look perfect
+                Keep the architecture true.
                 <span className="block text-rust">
-                  and still feel emotionally empty.
+                  Build the life around it.
                 </span>
               </h2>
             </div>
 
             <div>
-              <p className="max-w-3xl text-lg leading-8 text-black/55">
-                Property photography is very good at showing what is there.
-                Storytelling adds the next layer: what could happen there.
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                Every package includes enhanced property images. We keep the
+                architecture, layout and defining property elements accurate to
+                the supplied image.
               </p>
 
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
-                The breakfast bar becomes slow Sunday mornings. The backyard
-                becomes friends staying long after dinner. The window seat
-                becomes the quiet place at the end of the day. The spare room
-                becomes the nursery, study or space someone has been waiting for.
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Depending on the property and story, we can then add or refine
+                people, furniture, appliances, décor, cars, landscaping,
+                lighting and atmosphere.
               </p>
 
-              <p className="mt-5 max-w-3xl font-display text-2xl leading-9">
-                We are not trying to make the property less real.
-                We are helping people see where their own life might fit inside it.
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                We are not redesigning the property. We are adding the details,
+                atmosphere and human moments that help someone imagine life
+                around it.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ANIMATION EXPLANATION */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Property Animation
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Each animated scene
+                <span className="block text-rust">
+                  can run up to 10 seconds.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                The package determines how many individual animated scenes are
+                included.
+              </p>
+
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                {[
+                  ["Story Starter", "1 scene · up to 10 sec"],
+                  ["Story Builder", "2 scenes · up to 20 sec total"],
+                  ["Story Deep Dive", "3 scenes · up to 30 sec total"],
+                  ["The Full Story", "3 to 4 scenes · up to 40 sec total"],
+                ].map(([name, duration]) => (
+                  <div
+                    key={name}
+                    className="rounded-[1.5rem] border border-black/10 bg-white p-6"
+                  >
+                    <p className="font-display text-xl font-semibold">{name}</p>
+
+                    <p className="mt-3 text-sm leading-6 text-black/50">
+                      {duration}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-7 max-w-3xl leading-8 text-black/50">
+                These animations can work as individual campaign assets. The
+                Full Story also includes a separate finished vertical Reel from
+                20 to 30 seconds.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ROB + ROBYN */}
-      <section className="border-y border-black/10 bg-white py-14 md:py-18">
+      {/* PACKAGE LIST */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-5 lg:grid-cols-2">
-            <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8">
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                Rob
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold">
-                Makes the moment believable.
-              </h2>
-
-              <p className="mt-5 leading-8 text-black/50">
-                Twenty years of architectural illustration and animation go
-                into making every added element, movement and atmosphere feel
-                like it belongs in the property.
-              </p>
-
-              <p className="mt-5 leading-8 text-black/50">
-                The aim is not visual noise. It is a stronger, more useful
-                version of the media the campaign already has.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-rust bg-ink p-8 text-white">
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                Robyn
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold">
-                Finds the life inside the room.
-              </h2>
-
-              <p className="mt-5 leading-8 text-white/55">
-                Instead of repeating what someone can already see, Robyn looks
-                for the emotional doorway into the property: the ritual, the
-                possibility, the little piece of life that makes the image mean
-                more.
-              </p>
-
-              <p className="mt-5 leading-8 text-white/55">
-                That story becomes the hook, caption, sequence or script that
-                sits beside the visual.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* PACKAGE ACCORDIONS */}
-      <section className="bg-[#f7f5f1] py-14 md:py-18">
-        <div className="container-shell">
-          <div className="mb-10 max-w-4xl">
+          <div className="mb-12 max-w-4xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
               Choose Your Story
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-              How deeply do you want people
+              How far do you want
               <span className="block text-rust">
-                to imagine themselves there?
+                the property story to go?
               </span>
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             {packages.map((item) => (
-              <details
+              <article
                 key={item.name}
-                id={item.number}
-                open={item.featured}
-                className={`group overflow-hidden rounded-[2rem] border ${
+                className={`overflow-hidden rounded-[2rem] border ${
                   item.featured
                     ? "border-rust bg-ink text-white"
-                    : "border-black/10 bg-white"
+                    : "border-black/10 bg-[#f7f5f1]"
                 }`}
               >
-                <summary className="cursor-pointer list-none p-7 md:p-9">
-                  <div className="grid gap-6 lg:grid-cols-[70px_1fr_auto] lg:items-center">
+                <div className="p-7 md:p-9">
+                  <div className="grid gap-7 lg:grid-cols-[70px_1fr_auto] lg:items-start">
                     <p
                       className={`font-mono text-xs font-semibold ${
                         item.featured ? "text-brassBright" : "text-rust"
@@ -401,12 +408,20 @@ export default function PackagesPage() {
                     </p>
 
                     <div>
-                      <h3 className="font-display text-3xl font-semibold md:text-4xl">
-                        {item.name}
-                      </h3>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h3 className="font-display text-4xl font-semibold">
+                          {item.name}
+                        </h3>
+
+                        {item.featured && (
+                          <span className="rounded-full border border-rust bg-rust/20 px-3 py-1.5 font-mono text-[9px] font-semibold uppercase tracking-[0.15em] text-brassBright">
+                            The Flagship Story
+                          </span>
+                        )}
+                      </div>
 
                       <p
-                        className={`mt-3 max-w-2xl leading-7 ${
+                        className={`mt-4 max-w-3xl leading-7 ${
                           item.featured ? "text-white/55" : "text-black/50"
                         }`}
                       >
@@ -430,34 +445,20 @@ export default function PackagesPage() {
                       )}
                     </div>
                   </div>
-                </summary>
 
-                <div
-                  className={`border-t px-7 pb-8 pt-7 md:px-9 md:pb-9 ${
-                    item.featured
-                      ? "border-white/10"
-                      : "border-black/10"
-                  }`}
-                >
-                  <div className="grid gap-5 lg:grid-cols-2">
-                    <article
-                      className={`rounded-[1.5rem] border p-6 ${
-                        item.featured
-                          ? "border-white/10 bg-white/5"
-                          : "border-black/10 bg-[#f7f5f1]"
-                      }`}
-                    >
+                  <div
+                    className={`mt-8 grid gap-5 border-t pt-8 lg:grid-cols-2 ${
+                      item.featured ? "border-white/10" : "border-black/10"
+                    }`}
+                  >
+                    <div>
                       <p
                         className={`font-mono text-[9px] font-semibold uppercase tracking-[0.16em] ${
                           item.featured ? "text-brassBright" : "text-rust"
                         }`}
                       >
-                        Rob Delivers
+                        Visual Story
                       </p>
-
-                      <h4 className="mt-3 font-display text-2xl font-semibold">
-                        The visual story
-                      </h4>
 
                       <div className="mt-5 space-y-3">
                         {item.rob.map((feature) => (
@@ -486,26 +487,16 @@ export default function PackagesPage() {
                           </div>
                         ))}
                       </div>
-                    </article>
+                    </div>
 
-                    <article
-                      className={`rounded-[1.5rem] border p-6 ${
-                        item.featured
-                          ? "border-rust bg-rust/20"
-                          : "border-rust/30 bg-rust/5"
-                      }`}
-                    >
+                    <div>
                       <p
                         className={`font-mono text-[9px] font-semibold uppercase tracking-[0.16em] ${
                           item.featured ? "text-brassBright" : "text-rust"
                         }`}
                       >
-                        Robyn Delivers
+                        Human Story
                       </p>
-
-                      <h4 className="mt-3 font-display text-2xl font-semibold">
-                        The human story
-                      </h4>
 
                       <div className="mt-5 space-y-3">
                         {item.robyn.map((feature) => (
@@ -525,7 +516,7 @@ export default function PackagesPage() {
                             <p
                               className={`leading-6 ${
                                 item.featured
-                                  ? "text-white/70"
+                                  ? "text-white/60"
                                   : "text-black/60"
                               }`}
                             >
@@ -534,33 +525,30 @@ export default function PackagesPage() {
                           </div>
                         ))}
                       </div>
-                    </article>
+                    </div>
                   </div>
 
-                  <div className="mt-7 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+                  <div
+                    className={`mt-8 grid gap-6 border-t pt-7 md:grid-cols-[1fr_auto] md:items-end ${
+                      item.featured ? "border-white/10" : "border-black/10"
+                    }`}
+                  >
                     <div>
                       <p
                         className={`font-mono text-[9px] font-semibold uppercase tracking-[0.16em] ${
                           item.featured ? "text-brassBright" : "text-rust"
                         }`}
                       >
-                        This Is Probably You If
+                        Best For
                       </p>
 
-                      <div className="mt-4 space-y-3">
-                        {item.painPoints.map((point) => (
-                          <p
-                            key={point}
-                            className={`font-display text-xl leading-8 ${
-                              item.featured
-                                ? "text-white/65"
-                                : "text-black/65"
-                            }`}
-                          >
-                            “{point}”
-                          </p>
-                        ))}
-                      </div>
+                      <p
+                        className={`mt-3 max-w-3xl leading-7 ${
+                          item.featured ? "text-white/55" : "text-black/50"
+                        }`}
+                      >
+                        {item.bestFor}
+                      </p>
                     </div>
 
                     <Link
@@ -576,111 +564,51 @@ export default function PackagesPage() {
                     </Link>
                   </div>
                 </div>
-              </details>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* WHY STORY */}
-      <section className="bg-ink py-16 text-white md:py-20">
+      {/* COMPARISON */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Why Story?
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Features explain a property.
-                <span className="block text-rust">
-                  Moments make it personal.
-                </span>
-              </h2>
-            </div>
-
-            <div className="space-y-3">
-              {[
-                {
-                  feature: "Large kitchen island",
-                  story:
-                    "Sunday morning coffee while someone else steals the last piece of toast.",
-                },
-                {
-                  feature: "North facing living room",
-                  story:
-                    "That patch of afternoon sun everyone quietly fights to sit in.",
-                },
-                {
-                  feature: "Covered outdoor area",
-                  story:
-                    "Dinner starts at six and somehow nobody leaves before ten.",
-                },
-                {
-                  feature: "Extra bedroom",
-                  story:
-                    "A nursery now, a study later, a room that changes as life does.",
-                },
-              ].map((item, index) => (
-                <article
-                  key={item.feature}
-                  className="grid gap-4 border-b border-white/10 py-6 sm:grid-cols-[55px_0.8fr_1.2fr]"
-                >
-                  <p className="font-mono text-[9px] text-brassBright">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-
-                  <div>
-                    <p className="text-sm text-white/35">The listing says</p>
-                    <h3 className="mt-1 font-display text-xl font-semibold">
-                      {item.feature}
-                    </h3>
-                  </div>
-
-                  <div>
-                    <p className="text-sm text-white/35">The story says</p>
-                    <p className="mt-1 font-display text-2xl leading-8 text-white/75">
-                      {item.story}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* QUICK COMPARISON */}
-      <section className="bg-white py-14 md:py-18">
-        <div className="container-shell">
-          <div className="mb-8">
+          <div className="mb-9">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
               Quick Comparison
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-semibold md:text-5xl">
-              Choose how far you want the story to go.
+              See the difference at a glance.
             </h2>
           </div>
 
           <div className="overflow-x-auto rounded-[2rem] border border-black/10 bg-white">
-            <table className="min-w-[900px] w-full border-collapse text-left">
+            <table className="min-w-[950px] w-full border-collapse text-left">
               <thead>
                 <tr className="border-b border-black/10">
                   <th className="p-5 font-mono text-[9px] uppercase tracking-[0.15em] text-black/35">
                     Package
                   </th>
+
                   <th className="p-5 font-mono text-[9px] uppercase tracking-[0.15em] text-black/35">
                     Price
                   </th>
+
                   <th className="p-5 font-mono text-[9px] uppercase tracking-[0.15em] text-black/35">
-                    Images
+                    Enhanced Images
                   </th>
+
                   <th className="p-5 font-mono text-[9px] uppercase tracking-[0.15em] text-black/35">
-                    Animation
+                    Animations
                   </th>
+
                   <th className="p-5 font-mono text-[9px] uppercase tracking-[0.15em] text-black/35">
-                    Story
+                    Animation Duration
+                  </th>
+
+                  <th className="p-5 font-mono text-[9px] uppercase tracking-[0.15em] text-black/35">
+                    Narrative
                   </th>
                 </tr>
               </thead>
@@ -703,10 +631,10 @@ export default function PackagesPage() {
                     </td>
 
                     <td className="p-5 font-semibold">
-                      {item.price}{" "}
+                      {item.price}
 
                       {item.gst && (
-                        <span className="text-xs font-normal text-black/35">
+                        <span className="ml-1 text-xs font-normal text-black/35">
                           {item.gst}
                         </span>
                       )}
@@ -717,11 +645,15 @@ export default function PackagesPage() {
                     </td>
 
                     <td className="p-5 text-black/55">
-                      {item.comparison.animation}
+                      {item.comparison.animations}
                     </td>
 
                     <td className="p-5 text-black/55">
-                      {item.comparison.story}
+                      {item.comparison.duration}
+                    </td>
+
+                    <td className="p-5 text-black/55">
+                      {item.comparison.narrative}
                     </td>
                   </tr>
                 ))}
@@ -731,11 +663,44 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      {/* PAYMENT */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-16">
+      {/* CLEAR SCOPE */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-white p-8 md:p-10">
-            <div className="grid gap-7 md:grid-cols-[0.65fr_1.35fr]">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Clear Scope
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                We create the story.
+                <span className="block text-rust">
+                  You decide where it lives.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We create the enhanced visuals, animation, narrative, captions
+                and sequencing included in your package.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                We do not manage your accounts, schedule your posts or run your
+                day to day social presence. That stays with you, your agency or
+                your marketing team.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PAYMENT */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-white p-8 shadow-soft md:p-10">
+            <div className="grid gap-8 md:grid-cols-[0.65fr_1.35fr]">
               <div>
                 <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
                   Payment
@@ -747,11 +712,11 @@ export default function PackagesPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-3xl font-semibold">
+                <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
                   50% deposit to begin. 50% before use.
                 </h2>
 
-                <p className="mt-4 leading-7 text-black/50">
+                <p className="mt-5 leading-8 text-black/50">
                   The remaining 50% is due before the finished content may be
                   published, posted, distributed, advertised or otherwise used.
                 </p>
@@ -775,16 +740,16 @@ export default function PackagesPage() {
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            The room may already look beautiful. Our job is to help someone
-            picture the morning, the dinner, the quiet moment or the future
-            that could happen there.
+            Start with the property media you already have. We’ll help you work
+            out which package gives it the right amount of visual and narrative
+            depth.
           </p>
 
           <Link
             href="/enquire"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
           >
-            Show us your property
+            Show Us Your Property
             <ArrowRight size={18} />
           </Link>
         </div>

@@ -12,14 +12,14 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Property Image Transformations | Real Estate Media House",
   description:
-    "Explore before and after property image transformations across residential, commercial and childcare property using existing photography and project media.",
+    "Explore enhanced property image transformations across residential, commercial and childcare using existing photography and project media.",
   alternates: {
     canonical: `${SITE_URL}/image-library`,
   },
   openGraph: {
     title: "Property Image Transformations | Real Estate Media House",
     description:
-      "See existing property photography transformed into lifestyle scenes, furniture, commercial use concepts and development marketing visuals.",
+      "See existing property photography transformed with people, furniture, appliances, décor, cars, landscaping, lighting, atmosphere and future use storytelling.",
     url: `${SITE_URL}/image-library`,
     type: "website",
     images: [
@@ -55,7 +55,7 @@ const residentialGallery = [
     title: "Living Room Styling",
     category: "Furniture & Styling",
     description:
-      "An empty living area shown with furniture to improve scale and purpose.",
+      "An empty living area shown with furniture to improve scale, purpose and emotional context.",
     image:
       "/property-images/website/staging/living-room-after.jpeg",
   },
@@ -78,6 +78,39 @@ const residentialGallery = [
   },
 ];
 
+const enhancedExamples = [
+  {
+    number: "01",
+    title: "People",
+    text: "Add believable people and everyday activity that help someone imagine how the property could feel in use.",
+  },
+  {
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the architecture, room proportions and layout accurate.",
+  },
+  {
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Introduce selected appliances, styling and decorative details without redesigning the property itself.",
+  },
+  {
+    number: "04",
+    title: "Cars & Activity",
+    text: "Add appropriate vehicles, people and movement to exterior scenes where they help communicate the story.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Refine lawns, planting and surrounding atmosphere while keeping the built form true.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Use daylight, warmth, dusk and evening atmosphere to change the emotional tone of an existing image.",
+  },
+];
+
 export default function ImageLibraryPage() {
   return (
     <main className="bg-[#f7f5f1] text-ink">
@@ -96,13 +129,14 @@ export default function ImageLibraryPage() {
               </h1>
 
               <p className="mt-7 max-w-xl text-lg leading-8 text-white/60 md:text-xl">
-                Drag the images and see what existing property photography can
-                become.
+                Drag the images and see what existing property photography and
+                project media can become.
               </p>
 
               <p className="mt-5 max-w-xl leading-8 text-white/45">
-                Residential lifestyle. Furniture and styling. Commercial
-                visualisation. Childcare development content.
+                People. Furniture. Appliances. Décor. Cars. Landscaping.
+                Lighting. Atmosphere. Commercial use. Development
+                visualisation.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -170,7 +204,8 @@ export default function ImageLibraryPage() {
               </h2>
 
               <p className="mt-3 text-sm leading-6 text-black/45">
-                Lifestyle, furniture and finished property transformations.
+                Lifestyle, furniture, people, atmosphere and finished property
+                transformations.
               </p>
             </a>
 
@@ -187,7 +222,8 @@ export default function ImageLibraryPage() {
               </h2>
 
               <p className="mt-3 text-sm leading-6 text-black/45">
-                Show vacant property as relevant industry specific uses.
+                Show vacant property as a relevant environment for specific
+                commercial audiences.
               </p>
             </a>
 
@@ -204,15 +240,77 @@ export default function ImageLibraryPage() {
               </h2>
 
               <p className="mt-3 text-sm leading-6 text-black/45">
-                Development, interiors and outdoor environments brought to life.
+                Development, interiors, landscaping and active environments
+                brought to life.
               </p>
             </a>
           </div>
         </div>
       </section>
 
+      {/* ENHANCED IMAGE DEFINITION */}
+      <section className="bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the architecture true.
+                <span className="block text-rust">
+                  Build the life around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout, room proportions and defining
+                property elements accurate to the supplied media.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Depending on the property and campaign story, we can then add
+                or refine people, furniture, appliances, décor, cars,
+                landscaping, lighting, atmosphere and everyday activity.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The goal is not to redesign the property. It is to make the
+                existing image feel more complete, more human and more useful
+                to the campaign.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-white p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* RESIDENTIAL */}
-      <section id="residential" className="py-16 md:py-20">
+      <section
+        id="residential"
+        className="border-y border-black/10 bg-white py-16 md:py-20"
+      >
         <div className="container-shell">
           <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -221,23 +319,31 @@ export default function ImageLibraryPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Help buyers feel more than an empty property.
+                A room is one thing.
+                <span className="block text-rust">
+                  The life around it is another.
+                </span>
               </h2>
             </div>
 
             <div className="max-w-3xl">
               <p className="text-lg leading-8 text-black/55">
                 Existing residential photography can become styled spaces,
-                lifestyle scenes and additional campaign images while the
+                lifestyle moments and additional campaign images while the
                 original listing photography remains available.
+              </p>
+
+              <p className="mt-5 leading-8 text-black/50">
+                The aim is not simply to fill an empty room. It is to help
+                someone imagine the routines, comfort and moments that could
+                happen there.
               </p>
             </div>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {/* RESIDENTIAL EXTERIOR */}
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
                 <BeforeAfterSlider
                   before="/images/residential/residential-before-after/residential-home-before.png"
                   after="/images/residential/residential-before-after/residential-home-after.png"
@@ -254,12 +360,16 @@ export default function ImageLibraryPage() {
                 <h3 className="mt-2 font-display text-2xl font-semibold">
                   Property exterior
                 </h3>
+
+                <p className="mt-3 max-w-xl leading-7 text-black/45">
+                  Add warmth, activity, vehicles, landscaping or atmosphere
+                  while keeping the home itself recognisable.
+                </p>
               </div>
             </div>
 
-            {/* LIVING ROOM */}
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
                 <BeforeAfterSlider
                   before="/property-images/website/staging/living-room-before.jpeg"
                   after="/property-images/website/staging/living-room-after.jpeg"
@@ -276,12 +386,16 @@ export default function ImageLibraryPage() {
                 <h3 className="mt-2 font-display text-2xl font-semibold">
                   Living room
                 </h3>
+
+                <p className="mt-3 max-w-xl leading-7 text-black/45">
+                  Show how the room might function without changing its
+                  architecture, dimensions or defining features.
+                </p>
               </div>
             </div>
 
-            {/* BEDROOM */}
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
                 <BeforeAfterSlider
                   before="/property-images/website/lifestyle/bedroom-before.jpeg"
                   after="/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg"
@@ -298,12 +412,16 @@ export default function ImageLibraryPage() {
                 <h3 className="mt-2 font-display text-2xl font-semibold">
                   Bedroom
                 </h3>
+
+                <p className="mt-3 max-w-xl leading-7 text-black/45">
+                  Take the same room and give it more atmosphere, comfort and a
+                  stronger emotional role in the campaign.
+                </p>
               </div>
             </div>
 
-            {/* BATHROOM */}
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
                 <BeforeAfterSlider
                   before="/property-images/website/lifestyle/bathroom-before.jpeg"
                   after="/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg"
@@ -320,6 +438,11 @@ export default function ImageLibraryPage() {
                 <h3 className="mt-2 font-display text-2xl font-semibold">
                   Bathroom
                 </h3>
+
+                <p className="mt-3 max-w-xl leading-7 text-black/45">
+                  Turn a feature photograph into a more human moment built
+                  around comfort, routine and atmosphere.
+                </p>
               </div>
             </div>
           </div>
@@ -327,7 +450,7 @@ export default function ImageLibraryPage() {
       </section>
 
       {/* RESIDENTIAL SWIPE */}
-      <section className="border-y border-black/10 bg-white py-16 md:py-20">
+      <section className="bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="mb-9 max-w-4xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
@@ -335,8 +458,13 @@ export default function ImageLibraryPage() {
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-              Swipe through more finished campaign images.
+              One shoot can keep giving the campaign new moments.
             </h2>
+
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-black/50">
+              Swipe through more finished images created from existing
+              residential media.
+            </p>
           </div>
 
           <SwipeGallery items={residentialGallery} />
@@ -344,7 +472,10 @@ export default function ImageLibraryPage() {
       </section>
 
       {/* COMMERCIAL */}
-      <section id="commercial" className="bg-[#f7f5f1] py-16 md:py-20">
+      <section
+        id="commercial"
+        className="border-y border-black/10 bg-white py-16 md:py-20"
+      >
         <div className="container-shell">
           <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -353,17 +484,23 @@ export default function ImageLibraryPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                One vacant property.
-                <br />
-                Several possible audiences.
+                Do not ask the tenant
+                <span className="block text-rust">
+                  to imagine an empty box.
+                </span>
               </h2>
             </div>
 
             <div className="max-w-3xl">
               <p className="text-lg leading-8 text-black/55">
-                Instead of describing a warehouse as flexible, create visual
-                content around the industries the campaign actually wants to
-                reach.
+                Instead of describing a warehouse as flexible, show different
+                audiences how their business might actually operate there.
+              </p>
+
+              <p className="mt-5 leading-8 text-black/50">
+                People, vehicles, equipment, storage, furniture and activity
+                can all help a vacant property feel relevant to the right
+                operator while the underlying warehouse remains true.
               </p>
 
               <Link
@@ -383,7 +520,7 @@ export default function ImageLibraryPage() {
       {/* CHILDCARE */}
       <section
         id="childcare"
-        className="border-t border-black/10 bg-white py-16 md:py-20"
+        className="bg-[#f7f5f1] py-16 md:py-20"
       >
         <div className="container-shell">
           <div className="mb-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
@@ -393,7 +530,10 @@ export default function ImageLibraryPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Show the centre before the finished centre can be photographed.
+                A future centre is more
+                <span className="block text-rust">
+                  than a future building.
+                </span>
               </h2>
             </div>
 
@@ -402,6 +542,12 @@ export default function ImageLibraryPage() {
                 Development imagery can become completed property visuals,
                 active rooms and outdoor environments that make the future
                 childcare centre easier to understand.
+              </p>
+
+              <p className="mt-5 leading-8 text-black/50">
+                The story might include arrival, children moving through the
+                spaces, outdoor play, landscaping, furniture and the centre
+                beginning to feel part of a community.
               </p>
 
               <Link
@@ -416,7 +562,7 @@ export default function ImageLibraryPage() {
 
           <div className="grid gap-8 lg:grid-cols-2">
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg"
                   after="/images/childcare/before-after-childcare/childcare-centre-new-build-after.png"
@@ -437,7 +583,7 @@ export default function ImageLibraryPage() {
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/room1-before.png"
                   after="/images/childcare/before-after-childcare/room1-after.png"
@@ -458,7 +604,7 @@ export default function ImageLibraryPage() {
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/Rearyard1-Before.png"
                   after="/images/childcare/before-after-childcare/Rearyard1-After.png"
@@ -479,7 +625,7 @@ export default function ImageLibraryPage() {
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
+              <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
                 <BeforeAfterSlider
                   before="/images/childcare/before-after-childcare/corner-site-childcare-before.png"
                   after="/images/childcare/before-after-childcare/corner-site-childcare-after.png"
@@ -516,7 +662,10 @@ export default function ImageLibraryPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Because another image should solve another campaign problem.
+                Because another image should
+                <span className="block text-rust">
+                  tell another part of the story.
+                </span>
               </h2>
             </div>
 
@@ -525,7 +674,12 @@ export default function ImageLibraryPage() {
                 {
                   problem: "The room is empty",
                   solution:
-                    "Show furniture, lifestyle or activity so buyers understand the space faster.",
+                    "Add furniture, people, appliances, décor or activity so someone can understand the space and imagine life there.",
+                },
+                {
+                  problem: "The photography feels emotionally flat",
+                  solution:
+                    "Add atmosphere and human context so the same room can communicate a moment rather than simply a feature.",
                 },
                 {
                   problem: "The commercial use is unclear",
@@ -535,12 +689,12 @@ export default function ImageLibraryPage() {
                 {
                   problem: "The development is unfinished",
                   solution:
-                    "Show the completed property story before it can be photographed.",
+                    "Use supplied project media to communicate the intended future property and the life around it.",
                 },
                 {
-                  problem: "The campaign has been seen",
+                  problem: "The campaign has already been seen",
                   solution:
-                    "Create another visual moment from the media already produced.",
+                    "Create another visual and emotional moment from the media already produced.",
                 },
               ].map((item, index) => (
                 <article
@@ -580,8 +734,8 @@ export default function ImageLibraryPage() {
               </h2>
 
               <p className="mt-4 leading-7 text-black/50">
-                See existing property media transformed into animated campaign
-                content.
+                See selected property images transformed into animated scenes
+                of up to 10 seconds each.
               </p>
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
@@ -603,8 +757,8 @@ export default function ImageLibraryPage() {
               </h2>
 
               <p className="mt-4 leading-7 text-black/50">
-                Lifestyle, furniture, visualisation, animation and finished
-                campaign content.
+                Enhanced imagery, lifestyle, furniture, visualisation,
+                animation and finished campaign content.
               </p>
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
@@ -622,12 +776,12 @@ export default function ImageLibraryPage() {
               </p>
 
               <h2 className="mt-4 font-display text-3xl font-semibold">
-                Build A Property Campaign
+                Build A Property Story
               </h2>
 
               <p className="mt-4 leading-7 text-black/50">
-                Combine several transformed images and animated scenes into a
-                larger campaign.
+                Combine enhanced images, animated scenes, hooks, captions and
+                sequencing into a larger campaign story.
               </p>
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
@@ -635,6 +789,23 @@ export default function ImageLibraryPage() {
                 <ArrowRight size={17} />
               </div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* DISCLAIMER */}
+      <section className="border-t border-black/10 bg-[#f7f5f1] py-10">
+        <div className="container-shell">
+          <div className="mx-auto max-w-5xl">
+            <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+              Development Visualisation
+            </p>
+
+            <p className="mt-4 max-w-4xl leading-7 text-black/45">
+              Development visualisation is created for marketing communication.
+              It is not proof of planning approval, feasibility, building
+              compliance or operational suitability.
+            </p>
           </div>
         </div>
       </section>
@@ -649,12 +820,13 @@ export default function ImageLibraryPage() {
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
             Already have the images?
             <br />
-            Give them another job.
+            Give them another story.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Send us the property media you already have and tell us what the
-            campaign needs people to see next.
+            Send us the property media you already have. We’ll identify the
+            strongest opportunities for enhanced imagery, atmosphere, movement
+            and narrative.
           </p>
 
           <Link

@@ -9,49 +9,50 @@ import {
 export const metadata: Metadata = {
   title: "Start a Property Media Project",
   description:
-    "Enquire with Real Estate Media House about property image enhancement, animation, Property Reels and development campaign content using your existing photography or renders.",
+    "Enquire with Real Estate Media House about enhanced property images, animation, storytelling and finished property campaign content using your existing photography, renders or footage.",
 };
 
 const packages = [
   {
-    name: "Property Refresh",
-    price: "$495 + GST",
-    href: "/packages/property-refresh",
+    name: "Story Starter",
+    price: "$595 + GST",
+    href: "/packages/story-starter",
   },
   {
-    name: "Property Campaign",
-    price: "$895 + GST",
-    href: "/packages/property-campaign",
+    name: "Story Builder",
+    price: "$995 + GST",
+    href: "/packages/story-builder",
   },
   {
-    name: "Premium Campaign",
-    price: "$1,295 + GST",
-    href: "/packages/premium-campaign",
+    name: "Story Deep Dive",
+    price: "$1,595 + GST",
+    href: "/packages/story-deep-dive",
   },
   {
-    name: "Property Reel Campaign",
-    price: "$1,590 + GST",
-    href: "/packages/property-reel-campaign",
+    name: "The Full Story",
+    price: "$1,990 + GST",
+    href: "/packages/the-full-story",
   },
   {
-    name: "Development Campaign",
-    price: "Custom quote",
-    href: "/packages/development-campaign",
+    name: "Story Custom",
+    price: "Custom scope",
+    href: "/packages/story-custom",
   },
 ];
 
 const interests = [
-  "Lifestyle enhancement",
-  "People & pets",
-  "Food & entertaining",
+  "Enhanced property images",
+  "People & activity",
   "Furniture & styling",
-  "Lighting / day-to-night",
-  "Landscape",
-  "Pool",
-  "Cars & activity",
-  "Short animations",
-  "Build / demolition transformation",
-  "Finished Property Reel",
+  "Appliances & décor",
+  "Lighting & atmosphere",
+  "Landscape & planting",
+  "Cars & vehicles",
+  "Lifestyle storytelling",
+  "Property animation",
+  "Development transformation",
+  "Finished vertical Reel",
+  "Hooks, captions & sequencing",
 ];
 
 export default function EnquirePage() {
@@ -62,20 +63,20 @@ export default function EnquirePage() {
         <div className="container-shell py-20 md:py-28 lg:py-32">
           <div className="max-w-5xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-              Start a project
+              Start A Project
             </p>
 
             <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
               Have the property media?
               <span className="block text-white/35">
-                Tell us what you want to do with it.
+                Tell us what the campaign needs next.
               </span>
             </h1>
 
             <p className="mt-7 max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
-              Send us the details of the property, the media you already have
-              and the transformations you&apos;re interested in. We&apos;ll
-              review the project and help shape the right campaign.
+              Send us the property details, the photography, renders or footage
+              you already have, and what you want people to notice, understand
+              or feel.
             </p>
           </div>
         </div>
@@ -88,7 +89,7 @@ export default function EnquirePage() {
             {/* LEFT */}
             <aside>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Before you enquire
+                Before You Enquire
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight">
@@ -97,8 +98,8 @@ export default function EnquirePage() {
 
               <p className="mt-5 leading-8 text-black/55">
                 Tell us what you&apos;re working with first. Once we&apos;ve
-                reviewed the enquiry, we&apos;ll arrange the best way for you to
-                send through the photography, renders or footage.
+                reviewed the enquiry, we&apos;ll arrange the best way for you
+                to send through the photography, renders or footage.
               </p>
 
               <div className="mt-9 border-t border-black/10">
@@ -121,14 +122,15 @@ export default function EnquirePage() {
                   </p>
 
                   <p className="mt-2 leading-7 text-black/55">
-                    50% deposit to begin. Remaining 50% before finished content
-                    can be published or distributed.
+                    50% deposit to begin. The remaining 50% is due before
+                    finished content may be published, posted, distributed,
+                    advertised or otherwise used.
                   </p>
                 </div>
 
                 <div className="border-b border-black/10 py-6">
                   <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-rust">
-                    Not sure which package?
+                    Not Sure Which Package?
                   </p>
 
                   <Link
@@ -142,7 +144,7 @@ export default function EnquirePage() {
 
               <div className="mt-10">
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-rust">
-                  Package pages
+                  Package Pages
                 </p>
 
                 <div className="mt-4 space-y-3">
@@ -150,9 +152,10 @@ export default function EnquirePage() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="flex items-center justify-between border-b border-black/10 py-3 transition hover:text-rust"
+                      className="flex items-center justify-between gap-5 border-b border-black/10 py-3 transition hover:text-rust"
                     >
                       <span>{item.name}</span>
+
                       <span className="text-sm text-black/40">
                         {item.price}
                       </span>
@@ -231,10 +234,9 @@ export default function EnquirePage() {
                           Select property type
                         </option>
                         <option>Residential</option>
-                        <option>Luxury Residential</option>
                         <option>Commercial</option>
+                        <option>Childcare</option>
                         <option>Development</option>
-                        <option>Childcare / Education</option>
                         <option>Other</option>
                       </select>
                     </div>
@@ -292,7 +294,7 @@ export default function EnquirePage() {
                       />
 
                       <span className="font-semibold">
-                        Not sure — recommend one
+                        Not sure, recommend one
                       </span>
                     </label>
                   </div>
@@ -339,7 +341,28 @@ export default function EnquirePage() {
                     <textarea
                       name="Existing media"
                       rows={4}
-                      placeholder="For example: 20 professional listing photos, exterior drone photography, architectural renders, existing video footage..."
+                      placeholder="For example: professional listing photos, exterior photography, architectural renders, drone images or existing video footage..."
+                      className="w-full resize-y rounded-2xl border border-black/10 bg-[#f7f5f1] px-4 py-4 leading-7 outline-none transition focus:border-rust"
+                    />
+                  </div>
+                </fieldset>
+
+                {/* STORY */}
+                <fieldset>
+                  <legend className="font-display text-3xl font-semibold">
+                    What should people see or feel?
+                  </legend>
+
+                  <p className="mt-3 leading-7 text-black/50">
+                    This can be practical or emotional. Tell us what the next
+                    piece of campaign content needs to communicate.
+                  </p>
+
+                  <div className="mt-7">
+                    <textarea
+                      name="Story direction"
+                      rows={5}
+                      placeholder="For example: make the empty living room feel warm and lived in, help buyers imagine entertaining outside, show a gym operator how the warehouse could work, or communicate the future childcare centre before completion..."
                       className="w-full resize-y rounded-2xl border border-black/10 bg-[#f7f5f1] px-4 py-4 leading-7 outline-none transition focus:border-rust"
                     />
                   </div>
@@ -355,11 +378,29 @@ export default function EnquirePage() {
                     <textarea
                       name="Project details"
                       rows={7}
-                      placeholder="Tell us what you want the property campaign to achieve, which scenes are most important, any launch timing, and anything else we should know."
+                      placeholder="Tell us what the campaign needs to achieve, which scenes are most important, any launch timing, and anything else we should know."
                       className="w-full resize-y rounded-2xl border border-black/10 bg-[#f7f5f1] px-4 py-4 leading-7 outline-none transition focus:border-rust"
                     />
                   </div>
                 </fieldset>
+
+                {/* SCOPE */}
+                <div className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-6">
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                    Clear Scope
+                  </p>
+
+                  <h3 className="mt-3 font-display text-2xl font-semibold">
+                    We create the story. You decide where it lives.
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-black/50">
+                    Our packages can include enhanced visuals, animation,
+                    narrative, captions and sequencing. We do not manage your
+                    accounts, schedule posts or run your day to day social
+                    presence.
+                  </p>
+                </div>
 
                 {/* SUBMIT */}
                 <div className="border-t border-black/10 pt-8">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import YouTubeVideoCarousel from "@/components/YouTubeVideoCarousel";
@@ -10,14 +10,14 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Property Storytelling & Media Services | Real Estate Media House",
   description:
-    "Turn existing property photography, renders and footage into emotionally engaging campaign content with enhanced visuals, animation, narrative, captions and finished property video.",
+    "Turn existing property photography, renders and footage into enhanced property images, animation, narrative, captions and finished property video.",
   alternates: {
     canonical: `${SITE_URL}/services`,
   },
   openGraph: {
     title: "Property Storytelling & Media Services | Real Estate Media House",
     description:
-      "Beautiful property media can show the room. We help people imagine the life that could happen inside it.",
+      "Keep the property accurate while adding people, furniture, styling, atmosphere, motion and narrative that help people imagine life around it.",
     url: `${SITE_URL}/services`,
     type: "website",
     images: [
@@ -34,7 +34,7 @@ const serviceJsonLd = {
   "@type": "Service",
   name: "Property Storytelling and Media Transformation",
   description:
-    "Real Estate Media House transforms supplied property photography, renders and footage into enhanced visuals, animation, campaign narrative, captions and finished property storytelling content.",
+    "Real Estate Media House transforms supplied property photography, renders and footage into enhanced property images, animation, campaign narrative, captions and finished property storytelling content.",
   provider: {
     "@type": "Organization",
     name: "Real Estate Media House",
@@ -76,21 +76,21 @@ const services = [
     number: "01",
     title: "Enhanced Property Images",
     description:
-      "Take an already strong property image and give it more atmosphere, emotion and campaign purpose.",
+      "Keep the architecture and defining property elements accurate while adding the details, atmosphere and activity that help the image tell a stronger story.",
     href: "/image-library",
   },
   {
     number: "02",
     title: "Lifestyle Storytelling",
     description:
-      "Add the human moments that help someone imagine being there: coffee at the breakfast bar, friends in the backyard, a quiet corner at the end of the day.",
+      "Add believable human moments that help someone imagine being there: coffee at the breakfast bar, friends outside, a quiet corner at the end of the day.",
     href: "/image-library",
   },
   {
     number: "03",
     title: "Furniture & Styling",
     description:
-      "Turn an empty room into a space with purpose so people do not have to work so hard to imagine how their life might fit.",
+      "Add furniture, appliances and décor while keeping the room proportions, architecture and layout true to the supplied property image.",
     href: "/image-library",
   },
   {
@@ -104,7 +104,7 @@ const services = [
     number: "05",
     title: "Property Animation",
     description:
-      "Turn still property images into moving moments using people, atmosphere, environmental movement and camera motion.",
+      "Turn selected property images into moving scenes of up to 10 seconds each using people, atmosphere, environmental movement and camera motion.",
     href: "/video-library",
   },
   {
@@ -125,7 +125,67 @@ const services = [
     number: "08",
     title: "Finished Property Reels",
     description:
-      "Combine transformed visuals, motion and a clear narrative arc into a finished short vertical property story.",
+      "Combine selected enhanced visuals and animated scenes into a finished vertical property story with a clear narrative arc.",
+    href: "/packages/the-full-story",
+  },
+];
+
+const enhancedExamples = [
+  {
+    number: "01",
+    title: "People",
+    text: "Introduce believable people and everyday activity that help the property feel lived in, active and emotionally relevant.",
+  },
+  {
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the architecture, room proportions and layout accurate to the supplied image.",
+  },
+  {
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Add selected appliances, styling and decorative details that support the scene without redesigning the property.",
+  },
+  {
+    number: "04",
+    title: "Cars & Activity",
+    text: "Add appropriate vehicles, people and movement to exterior scenes where they help communicate how the property could feel in use.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Refine lawns, planting and surrounding atmosphere while keeping the built form and defining property elements true.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Use daylight, warmth, evening light and atmosphere to give an existing property image a stronger emotional tone.",
+  },
+];
+
+const animationPackages = [
+  {
+    name: "Story Starter",
+    scenes: "1 animated scene",
+    duration: "Up to 10 seconds",
+    href: "/packages/story-starter",
+  },
+  {
+    name: "Story Builder",
+    scenes: "2 animated scenes",
+    duration: "Up to 20 seconds total",
+    href: "/packages/story-builder",
+  },
+  {
+    name: "Story Deep Dive",
+    scenes: "3 animated scenes",
+    duration: "Up to 30 seconds total",
+    href: "/packages/story-deep-dive",
+  },
+  {
+    name: "The Full Story",
+    scenes: "3 to 4 animated scenes",
+    duration: "Up to 40 seconds total + finished Reel",
     href: "/packages/the-full-story",
   },
 ];
@@ -163,9 +223,8 @@ export default function ServicesPage() {
               </p>
 
               <p className="mt-5 max-w-3xl leading-8 text-white/45">
-                The breakfast bar becomes Sunday morning coffee. The outdoor
-                area becomes dinner that runs late. The spare room becomes the
-                nursery, study or space someone has been waiting for.
+                We keep the property itself true while building the life around
+                it with enhanced imagery, movement, atmosphere and narrative.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -197,7 +256,7 @@ export default function ServicesPage() {
               </div>
 
               <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.16em] text-white/40">
-                The property is the same. The way people feel about it changes.
+                The property stays true. The story becomes richer.
               </p>
             </div>
           </div>
@@ -231,13 +290,13 @@ export default function ServicesPage() {
               <p className="mt-5 max-w-3xl text-lg leading-8 text-black/50">
                 We start with the photography, renders or footage you already
                 have. Then we build new visual moments, motion, captions and
-                narrative around the strongest emotional opportunities inside
-                the property.
+                narrative around the strongest opportunities inside the
+                property.
               </p>
 
               <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
-                First, we bring the image to life. Then, we make it move.
-                Then, we tell you why it matters.
+                First, we bring the image to life. Then, we make it move. Then,
+                we tell you why it matters.
               </p>
             </div>
           </div>
@@ -298,8 +357,67 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ENHANCED PROPERTY IMAGES */}
+      <section className="bg-white py-18 md:py-24">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.68fr_1.32fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the architecture true.
+                <span className="block text-rust">
+                  Build the life around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                Enhanced property images begin with your existing photography
+                or supplied property media. We keep the architecture, layout
+                and defining property elements accurate.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Then, depending on the scene and campaign story, we can add or
+                refine people, furniture, appliances, décor, cars,
+                landscaping, lighting and atmosphere.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The goal is not to create a different property. It is to make
+                the existing image more complete, more human and more useful to
+                the campaign.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* STORY EXAMPLES */}
-      <section className="bg-ink py-18 text-white md:py-24">
+      <section className="border-y border-black/10 bg-ink py-18 text-white md:py-24">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.68fr_1.32fr]">
             <div>
@@ -348,6 +466,7 @@ export default function ServicesPage() {
 
                   <div>
                     <p className="text-sm text-white/30">The property has</p>
+
                     <h3 className="mt-1 font-display text-xl font-semibold">
                       {item.feature}
                     </h3>
@@ -355,6 +474,7 @@ export default function ServicesPage() {
 
                   <div>
                     <p className="text-sm text-white/30">The story becomes</p>
+
                     <p className="mt-1 font-display text-2xl leading-8 text-white/75">
                       {item.story}
                     </p>
@@ -390,9 +510,9 @@ export default function ServicesPage() {
 
               <p className="mt-5 text-lg leading-8 text-black/55">
                 A furnished room is useful. A room with a sense of life is more
-                powerful. The goal is not simply to show where the sofa goes.
-                It is to make the property feel like somewhere life already has
-                a rhythm.
+                powerful. The goal is not simply to show where the sofa goes. It
+                is to make the property feel like somewhere life already has a
+                rhythm.
               </p>
 
               <Link
@@ -489,6 +609,62 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ANIMATION LENGTH */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.68fr_1.32fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Property Animation
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Each animated scene
+                <span className="block text-rust">
+                  can run up to 10 seconds.
+                </span>
+              </h2>
+
+              <p className="mt-5 leading-8 text-black/50">
+                The package determines how many individual animated scenes are
+                included.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {animationPackages.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="group rounded-[1.75rem] border border-black/10 bg-white p-7 transition hover:border-rust hover:shadow-soft"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-display text-2xl font-semibold">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-4 text-sm leading-6 text-black/45">
+                        {item.scenes}
+                      </p>
+
+                      <p className="mt-2 font-semibold text-rust">
+                        {item.duration}
+                      </p>
+                    </div>
+
+                    <ArrowRight
+                      size={18}
+                      className="shrink-0 text-rust transition group-hover:translate-x-1"
+                    />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* MOTION */}
       <section className="bg-ink py-18 text-white md:py-24">
         <div className="container-shell">
@@ -496,7 +672,7 @@ export default function ServicesPage() {
             items={videos}
             eyebrow="Property Stories In Motion"
             heading="First, bring the image to life. Then, make it move. Then, tell people why it matters."
-            description="Motion catches the eye. Story gives the movement meaning."
+            description="Individual property animations can run up to 10 seconds per scene. Motion catches the eye. Story gives the movement meaning."
           />
         </div>
       </section>
@@ -535,17 +711,17 @@ export default function ServicesPage() {
                 {
                   problem: "The room is empty",
                   solution:
-                    "Add styling, activity and purpose so someone can understand how the space might feel to use.",
+                    "Add furniture, styling, activity and purpose while keeping the property itself accurate.",
                 },
                 {
                   problem: "The future property does not exist yet",
                   solution:
-                    "Turn project imagery into a story about possibility, progress and the completed environment.",
+                    "Turn supplied project imagery into a story about possibility, progress and the completed environment.",
                 },
                 {
                   problem: "You need moving content",
                   solution:
-                    "Animate the strongest visual moments and give them a narrative reason to be there.",
+                    "Animate the strongest visual moments with scenes of up to 10 seconds each and give every movement a narrative reason to be there.",
                 },
               ].map((item, index) => (
                 <article
@@ -583,9 +759,9 @@ export default function ServicesPage() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-black/60">
-              We write the narrative, the captions and the sequencing included
-              in your package so the visual content has a clear emotional
-              direction.
+              We create the enhanced visuals, animation, narrative, captions
+              and sequencing included in your package so the campaign has a
+              clear visual and emotional direction.
             </p>
 
             <p className="mt-5 leading-8 text-black/50">
@@ -627,13 +803,23 @@ export default function ServicesPage() {
                 },
                 {
                   number: "03",
-                  title: "Build The Visual Story",
-                  text: "Rob develops the enhanced visuals and motion. Robyn develops the emotional angle, captions and narrative sequence.",
+                  title: "Enhance The Property Images",
+                  text: "Rob keeps the architecture and defining property elements accurate while adding or refining details such as people, furniture, appliances, décor, cars, landscaping, lighting and atmosphere.",
                 },
                 {
                   number: "04",
+                  title: "Make Selected Moments Move",
+                  text: "Selected images become animated scenes of up to 10 seconds each, with the number of scenes determined by your package.",
+                },
+                {
+                  number: "05",
+                  title: "Build The Narrative",
+                  text: "Robyn develops the emotional angle, hooks, captions and sequencing that connect the visual assets into a story.",
+                },
+                {
+                  number: "06",
                   title: "Put The Story Into The Campaign",
-                  text: "Use the finished images, animation, captions and narrative alongside the original property media.",
+                  text: "Use the finished enhanced images, animation, captions and narrative alongside the original property media.",
                 },
               ].map((step) => (
                 <article
@@ -658,13 +844,73 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* PACKAGES */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.68fr_1.32fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Story Packages
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Choose how much visual
+                <span className="block text-rust">
+                  and narrative depth you need.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/55">
+                Every package combines enhanced property images, animation and
+                story. Each included animated scene can run up to 10 seconds.
+              </p>
+
+              <div className="mt-7 space-y-3">
+                {animationPackages.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="group flex flex-col gap-4 rounded-[1.5rem] border border-black/10 bg-white p-6 transition hover:border-rust hover:shadow-soft sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <div>
+                      <h3 className="font-display text-2xl font-semibold">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-2 text-sm text-black/45">
+                        {item.scenes} · {item.duration}
+                      </p>
+                    </div>
+
+                    <ArrowRight
+                      size={18}
+                      className="shrink-0 text-rust transition group-hover:translate-x-1"
+                    />
+                  </Link>
+                ))}
+              </div>
+
+              <Link
+                href="/packages"
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+              >
+                Compare all packages
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* NEXT PATH */}
-      <section className="border-t border-black/10 bg-[#f7f5f1] py-18 md:py-24">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-5 lg:grid-cols-3">
             <Link
               href="/explore"
-              className="group rounded-[2rem] border border-black/10 bg-white p-8 transition hover:border-rust hover:shadow-soft"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
             >
               <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                 Explore
@@ -686,7 +932,7 @@ export default function ServicesPage() {
 
             <Link
               href="/packages"
-              className="group rounded-[2rem] border border-black/10 bg-white p-8 transition hover:border-rust hover:shadow-soft"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
             >
               <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                 Packages
@@ -697,8 +943,8 @@ export default function ServicesPage() {
               </h2>
 
               <p className="mt-4 leading-7 text-black/50">
-                From five individual story hooks through to a complete listing
-                lifecycle campaign.
+                From five enhanced images and one animation through to a
+                complete listing lifecycle campaign.
               </p>
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
@@ -709,7 +955,7 @@ export default function ServicesPage() {
 
             <Link
               href="/blog"
-              className="group rounded-[2rem] border border-black/10 bg-white p-8 transition hover:border-rust hover:shadow-soft"
+              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
             >
               <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                 Guides
@@ -748,7 +994,8 @@ export default function ServicesPage() {
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
             The photography may already be beautiful. We help turn it into a
-            campaign that gives people something to imagine, remember and feel.
+            campaign with enhanced imagery, movement and narrative that gives
+            people something more to imagine, remember and feel.
           </p>
 
           <Link

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import YouTubeVideoCarousel from "@/components/YouTubeVideoCarousel";
@@ -10,20 +10,20 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "How It Works | Real Estate Media House",
   description:
-    "See how Real Estate Media House turns existing property photography, renders and footage into enhanced visuals, animation and finished campaign content.",
+    "See how Real Estate Media House turns existing property photography, renders and footage into enhanced images, animation, narrative and finished campaign content.",
   alternates: {
     canonical: `${SITE_URL}/how-it-works`,
   },
   openGraph: {
     title: "How It Works | Real Estate Media House",
     description:
-      "Send the property media you already have. We turn selected assets into fresh stills, animation and campaign content.",
+      "Send the property media you already have. We enhance selected images, create animated scenes and build the story around them.",
     url: `${SITE_URL}/how-it-works`,
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg`,
-        alt: "Existing property photography transformed into additional marketing content",
+        url: `${SITE_URL}/images/residential/residential-before-after/residential-home-after.png`,
+        alt: "Existing property photography transformed into additional visual marketing content",
       },
     ],
   },
@@ -53,66 +53,125 @@ const videos = [
   },
 ];
 
+const enhancedExamples = [
+  {
+    number: "01",
+    title: "People",
+    text: "Add believable people and everyday activity that help someone imagine how the property could feel in use.",
+  },
+  {
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the architecture, proportions and room layout accurate.",
+  },
+  {
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Introduce selected appliances, styling and decorative details without changing the property itself.",
+  },
+  {
+    number: "04",
+    title: "Cars & Activity",
+    text: "Add appropriate vehicles, people and movement to exterior scenes where they support the story.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Refine lawns, planting and surrounding atmosphere while keeping the built property true.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Use daylight, warmth, dusk and evening atmosphere to create a stronger emotional moment.",
+  },
+];
+
+const packageDurations = [
+  {
+    name: "Story Starter",
+    href: "/packages/story-starter",
+    images: "5 enhanced images",
+    animation: "1 animated scene",
+    duration: "Up to 10 seconds",
+  },
+  {
+    name: "Story Builder",
+    href: "/packages/story-builder",
+    images: "8 enhanced images",
+    animation: "2 animated scenes",
+    duration: "Up to 20 seconds total",
+  },
+  {
+    name: "Story Deep Dive",
+    href: "/packages/story-deep-dive",
+    images: "12 enhanced images",
+    animation: "3 animated scenes",
+    duration: "Up to 30 seconds total",
+  },
+  {
+    name: "The Full Story",
+    href: "/packages/the-full-story",
+    images: "12 enhanced images",
+    animation: "3 to 4 animated scenes",
+    duration: "Up to 40 seconds total + finished Reel",
+  },
+];
+
 export default function HowItWorksPage() {
   return (
     <main className="bg-[#f7f5f1] text-ink">
       {/* HERO */}
       <section className="bg-ink text-white">
-        <div className="container-shell py-14 md:py-16">
-          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-            <div className="lg:sticky lg:top-28">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                How It Works
-              </p>
+        <div className="container-shell py-16 md:py-20 lg:py-24">
+          <div className="max-w-5xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+              How It Works
+            </p>
 
-              <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Start with the media
-                <span className="block text-rust">
-                  you already have.
-                </span>
-              </h1>
+            <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+              Start with the media
+              <span className="block text-rust">you already have.</span>
+            </h1>
 
-              <p className="mt-7 max-w-xl text-lg leading-8 text-white/60 md:text-xl">
-                You send us the property photography, renders or footage
-                already created for the campaign. We turn selected assets into
-                more useful visual content.
-              </p>
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-white/65 md:text-xl">
+              Send us the property photography, renders or footage already
+              created for the campaign. We keep the property itself true, then
+              build new visual and emotional stories around the strongest
+              moments.
+            </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/enquire"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-                >
-                  Show us your media
-                  <ArrowRight size={17} />
-                </Link>
+            <p className="mt-5 max-w-3xl leading-8 text-white/45">
+              That can mean enhanced property images, animated scenes up to 10
+              seconds each, captions, narrative sequencing and finished video.
+            </p>
 
-                <Link
-                  href="/explore"
-                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
-                >
-                  Explore examples
-                </Link>
-              </div>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-brassBright"
+              >
+                Show us your media
+                <ArrowRight size={18} />
+              </Link>
+
+              <Link
+                href="/explore"
+                className="inline-flex items-center rounded-full border border-white/20 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
+              >
+                Explore examples
+              </Link>
             </div>
-
-            <YouTubeVideoCarousel
-              items={videos}
-              eyebrow="See The Process In Action"
-              heading="Still property media can become moving campaign content."
-              description="Residential, commercial and development imagery can all become fresh visual assets without organising another property shoot."
-            />
           </div>
         </div>
       </section>
 
       {/* PROCESS */}
-      <section className="bg-white py-14 md:py-16">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Four Steps
+                Five Steps
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
@@ -130,17 +189,22 @@ export default function HowItWorksPage() {
                 {
                   number: "02",
                   title: "Tell Us What The Campaign Needs",
-                  text: "More attention, a different audience, furniture, lifestyle, commercial use, development visualisation or movement.",
+                  text: "More attention, stronger lifestyle, furniture, people, atmosphere, commercial use, development storytelling or movement.",
                 },
                 {
                   number: "03",
                   title: "Choose The Strongest Assets",
-                  text: "We focus on the images and scenes with the most potential to become useful new campaign content.",
+                  text: "We identify the images and scenes with the strongest visual and emotional potential.",
                 },
                 {
                   number: "04",
-                  title: "Create The New Campaign Assets",
-                  text: "Use the finished stills, animated scenes or Reel alongside the original property media.",
+                  title: "Build The Visual Story",
+                  text: "Rob enhances the selected images and creates the animated scenes included in your package.",
+                },
+                {
+                  number: "05",
+                  title: "Build The Human Story",
+                  text: "Robyn develops the hooks, captions and sequencing that give the finished visual content something meaningful to say.",
                 },
               ].map((step) => (
                 <article
@@ -165,32 +229,96 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
+      {/* ENHANCED IMAGES */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the architecture true.
+                <span className="block text-rust">
+                  Build the life around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout and defining property elements
+                accurate to the supplied image.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Then, depending on the scene and campaign story, we can add or
+                refine people, furniture, appliances, décor, cars,
+                landscaping, lighting and atmosphere.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The goal is not to redesign the property. It is to make the
+                existing image feel more complete, more human and more useful
+                to the campaign.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-white p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* BEFORE AFTER */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-16">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-soft">
+            <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
               <BeforeAfterSlider
-                before="/property-images/website/lifestyle/kitchen-before.jpeg"
-                after="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
-                beforeAlt="Original property photography"
-                afterAlt="Property photography transformed into additional lifestyle marketing content"
+                before="/property-images/website/staging/living-room-before.jpeg"
+                after="/property-images/website/staging/living-room-after.jpeg"
+                beforeAlt="Original residential living room property photograph"
+                afterAlt="Residential living room enhanced with furniture and styling"
               />
             </div>
 
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                First, Change The Story
+                First, Bring The Image To Life
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                The original photo stays useful.
+                The original photograph
+                <span className="block text-rust">still does its job.</span>
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                We are not replacing the property shoot. We are extending it
-                with additional visual directions that can be used throughout
-                the campaign.
+                We are not replacing the property shoot. We are creating
+                additional visual directions from the media already produced.
+              </p>
+
+              <p className="mt-5 leading-8 text-black/50">
+                The original image can remain part of the listing while the
+                enhanced version gives the campaign another way to communicate
+                scale, purpose, atmosphere or lifestyle.
               </p>
             </div>
           </div>
@@ -198,9 +326,9 @@ export default function HowItWorksPage() {
       </section>
 
       {/* WHAT CAN BE CREATED */}
-      <section className="bg-white py-14 md:py-16">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
-          <div className="mb-9 max-w-4xl">
+          <div className="mb-10 max-w-4xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
               What Can The Media Become?
             </p>
@@ -215,37 +343,37 @@ export default function HowItWorksPage() {
               {
                 number: "01",
                 title: "Enhanced Images",
-                text: "Create stronger finished stills from existing property photography.",
+                text: "Keep the property accurate while adding people, furniture, appliances, décor, cars, landscape, lighting or atmosphere.",
               },
               {
                 number: "02",
-                title: "Lifestyle",
-                text: "Add people, atmosphere and activity to create a more human campaign moment.",
+                title: "Lifestyle Moments",
+                text: "Add believable people and activity that help someone picture what everyday life there could feel like.",
               },
               {
                 number: "03",
                 title: "Furniture & Styling",
-                text: "Help buyers understand empty rooms with a clearer sense of scale and purpose.",
+                text: "Help people understand an empty room with furniture, appliances and décor while keeping the room itself true.",
               },
               {
                 number: "04",
                 title: "Commercial Visualisation",
-                text: "Show a vacant property as a relevant possible use for the audience being targeted.",
+                text: "Show a vacant property as a relevant possible use for the operator or business being targeted.",
               },
               {
                 number: "05",
                 title: "Property Animation",
-                text: "Turn selected still images into short moving property scenes.",
+                text: "Turn selected still images into moving property scenes of up to 10 seconds each.",
               },
               {
                 number: "06",
                 title: "Finished Reel",
-                text: "Combine several transformed and animated scenes into one finished vertical video.",
+                text: "Combine selected enhanced and animated scenes into one finished vertical property story.",
               },
             ].map((item) => (
               <article
                 key={item.number}
-                className="rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7"
+                className="rounded-[1.75rem] border border-black/10 bg-white p-7"
               >
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                   {item.number}
@@ -262,19 +390,126 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
+      {/* ANIMATION */}
+      <section className="bg-ink py-16 text-white md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Then, Make It Move
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Every animated scene can run
+                <span className="block text-rust">up to 10 seconds.</span>
+              </h2>
+
+              <p className="mt-5 leading-8 text-white/50">
+                The package determines how many individual animated scenes are
+                included.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {packageDurations.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="group rounded-[1.75rem] border border-white/10 bg-white/5 p-7 transition hover:border-rust hover:bg-white/10"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-display text-2xl font-semibold">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-4 text-sm text-white/40">
+                        {item.images}
+                      </p>
+
+                      <p className="mt-2 text-sm text-white/50">
+                        {item.animation}
+                      </p>
+
+                      <p className="mt-3 font-semibold text-brassBright">
+                        {item.duration}
+                      </p>
+                    </div>
+
+                    <ArrowRight
+                      size={18}
+                      className="shrink-0 text-brassBright transition group-hover:translate-x-1"
+                    />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO PROOF */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <YouTubeVideoCarousel
+            items={videos}
+            eyebrow="Property Stories In Motion"
+            heading="Movement gives the existing media another job."
+            description="Selected images can become animated scenes up to 10 seconds each, adding activity, atmosphere and another reason for the campaign to appear in the feed."
+          />
+        </div>
+      </section>
+
+      {/* STORY */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Then, Tell The Story
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                A visual can catch attention.
+                <span className="block text-rust">
+                  The story gives it meaning.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                A breakfast bar is a property feature. Sunday morning coffee
+                while the house is still quiet is a moment.
+              </p>
+
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-black/50">
+                Robyn develops the hook, caption angle and sequencing included
+                in the package so each enhanced image or animated scene has a
+                clear reason to be part of the campaign.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                Features explain the property. Moments make it personal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PROPERTY TYPES */}
-      <section className="bg-ink py-14 text-white md:py-16">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
                 Different Property Types
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
                 Same process.
                 <br />
-                Different marketing problem.
+                Different story.
               </h2>
             </div>
 
@@ -282,26 +517,26 @@ export default function HowItWorksPage() {
               {[
                 {
                   title: "Residential",
-                  text: "Lifestyle, furniture, atmosphere, facade content and property animation.",
+                  text: "Lifestyle, furniture, appliances, décor, people, cars, atmosphere and property animation.",
                   href: "/residential-property-animation",
                 },
                 {
                   title: "Commercial",
-                  text: "Industry specific visualisation, vacant property transformation and commercial animation.",
+                  text: "Industry specific visualisation, people, vehicles, equipment, business activity and commercial animation.",
                   href: "/commercial-property-visualisation",
                 },
                 {
                   title: "Childcare",
-                  text: "Development visualisation, completed centre concepts, active environments and animation.",
+                  text: "Development visualisation, furniture, play environments, landscaping, people, activity and animation.",
                   href: "/childcare-development-visualisation",
                 },
               ].map((item, index) => (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="group grid gap-4 border-b border-white/10 py-6 sm:grid-cols-[55px_0.7fr_1.3fr_auto] sm:items-center"
+                  className="group grid gap-4 border-b border-black/10 py-6 sm:grid-cols-[55px_0.7fr_1.3fr_auto] sm:items-center"
                 >
-                  <p className="font-mono text-[9px] text-brassBright">
+                  <p className="font-mono text-[9px] text-rust">
                     {String(index + 1).padStart(2, "0")}
                   </p>
 
@@ -309,11 +544,11 @@ export default function HowItWorksPage() {
                     {item.title}
                   </h3>
 
-                  <p className="leading-7 text-white/45">{item.text}</p>
+                  <p className="leading-7 text-black/45">{item.text}</p>
 
                   <ArrowRight
                     size={18}
-                    className="text-brassBright transition group-hover:translate-x-1"
+                    className="text-rust transition group-hover:translate-x-1"
                   />
                 </Link>
               ))}
@@ -323,25 +558,78 @@ export default function HowItWorksPage() {
       </section>
 
       {/* PACKAGES */}
-      <section className="bg-white py-14 md:py-16">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Choose The Amount
+                Choose The Depth
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                From a small refresh to a finished Reel.
+                From one moving moment
+                <span className="block text-rust">
+                  to a complete property story.
+                </span>
               </h2>
             </div>
 
             <div>
               <p className="max-w-3xl text-lg leading-8 text-black/55">
-                Five campaign options let you choose how many enhanced images
-                and animated scenes the property needs, with a custom option
-                for developments.
+                The five package options let you choose how many enhanced
+                images, animated scenes and narrative moments the campaign
+                needs.
               </p>
+
+              <div className="mt-7 space-y-3">
+                {packageDurations.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="group flex flex-col gap-4 rounded-[1.5rem] border border-black/10 bg-white p-6 transition hover:border-rust hover:shadow-soft sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <div>
+                      <h3 className="font-display text-2xl font-semibold">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-6 text-black/45">
+                        {item.images} · {item.animation}
+                      </p>
+
+                      <p className="mt-2 font-semibold text-rust">
+                        {item.duration}
+                      </p>
+                    </div>
+
+                    <ArrowRight
+                      size={18}
+                      className="shrink-0 text-rust transition group-hover:translate-x-1"
+                    />
+                  </Link>
+                ))}
+
+                <Link
+                  href="/packages/story-custom"
+                  className="group flex flex-col gap-4 rounded-[1.5rem] border border-black/10 bg-ink p-6 text-white transition hover:border-rust sm:flex-row sm:items-center sm:justify-between"
+                >
+                  <div>
+                    <h3 className="font-display text-2xl font-semibold">
+                      Story Custom
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-6 text-white/45">
+                      Custom enhanced images and custom number of animated
+                      scenes, typically up to 10 seconds each
+                    </p>
+                  </div>
+
+                  <ArrowRight
+                    size={18}
+                    className="shrink-0 text-brassBright transition group-hover:translate-x-1"
+                  />
+                </Link>
+              </div>
 
               <Link
                 href="/packages"
@@ -355,8 +643,36 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
+      {/* CLEAR SCOPE */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 shadow-soft md:p-12">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Clear Scope
+            </p>
+
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-5xl">
+              We create the story.
+              <br />
+              You decide where it lives.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-black/60">
+              We create the enhanced visuals, animation, narrative, captions
+              and sequencing included in your package.
+            </p>
+
+            <p className="mt-5 leading-8 text-black/50">
+              We do not manage your accounts, schedule your posts or run your
+              day to day social presence. That stays with you, your agency or
+              your marketing team.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* PAYMENT */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-16">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-white p-8 shadow-soft md:p-10">
             <div className="grid gap-7 md:grid-cols-[0.65fr_1.35fr]">
@@ -372,7 +688,7 @@ export default function HowItWorksPage() {
 
               <div>
                 <h2 className="font-display text-3xl font-semibold">
-                  50% deposit to begin. Balance before use.
+                  50% deposit to begin. 50% before use.
                 </h2>
 
                 <p className="mt-4 leading-7 text-black/50">
@@ -386,19 +702,22 @@ export default function HowItWorksPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-rust px-6 py-18 text-white md:py-20">
+      <section className="bg-rust px-6 py-20 text-white md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-            One Shoot. More Campaign Content.
+            Start With What You Already Have
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-            Show us what you already have.
+            Show us the media.
+            <br />
+            We’ll find what it can become.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Send us the property media and tell us what the campaign needs to do
-            next.
+            Start with the photography, renders or footage already created for
+            the property. We’ll identify the strongest visual moments, enhance
+            them, make selected scenes move and build the story around them.
           </p>
 
           <Link

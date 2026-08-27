@@ -9,31 +9,31 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Story Starter | Property Story Package",
   description:
-    "Story Starter combines 5 enhanced property images, 1 short animation and 5 written hooks to give an existing property campaign a stronger reason to stop and look.",
+    "Five enhanced property images, one property animation up to 10 seconds and five individual story hooks for $595 + GST.",
   alternates: {
     canonical: `${SITE_URL}/packages/story-starter`,
   },
   openGraph: {
     title: "Story Starter | Real Estate Media House",
     description:
-      "Five enhanced property images, one short animation and a written story angle for every image.",
+      "Five enhanced property images, one animation up to 10 seconds and five individual story hooks built from your existing property media.",
     url: `${SITE_URL}/packages/story-starter`,
     type: "website",
     images: [
       {
         url: `${SITE_URL}/images/residential/residential-before-after/residential-home-after.png`,
-        alt: "Residential property transformed into additional campaign content",
+        alt: "Residential property enhanced for a stronger visual marketing story",
       },
     ],
   },
 };
 
-const packageJsonLd = {
+const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Story Starter",
   description:
-    "An entry property storytelling package including 5 enhanced property images, 1 short property animation and a written caption or hook for each image.",
+    "Five enhanced property images, one property animation up to 10 seconds and five individual story hooks.",
   provider: {
     "@type": "Organization",
     name: "Real Estate Media House",
@@ -43,38 +43,78 @@ const packageJsonLd = {
     "@type": "Country",
     name: "Australia",
   },
+  url: `${SITE_URL}/packages/story-starter`,
   offers: {
     "@type": "Offer",
-    priceCurrency: "AUD",
     price: "595",
+    priceCurrency: "AUD",
     url: `${SITE_URL}/packages/story-starter`,
   },
 };
 
-const robDelivers = [
+const visualDeliverables = [
   "5 enhanced property images",
-  "1 short property animation",
-  "Up to 5 seconds of animation",
+  "1 property animation up to 10 seconds",
 ];
 
-const robynDelivers = [
-  "A written hook or caption angle for each of the 5 images",
-  "An emotional reason for each image to exist in the campaign",
-  "Copy designed to work with the visual rather than simply describe it",
+const storyDeliverables = [
+  "A story hook or caption angle for each of the 5 images",
+  "An emotional direction for each image so it has a reason to exist in the campaign",
 ];
 
-const reasons = [
+const enhancedExamples = [
   {
-    title: "The photos are fine. People are still scrolling.",
-    text: "The problem may not be image quality. It may be that the campaign is giving people no reason to stop.",
+    number: "01",
+    title: "People",
+    text: "Introduce believable human moments that help someone imagine how the property could feel to live in.",
   },
   {
-    title: "The listing has already been seen.",
-    text: "Use the photography you already paid for to create new visual and narrative moments.",
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the room dimensions, architecture and layout accurate.",
   },
   {
-    title: "You want to test the story approach.",
-    text: "Story Starter is the smallest way to see what happens when visual transformation and narrative work together.",
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Add selected appliances, styling and decorative elements that support the scene without changing the property itself.",
+  },
+  {
+    number: "04",
+    title: "Cars & Activity",
+    text: "Bring exterior scenes to life with appropriate vehicles, people and everyday activity.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Improve lawns, planting and surrounding atmosphere while keeping the built property true to the supplied image.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Strengthen warmth, mood and time of day so the same property image can carry a different emotional story.",
+  },
+];
+
+const process = [
+  {
+    number: "01",
+    title: "Send The Property Media",
+    text: "Supply the property photography, renders or footage you already have.",
+  },
+  {
+    number: "02",
+    title: "Find The Strongest Moments",
+    text: "We identify five images with the best visual and emotional potential.",
+  },
+  {
+    number: "03",
+    title: "Build The Visual Story",
+    text: "Rob enhances the selected images and creates one animated scene up to 10 seconds.",
+  },
+  {
+    number: "04",
+    title: "Give Each Image Something To Say",
+    text: "Robyn develops a hook or caption angle for each image so the campaign moves beyond simply showing rooms.",
   },
 ];
 
@@ -84,109 +124,159 @@ export default function StoryStarterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(packageJsonLd),
+          __html: JSON.stringify(serviceJsonLd),
         }}
       />
 
-      {/* HERO */}
+      {/* PLAIN HEADER */}
       <section className="bg-ink text-white">
-        <div className="container-shell py-14 md:py-18">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Story Starter
-              </p>
+        <div className="container-shell py-16 md:py-20 lg:py-24">
+          <div className="max-w-5xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+              Story Starter · $595 + GST
+            </p>
 
-              <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Give them a reason
-                <span className="block text-rust">to stop.</span>
-              </h1>
+            <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+              Give them a reason
+              <span className="block text-rust">to stop.</span>
+            </h1>
 
-              <p className="mt-7 max-w-xl text-lg leading-8 text-white/60">
-                Your property photography may already be technically good.
-                Story Starter gives five of those images a new visual direction
-                and a new reason to matter.
-              </p>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/65 md:text-xl">
+              Five enhanced property images, one animation up to 10 seconds and
+              five individual story hooks built from the property media you
+              already have.
+            </p>
 
-              <div className="mt-8 flex items-baseline gap-2">
-                <span className="font-display text-5xl font-semibold">
-                  $595
-                </span>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-brassBright"
+              >
+                Start Story Starter
+                <ArrowRight size={18} />
+              </Link>
 
-                <span className="text-sm text-white/40">+ GST</span>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/enquire"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-                >
-                  Start with Story Starter
-                  <ArrowRight size={17} />
-                </Link>
-
-                <Link
-                  href="/packages"
-                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
-                >
-                  Compare stories
-                </Link>
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <article className="rounded-[2rem] border border-white/10 bg-white/5 p-7">
-                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                  Rob Delivers
-                </p>
-
-                <h2 className="mt-4 font-display text-3xl font-semibold">
-                  The visual.
-                </h2>
-
-                <div className="mt-6 space-y-4">
-                  {robDelivers.map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <Check
-                        size={16}
-                        className="mt-1 shrink-0 text-brassBright"
-                      />
-
-                      <p className="leading-7 text-white/60">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </article>
-
-              <article className="rounded-[2rem] border border-rust/50 bg-rust/15 p-7">
-                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                  Robyn Delivers
-                </p>
-
-                <h2 className="mt-4 font-display text-3xl font-semibold">
-                  The reason to care.
-                </h2>
-
-                <div className="mt-6 space-y-4">
-                  {robynDelivers.map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <Check
-                        size={16}
-                        className="mt-1 shrink-0 text-brassBright"
-                      />
-
-                      <p className="leading-7 text-white/65">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </article>
+              <Link
+                href="/packages"
+                className="inline-flex items-center rounded-full border border-white/20 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
+              >
+                Compare packages
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CORE IDEA */}
-      <section className="bg-white py-14 md:py-18">
+      {/* PACKAGE DELIVERABLES */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 md:p-10">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Rob Delivers
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold">
+                The visual story.
+              </h2>
+
+              <div className="mt-7 space-y-4">
+                {visualDeliverables.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Check size={16} className="mt-1 shrink-0 text-rust" />
+
+                    <p className="leading-7 text-black/60">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="rounded-[2rem] border border-rust bg-ink p-8 text-white md:p-10">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
+                Robyn Delivers
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold">
+                The human story.
+              </h2>
+
+              <div className="mt-7 space-y-4">
+                {storyDeliverables.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Check
+                      size={16}
+                      className="mt-1 shrink-0 text-brassBright"
+                    />
+
+                    <p className="leading-7 text-white/65">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* ENHANCED IMAGE EXPLANATION */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the architecture true.
+                <span className="block text-rust">
+                  Build the life around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout and defining property elements
+                accurate to the supplied image.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Then, depending on what the story needs, we can add or refine
+                people, furniture, appliances, décor, cars, landscaping,
+                lighting and atmosphere.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The goal is not to redesign the property. It is to make the
+                existing image feel more complete, more human and more useful
+                to the campaign.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-white p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROOF */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
@@ -194,188 +284,70 @@ export default function StoryStarterPage() {
                 before="/images/residential/residential-before-after/residential-home-before.png"
                 after="/images/residential/residential-before-after/residential-home-after.png"
                 beforeAlt="Original residential property image"
-                afterAlt="Residential property transformed into additional campaign content"
+                afterAlt="Residential property image enhanced for additional campaign storytelling"
               />
             </div>
 
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                More Than An Edit
+                One Image. More Possibility.
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                First, we bring the image to life.
-                <span className="block">Then, we make it move.</span>
+                The property stays recognisable.
                 <span className="block text-rust">
-                  Then, we tell you why it matters.
+                  The campaign gains another moment.
                 </span>
               </h2>
 
               <p className="mt-6 text-lg leading-8 text-black/55">
-                The transformed image catches attention. The story gives that
-                attention somewhere to go.
+                Story Starter is designed for photography that already does a
+                good job of showing the property but needs another layer of
+                attention, atmosphere or human connection.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* WHO IT IS FOR */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-18">
-        <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Is This You?
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                The listing does not need another shoot.
-              </h2>
-
-              <p className="mt-5 max-w-xl leading-8 text-black/50">
-                It needs a stronger reason for someone to notice what is already
-                there.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {reasons.map((item, index) => (
-                <article
-                  key={item.title}
-                  className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-white p-6 sm:grid-cols-[55px_0.9fr_1.1fr]"
-                >
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-
-                  <h3 className="font-display text-xl font-semibold">
-                    {item.title}
-                  </h3>
-
-                  <p className="leading-7 text-black/50">{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT YOU RECEIVE */}
-      <section className="bg-white py-14 md:py-18">
-        <div className="container-shell">
-          <div className="mb-9 max-w-4xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              What You Receive
-            </p>
-
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-              Five images. One moving moment. Five story angles.
-            </h2>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8">
-              <p className="font-display text-5xl font-semibold text-rust">
-                5
-              </p>
-
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Enhanced Images
-              </h3>
-
-              <p className="mt-4 leading-7 text-black/50">
-                Five selected property images given a stronger visual direction.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8">
-              <p className="font-display text-5xl font-semibold text-rust">
-                1
-              </p>
-
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Property Animation
-              </h3>
-
-              <p className="mt-4 leading-7 text-black/50">
-                One selected image turned into a short moving property moment
-                of up to five seconds.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-rust bg-ink p-8 text-white">
-              <p className="font-display text-5xl font-semibold text-brassBright">
-                5
-              </p>
-
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Story Hooks
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/55">
-                One written emotional angle for each image so the campaign has
-                something more useful to say.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* ROB + ROBYN */}
-      <section className="bg-ink py-14 text-white md:py-18">
+      {/* THE STORY DIFFERENCE */}
+      <section className="bg-ink py-16 text-white md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Two Parts Of One Story
+                The Story Difference
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                One person makes you look.
-                <span className="block text-rust">
-                  The other gives you a reason to stay.
-                </span>
+                Do not just show
+                <span className="block text-rust">what is in the room.</span>
               </h2>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2">
-              <article className="rounded-[1.75rem] border border-white/10 p-7">
-                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                  Rob
-                </p>
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-white/60">
+                A photograph can show a breakfast bar. The story can make that
+                image about Sunday morning coffee while the house is still
+                quiet.
+              </p>
 
-                <h3 className="mt-4 font-display text-3xl font-semibold">
-                  Visual craft.
-                </h3>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-white/50">
+                A photograph can show the backyard. The story can make it about
+                dinner outside that somehow turns into the whole evening.
+              </p>
 
-                <p className="mt-4 leading-7 text-white/50">
-                  Twenty years of architectural illustration and animation
-                  applied to the property media you already have.
-                </p>
-              </article>
-
-              <article className="rounded-[1.75rem] border border-rust bg-rust/15 p-7">
-                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                  Robyn
-                </p>
-
-                <h3 className="mt-4 font-display text-3xl font-semibold">
-                  Emotional direction.
-                </h3>
-
-                <p className="mt-4 leading-7 text-white/50">
-                  Interior design thinking and storytelling used to find the
-                  human angle inside each selected image.
-                </p>
-              </article>
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9 text-white/80">
+                Five images. Five opportunities to give someone something more
+                to imagine.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* PROCESS */}
-      <section className="bg-white py-14 md:py-18">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -384,33 +356,14 @@ export default function StoryStarterPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Start with what you already have.
+                Start with the media.
+                <br />
+                Find the story.
               </h2>
             </div>
 
-            <div className="space-y-3">
-              {[
-                {
-                  number: "01",
-                  title: "Send The Property Media",
-                  text: "Supply the existing photography, renders or footage from the campaign.",
-                },
-                {
-                  number: "02",
-                  title: "Choose The Five Images",
-                  text: "We focus on the images with the strongest visual and storytelling potential.",
-                },
-                {
-                  number: "03",
-                  title: "Build The Visual + Story",
-                  text: "Rob develops the visuals and motion. Robyn develops the hook and emotional angle for each image.",
-                },
-                {
-                  number: "04",
-                  title: "Put Them Back Into The Campaign",
-                  text: "Use the new images, animation and written story alongside the original property media.",
-                },
-              ].map((step) => (
+            <div className="space-y-4">
+              {process.map((step) => (
                 <article
                   key={step.number}
                   className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7 sm:grid-cols-[70px_1fr]"
@@ -424,7 +377,9 @@ export default function StoryStarterPage() {
                       {step.title}
                     </h3>
 
-                    <p className="mt-3 leading-7 text-black/50">{step.text}</p>
+                    <p className="mt-3 leading-7 text-black/50">
+                      {step.text}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -434,7 +389,7 @@ export default function StoryStarterPage() {
       </section>
 
       {/* PAYMENT */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-18">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-white p-8 shadow-soft md:p-10">
             <div className="grid gap-8 md:grid-cols-[0.65fr_1.35fr]">
@@ -450,13 +405,12 @@ export default function StoryStarterPage() {
 
               <div>
                 <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
-                  50% deposit to begin. Balance before use.
+                  50% deposit to begin. 50% before use.
                 </h2>
 
                 <p className="mt-5 leading-8 text-black/50">
-                  A 50% deposit is required to begin. The remaining 50% is due
-                  before the finished content may be published, posted,
-                  distributed, advertised or otherwise used.
+                  The remaining 50% is due before the finished content may be
+                  published, posted, distributed, advertised or otherwise used.
                 </p>
               </div>
             </div>
@@ -465,61 +419,37 @@ export default function StoryStarterPage() {
       </section>
 
       {/* NEXT PACKAGE */}
-      <section className="bg-white py-14 md:py-18">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-5 lg:grid-cols-2">
-            <Link
-              href="/packages/story-builder"
-              className="group rounded-[2rem] border border-rust bg-ink p-8 text-white transition hover:bg-rust"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                Need More Story?
-              </p>
+          <Link
+            href="/packages/story-builder"
+            className="group block rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft md:p-10"
+          >
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Need More Campaign Depth?
+            </p>
 
-              <h2 className="mt-4 font-display text-3xl font-semibold">
-                Story Builder
-              </h2>
+            <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="font-display text-4xl font-semibold">
+                  Story Builder
+                </h2>
 
-              <p className="mt-4 leading-7 text-white/50">
-                Eight enhanced images, two animations and a three post sequence
-                designed to unfold as a mini campaign.
-              </p>
+                <p className="mt-4 max-w-2xl leading-7 text-black/50">
+                  Eight enhanced images, two animations up to 10 seconds each
+                  and a three post narrative sequence.
+                </p>
+              </div>
 
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-brassBright">
-                View Story Builder
+              <div className="inline-flex items-center gap-2 font-semibold text-rust">
+                Explore Story Builder
                 <ArrowRight
                   size={17}
                   className="transition group-hover:translate-x-1"
                 />
               </div>
-            </Link>
-
-            <Link
-              href="/packages"
-              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                Compare
-              </p>
-
-              <h2 className="mt-4 font-display text-3xl font-semibold">
-                Compare All Five Stories
-              </h2>
-
-              <p className="mt-4 leading-7 text-black/50">
-                Compare the visual content, animation and storytelling included
-                at each level.
-              </p>
-
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
-                Compare packages
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
-              </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -533,19 +463,19 @@ export default function StoryStarterPage() {
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
             The photography is already there.
             <br />
-            Now give people a reason to care.
+            Give it more to say.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Five enhanced images. One moving scene. Five story hooks built from
-            the property media you already have.
+            Five enhanced images, one animation up to 10 seconds and five
+            individual story hooks.
           </p>
 
           <Link
             href="/enquire"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
           >
-            Start with Story Starter
+            Start Story Starter
             <ArrowRight size={18} />
           </Link>
         </div>

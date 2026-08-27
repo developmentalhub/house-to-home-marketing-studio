@@ -4,37 +4,36 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-import YouTubeVideoCarousel from "@/components/YouTubeVideoCarousel";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Story Builder | Property Story Package",
   description:
-    "Story Builder combines 8 enhanced property images, 2 animations and a 3 post narrative sequence to turn an existing listing into a mini campaign.",
+    "Eight enhanced property images, two property animations up to 10 seconds each and a three post narrative sequence for $995 + GST.",
   alternates: {
     canonical: `${SITE_URL}/packages/story-builder`,
   },
   openGraph: {
     title: "Story Builder | Real Estate Media House",
     description:
-      "Eight enhanced property images, two animations and a three post narrative sequence designed to build across the campaign.",
+      "Eight enhanced property images, two animations up to 10 seconds each and a three post story sequence built from the media you already have.",
     url: `${SITE_URL}/packages/story-builder`,
     type: "website",
     images: [
       {
         url: `${SITE_URL}/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg`,
-        alt: "Residential property image transformed into additional campaign content",
+        alt: "Residential bedroom enhanced into a stronger lifestyle marketing image",
       },
     ],
   },
 };
 
-const packageJsonLd = {
+const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Story Builder",
   description:
-    "A property storytelling package including 8 enhanced property images, 2 animations and a 3 post narrative sequence.",
+    "Eight enhanced property images, two property animations up to 10 seconds each and a three post narrative sequence.",
   provider: {
     "@type": "Organization",
     name: "Real Estate Media House",
@@ -44,38 +43,57 @@ const packageJsonLd = {
     "@type": "Country",
     name: "Australia",
   },
+  url: `${SITE_URL}/packages/story-builder`,
   offers: {
     "@type": "Offer",
-    priceCurrency: "AUD",
     price: "995",
+    priceCurrency: "AUD",
     url: `${SITE_URL}/packages/story-builder`,
   },
 };
 
-const robDelivers = [
+const visualDeliverables = [
   "8 enhanced property images",
-  "2 property animations",
-  "Up to 10 seconds total animation",
+  "2 property animations up to 10 seconds each",
+  "Up to 20 seconds of animation in total",
 ];
 
-const robynDelivers = [
-  "A 3 post narrative sequence written to publish in order",
-  "Hook → Feature → Lifestyle moment",
-  "A clear story shape instead of a loose collection of posts",
+const storyDeliverables = [
+  "A 3 post narrative sequence designed to unfold in order",
+  "Hook → Property moment → Lifestyle moment",
+  "Story direction that gives each post a different emotional job",
 ];
 
-const fit = [
+const enhancedExamples = [
   {
-    title: "One post is not enough.",
-    text: "The property needs a few connected campaign moments rather than one isolated piece of content.",
+    number: "01",
+    title: "People",
+    text: "Add believable people and everyday activity that help the room or exterior feel lived in rather than simply photographed.",
   },
   {
-    title: "You want the story to build.",
-    text: "Each post has a role, so the campaign unfolds instead of repeating the same message.",
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the architecture, proportions and layout of the property accurate.",
   },
   {
-    title: "You want more campaign mileage.",
-    text: "Use the existing photography to create both fresh stills and moving moments without organising another shoot.",
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Introduce selected appliances, styling and decorative elements that support the lifestyle story without redesigning the property.",
+  },
+  {
+    number: "04",
+    title: "Cars & Movement",
+    text: "Add appropriate vehicles and activity to exterior scenes where they help explain how the property could feel in use.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Enhance lawns, planting and outdoor areas while keeping the built form and defining property elements true.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Adjust warmth, mood and time of day to create a different emotional moment from the same property media.",
   },
 ];
 
@@ -83,34 +101,40 @@ const storySequence = [
   {
     number: "01",
     title: "Hook",
-    text: "Start with the image or idea most likely to interrupt the scroll and create curiosity.",
+    text: "Lead with the image or idea that gives someone the strongest reason to stop.",
   },
   {
     number: "02",
-    title: "Feature",
-    text: "Move into the property detail, room or visual point that gives the listing substance.",
+    title: "Property Moment",
+    text: "Give them a feature, room or detail worth slowing down for rather than showing everything at once.",
   },
   {
     number: "03",
-    title: "Lifestyle",
-    text: "Finish with the human reason someone could imagine wanting the property.",
+    title: "Lifestyle Moment",
+    text: "Move from what the property has to what life there could actually feel like.",
   },
 ];
 
-const videos = [
+const process = [
   {
-    id: "residential-kitchen",
-    title: "Residential Kitchen",
-    url: "https://www.youtube.com/shorts/5NP5Ay_3SBY",
-    category: "Residential",
-    orientation: "portrait" as const,
+    number: "01",
+    title: "Send The Property Media",
+    text: "Supply the photography, renders or footage already created for the property.",
   },
   {
-    id: "facade-day-night",
-    title: "Facade Day To Night",
-    url: "https://www.youtube.com/shorts/UMWARuYjMSU",
-    category: "Residential",
-    orientation: "portrait" as const,
+    number: "02",
+    title: "Find The Campaign Thread",
+    text: "We identify the strongest visual moments and decide how the three part story should unfold.",
+  },
+  {
+    number: "03",
+    title: "Build The Visual Story",
+    text: "Rob creates eight enhanced images and two animated scenes of up to 10 seconds each.",
+  },
+  {
+    number: "04",
+    title: "Build The Narrative",
+    text: "Robyn develops the three post sequence so each piece leads naturally into the next.",
   },
 ];
 
@@ -120,108 +144,158 @@ export default function StoryBuilderPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(packageJsonLd),
+          __html: JSON.stringify(serviceJsonLd),
         }}
       />
 
-      {/* HERO */}
+      {/* PLAIN HEADER */}
       <section className="bg-ink text-white">
-        <div className="container-shell py-14 md:py-18">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Story Builder
-              </p>
+        <div className="container-shell py-16 md:py-20 lg:py-24">
+          <div className="max-w-5xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+              Story Builder · $995 + GST
+            </p>
 
-              <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Do not post everything
-                <span className="block text-rust">at once.</span>
-              </h1>
+            <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+              Give the campaign
+              <span className="block text-rust">somewhere to go.</span>
+            </h1>
 
-              <p className="mt-7 max-w-xl text-lg leading-8 text-white/60">
-                Story Builder gives the listing a simple campaign arc: something
-                to stop for, something to notice and something to feel.
-              </p>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/65 md:text-xl">
+              Eight enhanced property images, two animations up to 10 seconds
+              each and a three post story sequence that moves from attention to
+              property to lifestyle.
+            </p>
 
-              <div className="mt-8 flex items-baseline gap-2">
-                <span className="font-display text-5xl font-semibold">
-                  $995
-                </span>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-brassBright"
+              >
+                Start Story Builder
+                <ArrowRight size={18} />
+              </Link>
 
-                <span className="text-sm text-white/40">+ GST</span>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/enquire"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-                >
-                  Start with Story Builder
-                  <ArrowRight size={17} />
-                </Link>
-
-                <Link
-                  href="/packages"
-                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
-                >
-                  Compare stories
-                </Link>
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <article className="rounded-[2rem] border border-white/10 bg-white/5 p-7">
-                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                  Rob Delivers
-                </p>
-
-                <h2 className="mt-4 font-display text-3xl font-semibold">
-                  The visual campaign.
-                </h2>
-
-                <div className="mt-6 space-y-4">
-                  {robDelivers.map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <Check
-                        size={16}
-                        className="mt-1 shrink-0 text-brassBright"
-                      />
-
-                      <p className="leading-7 text-white/60">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </article>
-
-              <article className="rounded-[2rem] border border-rust/50 bg-rust/15 p-7">
-                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                  Robyn Delivers
-                </p>
-
-                <h2 className="mt-4 font-display text-3xl font-semibold">
-                  The sequence.
-                </h2>
-
-                <div className="mt-6 space-y-4">
-                  {robynDelivers.map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <Check
-                        size={16}
-                        className="mt-1 shrink-0 text-brassBright"
-                      />
-
-                      <p className="leading-7 text-white/65">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </article>
+              <Link
+                href="/packages"
+                className="inline-flex items-center rounded-full border border-white/20 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
+              >
+                Compare packages
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
+      {/* PACKAGE DELIVERABLES */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 md:p-10">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Rob Delivers
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold">
+                The visual story.
+              </h2>
+
+              <div className="mt-7 space-y-4">
+                {visualDeliverables.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Check size={16} className="mt-1 shrink-0 text-rust" />
+
+                    <p className="leading-7 text-black/60">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="rounded-[2rem] border border-rust bg-ink p-8 text-white md:p-10">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
+                Robyn Delivers
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold">
+                The three part story.
+              </h2>
+
+              <div className="mt-7 space-y-4">
+                {storyDeliverables.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Check
+                      size={16}
+                      className="mt-1 shrink-0 text-brassBright"
+                    />
+
+                    <p className="leading-7 text-white/65">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* ENHANCED IMAGE EXPLANATION */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the property accurate.
+                <span className="block text-rust">
+                  Add the life around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout and defining property elements
+                accurate to the supplied image.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Depending on the story, we can then add or refine people,
+                furniture, appliances, décor, cars, landscaping, lighting and
+                atmosphere.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The property remains the property. The enhancement helps someone
+                understand how life could happen around it.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-white p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PROOF */}
-      <section className="bg-white py-14 md:py-18">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
@@ -229,58 +303,55 @@ export default function StoryBuilderPage() {
                 before="/property-images/website/lifestyle/bedroom-before.jpeg"
                 after="/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg"
                 beforeAlt="Original residential bedroom photograph"
-                afterAlt="Residential bedroom transformed into additional lifestyle campaign content"
+                afterAlt="Residential bedroom enhanced into a stronger lifestyle marketing image"
               />
             </div>
 
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Build The Campaign
+                More Than One Moment
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                One shoot can create more than one moment.
+                One post gets attention.
+                <span className="block text-rust">
+                  Three posts can build a story.
+                </span>
               </h2>
 
               <p className="mt-6 text-lg leading-8 text-black/55">
-                The enhanced images give you more visual range. The narrative
-                sequence gives those images an order and a purpose.
+                Story Builder gives the listing room to unfold rather than
+                asking one post to do everything.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* STORY ARC */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-18">
+      {/* STORY SEQUENCE */}
+      <section className="bg-ink py-16 text-white md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                The Three Post Story
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                The Three Part Sequence
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Hook.
-                <br />
-                Feature.
-                <br />
-                <span className="text-rust">Lifestyle.</span>
+                Start with attention.
+                <span className="block text-rust">
+                  Finish with imagination.
+                </span>
               </h2>
-
-              <p className="mt-5 max-w-xl leading-8 text-black/50">
-                Instead of three unrelated posts, each one moves the campaign
-                forward.
-              </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {storySequence.map((item) => (
                 <article
                   key={item.number}
-                  className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-white p-7 sm:grid-cols-[70px_0.55fr_1.45fr]"
+                  className="grid gap-5 rounded-[1.75rem] border border-white/10 bg-white/5 p-7 sm:grid-cols-[60px_0.75fr_1.25fr]"
                 >
-                  <p className="font-mono text-xs font-semibold text-rust">
+                  <p className="font-mono text-xs font-semibold text-brassBright">
                     {item.number}
                   </p>
 
@@ -288,7 +359,7 @@ export default function StoryBuilderPage() {
                     {item.title}
                   </h3>
 
-                  <p className="leading-7 text-black/50">{item.text}</p>
+                  <p className="leading-7 text-white/50">{item.text}</p>
                 </article>
               ))}
             </div>
@@ -296,119 +367,38 @@ export default function StoryBuilderPage() {
         </div>
       </section>
 
-      {/* WHO IT SUITS */}
-      <section className="bg-white py-14 md:py-18">
+      {/* ANIMATION */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Is This You?
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                The listing needs a mini campaign, not another content dump.
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              {fit.map((item, index) => (
-                <article
-                  key={item.title}
-                  className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-6 sm:grid-cols-[55px_0.85fr_1.15fr]"
-                >
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-
-                  <h3 className="font-display text-xl font-semibold">
-                    {item.title}
-                  </h3>
-
-                  <p className="leading-7 text-black/50">{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DELIVERABLES */}
-      <section className="bg-ink py-14 text-white md:py-18">
-        <div className="container-shell">
-          <div className="mb-10 max-w-4xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-              What You Receive
+          <div className="max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Two Animated Moments
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-              Eight images. Two moving moments.
-              <span className="block text-rust">One story with a shape.</span>
+              Up to 10 seconds each.
+              <span className="block text-rust">
+                Up to 20 seconds in total.
+              </span>
             </h2>
+
+            <p className="mt-6 text-lg leading-8 text-black/55">
+              Each animated scene can run for up to 10 seconds, giving you two
+              separate pieces of moving content and up to 20 seconds of
+              animation across the package.
+            </p>
+
+            <p className="mt-5 leading-8 text-black/50">
+              The movement can support people, activity, lighting, atmosphere,
+              environmental motion or camera movement depending on the selected
+              image and story.
+            </p>
           </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <article className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <p className="font-display text-5xl font-semibold text-brassBright">
-                8
-              </p>
-
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Enhanced Images
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/50">
-                Eight selected property images developed into additional
-                campaign visuals.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <p className="font-display text-5xl font-semibold text-brassBright">
-                2
-              </p>
-
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Animated Scenes
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/50">
-                Two selected scenes turned into up to ten seconds of total
-                animation.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-rust bg-rust/15 p-8">
-              <p className="font-display text-5xl font-semibold text-brassBright">
-                3
-              </p>
-
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Post Narrative
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/55">
-                Three connected story beats written to move from attention to
-                feature to lifestyle.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* MOTION */}
-      <section className="bg-white py-14 md:py-18">
-        <div className="container-shell">
-          <YouTubeVideoCarousel
-            items={videos}
-            eyebrow="Two Moving Moments"
-            heading="Use motion where it earns attention."
-            description="Story Builder includes two animated scenes, giving the campaign multiple opportunities to interrupt the scroll."
-          />
         </div>
       </section>
 
       {/* PROCESS */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-18">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -417,33 +407,14 @@ export default function StoryBuilderPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Build the visuals and the story together.
+                Three posts.
+                <br />
+                One connected story.
               </h2>
             </div>
 
-            <div className="space-y-3">
-              {[
-                {
-                  number: "01",
-                  title: "Send The Existing Media",
-                  text: "Supply the photography, renders or footage already created for the property.",
-                },
-                {
-                  number: "02",
-                  title: "Choose The Campaign Moments",
-                  text: "We identify the eight images and two scenes with the strongest potential.",
-                },
-                {
-                  number: "03",
-                  title: "Build The Visuals",
-                  text: "Rob develops the enhanced images and moving property scenes.",
-                },
-                {
-                  number: "04",
-                  title: "Build The Sequence",
-                  text: "Robyn writes the Hook → Feature → Lifestyle narrative that ties the campaign together.",
-                },
-              ].map((step) => (
+            <div className="space-y-4">
+              {process.map((step) => (
                 <article
                   key={step.number}
                   className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-white p-7 sm:grid-cols-[70px_1fr]"
@@ -457,7 +428,9 @@ export default function StoryBuilderPage() {
                       {step.title}
                     </h3>
 
-                    <p className="mt-3 leading-7 text-black/50">{step.text}</p>
+                    <p className="mt-3 leading-7 text-black/50">
+                      {step.text}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -467,7 +440,7 @@ export default function StoryBuilderPage() {
       </section>
 
       {/* PAYMENT */}
-      <section className="bg-white py-14 md:py-18">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 shadow-soft md:p-10">
             <div className="grid gap-8 md:grid-cols-[0.65fr_1.35fr]">
@@ -483,13 +456,12 @@ export default function StoryBuilderPage() {
 
               <div>
                 <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
-                  50% deposit to begin. Balance before use.
+                  50% deposit to begin. 50% before use.
                 </h2>
 
                 <p className="mt-5 leading-8 text-black/50">
-                  A 50% deposit is required to begin. The remaining 50% is due
-                  before the finished content may be published, posted,
-                  distributed, advertised or otherwise used.
+                  The remaining 50% is due before the finished content may be
+                  published, posted, distributed, advertised or otherwise used.
                 </p>
               </div>
             </div>
@@ -497,62 +469,38 @@ export default function StoryBuilderPage() {
         </div>
       </section>
 
-      {/* NEXT */}
-      <section className="border-t border-black/10 bg-white py-14 md:py-18">
+      {/* NEXT PACKAGE */}
+      <section className="border-t border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-5 lg:grid-cols-2">
-            <Link
-              href="/packages/story-starter"
-              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                Need Less?
-              </p>
+          <Link
+            href="/packages/story-deep-dive"
+            className="group block rounded-[2rem] border border-black/10 bg-white p-8 transition hover:border-rust hover:shadow-soft md:p-10"
+          >
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Need More Narrative Depth?
+            </p>
 
-              <h2 className="mt-4 font-display text-3xl font-semibold">
-                Story Starter
-              </h2>
+            <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="font-display text-4xl font-semibold">
+                  Story Deep Dive
+                </h2>
 
-              <p className="mt-4 leading-7 text-black/50">
-                Five enhanced images, one short animation and five individual
-                story hooks.
-              </p>
+                <p className="mt-4 max-w-2xl leading-7 text-black/50">
+                  Twelve enhanced images, three animations up to 10 seconds each
+                  and a five post narrative arc.
+                </p>
+              </div>
 
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
-                View Story Starter
+              <div className="inline-flex items-center gap-2 font-semibold text-rust">
+                Explore Story Deep Dive
                 <ArrowRight
                   size={17}
                   className="transition group-hover:translate-x-1"
                 />
               </div>
-            </Link>
-
-            <Link
-              href="/packages/story-deep-dive"
-              className="group rounded-[2rem] border border-rust bg-ink p-8 text-white transition hover:bg-rust"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                Need More Depth?
-              </p>
-
-              <h2 className="mt-4 font-display text-3xl font-semibold">
-                Story Deep Dive
-              </h2>
-
-              <p className="mt-4 leading-7 text-white/50">
-                Twelve enhanced images, three animated scenes and a five post
-                narrative arc.
-              </p>
-
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-brassBright">
-                View Story Deep Dive
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
-              </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -564,21 +512,21 @@ export default function StoryBuilderPage() {
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-            Do not just add more content.
+            Do not dump the whole listing at once.
             <br />
-            Build a story.
+            Let the story build.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Eight enhanced images, two moving moments and a three post narrative
-            sequence built from the property media you already have.
+            Eight enhanced images, two animations up to 10 seconds each and a
+            three post sequence designed to keep the campaign moving.
           </p>
 
           <Link
             href="/enquire"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
           >
-            Start with Story Builder
+            Start Story Builder
             <ArrowRight size={18} />
           </Link>
         </div>

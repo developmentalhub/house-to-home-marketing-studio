@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-import { ArrowLeft, ArrowRight, Maximize2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  Maximize2,
+} from "lucide-react";
 
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import MediaLightbox from "@/components/MediaLightbox";
@@ -32,13 +37,13 @@ const propertyTypes: {
     id: "childcare",
     label: "Childcare",
     description:
-      "Development visualisation, active environments and property animation.",
+      "Development visualisation, active environments, enhanced imagery and property animation.",
   },
   {
     id: "residential",
     label: "Residential",
     description:
-      "Lifestyle transformation, virtual styling and animated property content.",
+      "Lifestyle enhancement, furniture, people, atmosphere and animated property content.",
   },
   {
     id: "commercial",
@@ -88,7 +93,8 @@ const projects: Record<PropertyType, Project[]> = {
       after:
         "/images/childcare/before-after-childcare/room1-after.png",
       beforeAlt: "Childcare room before visual transformation",
-      afterAlt: "Childcare room transformed into an active learning environment",
+      afterAlt:
+        "Childcare room transformed into an active learning environment",
       category: "Interior Visualisation",
       href: "/childcare-property-animation",
     },
@@ -96,25 +102,10 @@ const projects: Record<PropertyType, Project[]> = {
 
   residential: [
     {
-      id: "residential-kitchen",
-      title: "Residential Kitchen",
-      description:
-        "Show the same residential space as a stronger finished campaign image using the property photography you already have.",
-      before:
-        "/images/residential/residential-before-after/kitchen-before.png",
-      after:
-        "/images/residential/residential-before-after/kitchen-after.png",
-      beforeAlt: "Original residential kitchen photograph",
-      afterAlt:
-        "Residential kitchen transformed into additional property marketing content",
-      category: "Residential Transformation",
-      href: "/residential-property-animation",
-    },
-    {
       id: "residential-home",
       title: "Residential Exterior",
       description:
-        "Create another finished campaign visual from an existing residential exterior image.",
+        "Create another finished campaign visual from an existing residential exterior image while keeping the property itself recognisable and accurate.",
       before:
         "/images/residential/residential-before-after/residential-home-before.png",
       after:
@@ -129,13 +120,27 @@ const projects: Record<PropertyType, Project[]> = {
       id: "residential-living",
       title: "Living Room Styling",
       description:
-        "Help buyers understand an empty living area with furniture and a clearer sense of scale.",
+        "Help buyers understand an empty living area with furniture, styling and a clearer sense of scale while keeping the room itself true.",
       before: "/property-images/website/staging/living-room-before.jpeg",
       after: "/property-images/website/staging/living-room-after.jpeg",
-      beforeAlt: "Living room before virtual furniture",
-      afterAlt: "Living room after virtual furniture and styling",
+      beforeAlt: "Living room before furniture and styling",
+      afterAlt: "Living room after furniture and styling",
       category: "Furniture & Styling",
       href: "/projects/residential-property-transformation",
+    },
+    {
+      id: "residential-bathroom",
+      title: "Bathroom Lifestyle",
+      description:
+        "Take an existing bathroom photograph and add atmosphere and lifestyle so the room feels like part of a daily ritual rather than simply a listing feature.",
+      before: "/property-images/website/lifestyle/bathroom-before.jpeg",
+      after:
+        "/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg",
+      beforeAlt: "Original residential bathroom photograph",
+      afterAlt:
+        "Residential bathroom transformed into lifestyle marketing content",
+      category: "Lifestyle Enhancement",
+      href: "/residential-property-animation",
     },
   ],
 
@@ -158,12 +163,13 @@ const projects: Record<PropertyType, Project[]> = {
       id: "commercial-mechanic",
       title: "Warehouse To Mechanic Workshop",
       description:
-        "Show automotive operators vehicles, work bays, equipment and workshop activity.",
+        "Show automotive operators vehicles, work bays, equipment and workshop activity while keeping the original warehouse structure intact.",
       before:
         "/images/commercial/warehouse-multiple-afters/warehouse-before.jpg",
       after:
         "/images/commercial/warehouse-multiple-afters/warehouse-after-mechanic1.png",
-      beforeAlt: "Vacant warehouse before mechanic workshop visualisation",
+      beforeAlt:
+        "Vacant warehouse before mechanic workshop visualisation",
       afterAlt: "Warehouse transformed into a mechanic workshop",
       category: "Automotive",
       href: "/projects/warehouse-to-mechanic-workshop-visualisation",
@@ -191,7 +197,8 @@ const projects: Record<PropertyType, Project[]> = {
         "/images/commercial/warehouse-multiple-afters/warehouse-before.jpg",
       after:
         "/images/commercial/warehouse-multiple-afters/warehouse-after-photography-studio.png",
-      beforeAlt: "Vacant warehouse before photography studio visualisation",
+      beforeAlt:
+        "Vacant warehouse before photography studio visualisation",
       afterAlt: "Warehouse transformed into a photography studio",
       category: "Creative",
       href: "/projects/warehouse-to-photography-studio-visualisation",
@@ -205,8 +212,9 @@ const projects: Record<PropertyType, Project[]> = {
         "/images/commercial/warehouse-multiple-afters/warehouse-before-mancave.png",
       after:
         "/images/commercial/warehouse-multiple-afters/warehouse-after-mancave1.png",
-      beforeAlt: "Vacant warehouse before private lifestyle visualisation",
-      afterAlt: "Warehouse transformed into a private mancave",
+      beforeAlt:
+        "Vacant warehouse before private lifestyle visualisation",
+      afterAlt: "Warehouse transformed into a private lifestyle environment",
       category: "Private Lifestyle",
       href: "/projects/warehouse-to-mancave-visualisation",
     },
@@ -216,7 +224,7 @@ const projects: Record<PropertyType, Project[]> = {
 const featuredVideos = [
   {
     id: "residential-kitchen",
-    title: "Residential Kitchen Animation",
+    title: "Residential Property Animation",
     url: "https://www.youtube.com/shorts/5NP5Ay_3SBY",
     category: "Residential",
     orientation: "portrait" as const,
@@ -237,6 +245,66 @@ const featuredVideos = [
   },
 ];
 
+const enhancedExamples = [
+  {
+    number: "01",
+    title: "People",
+    text: "Add believable people and everyday activity that help the property feel lived in and relevant.",
+  },
+  {
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the architecture, room proportions and layout accurate.",
+  },
+  {
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Add selected appliances, styling and decorative details without changing the property itself.",
+  },
+  {
+    number: "04",
+    title: "Cars & Activity",
+    text: "Add vehicles, people and movement to exterior scenes where they help explain how the property could feel in use.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Refine lawns, planting and surrounding atmosphere while keeping the built property true.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Use daylight, warmth, dusk and evening atmosphere to give the existing image a stronger emotional tone.",
+  },
+];
+
+const packageDurations = [
+  {
+    name: "Story Starter",
+    href: "/packages/story-starter",
+    animation: "1 animation",
+    duration: "Up to 10 seconds",
+  },
+  {
+    name: "Story Builder",
+    href: "/packages/story-builder",
+    animation: "2 animations",
+    duration: "Up to 20 seconds total",
+  },
+  {
+    name: "Story Deep Dive",
+    href: "/packages/story-deep-dive",
+    animation: "3 animations",
+    duration: "Up to 30 seconds total",
+  },
+  {
+    name: "The Full Story",
+    href: "/packages/the-full-story",
+    animation: "3 to 4 animations",
+    duration: "Up to 40 seconds total + finished Reel",
+  },
+];
+
 export default function ExplorePage() {
   const [activeType, setActiveType] = useState<PropertyType>("childcare");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -246,7 +314,7 @@ export default function ExplorePage() {
 
   const activeProject = useMemo(
     () => activeProjects[activeIndex] ?? activeProjects[0],
-    [activeProjects, activeIndex]
+    [activeProjects, activeIndex],
   );
 
   const lightboxItems = useMemo(
@@ -259,7 +327,7 @@ export default function ExplorePage() {
         before: project.before,
         after: project.after,
       })),
-    [activeProjects]
+    [activeProjects],
   );
 
   function selectType(type: PropertyType) {
@@ -270,13 +338,13 @@ export default function ExplorePage() {
 
   function previousProject() {
     setActiveIndex((current) =>
-      current === 0 ? activeProjects.length - 1 : current - 1
+      current === 0 ? activeProjects.length - 1 : current - 1,
     );
   }
 
   function nextProject() {
     setActiveIndex((current) =>
-      current === activeProjects.length - 1 ? 0 : current + 1
+      current === activeProjects.length - 1 ? 0 : current + 1,
     );
   }
 
@@ -286,6 +354,7 @@ export default function ExplorePage() {
 
   return (
     <main className="bg-[#f7f5f1] text-ink">
+      {/* HEADER */}
       <section className="bg-ink text-white">
         <div className="container-shell py-16 md:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -305,18 +374,21 @@ export default function ExplorePage() {
             <div className="max-w-2xl lg:pb-2">
               <p className="text-lg leading-8 text-white/60 md:text-xl">
                 Explore real examples across commercial, residential and
-                childcare property using photography that already existed.
+                childcare property using photography and project media that
+                already existed.
               </p>
 
               <p className="mt-4 text-sm leading-7 text-white/40">
-                Drag the transformations, switch between projects and open any
-                example full screen.
+                The property remains the foundation. The added people,
+                furniture, activity, landscaping, lighting and atmosphere help
+                the audience understand or feel something more.
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* PROPERTY TYPE TABS */}
       <section className="border-b border-black/10 bg-white">
         <div className="container-shell py-7">
           <div className="grid gap-3 md:grid-cols-3">
@@ -360,6 +432,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* INTERACTIVE PROJECT EXPLORER */}
       <section className="py-14 md:py-20">
         <div className="container-shell">
           <div className="mx-auto max-w-4xl">
@@ -464,7 +537,65 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* WHAT ENHANCED MEANS */}
       <section className="border-y border-black/10 bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the architecture true.
+                <span className="block text-rust">
+                  Build the story around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout and defining property elements
+                accurate to the supplied image.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Depending on the property and campaign, we can then add or
+                refine people, furniture, appliances, décor, cars,
+                landscaping, lighting and atmosphere.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The property stays recognisable. The added details help the
+                audience imagine the life, activity or future use around it.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GO DEEPER */}
+      <section className="bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
             <div>
@@ -495,13 +626,68 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* ANIMATION DURATION */}
+      <section className="border-y border-black/10 bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Property Animation
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Each animated scene can run
+                <span className="block text-rust">up to 10 seconds.</span>
+              </h2>
+
+              <p className="mt-5 leading-8 text-black/50">
+                The package determines how many individual moving scenes are
+                included.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {packageDurations.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="group rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7 transition hover:border-rust hover:bg-white hover:shadow-soft"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-display text-2xl font-semibold">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-4 text-sm leading-6 text-black/45">
+                        {item.animation}
+                      </p>
+
+                      <p className="mt-2 font-semibold text-rust">
+                        {item.duration}
+                      </p>
+                    </div>
+
+                    <ArrowRight
+                      size={18}
+                      className="shrink-0 text-rust transition group-hover:translate-x-1"
+                    />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO */}
       <section className="bg-ink py-20 text-white md:py-24">
         <div className="container-shell">
           <YouTubeVideoCarousel
             items={featuredVideos}
             eyebrow="From Still To Motion"
-            heading="First, bring the image to life. Then, make it move."
-            description="Existing property photography can become animated residential, commercial and development campaign content."
+            heading="First, bring the image to life. Then, make it move. Then, give the movement meaning."
+            description="Selected property images can become animated scenes up to 10 seconds each, creating additional campaign moments from media you already have."
           />
 
           <div className="mt-10">
@@ -516,6 +702,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* EXPLORE PATHS */}
       <section className="bg-white py-20 md:py-24">
         <div className="container-shell">
           <div className="mb-10 max-w-4xl">
@@ -542,7 +729,7 @@ export default function ExplorePage() {
               </h3>
 
               <p className="mt-4 leading-7 text-black/50">
-                Explore lifestyle, furniture, commercial and development
+                Explore lifestyle, furniture, people, commercial and development
                 transformations.
               </p>
 
@@ -565,7 +752,8 @@ export default function ExplorePage() {
               </h3>
 
               <p className="mt-4 leading-7 text-black/50">
-                See still property media turned into animated campaign content.
+                See still property media turned into moving campaign scenes up
+                to 10 seconds each.
               </p>
 
               <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
@@ -600,6 +788,61 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* PACKAGES CTA */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 rounded-[2rem] border border-black/10 bg-white p-8 md:grid-cols-[0.7fr_1.3fr] md:p-12">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Story Packages
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Choose how far you want
+                <span className="block text-rust">the story to go.</span>
+              </h2>
+            </div>
+
+            <div>
+              <div className="space-y-3">
+                {packageDurations.map((item) => (
+                  <div
+                    key={item.name}
+                    className="grid gap-3 border-b border-black/10 pb-4 sm:grid-cols-[1fr_1fr]"
+                  >
+                    <div>
+                      <p className="font-display text-xl font-semibold">
+                        {item.name}
+                      </p>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <Check
+                        size={15}
+                        className="mt-1 shrink-0 text-rust"
+                      />
+
+                      <p className="text-sm leading-6 text-black/50">
+                        {item.animation} · {item.duration}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/packages"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+              >
+                Compare story packages
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="bg-rust px-6 py-20 text-white md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
@@ -609,12 +852,12 @@ export default function ExplorePage() {
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
             Show us what you have.
             <br />
-            Tell us what needs to happen next.
+            We’ll show you what it can become.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            We can help turn existing property photography, renders and footage
-            into more useful campaign content.
+            We can turn existing property photography, renders and footage into
+            enhanced imagery, animated scenes and a stronger campaign story.
           </p>
 
           <Link

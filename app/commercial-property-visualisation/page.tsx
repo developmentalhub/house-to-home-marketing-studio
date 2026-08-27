@@ -4,25 +4,26 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import YouTubeVideoCarousel from "@/components/YouTubeVideoCarousel";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Commercial Property Visualisation",
+  title: "Commercial Property Visualisation | Real Estate Media House",
   description:
-    "Show commercial buyers and tenants what a vacant property could become using industry specific visualisation created from existing property photography.",
+    "Turn existing commercial property photography into industry specific visualisation, enhanced property images and animated campaign content for buyers, tenants and operators.",
   alternates: {
     canonical: `${SITE_URL}/commercial-property-visualisation`,
   },
   openGraph: {
-    title: "Commercial Property Visualisation",
+    title: "Commercial Property Visualisation | Real Estate Media House",
     description:
-      "Transform existing commercial property photography into industry specific visuals for buyers, tenants and operators.",
+      "Show the business operating inside the property with industry specific visualisation built from existing commercial photography.",
     url: `${SITE_URL}/commercial-property-visualisation`,
     type: "website",
     images: [
       {
         url: `${SITE_URL}/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png`,
-        alt: "Vacant commercial warehouse transformed into an industry specific gym concept",
+        alt: "Vacant commercial warehouse transformed into an active gym environment",
       },
     ],
   },
@@ -33,7 +34,7 @@ const serviceJsonLd = {
   "@type": "Service",
   name: "Commercial Property Visualisation",
   description:
-    "Industry specific commercial property visualisation created from supplied property photography.",
+    "Industry specific commercial property visualisation, enhanced imagery and animation created from supplied property photography.",
   provider: {
     "@type": "Organization",
     name: "Real Estate Media House",
@@ -77,10 +78,62 @@ const industries = [
   },
   {
     number: "05",
-    title: "Private Mancave",
+    title: "Private Lifestyle Use",
     description:
       "Show a private buyer how an industrial space could become an entertainment, collection or lifestyle environment.",
     href: "/projects/warehouse-to-mancave-visualisation",
+  },
+];
+
+const commercialVideos = [
+  {
+    id: "commercial-one",
+    title: "Commercial Property Story",
+    url: "https://www.youtube.com/shorts/7YJSGYg99q0",
+    category: "Commercial",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "commercial-two",
+    title: "Commercial Property Animation",
+    url: "https://www.youtube.com/shorts/bJCRltJn_vY",
+    category: "Commercial",
+    orientation: "portrait" as const,
+  },
+  {
+    id: "commercial-three",
+    title: "Commercial Property Transformation",
+    url: "https://www.youtube.com/shorts/2DXsq8mXemI",
+    category: "Commercial",
+    orientation: "portrait" as const,
+  },
+];
+
+const packageDurations = [
+  {
+    name: "Story Starter",
+    href: "/packages/story-starter",
+    motion: "1 property animation",
+    duration: "Up to 10 seconds",
+  },
+  {
+    name: "Story Builder",
+    href: "/packages/story-builder",
+    motion: "2 property animations",
+    duration: "Up to 10 seconds each · up to 20 seconds total",
+  },
+  {
+    name: "Story Deep Dive",
+    href: "/packages/story-deep-dive",
+    motion: "3 property animations",
+    duration: "Up to 10 seconds each · up to 30 seconds total",
+  },
+  {
+    name: "The Full Story",
+    href: "/packages/the-full-story",
+    motion: "3 to 4 property animations",
+    duration:
+      "Up to 10 seconds each · up to 40 seconds total · plus a 20 to 30 second Reel",
   },
 ];
 
@@ -104,22 +157,22 @@ export default function CommercialPropertyVisualisationPage() {
               </p>
 
               <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Show the right buyer
+                Do not ask the tenant
                 <span className="block text-rust">
-                  what the property could become.
+                  to imagine an empty box.
                 </span>
               </h1>
 
-              <p className="mt-7 max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
+              <p className="mt-7 max-w-3xl text-lg leading-8 text-white/65 md:text-xl">
                 Turn existing commercial property photography into industry
-                specific visuals that make a vacant warehouse easier for buyers,
-                tenants and operators to understand.
+                specific visuals that help buyers, tenants and operators see
+                how their business could fit inside the space.
               </p>
 
-              <p className="mt-5 max-w-3xl leading-8 text-white/50">
-                Keep the real property visible. Add the business activity,
-                equipment, people and atmosphere that help the target audience
-                picture themselves there.
+              <p className="mt-5 max-w-3xl leading-8 text-white/45">
+                Keep the actual building visible. Add the equipment, vehicles,
+                furniture, people, workflow and atmosphere that make the
+                property relevant to the audience you want to reach.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -146,12 +199,12 @@ export default function CommercialPropertyVisualisationPage() {
                   before="/images/commercial/warehouse-multiple-afters/warehouse-before-gym.png"
                   after="/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png"
                   beforeAlt="Vacant warehouse before commercial property visualisation"
-                  afterAlt="Warehouse transformed into a gym concept for a specific commercial audience"
+                  afterAlt="Warehouse transformed into an active gym environment"
                 />
               </div>
 
               <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.16em] text-white/40">
-                Drag to compare the original property with one possible use
+                The warehouse stays the same. The audience changes.
               </p>
             </div>
           </div>
@@ -159,7 +212,7 @@ export default function CommercialPropertyVisualisationPage() {
       </section>
 
       {/* QUICK ANSWER */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 shadow-soft md:p-12">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
@@ -167,27 +220,65 @@ export default function CommercialPropertyVisualisationPage() {
             </p>
 
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-5xl">
-              It is a way to show a realistic possible use for a property using
-              the photography you already have.
+              It shows the business operating inside the property instead of
+              asking the prospect to imagine it from an empty photograph.
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-black/60">
-              Instead of relying only on vacant listing photographs, the same
-              image can be transformed into a gym, workshop, logistics facility,
-              studio or another relevant use.
+              We start with the commercial photography you already have and
+              create enhanced property images around specific audiences or
+              possible uses.
             </p>
 
             <p className="mt-5 leading-8 text-black/50">
-              The goal is not to replace the real property photography. It is to
-              give the campaign additional visual content that speaks more
-              clearly to specific audiences.
+              The architecture, layout and defining property elements remain
+              accurate to the supplied media. The concept is built around the
+              existing property rather than replacing it.
             </p>
           </div>
         </div>
       </section>
 
+      {/* ENHANCED IMAGE DEFINITION */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the building true.
+                <span className="block text-rust">
+                  Build the operation around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout, proportions and defining
+                property elements accurate to the supplied image.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Depending on the commercial story, we can add or refine people,
+                furniture, appliances, equipment, vehicles, storage, landscape,
+                lighting, atmosphere and business activity.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The goal is not to redesign the warehouse. It is to make a
+                possible use easier for the right audience to understand.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* TWO AUDIENCES */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -196,41 +287,40 @@ export default function CommercialPropertyVisualisationPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                The visual should help both sides understand the opportunity.
+                Make the opportunity easier to understand from both sides.
               </h2>
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
-              <article className="rounded-[2rem] border border-black/10 bg-white p-8">
+              <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8">
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-rust">
                   Buyer, Tenant or Operator
                 </p>
 
                 <h3 className="mt-5 font-display text-3xl font-semibold">
-                  “Can I picture my business operating here?”
+                  “Can I picture my business here?”
                 </h3>
 
                 <p className="mt-5 leading-8 text-black/50">
-                  An empty warehouse forces the operator to mentally add their
-                  equipment, people, workflow and atmosphere. A relevant concept
-                  can make that first step easier.
+                  A vacant warehouse asks the prospect to mentally add every
+                  vehicle, workstation, machine, rack, customer and staff
+                  member. A relevant visual gives them somewhere to start.
                 </p>
               </article>
 
-              <article className="rounded-[2rem] border border-black/10 bg-white p-8">
+              <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8">
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-rust">
                   Agent or Landlord
                 </p>
 
                 <h3 className="mt-5 font-display text-3xl font-semibold">
-                  “How do I make this property relevant to the people I want to
-                  reach?”
+                  “How do I make this relevant to the audience I want?”
                 </h3>
 
                 <p className="mt-5 leading-8 text-black/50">
-                  Instead of asking one vacant image to appeal to everyone,
-                  create separate visual content for the industries the property
-                  is being marketed toward.
+                  Instead of asking one vacant image to speak to everyone,
+                  create different campaign stories around the industries the
+                  property is actually being marketed toward.
                 </p>
               </article>
             </div>
@@ -238,8 +328,11 @@ export default function CommercialPropertyVisualisationPage() {
         </div>
       </section>
 
-      {/* INDUSTRY DIRECTORY */}
-      <section id="industries" className="bg-white py-20 md:py-28">
+      {/* INDUSTRIES */}
+      <section
+        id="industries"
+        className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20"
+      >
         <div className="container-shell">
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -257,8 +350,8 @@ export default function CommercialPropertyVisualisationPage() {
               </h2>
 
               <p className="mt-6 text-lg leading-8 text-black/55">
-                Each concept is built around a different audience problem rather
-                than using one generic fitout image for everyone.
+                Each concept is built around what a different prospect needs to
+                picture happening inside the same property.
               </p>
             </div>
           </div>
@@ -268,7 +361,7 @@ export default function CommercialPropertyVisualisationPage() {
               <Link
                 key={industry.href}
                 href={industry.href}
-                className="group grid gap-6 rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-7 transition hover:border-rust hover:bg-white hover:shadow-soft sm:grid-cols-[70px_1fr_auto] sm:items-start md:p-8"
+                className="group grid gap-6 rounded-[2rem] border border-black/10 bg-white p-7 transition hover:border-rust hover:shadow-soft sm:grid-cols-[70px_1fr_auto] sm:items-start md:p-8"
               >
                 <p className="font-mono text-xs font-semibold text-rust">
                   {industry.number}
@@ -295,10 +388,10 @@ export default function CommercialPropertyVisualisationPage() {
       </section>
 
       {/* GYM */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="overflow-hidden rounded-[2rem] bg-white shadow-soft">
+            <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
               <BeforeAfterSlider
                 before="/images/commercial/warehouse-multiple-afters/warehouse-before-gym.png"
                 after="/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png"
@@ -313,13 +406,13 @@ export default function CommercialPropertyVisualisationPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Help a fitness operator see the training environment.
+                Let the fitness operator see the training floor.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                Equipment, training zones, people and reception can make a
-                vacant industrial shell much easier to understand from a gym
-                operator&apos;s perspective.
+                Training zones, equipment, reception, people and activity can
+                make the industrial shell feel relevant to a fitness operator
+                much faster than an empty floor plan alone.
               </p>
 
               <Link
@@ -335,7 +428,7 @@ export default function CommercialPropertyVisualisationPage() {
       </section>
 
       {/* MECHANIC */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div>
@@ -348,8 +441,9 @@ export default function CommercialPropertyVisualisationPage() {
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                Automotive operators are thinking about how the building might
-                function once tools, cars, staff and equipment are inside it.
+                Automotive operators are thinking about how the property could
+                function once cars, hoists, tools, equipment and staff are
+                inside it.
               </p>
 
               <Link
@@ -361,7 +455,7 @@ export default function CommercialPropertyVisualisationPage() {
               </Link>
             </div>
 
-            <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
+            <div className="overflow-hidden rounded-[2rem] bg-white shadow-soft">
               <BeforeAfterSlider
                 before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
                 after="/images/commercial/warehouse-multiple-afters/warehouse-after-mechanic1.png"
@@ -374,10 +468,10 @@ export default function CommercialPropertyVisualisationPage() {
       </section>
 
       {/* LOGISTICS */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="overflow-hidden rounded-[2rem] bg-white shadow-soft">
+            <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
               <BeforeAfterSlider
                 before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
                 after="/images/commercial/warehouse-multiple-afters/warehouse-after-logistics.png"
@@ -392,13 +486,13 @@ export default function CommercialPropertyVisualisationPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Make storage, stock and operational activity visible.
+                Make storage, stock and workflow visible.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                A logistics concept can help a prospective operator picture the
-                property with storage, people and business activity rather than
-                only empty floor area.
+                Racking, stock, movement and people can help a logistics
+                business understand the operational story of the property
+                instead of seeing only empty floor area.
               </p>
 
               <Link
@@ -414,7 +508,7 @@ export default function CommercialPropertyVisualisationPage() {
       </section>
 
       {/* STUDIO */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div>
@@ -423,13 +517,13 @@ export default function CommercialPropertyVisualisationPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Help creative operators picture a working studio.
+                Show a creative business the studio already operating there.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                Shooting areas, lighting, equipment, people and production
-                activity can turn the same industrial space into a much more
-                relevant visual for creative businesses.
+                Shooting zones, lighting, equipment, people and production
+                activity can turn the same warehouse into a much more relevant
+                campaign visual for a creative operator.
               </p>
 
               <Link
@@ -441,7 +535,7 @@ export default function CommercialPropertyVisualisationPage() {
               </Link>
             </div>
 
-            <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
+            <div className="overflow-hidden rounded-[2rem] bg-white shadow-soft">
               <BeforeAfterSlider
                 before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
                 after="/images/commercial/warehouse-multiple-afters/warehouse-after-photography-studio.png"
@@ -453,16 +547,16 @@ export default function CommercialPropertyVisualisationPage() {
         </div>
       </section>
 
-      {/* MANCAVE */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      {/* PRIVATE */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="overflow-hidden rounded-[2rem] bg-white shadow-soft">
+            <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
               <BeforeAfterSlider
                 before="/images/commercial/warehouse-multiple-afters/warehouse-before-mancave.png"
                 after="/images/commercial/warehouse-multiple-afters/warehouse-after-mancave1.png"
                 beforeAlt="Empty warehouse before private lifestyle visualisation"
-                afterAlt="Warehouse visualised as a private mancave and entertainment space"
+                afterAlt="Warehouse visualised as a private collection and entertainment space"
               />
             </div>
 
@@ -472,20 +566,20 @@ export default function CommercialPropertyVisualisationPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Not every prospect is thinking about a traditional business use.
+                The buyer may be imagining something completely different.
               </h2>
 
               <p className="mt-5 text-lg leading-8 text-black/55">
-                A private buyer may see a collection space, games room,
-                entertainment environment or personal retreat where another
-                person sees an empty warehouse.
+                The same industrial space might become a collection space,
+                entertainment room, hobby environment or private retreat for a
+                different buyer.
               </p>
 
               <Link
                 href="/projects/warehouse-to-mancave-visualisation"
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
               >
-                View mancave case study
+                View private lifestyle case study
                 <ArrowRight size={17} />
               </Link>
             </div>
@@ -493,8 +587,136 @@ export default function CommercialPropertyVisualisationPage() {
         </div>
       </section>
 
+      {/* STORY */}
+      <section className="bg-ink py-16 text-white md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Commercial Storytelling
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                The listing tells them what it has.
+                <span className="block text-rust">
+                  The story shows them how it might work.
+                </span>
+              </h2>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                {
+                  feature: "Large open floor area",
+                  story:
+                    "Training zones, equipment and people moving through a busy fitness environment.",
+                },
+                {
+                  feature: "High clearance warehouse",
+                  story:
+                    "Vehicles on hoists, work bays active and a mechanic workshop already in motion.",
+                },
+                {
+                  feature: "Flexible industrial space",
+                  story:
+                    "Racking, stock and staff moving through a logistics operation.",
+                },
+                {
+                  feature: "Large creative shell",
+                  story:
+                    "Lighting rigs, shooting zones and a production team using the space as a working studio.",
+                },
+              ].map((item, index) => (
+                <article
+                  key={item.feature}
+                  className="grid gap-4 border-b border-white/10 py-6 sm:grid-cols-[55px_0.8fr_1.2fr]"
+                >
+                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-brassBright">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+
+                  <div>
+                    <p className="text-sm text-white/30">The property has</p>
+                    <h3 className="mt-1 font-display text-xl font-semibold">
+                      {item.feature}
+                    </h3>
+                  </div>
+
+                  <div>
+                    <p className="text-sm text-white/30">
+                      The campaign story becomes
+                    </p>
+                    <p className="mt-1 font-display text-2xl leading-8 text-white/70">
+                      {item.story}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ANIMATION */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <YouTubeVideoCarousel
+            items={commercialVideos}
+            eyebrow="Commercial Property Animation"
+            heading="Once the business is visible, make the operation move."
+            description="Selected commercial property images can become animated scenes of up to 10 seconds each, using activity, people, vehicles and environmental movement."
+          />
+        </div>
+      </section>
+
+      {/* PACKAGE LENGTHS */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Animation Length
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Each animation can run
+                <span className="block text-rust">up to 10 seconds.</span>
+              </h2>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {packageDurations.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="group rounded-[1.75rem] border border-black/10 bg-white p-7 transition hover:border-rust hover:shadow-soft"
+                >
+                  <h3 className="font-display text-2xl font-semibold">
+                    {item.name}
+                  </h3>
+
+                  <p className="mt-4 text-sm text-black/45">{item.motion}</p>
+
+                  <p className="mt-2 font-semibold leading-6 text-rust">
+                    {item.duration}
+                  </p>
+
+                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-rust">
+                    View package
+                    <ArrowRight
+                      size={16}
+                      className="transition group-hover:translate-x-1"
+                    />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PROCESS */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -503,7 +725,10 @@ export default function CommercialPropertyVisualisationPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Start with the property media already created for the campaign.
+                Start with the property.
+                <span className="block text-rust">
+                  Then choose the audience.
+                </span>
               </h2>
             </div>
 
@@ -511,28 +736,28 @@ export default function CommercialPropertyVisualisationPage() {
               {[
                 {
                   number: "01",
-                  title: "Send The Existing Property Photography",
-                  text: "Use the commercial listing images you already have rather than organising another shoot.",
+                  title: "Send The Existing Property Media",
+                  text: "Supply the commercial photography, renders or footage already created for the campaign.",
                 },
                 {
                   number: "02",
                   title: "Choose The Audience",
-                  text: "Identify the buyer, tenant or operator the next piece of campaign content needs to speak to.",
+                  text: "Identify the buyer, tenant, operator or industry the next campaign story needs to speak to.",
                 },
                 {
                   number: "03",
-                  title: "Build The Relevant Concept",
-                  text: "Introduce the equipment, furniture, people, activity and atmosphere that help communicate that use.",
+                  title: "Build The Enhanced Visual",
+                  text: "Rob keeps the architecture and defining property elements accurate while adding the equipment, furniture, people, vehicles, activity and atmosphere needed for the concept.",
                 },
                 {
                   number: "04",
-                  title: "Use It Alongside The Real Property",
-                  text: "Keep the original photography visible so the concept remains connected to the actual building.",
+                  title: "Make Selected Scenes Move",
+                  text: "The property animations included in your package can run up to 10 seconds each.",
                 },
                 {
                   number: "05",
-                  title: "Turn It Into More Campaign Content",
-                  text: "The finished visual can also become the starting point for property animation and short form video.",
+                  title: "Build The Narrative",
+                  text: "Robyn develops the hooks, captions and sequencing that explain why each audience should see the property differently.",
                 },
               ].map((step) => (
                 <article
@@ -557,54 +782,8 @@ export default function CommercialPropertyVisualisationPage() {
         </div>
       </section>
 
-      {/* CAMPAIGN MILEAGE */}
-      <section className="bg-ink py-20 text-white md:py-28">
-        <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                More Campaign Mileage
-              </p>
-            </div>
-
-            <div className="max-w-4xl">
-              <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-                One property image can become more than one campaign message.
-              </h2>
-
-              <p className="mt-7 text-xl leading-9 text-white/60">
-                The same commercial shoot can support the original listing,
-                industry specific visuals and moving property content.
-              </p>
-
-              <p className="mt-7 font-display text-3xl font-semibold text-rust">
-                One shoot. More campaign content.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/commercial-property-animation"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-rust hover:text-white"
-                >
-                  Explore commercial animation
-                  <ArrowRight size={17} />
-                </Link>
-
-                <Link
-                  href="/blog/how-to-turn-commercial-property-photos-into-video"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
-                >
-                  How to turn property photos into video
-                  <ArrowRight size={17} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CLEAR LIMITS */}
-      <section className="bg-[#f7f5f1] py-20 md:py-24">
+      {/* LIMITS */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-white p-8 shadow-soft md:p-12">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
@@ -612,17 +791,18 @@ export default function CommercialPropertyVisualisationPage() {
             </p>
 
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-5xl">
-              A visual concept shows a possible use. It does not prove that use
-              is approved or feasible.
+              A visual concept communicates a possible use. It does not prove
+              that use is approved or feasible.
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-black/60">
-              Commercial property visualisation is designed to help communicate
-              possibility and make a property easier to understand.
+              Commercial property visualisation is created for marketing
+              communication and to help a potential audience understand the
+              property.
             </p>
 
             <p className="mt-5 leading-8 text-black/50">
-              Planning permission, permitted use, access, building requirements,
+              Planning permission, permitted use, access, building compliance,
               fitout feasibility, fire safety, accessibility, acoustics, power,
               parking and other operational requirements should be assessed
               separately by the appropriate professionals.
@@ -631,103 +811,36 @@ export default function CommercialPropertyVisualisationPage() {
         </div>
       </section>
 
-      {/* GUIDES */}
-      <section className="border-t border-black/10 bg-white py-20 md:py-28">
+      {/* SCOPE */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="mb-10 max-w-4xl">
+          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 shadow-soft md:p-12">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-              Commercial Property Guides
+              Clear Scope
             </p>
 
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-              Start with the marketing problem.
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-5xl">
+              We create the story.
+              <br />
+              You decide where it lives.
             </h2>
-          </div>
 
-          <div className="grid gap-5 lg:grid-cols-3">
-            <Link
-              href="/blog/how-to-market-a-vacant-commercial-property"
-              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                Vacant Property
-              </p>
+            <p className="mt-6 text-lg leading-8 text-black/60">
+              We create the enhanced visuals, animation, narrative, captions
+              and sequencing included in your package.
+            </p>
 
-              <h3 className="mt-4 font-display text-2xl font-semibold">
-                How to Market a Vacant Commercial Property
-              </h3>
-
-              <p className="mt-4 leading-7 text-black/50">
-                Make an empty property easier for the right tenant or buyer to
-                understand.
-              </p>
-
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
-                Read guide
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
-              </div>
-            </Link>
-
-            <Link
-              href="/blog/how-to-show-buyers-different-uses-for-a-commercial-property"
-              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                Different Audiences
-              </p>
-
-              <h3 className="mt-4 font-display text-2xl font-semibold">
-                Show Buyers Different Uses for One Property
-              </h3>
-
-              <p className="mt-4 leading-7 text-black/50">
-                Create a separate visual story for each relevant commercial
-                audience.
-              </p>
-
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
-                Read guide
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
-              </div>
-            </Link>
-
-            <Link
-              href="/blog/how-to-visualise-an-empty-warehouse-for-different-industries"
-              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                Industry Visualisation
-              </p>
-
-              <h3 className="mt-4 font-display text-2xl font-semibold">
-                Visualise an Empty Warehouse for Different Industries
-              </h3>
-
-              <p className="mt-4 leading-7 text-black/50">
-                See how one warehouse can become several industry specific
-                campaign assets.
-              </p>
-
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
-                Read guide
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
-              </div>
-            </Link>
+            <p className="mt-5 leading-8 text-black/50">
+              We do not manage your accounts, schedule your posts or run your
+              day to day social presence. That stays with you, your agency or
+              your marketing team.
+            </p>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-rust px-6 py-20 text-white md:py-28">
+      <section className="bg-rust px-6 py-20 text-white md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
             Commercial Property Visualisation

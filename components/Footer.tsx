@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ArrowRight, Youtube, Instagram, Facebook } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Youtube } from "lucide-react";
 
 import {
   CONTACT_EMAIL,
@@ -64,16 +64,24 @@ const serviceLinks = [
     href: "/packages",
   },
   {
-    label: "Property Refresh",
-    href: "/packages/property-refresh",
+    label: "Story Starter",
+    href: "/packages/story-starter",
   },
   {
-    label: "Property Campaign",
-    href: "/packages/property-campaign",
+    label: "Story Builder",
+    href: "/packages/story-builder",
   },
   {
-    label: "Property Reel Campaign",
-    href: "/packages/property-reel-campaign",
+    label: "Story Deep Dive",
+    href: "/packages/story-deep-dive",
+  },
+  {
+    label: "The Full Story",
+    href: "/packages/the-full-story",
+  },
+  {
+    label: "Story Custom",
+    href: "/packages/story-custom",
   },
 ];
 
@@ -137,13 +145,14 @@ export default function Footer() {
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
                 Already have the property media?
                 <span className="block text-rust">
-                  Turn it into more campaign content.
+                  Give it another story.
                 </span>
               </h2>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/50">
                 We transform existing property photography, renders and footage
-                into enhanced visuals, animation and finished property content.
+                into enhanced visuals, animation, narrative and finished
+                campaign content.
               </p>
             </div>
 
@@ -177,9 +186,9 @@ export default function Footer() {
               </Link>
 
               <p className="mt-6 text-sm leading-7 text-white/45">
-                Property media made to do more. Enhanced stills, visual
-                transformation, animation and finished campaign content created
-                from media that already exists.
+                Property media made to move. Enhanced stills, visual
+                transformation, animation and storytelling created from media
+                that already exists.
               </p>
 
               <div className="mt-7">
@@ -312,9 +321,10 @@ export default function Footer() {
         <div className="container-shell py-8">
           <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
             <p className="max-w-4xl text-xs leading-6 text-white/30">
-              Real Estate Media House creates visual property marketing content
-              for real estate agents, developers and commercial property
-              professionals using supplied photography, renders and footage.
+              Real Estate Media House creates enhanced property imagery,
+              animation and storytelling for real estate agents, developers and
+              commercial property professionals using supplied photography,
+              renders and footage.
             </p>
 
             <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/35 md:justify-end">

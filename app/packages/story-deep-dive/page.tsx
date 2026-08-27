@@ -10,31 +10,31 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Story Deep Dive | Property Story Package",
   description:
-    "Story Deep Dive combines 12 enhanced property images, 3 animated scenes and a 5 post narrative arc for listings with more than one story to tell.",
+    "Twelve enhanced property images, three property animations up to 10 seconds each and a five post narrative arc for $1,595 + GST.",
   alternates: {
     canonical: `${SITE_URL}/packages/story-deep-dive`,
   },
   openGraph: {
     title: "Story Deep Dive | Real Estate Media House",
     description:
-      "Twelve enhanced property images, three animated scenes and a five post narrative arc built around the property.",
+      "Twelve enhanced property images, three animations up to 10 seconds each and a five post narrative arc built from your existing property media.",
     url: `${SITE_URL}/packages/story-deep-dive`,
     type: "website",
     images: [
       {
         url: `${SITE_URL}/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg`,
-        alt: "Residential property image transformed into additional lifestyle campaign content",
+        alt: "Residential bedroom enhanced into lifestyle marketing content",
       },
     ],
   },
 };
 
-const packageJsonLd = {
+const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Story Deep Dive",
   description:
-    "A property storytelling package including 12 enhanced images, 3 animated scenes and a 5 post narrative arc.",
+    "Twelve enhanced property images, three property animations up to 10 seconds each and a five post narrative arc.",
   provider: {
     "@type": "Organization",
     name: "Real Estate Media House",
@@ -44,90 +44,132 @@ const packageJsonLd = {
     "@type": "Country",
     name: "Australia",
   },
+  url: `${SITE_URL}/packages/story-deep-dive`,
   offers: {
     "@type": "Offer",
-    priceCurrency: "AUD",
     price: "1595",
+    priceCurrency: "AUD",
     url: `${SITE_URL}/packages/story-deep-dive`,
   },
 };
 
-const robDelivers = [
+const visualDeliverables = [
   "12 enhanced property images",
-  "3 animated scenes",
-  "Around 15 seconds total animation",
+  "3 property animations up to 10 seconds each",
+  "Up to 30 seconds of animation in total",
 ];
 
-const robynDelivers = [
-  "A 5 post narrative arc",
-  "A story that moves through the property rather than repeating features",
-  "Arrival → living → hero room → lifestyle → close",
+const storyDeliverables = [
+  "A 5 post narrative arc built around the strongest moments in the property",
+  "Arrival → connection → hero moment → lifestyle → emotional close",
+  "Story direction that gives each stage a different reason to matter",
+];
+
+const enhancedExamples = [
+  {
+    number: "01",
+    title: "People",
+    text: "Introduce believable human moments that help someone understand how the room, garden or exterior could feel in everyday use.",
+  },
+  {
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the architecture, room proportions and layout accurate to the supplied image.",
+  },
+  {
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Introduce selected appliances, styling and decorative details that support the scene without changing the property itself.",
+  },
+  {
+    number: "04",
+    title: "Cars & Activity",
+    text: "Add appropriate vehicles, people and movement to exterior scenes when they help tell a stronger property story.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Refine lawns, planting and surrounding environment while keeping the built form and defining architectural elements true.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Strengthen warmth, mood and time of day so the same property media can communicate a different emotional moment.",
+  },
 ];
 
 const storyArc = [
   {
     number: "01",
     title: "Arrival",
-    text: "Open with the first impression and establish what kind of life or property story this is.",
+    text: "Start with the first impression and the feeling someone gets before they have even stepped inside.",
   },
   {
     number: "02",
-    title: "Living",
-    text: "Move into the everyday heart of the property and show how the space feels to occupy.",
+    title: "Connection",
+    text: "Show how the main spaces relate to each other and where everyday life naturally comes together.",
   },
   {
     number: "03",
-    title: "The Room That Sells It",
-    text: "Give the strongest room, detail or view its own moment instead of burying it in the gallery.",
+    title: "Hero Moment",
+    text: "Give the room, view or feature with the strongest emotional pull enough space to become memorable.",
   },
   {
     number: "04",
     title: "Lifestyle",
-    text: "Shift from what the property has to what life around the property could feel like.",
+    text: "Move beyond the property itself and help someone imagine the routines, gatherings and quiet moments that could happen there.",
   },
   {
     number: "05",
-    title: "The Close",
-    text: "Bring the story together with the final reason someone should inspect, enquire or keep thinking about it.",
-  },
-];
-
-const fit = [
-  {
-    title: "The property has more than one story.",
-    text: "The architecture, light, rooms, neighbourhood and lifestyle all deserve room to breathe.",
-  },
-  {
-    title: "A three post campaign feels too shallow.",
-    text: "You want enough narrative depth to move through the property rather than stop after a hook and one feature.",
-  },
-  {
-    title: "You want depth without a finished Reel.",
-    text: "Story Deep Dive gives you a larger visual and written campaign while keeping the assets flexible.",
+    title: "Emotional Close",
+    text: "Finish with the feeling you want someone to carry with them after the campaign disappears from the screen.",
   },
 ];
 
 const videos = [
   {
     id: "bedroom",
-    title: "Bedroom Animation",
+    title: "Bedroom Property Animation",
     url: "https://www.youtube.com/watch?v=dQjStlhEGzI",
     category: "Residential",
     orientation: "landscape" as const,
   },
   {
     id: "living",
-    title: "Living Room Animation",
+    title: "Living Property Animation",
     url: "https://www.youtube.com/watch?v=5_j6Nd7QxJA",
     category: "Residential",
     orientation: "landscape" as const,
   },
   {
     id: "facade",
-    title: "Facade Animation",
+    title: "Facade Property Animation",
     url: "https://www.youtube.com/watch?v=ezOd5jztwcI",
     category: "Residential",
     orientation: "landscape" as const,
+  },
+];
+
+const process = [
+  {
+    number: "01",
+    title: "Send The Property Media",
+    text: "Supply the photography, renders or footage already created for the property.",
+  },
+  {
+    number: "02",
+    title: "Find The Narrative Arc",
+    text: "We identify the strongest rooms, details and emotional opportunities and decide how the story should unfold.",
+  },
+  {
+    number: "03",
+    title: "Build The Visual Story",
+    text: "Rob creates twelve enhanced images and three animated scenes of up to 10 seconds each.",
+  },
+  {
+    number: "04",
+    title: "Build The Five Part Narrative",
+    text: "Robyn develops the five post arc so the campaign moves from first impression to emotional close.",
   },
 ];
 
@@ -137,108 +179,158 @@ export default function StoryDeepDivePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(packageJsonLd),
+          __html: JSON.stringify(serviceJsonLd),
         }}
       />
 
-      {/* HERO */}
+      {/* PLAIN HEADER */}
       <section className="bg-ink text-white">
-        <div className="container-shell py-14 md:py-18">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Story Deep Dive
-              </p>
+        <div className="container-shell py-16 md:py-20 lg:py-24">
+          <div className="max-w-5xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+              Story Deep Dive · $1,595 + GST
+            </p>
 
-              <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Some properties need
-                <span className="block text-rust">more room to speak.</span>
-              </h1>
+            <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+              Some properties have
+              <span className="block text-rust">
+                more than one story worth telling.
+              </span>
+            </h1>
 
-              <p className="mt-7 max-w-xl text-lg leading-8 text-white/60">
-                Story Deep Dive is for listings with more than one reason to
-                care. More rooms. More emotion. More campaign depth.
-              </p>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/65 md:text-xl">
+              Twelve enhanced property images, three animations up to 10
+              seconds each and a five post narrative arc built around the
+              strongest visual and emotional moments in the property.
+            </p>
 
-              <div className="mt-8 flex items-baseline gap-2">
-                <span className="font-display text-5xl font-semibold">
-                  $1,595
-                </span>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link
+                href="/enquire"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-brassBright"
+              >
+                Start Story Deep Dive
+                <ArrowRight size={18} />
+              </Link>
 
-                <span className="text-sm text-white/40">+ GST</span>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/enquire"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-                >
-                  Start a Story Deep Dive
-                  <ArrowRight size={17} />
-                </Link>
-
-                <Link
-                  href="/packages"
-                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-semibold transition hover:bg-white hover:text-ink"
-                >
-                  Compare stories
-                </Link>
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <article className="rounded-[2rem] border border-white/10 bg-white/5 p-7">
-                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                  Rob Delivers
-                </p>
-
-                <h2 className="mt-4 font-display text-3xl font-semibold">
-                  More visual range.
-                </h2>
-
-                <div className="mt-6 space-y-4">
-                  {robDelivers.map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <Check
-                        size={16}
-                        className="mt-1 shrink-0 text-brassBright"
-                      />
-
-                      <p className="leading-7 text-white/60">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </article>
-
-              <article className="rounded-[2rem] border border-rust/50 bg-rust/15 p-7">
-                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                  Robyn Delivers
-                </p>
-
-                <h2 className="mt-4 font-display text-3xl font-semibold">
-                  More narrative depth.
-                </h2>
-
-                <div className="mt-6 space-y-4">
-                  {robynDelivers.map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <Check
-                        size={16}
-                        className="mt-1 shrink-0 text-brassBright"
-                      />
-
-                      <p className="leading-7 text-white/65">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </article>
+              <Link
+                href="/packages"
+                className="inline-flex items-center rounded-full border border-white/20 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-ink"
+              >
+                Compare packages
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
+      {/* PACKAGE DELIVERABLES */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 md:p-10">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                Rob Delivers
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold">
+                The visual depth.
+              </h2>
+
+              <div className="mt-7 space-y-4">
+                {visualDeliverables.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Check size={16} className="mt-1 shrink-0 text-rust" />
+                    <p className="leading-7 text-black/60">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="rounded-[2rem] border border-rust bg-ink p-8 text-white md:p-10">
+              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
+                Robyn Delivers
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold">
+                The five part story.
+              </h2>
+
+              <div className="mt-7 space-y-4">
+                {storyDeliverables.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Check
+                      size={16}
+                      className="mt-1 shrink-0 text-brassBright"
+                    />
+                    <p className="leading-7 text-white/65">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* ENHANCED IMAGE EXPLANATION */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the property accurate.
+                <span className="block text-rust">
+                  Add the life around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout and defining property elements
+                accurate to the supplied image.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Depending on what each scene needs, we can then add or refine
+                people, furniture, appliances, décor, cars, landscaping,
+                lighting and atmosphere.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The property is not redesigned. The enhancement helps each image
+                carry a stronger visual and emotional story.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-white p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PROOF */}
-      <section className="bg-white py-14 md:py-18">
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#f7f5f1] shadow-soft">
@@ -246,64 +338,64 @@ export default function StoryDeepDivePage() {
                 before="/property-images/website/lifestyle/bedroom-before.jpeg"
                 after="/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg"
                 beforeAlt="Original residential bedroom photograph"
-                afterAlt="Residential bedroom transformed into lifestyle campaign content"
+                afterAlt="Residential bedroom enhanced into lifestyle marketing content"
               />
             </div>
 
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                More Than One Hero Image
+                More Narrative Depth
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Let the property unfold.
+                Give the best moments
+                <span className="block text-rust">
+                  enough room to matter.
+                </span>
               </h2>
 
               <p className="mt-6 text-lg leading-8 text-black/55">
-                A strong property can lose impact when every room is treated the
-                same. Story Deep Dive gives the best moments their own role in
-                the campaign.
+                Some properties have too many strong details to reduce to one or
+                two campaign moments. Story Deep Dive creates enough space for
+                those moments to unfold.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* NARRATIVE ARC */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-18">
+      {/* FIVE PART ARC */}
+      <section className="bg-ink py-16 text-white md:py-20">
         <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.68fr_1.32fr]">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                The Five Post Arc
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                The Five Part Story
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Room to room.
-                <span className="block text-rust">Moment to moment.</span>
+                Move through the property
+                <span className="block text-rust">
+                  like someone already belongs there.
+                </span>
               </h2>
-
-              <p className="mt-5 max-w-xl leading-8 text-black/50">
-                The story moves through the property so each post adds something
-                instead of repeating what the listing already says.
-              </p>
             </div>
 
             <div className="space-y-3">
               {storyArc.map((item) => (
                 <article
                   key={item.number}
-                  className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-white p-6 sm:grid-cols-[60px_0.65fr_1.35fr]"
+                  className="grid gap-5 rounded-[1.75rem] border border-white/10 bg-white/5 p-7 sm:grid-cols-[60px_0.75fr_1.25fr]"
                 >
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  <p className="font-mono text-xs font-semibold text-brassBright">
                     {item.number}
                   </p>
 
-                  <h3 className="font-display text-xl font-semibold">
+                  <h3 className="font-display text-2xl font-semibold">
                     {item.title}
                   </h3>
 
-                  <p className="leading-7 text-black/50">{item.text}</p>
+                  <p className="leading-7 text-white/50">{item.text}</p>
                 </article>
               ))}
             </div>
@@ -311,121 +403,50 @@ export default function StoryDeepDivePage() {
         </div>
       </section>
 
-      {/* FIT */}
-      <section className="bg-white py-14 md:py-18">
+      {/* ANIMATION LENGTH */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Is This You?
-              </p>
-
-              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                The property deserves more than one angle.
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              {fit.map((item, index) => (
-                <article
-                  key={item.title}
-                  className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-6 sm:grid-cols-[55px_0.85fr_1.15fr]"
-                >
-                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-
-                  <h3 className="font-display text-xl font-semibold">
-                    {item.title}
-                  </h3>
-
-                  <p className="leading-7 text-black/50">{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DELIVERABLES */}
-      <section className="bg-ink py-14 text-white md:py-18">
-        <div className="container-shell">
-          <div className="mb-10 max-w-4xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-              What You Receive
+          <div className="max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Three Animated Moments
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-              Twelve images. Three moving scenes.
+              Up to 10 seconds each.
               <span className="block text-rust">
-                Five connected story moments.
+                Up to 30 seconds in total.
               </span>
             </h2>
-          </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <article className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <p className="font-display text-5xl font-semibold text-brassBright">
-                12
-              </p>
+            <p className="mt-6 text-lg leading-8 text-black/55">
+              Each animated scene can run for up to 10 seconds, giving you
+              three separate moving campaign assets and up to 30 seconds of
+              animation across the package.
+            </p>
 
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Enhanced Images
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/50">
-                Enough visual range to cover several rooms, details and campaign
-                moments.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <p className="font-display text-5xl font-semibold text-brassBright">
-                3
-              </p>
-
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Animated Scenes
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/50">
-                Three moving property moments with around fifteen seconds total
-                animation.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-rust bg-rust/15 p-8">
-              <p className="font-display text-5xl font-semibold text-brassBright">
-                5
-              </p>
-
-              <h3 className="mt-6 font-display text-2xl font-semibold">
-                Post Story Arc
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/55">
-                Five connected posts that move from arrival through the property
-                and into the lifestyle story.
-              </p>
-            </article>
+            <p className="mt-5 leading-8 text-black/50">
+              Each scene can focus on a different part of the story, such as
+              arrival, a hero room, a lifestyle moment, changing light or
+              believable movement through the property.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* MOTION */}
-      <section className="bg-white py-14 md:py-18">
+      {/* VIDEOS LOWER ON PAGE */}
+      <section className="bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
           <YouTubeVideoCarousel
             items={videos}
-            eyebrow="Three Animated Scenes"
-            heading="Give the strongest moments movement."
-            description="Story Deep Dive includes three animated scenes so motion can appear throughout the campaign rather than in one isolated post."
+            eyebrow="Property Stories In Motion"
+            heading="Movement should reveal something worth noticing."
+            description="Animation can add life, atmosphere and another campaign moment while keeping the original property media at the centre of the story."
           />
         </div>
       </section>
 
       {/* PROCESS */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-14 md:py-18">
+      <section className="border-y border-black/10 bg-white py-16 md:py-20">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -434,36 +455,17 @@ export default function StoryDeepDivePage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Find the property story before building the posts.
+                Find the moments.
+                <br />
+                Build the arc.
               </h2>
             </div>
 
-            <div className="space-y-3">
-              {[
-                {
-                  number: "01",
-                  title: "Send The Existing Property Media",
-                  text: "Supply the photography, renders or footage already created for the property.",
-                },
-                {
-                  number: "02",
-                  title: "Identify The Strongest Moments",
-                  text: "We choose the rooms, details and scenes that can carry different parts of the campaign.",
-                },
-                {
-                  number: "03",
-                  title: "Build The Visual Range",
-                  text: "Rob creates the enhanced images and three animated scenes.",
-                },
-                {
-                  number: "04",
-                  title: "Build The Five Part Story",
-                  text: "Robyn structures the campaign so each post moves naturally into the next.",
-                },
-              ].map((step) => (
+            <div className="space-y-4">
+              {process.map((step) => (
                 <article
                   key={step.number}
-                  className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-white p-7 sm:grid-cols-[70px_1fr]"
+                  className="grid gap-5 rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7 sm:grid-cols-[70px_1fr]"
                 >
                   <p className="font-mono text-sm font-semibold text-rust">
                     {step.number}
@@ -474,7 +476,9 @@ export default function StoryDeepDivePage() {
                       {step.title}
                     </h3>
 
-                    <p className="mt-3 leading-7 text-black/50">{step.text}</p>
+                    <p className="mt-3 leading-7 text-black/50">
+                      {step.text}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -484,9 +488,9 @@ export default function StoryDeepDivePage() {
       </section>
 
       {/* PAYMENT */}
-      <section className="bg-white py-14 md:py-18">
+      <section className="bg-[#f7f5f1] py-16 md:py-20">
         <div className="container-shell">
-          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 shadow-soft md:p-10">
+          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/10 bg-white p-8 shadow-soft md:p-10">
             <div className="grid gap-8 md:grid-cols-[0.65fr_1.35fr]">
               <div>
                 <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
@@ -500,13 +504,12 @@ export default function StoryDeepDivePage() {
 
               <div>
                 <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
-                  50% deposit to begin. Balance before use.
+                  50% deposit to begin. 50% before use.
                 </h2>
 
                 <p className="mt-5 leading-8 text-black/50">
-                  A 50% deposit is required to begin. The remaining 50% is due
-                  before the finished content may be published, posted,
-                  distributed, advertised or otherwise used.
+                  The remaining 50% is due before the finished content may be
+                  published, posted, distributed, advertised or otherwise used.
                 </p>
               </div>
             </div>
@@ -514,62 +517,39 @@ export default function StoryDeepDivePage() {
         </div>
       </section>
 
-      {/* NEXT */}
-      <section className="border-t border-black/10 bg-white py-14 md:py-18">
+      {/* NEXT PACKAGE */}
+      <section className="bg-white py-16 md:py-20">
         <div className="container-shell">
-          <div className="grid gap-5 lg:grid-cols-2">
-            <Link
-              href="/packages/story-builder"
-              className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
-                Need Less?
-              </p>
+          <Link
+            href="/packages/the-full-story"
+            className="group block rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft md:p-10"
+          >
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Ready For The Complete Campaign?
+            </p>
 
-              <h2 className="mt-4 font-display text-3xl font-semibold">
-                Story Builder
-              </h2>
+            <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="font-display text-4xl font-semibold">
+                  The Full Story
+                </h2>
 
-              <p className="mt-4 leading-7 text-black/50">
-                Eight enhanced images, two animated scenes and a three post
-                narrative sequence.
-              </p>
+                <p className="mt-4 max-w-2xl leading-7 text-black/50">
+                  Twelve enhanced images, three to four animations up to 10
+                  seconds each, a finished vertical Reel and a complete listing
+                  lifecycle story.
+                </p>
+              </div>
 
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
-                View Story Builder
+              <div className="inline-flex items-center gap-2 font-semibold text-rust">
+                Explore The Full Story
                 <ArrowRight
                   size={17}
                   className="transition group-hover:translate-x-1"
                 />
               </div>
-            </Link>
-
-            <Link
-              href="/packages/the-full-story"
-              className="group rounded-[2rem] border border-rust bg-ink p-8 text-white transition hover:bg-rust"
-            >
-              <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
-                Want The Complete Campaign?
-              </p>
-
-              <h2 className="mt-4 font-display text-3xl font-semibold">
-                The Full Story
-              </h2>
-
-              <p className="mt-4 leading-7 text-white/50">
-                Keep the visual depth, add more motion and finish with a complete
-                vertical Reel and listing lifecycle story.
-              </p>
-
-              <div className="mt-7 inline-flex items-center gap-2 font-semibold text-brassBright">
-                View The Full Story
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
-                />
-              </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -581,21 +561,21 @@ export default function StoryDeepDivePage() {
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-            Give the property
+            Give every strong moment
             <br />
-            more than one moment.
+            its place in the story.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Twelve enhanced images, three animated scenes and a five post story
-            arc built from the property media you already have.
+            Twelve enhanced images, three animations up to 10 seconds each and
+            a five part story that moves through the property with purpose.
           </p>
 
           <Link
             href="/enquire"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
           >
-            Start a Story Deep Dive
+            Start Story Deep Dive
             <ArrowRight size={18} />
           </Link>
         </div>

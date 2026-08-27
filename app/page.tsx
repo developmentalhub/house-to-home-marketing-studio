@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import CampaignBuilder from "@/components/CampaignBuilder";
@@ -104,6 +104,75 @@ const storyMoments = [
   },
 ];
 
+const enhancedImageExamples = [
+  {
+    number: "01",
+    title: "People",
+    text: "Add believable human moments that help someone understand how a room, garden or exterior could feel in everyday use.",
+  },
+  {
+    number: "02",
+    title: "Furniture",
+    text: "Add or refine furniture while keeping the architecture, proportions and layout of the property accurate.",
+  },
+  {
+    number: "03",
+    title: "Appliances & Décor",
+    text: "Introduce selected appliances, styling and decorative details without redesigning the property itself.",
+  },
+  {
+    number: "04",
+    title: "Cars & Activity",
+    text: "Add appropriate vehicles, people and movement to exterior scenes when they support the property story.",
+  },
+  {
+    number: "05",
+    title: "Landscape",
+    text: "Refine lawns, planting and surrounding atmosphere while keeping the built property true.",
+  },
+  {
+    number: "06",
+    title: "Lighting & Atmosphere",
+    text: "Use warmth, daylight, evening light and atmosphere to give an existing property image a different emotional moment.",
+  },
+];
+
+const packageSummary = [
+  {
+    name: "Story Starter",
+    price: "$595 + GST",
+    href: "/packages/story-starter",
+    images: "5 enhanced images",
+    animation: "1 animation up to 10 seconds",
+    story: "5 individual story hooks",
+  },
+  {
+    name: "Story Builder",
+    price: "$995 + GST",
+    href: "/packages/story-builder",
+    images: "8 enhanced images",
+    animation: "2 animations up to 10 seconds each · up to 20 seconds total",
+    story: "3 post narrative sequence",
+  },
+  {
+    name: "Story Deep Dive",
+    price: "$1,595 + GST",
+    href: "/packages/story-deep-dive",
+    images: "12 enhanced images",
+    animation: "3 animations up to 10 seconds each · up to 30 seconds total",
+    story: "5 post narrative arc",
+  },
+  {
+    name: "The Full Story",
+    price: "$1,990 + GST",
+    href: "/packages/the-full-story",
+    images: "12 enhanced images",
+    animation:
+      "3 to 4 animations up to 10 seconds each · up to 40 seconds total",
+    story: "Complete lifecycle story + 20 to 30 second Reel",
+  },
+];
+
 export default function HomePage() {
   return (
     <main className="bg-[#f7f5f1] text-ink">
@@ -130,8 +199,9 @@ export default function HomePage() {
 
               <p className="mt-5 max-w-3xl leading-8 text-white/45">
                 We turn existing property photography, renders and footage into
-                visual stories, animation, captions and campaign moments that
-                make the property easier to imagine and harder to forget.
+                enhanced visual stories, animation, captions and campaign
+                moments that make the property easier to imagine and harder to
+                forget.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -254,8 +324,66 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ROB + ROBYN */}
+      {/* ENHANCED PROPERTY IMAGES */}
       <section className="bg-white py-18 md:py-24">
+        <div className="container-shell">
+          <div className="grid gap-12 lg:grid-cols-[0.68fr_1.32fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Keep the architecture true.
+                <span className="block text-rust">
+                  Build the life around it.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout and defining property elements
+                accurate to the supplied image.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Depending on the property and story, we can then add or refine
+                people, furniture, appliances, décor, cars, landscaping,
+                lighting and atmosphere.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The aim is not to redesign the property. It is to add the
+                details, atmosphere and human moments that help someone imagine
+                life around it.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {enhancedImageExamples.map((item) => (
+              <article
+                key={item.number}
+                className="rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7"
+              >
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  {item.number}
+                </p>
+
+                <h3 className="mt-5 font-display text-2xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ROB + ROBYN */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="mb-10 max-w-4xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
@@ -271,7 +399,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-5 lg:grid-cols-2">
-            <article className="rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 md:p-10">
+            <article className="rounded-[2rem] border border-black/10 bg-white p-8 md:p-10">
               <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                 Rob
               </p>
@@ -287,8 +415,9 @@ export default function HomePage() {
               </p>
 
               <p className="mt-5 leading-8 text-black/50">
-                The aim is not to overwhelm the original photography. It is to
-                reveal more of its potential.
+                The architecture and defining property elements stay true. The
+                enhancement builds the life, atmosphere and visual story around
+                them.
               </p>
             </article>
 
@@ -325,10 +454,10 @@ export default function HomePage() {
       </section>
 
       {/* COMMERCIAL PROOF */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="overflow-hidden rounded-[2rem] bg-white shadow-soft">
+            <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
               <BeforeAfterSlider
                 before="/images/commercial/warehouse-multiple-afters/warehouse-before.jpg"
                 after="/images/commercial/warehouse-multiple-afters/warehouse-after-logistics.png"
@@ -371,7 +500,7 @@ export default function HomePage() {
       </section>
 
       {/* PROPERTY TYPES */}
-      <section className="bg-white py-18 md:py-24">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -395,7 +524,7 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group flex min-h-[340px] flex-col rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 transition hover:border-rust hover:bg-white hover:shadow-soft"
+                className="group flex min-h-[340px] flex-col rounded-[2rem] border border-black/10 bg-white p-8 transition hover:border-rust hover:shadow-soft"
               >
                 <p className="font-mono text-xs font-semibold text-rust">
                   {item.number}
@@ -423,7 +552,7 @@ export default function HomePage() {
       </section>
 
       {/* PROBLEM SOLVING */}
-      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
+      <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -446,7 +575,7 @@ export default function HomePage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group grid gap-5 rounded-[2rem] border border-black/10 bg-white p-7 transition hover:border-rust hover:shadow-soft sm:grid-cols-[70px_0.85fr_1.15fr_auto] sm:items-start md:p-8"
+                  className="group grid gap-5 rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-7 transition hover:border-rust hover:bg-white hover:shadow-soft sm:grid-cols-[70px_0.85fr_1.15fr_auto] sm:items-start md:p-8"
                 >
                   <p className="font-mono text-xs font-semibold text-rust">
                     {String(index + 1).padStart(2, "0")}
@@ -470,7 +599,7 @@ export default function HomePage() {
       </section>
 
       {/* PROCESS */}
-      <section className="bg-white py-18 md:py-24">
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
@@ -500,17 +629,22 @@ export default function HomePage() {
                 {
                   number: "03",
                   title: "Build The Visual Story",
-                  text: "Rob develops the visual treatment and motion. Robyn develops the hook, narrative and emotional angle.",
+                  text: "Rob keeps the architecture and defining property elements accurate while enhancing selected scenes with details such as people, furniture, appliances, décor, cars, landscaping, lighting and atmosphere.",
                 },
                 {
                   number: "04",
-                  title: "Give The Campaign Somewhere To Go",
-                  text: "Use the enhanced images, animation, captions and story alongside the original property media.",
+                  title: "Make Selected Moments Move",
+                  text: "Selected images become animated scenes of up to 10 seconds each, with the number of scenes determined by the package.",
+                },
+                {
+                  number: "05",
+                  title: "Give The Campaign Something To Say",
+                  text: "Robyn develops the hooks, captions, sequencing and emotional angle that connect the visual assets into a story.",
                 },
               ].map((step) => (
                 <article
                   key={step.number}
-                  className="grid gap-5 rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-7 sm:grid-cols-[80px_1fr] md:p-8"
+                  className="grid gap-5 rounded-[2rem] border border-black/10 bg-white p-7 sm:grid-cols-[80px_1fr] md:p-8"
                 >
                   <p className="font-mono text-sm font-semibold text-rust">
                     {step.number}
@@ -537,7 +671,7 @@ export default function HomePage() {
             items={featuredVideos}
             eyebrow="Property Stories In Motion"
             heading="First, we bring the image to life. Then, we make it move. Then, we tell you why it matters."
-            description="Movement earns attention. Story gives that attention somewhere to go."
+            description="Each package animation can run up to 10 seconds per scene. Movement earns attention. Story gives that attention somewhere to go."
           />
 
           <div className="mt-10">
@@ -615,35 +749,107 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PACKAGES CTA */}
+      {/* PACKAGES */}
       <section className="bg-white py-18 md:py-24">
         <div className="container-shell">
-          <div className="grid gap-10 rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-8 md:grid-cols-[0.75fr_1.25fr] md:p-12">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
                 Story Packages
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Every package includes the visual and the story.
+                Every package includes
+                <span className="block text-rust">
+                  the visual and the story.
+                </span>
               </h2>
+
+              <p className="mt-5 leading-8 text-black/50">
+                Every included animated scene can run for up to 10 seconds.
+                Higher packages simply give the campaign more individual scenes
+                and more narrative depth.
+              </p>
             </div>
 
-            <div>
-              <p className="text-lg leading-8 text-black/55">
-                From five individual story hooks through to a complete listing
-                lifecycle campaign with enhanced visuals, animation and a
-                finished Reel.
-              </p>
+            <div className="space-y-3">
+              {packageSummary.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="group block rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7 transition hover:border-rust hover:bg-white hover:shadow-soft"
+                >
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <h3 className="font-display text-3xl font-semibold">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-2 font-semibold text-rust">
+                        {item.price}
+                      </p>
+                    </div>
+
+                    <ArrowRight
+                      size={19}
+                      className="text-rust transition group-hover:translate-x-1"
+                    />
+                  </div>
+
+                  <div className="mt-6 grid gap-3 border-t border-black/10 pt-6 md:grid-cols-3">
+                    {[item.images, item.animation, item.story].map((detail) => (
+                      <div key={detail} className="flex items-start gap-3">
+                        <Check
+                          size={15}
+                          className="mt-1 shrink-0 text-rust"
+                        />
+                        <p className="text-sm leading-6 text-black/50">
+                          {detail}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </Link>
+              ))}
 
               <Link
-                href="/packages"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+                href="/packages/story-custom"
+                className="group block rounded-[1.75rem] border border-black/10 bg-ink p-7 text-white transition hover:border-rust"
               >
-                Compare story packages
-                <ArrowRight size={17} />
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <h3 className="font-display text-3xl font-semibold">
+                      Story Custom
+                    </h3>
+
+                    <p className="mt-2 font-semibold text-brassBright">
+                      Custom scope
+                    </p>
+
+                    <p className="mt-5 max-w-2xl leading-7 text-white/50">
+                      Custom enhanced images, animation with scenes typically
+                      up to 10 seconds each and narrative built around the
+                      property, project stage and audience.
+                    </p>
+                  </div>
+
+                  <ArrowRight
+                    size={19}
+                    className="shrink-0 text-brassBright transition group-hover:translate-x-1"
+                  />
+                </div>
               </Link>
             </div>
+          </div>
+
+          <div className="mt-10">
+            <Link
+              href="/packages"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-white transition hover:bg-rust"
+            >
+              Compare all story packages
+              <ArrowRight size={17} />
+            </Link>
           </div>
         </div>
       </section>

@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
+import { ArrowRight, Check } from "lucide-react";
 
 type PackageCardProps = {
   name: string;
   price: string;
   description: string;
-  items: string[];
-  href?: string;
+  features: string[];
+  href: string;
   featured?: boolean;
 };
 
@@ -14,96 +15,116 @@ export default function PackageCard({
   name,
   price,
   description,
-  items,
-  href = "/packages",
+  features,
+  href,
   featured = false,
 }: PackageCardProps) {
   return (
     <article
-      className={`group flex h-full flex-col rounded-[2rem] border p-7 transition duration-300 md:p-8 ${
+      className={`flex h-full flex-col overflow-hidden rounded-[2rem] border ${
         featured
           ? "border-rust bg-ink text-white shadow-soft"
-          : "border-black/10 bg-white hover:border-rust hover:shadow-soft"
+          : "border-black/10 bg-white text-ink"
       }`}
     >
-      <div>
-        {featured && (
-          <p className="mb-5 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-brassBright">
-            The Flagship Story
+      <div className="flex flex-1 flex-col p-7 md:p-8">
+        <div>
+          {featured && (
+            <p className="mb-5 inline-flex rounded-full border border-rust bg-rust/20 px-3 py-1.5 font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
+              The Flagship Story
+            </p>
+          )}
+
+          <h3 className="font-display text-3xl font-semibold leading-tight">
+            {name}
+          </h3>
+
+          <p
+            className={`mt-4 font-display text-4xl font-semibold ${
+              featured ? "text-brassBright" : "text-rust"
+            }`}
+          >
+            {price}
           </p>
-        )}
 
-        <h3 className="font-display text-3xl font-semibold leading-tight">
-          {name}
-        </h3>
+          <p
+            className={`mt-5 leading-7 ${
+              featured ? "text-white/55" : "text-black/50"
+            }`}
+          >
+            {description}
+          </p>
+        </div>
 
-        <p
-          className={`mt-3 font-display text-4xl font-semibold ${
-            featured ? "text-brassBright" : "text-rust"
+        <div
+          className={`mt-7 border-t pt-6 ${
+            featured ? "border-white/10" : "border-black/10"
           }`}
         >
-          {price}
-        </p>
+          <p
+            className={`font-mono text-[9px] font-semibold uppercase tracking-[0.16em] ${
+              featured ? "text-brassBright" : "text-rust"
+            }`}
+          >
+            Visual + Story
+          </p>
 
-        <p
-          className={`mt-5 leading-7 ${
-            featured ? "text-white/60" : "text-black/55"
+          <div className="mt-5 space-y-3">
+            {features.map((feature) => (
+              <div key={feature} className="flex items-start gap-3">
+                <Check
+                  size={16}
+                  className={`mt-1 shrink-0 ${
+                    featured ? "text-brassBright" : "text-rust"
+                  }`}
+                />
+
+                <p
+                  className={`leading-6 ${
+                    featured ? "text-white/60" : "text-black/60"
+                  }`}
+                >
+                  {feature}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div
+          className={`mt-7 border-t pt-6 ${
+            featured ? "border-white/10" : "border-black/10"
           }`}
         >
-          {description}
-        </p>
-      </div>
+          <p
+            className={`font-mono text-[9px] font-semibold uppercase tracking-[0.16em] ${
+              featured ? "text-brassBright" : "text-rust"
+            }`}
+          >
+            Enhanced Property Images
+          </p>
 
-      <div
-        className={`mt-7 border-t pt-6 ${
-          featured ? "border-white/10" : "border-black/10"
-        }`}
-      >
-        <p
-          className={`font-mono text-[9px] font-semibold uppercase tracking-[0.16em] ${
-            featured ? "text-brassBright" : "text-rust"
-          }`}
-        >
-          Visual + Story
-        </p>
+          <p
+            className={`mt-4 text-sm leading-7 ${
+              featured ? "text-white/50" : "text-black/50"
+            }`}
+          >
+            Architecture, layout and defining property elements stay accurate.
+            Depending on the scene, enhancement can include people, furniture,
+            appliances, décor, cars, landscaping, lighting and atmosphere.
+          </p>
+        </div>
 
-        <ul className="mt-4 space-y-3">
-          {items.map((item, index) => (
-            <li
-              key={item}
-              className={`grid grid-cols-[30px_1fr] gap-2 text-sm leading-6 ${
-                featured ? "text-white/65" : "text-black/65"
-              }`}
-            >
-              <span
-                className={`font-mono text-[9px] font-semibold ${
-                  featured ? "text-brassBright" : "text-rust"
-                }`}
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-auto pt-8">
         <Link
           href={href}
-          className={`flex items-center justify-between rounded-full px-5 py-3.5 text-sm font-semibold transition ${
+          className={`mt-8 inline-flex items-center justify-between rounded-full px-6 py-4 font-semibold transition ${
             featured
               ? "bg-white text-ink hover:bg-brassBright"
               : "bg-ink text-white hover:bg-rust"
           }`}
         >
           Explore the story
-
-          <ArrowRight
-            size={16}
-            className="transition group-hover:translate-x-1"
-          />
+          <ArrowRight size={17} />
         </Link>
       </div>
     </article>
