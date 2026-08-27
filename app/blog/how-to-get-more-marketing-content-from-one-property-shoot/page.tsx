@@ -366,8 +366,8 @@ export default function HowToGetMoreMarketingContentFromOnePropertyShootPage() {
 
             <div className="overflow-hidden rounded-[2rem] bg-[#f7f5f1] shadow-soft">
               <BeforeAfterSlider
-                before="/property-images/website/lifestyle/kitchen-before.jpeg"
-                after="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
+                before="/property-images/website/lifestyle/bedroom-before.jpeg"
+                after="/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg"
                 beforeAlt="Residential kitchen before lifestyle enhancement"
                 afterAlt="Residential kitchen transformed into a lifestyle marketing image"
               />

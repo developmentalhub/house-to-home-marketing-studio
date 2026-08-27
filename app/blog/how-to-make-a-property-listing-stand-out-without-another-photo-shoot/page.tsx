@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: `${SITE_URL}/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg`,
+        url: `${SITE_URL}/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg`,
         alt: "Existing real estate photography transformed into additional lifestyle marketing content",
       },
     ],
@@ -39,7 +39,7 @@ const articleJsonLd = {
     "A practical guide to creating more property marketing content from photography, renders and footage that already exist.",
   mainEntityOfPage: `${SITE_URL}/blog/how-to-make-a-property-listing-stand-out-without-another-photo-shoot`,
   image: [
-    `${SITE_URL}/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg`,
+    `${SITE_URL}/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg`,
     `${SITE_URL}/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png`,
     `${SITE_URL}/images/childcare/before-after-childcare/childcare-centre-new-build-after.png`,
   ],
@@ -137,8 +137,8 @@ export default function HowToMakeAPropertyListingStandOutWithoutAnotherPhotoShoo
             <div className="mx-auto w-full max-w-2xl">
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-2 shadow-soft">
                 <BeforeAfterSlider
-                  before="/property-images/website/lifestyle/kitchen-before.jpeg"
-                  after="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
+                  before="/property-images/website/lifestyle/bedroom-before.jpeg"
+                  after="/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg"
                   beforeAlt="Original residential property kitchen photograph"
                   afterAlt="Existing kitchen photograph transformed into additional lifestyle property marketing content"
                 />

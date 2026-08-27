@@ -527,7 +527,7 @@ export default function HowToTurnCommercialPropertyPhotosIntoVideoPage() {
             </Link>
 
             <Link
-              href="/packages/property-reel-campaign"
+              href="/packages/the-full-story"
               className="group rounded-[2rem] border border-black/10 bg-white p-8 transition hover:border-rust hover:shadow-soft"
             >
               <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
@@ -535,7 +535,7 @@ export default function HowToTurnCommercialPropertyPhotosIntoVideoPage() {
               </p>
 
               <h2 className="mt-4 font-display text-2xl font-semibold">
-                Property Reel Campaign
+                The Full Story
               </h2>
 
               <p className="mt-4 leading-7 text-black/50">

@@ -38,7 +38,7 @@ const articleJsonLd = {
   mainEntityOfPage: `${SITE_URL}/blog/how-to-refresh-a-property-campaign-that-has-gone-stale`,
   image: [
     `${SITE_URL}/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png`,
-    `${SITE_URL}/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg`,
+    `${SITE_URL}/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg`,
     `${SITE_URL}/images/childcare/before-after-childcare/childcare-centre-new-build-after.png`,
   ],
   author: {
@@ -132,8 +132,8 @@ export default function HowToRefreshAPropertyCampaignThatHasGoneStalePage() {
             <div className="mx-auto w-full max-w-2xl">
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-2 shadow-soft">
                 <BeforeAfterSlider
-                  before="/property-images/website/lifestyle/kitchen-before.jpeg"
-                  after="/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg"
+                  before="/property-images/website/lifestyle/bedroom-before.jpeg"
+                  after="/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg"
                   beforeAlt="Original property campaign kitchen photograph"
                   afterAlt="Existing property photography refreshed into a new lifestyle campaign image"
                 />
