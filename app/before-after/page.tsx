@@ -32,7 +32,7 @@ const transformations: Transformation[] = [
     after:
       "/images/childcare/before-after-childcare/childcare-centre-new-build-after.png",
     description:
-      "See an existing property transformed into a clearer vision of the future childcare centre.",
+      "See an existing property developed into a clearer visual story of the future childcare centre.",
   },
   {
     id: "childcare-corner-site",
@@ -43,7 +43,7 @@ const transformations: Transformation[] = [
     after:
       "/images/childcare/before-after-childcare/corner-site-childcare-after.png",
     description:
-      "Help developers and stakeholders understand what the finished corner site could become.",
+      "Help developers and stakeholders understand the intended future centre within the existing site.",
   },
   {
     id: "childcare-yard",
@@ -54,7 +54,7 @@ const transformations: Transformation[] = [
     after:
       "/images/childcare/before-after-childcare/Rearyard1-After.png",
     description:
-      "Bring an outdoor childcare environment to life with a more complete finished scene.",
+      "Bring the outdoor environment to life with landscaping, activity and a more complete future scene.",
   },
   {
     id: "childcare-room-one",
@@ -65,7 +65,7 @@ const transformations: Transformation[] = [
     after:
       "/images/childcare/before-after-childcare/room1-after.png",
     description:
-      "Transform a static childcare room into a clearer picture of the finished environment.",
+      "Turn the supplied room imagery into a clearer picture of an active future childcare environment.",
   },
   {
     id: "childcare-room-two",
@@ -76,7 +76,7 @@ const transformations: Transformation[] = [
     after:
       "/images/childcare/before-after-childcare/room2-after.png",
     description:
-      "Show the atmosphere and future use of the room before the centre opens.",
+      "Show furniture, people, atmosphere and intended use before finished centre photography is possible.",
   },
   {
     id: "childcare-room-three",
@@ -87,7 +87,7 @@ const transformations: Transformation[] = [
     after:
       "/images/childcare/before-after-childcare/room3-after.png",
     description:
-      "Give operators, developers and families a better sense of the completed space.",
+      "Give operators, developers and future audiences a stronger sense of the completed space.",
   },
   {
     id: "residential-home",
@@ -98,7 +98,7 @@ const transformations: Transformation[] = [
     after:
       "/images/residential/residential-before-after/residential-home-after.png",
     description:
-      "Turn an existing residential image into a stronger piece of campaign content.",
+      "Turn an existing residential image into another finished campaign moment while keeping the property recognisable.",
   },
   {
     id: "residential-kitchen",
@@ -109,18 +109,7 @@ const transformations: Transformation[] = [
     after:
       "/images/residential/residential-before-after/kitchen-after.png",
     description:
-      "Use the photography already supplied to create another visual moment for the listing.",
-  },
-  {
-    id: "kitchen-lifestyle",
-    title: "Kitchen Lifestyle",
-    category: "Lifestyle",
-    before:
-      "/property-images/website/staging/kitchen-before.jpeg",
-    after:
-      "/property-images/website/lifestyle/kitchen-after-lifestyle.jpeg",
-    description:
-      "Introduce believable people, activity and atmosphere to an existing kitchen photograph.",
+      "Use the residential photography already supplied to create another polished visual for the listing campaign.",
   },
   {
     id: "bedroom-lifestyle",
@@ -131,7 +120,7 @@ const transformations: Transformation[] = [
     after:
       "/property-images/website/lifestyle/bedroom-after-lifestyle.jpeg",
     description:
-      "Create a warmer and more aspirational scene from the original bedroom photography.",
+      "Turn the same bedroom into a warmer, more human campaign moment with lifestyle and atmosphere.",
   },
   {
     id: "bathroom-lifestyle",
@@ -142,7 +131,7 @@ const transformations: Transformation[] = [
     after:
       "/property-images/website/lifestyle/bathroom-after-lifestyle.jpeg",
     description:
-      "Bring existing bathroom photography to life with human presence and atmosphere.",
+      "Give the bathroom more emotional context while keeping the room and its defining property elements true.",
   },
   {
     id: "foyer-lifestyle",
@@ -153,18 +142,7 @@ const transformations: Transformation[] = [
     after:
       "/property-images/website/lifestyle/foyer-after.jpeg",
     description:
-      "Turn a static entrance into a more welcoming property moment.",
-  },
-  {
-    id: "kitchen-styling",
-    title: "Kitchen Styling",
-    category: "Styling",
-    before:
-      "/property-images/website/staging/kitchen-before.jpeg",
-    after:
-      "/property-images/website/staging/kitchen-after.jpeg",
-    description:
-      "Refine an existing kitchen photograph with styling and finishing touches.",
+      "Turn a static entrance into a more welcoming arrival moment for the property story.",
   },
   {
     id: "living-styling",
@@ -175,7 +153,7 @@ const transformations: Transformation[] = [
     after:
       "/property-images/website/staging/living-room-after.jpeg",
     description:
-      "Turn an empty living space into a more complete and marketable property image.",
+      "Add furniture and styling to help buyers understand scale, layout and how the living area could function.",
   },
   {
     id: "ensuite-styling",
@@ -186,7 +164,7 @@ const transformations: Transformation[] = [
     after:
       "/property-images/website/staging/ensuite-after.jpeg",
     description:
-      "Give an existing ensuite photograph a more polished presentation.",
+      "Refine an existing ensuite image with styling while keeping the room itself accurate.",
   },
 ];
 
@@ -243,18 +221,23 @@ export default function BeforeAfterPage() {
               </p>
 
               <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Drag between
+                Keep the property true.
                 <span className="block text-rust">
-                  what was there and what could be there.
+                  Build the story around it.
                 </span>
               </h1>
             </div>
 
             <div className="max-w-xl lg:ml-auto">
               <p className="text-lg leading-8 text-white/60">
-                Use your finger on mobile or your mouse on desktop.
-                Open any example full screen and swipe through the
-                rest of the transformations.
+                Drag across each example to compare the supplied property media
+                with the enhanced version.
+              </p>
+
+              <p className="mt-4 leading-7 text-white/40">
+                Open any transformation full screen and move through the
+                gallery to see residential, childcare, lifestyle and styling
+                examples.
               </p>
             </div>
           </div>
@@ -300,13 +283,14 @@ export default function BeforeAfterPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Take control of the image.
+                See exactly what changed.
               </h2>
             </div>
 
             <p className="max-w-2xl text-lg leading-8 text-black/55">
-              Slide directly across the image, then open it full
-              screen to keep moving through the gallery.
+              The original property remains the foundation. The enhancement
+              adds the people, furniture, activity, landscaping, lighting or
+              atmosphere needed for the campaign story.
             </p>
           </div>
 
@@ -344,8 +328,47 @@ export default function BeforeAfterPage() {
         </div>
       </section>
 
+      {/* ENHANCED PROPERTY IMAGES */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Enhanced Property Images
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Enhancement does not mean
+                <span className="block text-rust">
+                  redesigning the property.
+                </span>
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-3xl text-lg leading-8 text-black/60">
+                We keep the architecture, layout, room proportions and defining
+                property elements accurate to the supplied media.
+              </p>
+
+              <p className="mt-5 max-w-3xl leading-8 text-black/50">
+                Depending on the scene, we can add or refine people, furniture,
+                appliances, décor, cars, landscaping, lawns, planting,
+                lighting, atmosphere and everyday activity.
+              </p>
+
+              <p className="mt-6 max-w-3xl font-display text-2xl leading-9">
+                The aim is to make the image more complete, more human and more
+                useful to the campaign without changing what the property
+                fundamentally is.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* GALLERY */}
-      <section className="border-t border-black/10 bg-[#f7f5f1] py-20 md:py-28">
+      <section className="bg-white py-20 md:py-28">
         <div className="container-shell">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
@@ -354,7 +377,7 @@ export default function BeforeAfterPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold md:text-6xl">
-                Keep dragging.
+                Drag through the transformations.
               </h2>
             </div>
 
@@ -366,7 +389,7 @@ export default function BeforeAfterPage() {
           <div className="mt-12 grid gap-x-8 gap-y-16 lg:grid-cols-2">
             {filteredTransformations.map((item, index) => (
               <article key={item.id}>
-                <div className="relative overflow-hidden rounded-[1.75rem] bg-white shadow-soft">
+                <div className="relative overflow-hidden rounded-[1.75rem] bg-[#f7f5f1] shadow-soft">
                   <BeforeAfterSlider
                     before={item.before}
                     after={item.after}
@@ -418,6 +441,63 @@ export default function BeforeAfterPage() {
         </div>
       </section>
 
+      {/* STORY */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-16 md:py-20">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Beyond Before & After
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                The visual change is only useful
+                <span className="block text-rust">
+                  when it helps tell something.
+                </span>
+              </h2>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                {
+                  number: "01",
+                  title: "Residential",
+                  text: "A room can move from simply showing what is there to helping someone imagine the routines, comfort and moments that could happen there.",
+                },
+                {
+                  number: "02",
+                  title: "Commercial",
+                  text: "A vacant warehouse can become a relevant operating environment for the exact tenant or buyer the campaign is trying to reach.",
+                },
+                {
+                  number: "03",
+                  title: "Childcare",
+                  text: "A future centre can move beyond the building itself to show arrival, learning, outdoor play and everyday activity.",
+                },
+              ].map((item) => (
+                <article
+                  key={item.number}
+                  className="grid gap-5 border-b border-black/10 py-6 sm:grid-cols-[55px_0.8fr_1.2fr]"
+                >
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                    {item.number}
+                  </p>
+
+                  <h3 className="font-display text-xl font-semibold">
+                    {item.title}
+                  </h3>
+
+                  <p className="leading-7 text-black/50">
+                    {item.text}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* NEXT STEP */}
       <section className="bg-ink py-20 text-white md:py-28">
         <div className="container-shell">
@@ -428,24 +508,37 @@ export default function BeforeAfterPage() {
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-                One transformation is only the beginning.
+                First bring the image to life.
+                <span className="block text-rust">
+                  Then make it move.
+                </span>
               </h2>
             </div>
 
             <div className="max-w-2xl lg:ml-auto">
               <p className="text-lg leading-8 text-white/55">
-                Explore childcare development stories, commercial
-                use cases and residential transformations across
-                the full image library.
+                Explore more residential, commercial and childcare
+                transformations, then see how selected enhanced images can
+                become animated campaign scenes.
               </p>
 
-              <Link
-                href="/image-library"
-                className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
-              >
-                Open Image Library
-                <ArrowRight size={17} />
-              </Link>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  href="/image-library"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
+                >
+                  Open Image Library
+                  <ArrowRight size={17} />
+                </Link>
+
+                <Link
+                  href="/video-library"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white hover:text-ink"
+                >
+                  Watch The Animations
+                  <ArrowRight size={17} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -461,13 +554,13 @@ export default function BeforeAfterPage() {
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
             Already have the image?
             <br />
-            Let&apos;s get more from it.
+            Give it another story.
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Send us the photography, renders or project imagery
-            you already have and we&apos;ll help identify what can
-            be transformed.
+            Send us the photography, renders or project imagery you already
+            have and we&apos;ll identify the strongest opportunities for
+            enhancement, movement and storytelling.
           </p>
 
           <Link
