@@ -854,6 +854,115 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* DIY PROPERTY ANIMATION RESOURCES */}
+      <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
+        <div className="container-shell">
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Property Animation Resources
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Want to try creating
+                <span className="block text-rust">
+                  the movement yourself?
+                </span>
+              </h2>
+
+              <p className="mt-5 max-w-xl leading-8 text-black/50">
+                Start with one of the prompt structures we use when thinking
+                through camera movement, architectural accuracy, atmosphere
+                and what needs to stay true to the property.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <Link
+                href="/free-property-animation-prompt"
+                className="group flex min-h-[430px] flex-col overflow-hidden rounded-[2rem] border border-black/10 bg-white transition hover:border-rust hover:shadow-soft"
+              >
+                <div className="relative min-h-[220px] overflow-hidden bg-[#ece8e1]">
+                  <img
+                    src="/images/arch-viz-reel-animation.png"
+                    alt="Free architectural visualisation property animation prompt"
+                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col p-7 md:p-8">
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                    Free Download
+                  </p>
+
+                  <h3 className="mt-4 font-display text-3xl font-semibold">
+                    Try one property animation prompt
+                  </h3>
+
+                  <p className="mt-4 flex-1 leading-7 text-black/50">
+                    Download one complete example and see how we structure
+                    camera direction, movement, atmosphere and architectural
+                    protection before an image becomes an animated scene.
+                  </p>
+
+                  <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
+                    Get the free prompt
+                    <ArrowRight
+                      size={17}
+                      className="transition group-hover:translate-x-1"
+                    />
+                  </div>
+                </div>
+              </Link>
+
+              <Link
+                href="/property-animation-prompt-pack"
+                className="group flex min-h-[430px] flex-col overflow-hidden rounded-[2rem] border border-rust bg-ink text-white transition hover:shadow-soft"
+              >
+                <div className="relative min-h-[220px] overflow-hidden bg-white/5">
+                  <img
+                    src="/images/arch-viz-reel-animation.png"
+                    alt="10 Property Reel Animation Prompts"
+                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col p-7 md:p-8">
+                  <div className="flex items-start justify-between gap-6">
+                    <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-brassBright">
+                      10 Prompt Pack
+                    </p>
+
+                    <p className="font-display text-3xl font-semibold">
+                      $7
+                    </p>
+                  </div>
+
+                  <h3 className="mt-4 font-display text-3xl font-semibold">
+                    10 Property Reel Animation Prompts
+                  </h3>
+
+                  <p className="mt-4 flex-1 leading-7 text-white/50">
+                    Ready-to-adapt prompts across residential, commercial,
+                    hospitality, childcare and development scenes, with
+                    direction for camera movement, believable motion and
+                    architectural accuracy.
+                  </p>
+
+                  <div className="mt-7 inline-flex items-center gap-2 font-semibold text-brassBright">
+                    Explore the $7 prompt pack
+                    <ArrowRight
+                      size={17}
+                      className="transition group-hover:translate-x-1"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* GUIDES */}
       <section className="border-y border-black/10 bg-[#f7f5f1] py-18 md:py-24">
         <div className="container-shell">
