@@ -10,6 +10,7 @@ import "./globals.css";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -38,17 +39,24 @@ export const metadata: Metadata = {
     default: "Real Estate Media House",
     template: "%s | Real Estate Media House",
   },
+
   description:
     "Property imagery transformed into enhanced stills, cinematic animations, build reveals and finished Property Reels using the photography and renders you already have.",
+
   metadataBase: new URL(
     "https://realestatemediahouse.net",
   ),
+
   openGraph: {
     title: "Real Estate Media House",
+
     description:
       "Enhanced property imagery, cinematic animation and finished Property Reels created from your existing photography and renders.",
+
     url: "https://realestatemediahouse.net",
+
     siteName: "Real Estate Media House",
+
     type: "website",
   },
 };
@@ -65,9 +73,14 @@ export default function RootLayout({
     >
       <body>
         <Header />
+
         {children}
-        <Analytics />
+
         <Footer />
+
+        <LanguageSwitcher />
+
+        <Analytics />
       </body>
     </html>
   );

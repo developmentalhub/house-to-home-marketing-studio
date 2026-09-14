@@ -225,11 +225,12 @@ export default function HomePage() {
             <div className="mx-auto w-full max-w-2xl">
               <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-2 shadow-soft">
                 <BeforeAfterSlider
-                  before="/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg"
-                  after="/images/childcare/before-after-childcare/childcare-centre-new-build-after.png"
-                  beforeAlt="Property before childcare development visualisation"
-                  afterAlt="Property transformed into a completed childcare development visual"
-                />
+  before="/images/childcare/before-after-childcare/childcare-centre-new-build-before.jpg"
+  after="/images/childcare/before-after-childcare/childcare-centre-new-build-after.png"
+  beforeAlt="Property before childcare development visualisation"
+  afterAlt="Property transformed into a completed childcare development visual"
+  priority
+/>
               </div>
 
               <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.16em] text-white/40">

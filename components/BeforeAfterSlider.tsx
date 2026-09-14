@@ -9,6 +9,7 @@ type BeforeAfterSliderProps = {
   after: string;
   beforeAlt: string;
   afterAlt: string;
+  priority?: boolean;
 };
 
 export default function BeforeAfterSlider({
@@ -16,6 +17,7 @@ export default function BeforeAfterSlider({
   after,
   beforeAlt,
   afterAlt,
+  priority = false,
 }: BeforeAfterSliderProps) {
   const [position, setPosition] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -31,6 +33,7 @@ export default function BeforeAfterSlider({
     }
 
     const rect = container.getBoundingClientRect();
+
     const nextPosition =
       ((clientX - rect.left) / rect.width) * 100;
 
@@ -100,7 +103,8 @@ export default function BeforeAfterSlider({
         sizes="(max-width: 1024px) 100vw, 50vw"
         className="pointer-events-none select-none object-cover"
         draggable={false}
-        priority={false}
+        priority={priority}
+        loading={priority ? "eager" : "lazy"}
       />
 
       {/* BEFORE IMAGE */}
@@ -117,7 +121,8 @@ export default function BeforeAfterSlider({
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="select-none object-cover"
           draggable={false}
-          priority={false}
+          priority={priority}
+          loading={priority ? "eager" : "lazy"}
         />
       </div>
 
@@ -140,7 +145,6 @@ export default function BeforeAfterSlider({
           left: `${position}%`,
         }}
       >
-        {/* HANDLE */}
         <div
           className={`absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-ink shadow-xl transition-transform duration-150 sm:h-14 sm:w-14 ${
             dragging ? "scale-110" : "group-hover:scale-105"
@@ -164,7 +168,7 @@ export default function BeforeAfterSlider({
         className="absolute inset-0 z-30 h-full w-full cursor-ew-resize opacity-0"
       />
 
-      {/* MOBILE / DESKTOP PROMPT */}
+      {/* PROMPT */}
       <div
         className={`pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/65 px-4 py-2 font-mono text-[8px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md transition-all duration-500 sm:bottom-5 sm:text-[9px] ${
           interacted
