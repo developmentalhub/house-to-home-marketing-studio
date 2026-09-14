@@ -27,10 +27,6 @@ const mainNavigation = [
     label: "Packages",
     href: "/packages",
   },
-  {
-    label: "Guides",
-    href: "/blog",
-  },
 ];
 
 const propertyTypes = [
@@ -51,6 +47,30 @@ const propertyTypes = [
   },
 ];
 
+const resources = [
+  {
+    label: "Free Animation Prompt",
+    description:
+      "Download one property animation prompt and see how we structure movement.",
+    href: "/free-property-animation-prompt",
+    detail: "Free",
+  },
+  {
+    label: "10 Property Animation Prompts",
+    description:
+      "Ready-to-adapt prompts for residential, commercial, hospitality and development Reels.",
+    href: "/property-animation-prompt-pack",
+    detail: "$7",
+  },
+  {
+    label: "Property Marketing Guides",
+    description:
+      "Practical ideas for listings, vacant property, development marketing and campaign content.",
+    href: "/blog",
+    detail: "Guides",
+  },
+];
+
 function isActive(pathname: string, href: string) {
   if (href === "/") {
     return pathname === "/";
@@ -64,10 +84,12 @@ export default function Header() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [propertyTypesOpen, setPropertyTypesOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
 
   function closeMobileMenu() {
     setMobileOpen(false);
     setPropertyTypesOpen(false);
+    setResourcesOpen(false);
   }
 
   const propertyTypeActive =
@@ -77,6 +99,11 @@ export default function Header() {
     pathname.startsWith("/projects/warehouse") ||
     pathname.startsWith("/projects/childcare") ||
     pathname.startsWith("/projects/residential");
+
+  const resourcesActive =
+    pathname.startsWith("/free-property-animation-prompt") ||
+    pathname.startsWith("/property-animation-prompt-pack") ||
+    pathname.startsWith("/blog");
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f7f5f1]/95 backdrop-blur">
@@ -128,6 +155,59 @@ export default function Header() {
               );
             })}
 
+            {/* RESOURCES DROPDOWN */}
+            <div className="group relative">
+              <button
+                type="button"
+                className={`flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-semibold transition ${
+                  resourcesActive
+                    ? "bg-ink text-white"
+                    : "text-black/60 hover:bg-black/5 hover:text-ink"
+                }`}
+              >
+                Resources
+
+                <ChevronDown
+                  size={15}
+                  className="transition duration-200 group-hover:rotate-180"
+                />
+              </button>
+
+              <div className="invisible absolute right-0 top-full pt-3 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100">
+                <div className="w-[390px] overflow-hidden rounded-[1.5rem] border border-black/10 bg-white p-2 shadow-soft">
+                  {resources.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="group/item block rounded-[1.1rem] px-5 py-4 transition hover:bg-[#f7f5f1]"
+                    >
+                      <div className="grid grid-cols-[1fr_auto] gap-5">
+                        <div>
+                          <p className="font-display text-xl font-semibold text-ink">
+                            {item.label}
+                          </p>
+
+                          <p className="mt-1 text-xs leading-5 text-black/45">
+                            {item.description}
+                          </p>
+                        </div>
+
+                        <div className="flex flex-col items-end justify-between">
+                          <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.14em] text-rust">
+                            {item.detail}
+                          </span>
+
+                          <span className="text-lg text-rust transition group-hover/item:translate-x-1">
+                            →
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {/* PROPERTY TYPES DROPDOWN */}
             <div className="group relative">
               <button
@@ -139,6 +219,7 @@ export default function Header() {
                 }`}
               >
                 Property Types
+
                 <ChevronDown
                   size={15}
                   className="transition duration-200 group-hover:rotate-180"
@@ -235,6 +316,58 @@ export default function Header() {
                   );
                 })}
 
+                {/* MOBILE RESOURCES */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    setResourcesOpen((current) => !current)
+                  }
+                  className={`flex items-center justify-between rounded-2xl px-5 py-4 text-left font-display text-2xl font-semibold transition ${
+                    resourcesActive
+                      ? "bg-ink text-white"
+                      : "hover:bg-white"
+                  }`}
+                >
+                  Resources
+
+                  <ChevronDown
+                    size={20}
+                    className={`transition ${
+                      resourcesOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {resourcesOpen && (
+                  <div className="mt-2 grid gap-2 border-l border-black/10 pl-4">
+                    {resources.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={closeMobileMenu}
+                        className="rounded-2xl bg-white p-5 transition hover:border-rust"
+                      >
+                        <div className="flex items-start justify-between gap-5">
+                          <div>
+                            <p className="font-display text-xl font-semibold">
+                              {item.label}
+                            </p>
+
+                            <p className="mt-2 text-sm leading-6 text-black/45">
+                              {item.description}
+                            </p>
+                          </div>
+
+                          <p className="shrink-0 font-mono text-[8px] font-semibold uppercase tracking-[0.14em] text-rust">
+                            {item.detail}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
+                {/* MOBILE PROPERTY TYPES */}
                 <button
                   type="button"
                   onClick={() =>
