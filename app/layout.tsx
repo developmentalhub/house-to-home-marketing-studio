@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import {
   Fraunces,
@@ -65,6 +66,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
