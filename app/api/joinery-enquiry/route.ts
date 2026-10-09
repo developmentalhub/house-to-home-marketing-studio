@@ -1,183 +1,134 @@
-import {
-  NextRequest,
-  NextResponse,
-} from "next/server";
-
-import {
-  createClient,
-} from "@supabase/supabase-js";
-
+import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 
-const SUPABASE_URL =
-  process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+export const runtime = "nodejs";
 
-const SUPABASE_SERVICE_ROLE_KEY =
-  process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+const MAX_FILE_SIZE = 15 * 1024 * 1024;
 
-const RESEND_API_KEY =
-  process.env.RESEND_API_KEY || "";
+const ALLOWED_FILE_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "application/pdf",
+];
 
-const supabase = createClient(
-  SUPABASE_URL,
-  SUPABASE_SERVICE_ROLE_KEY,
-  {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
-  },
-);
-
-const resend = new Resend(
-  RESEND_API_KEY,
-);
-
-function cleanString(
-  value: FormDataEntryValue | null,
-) {
-  if (
-    !value ||
-    typeof value !== "string"
-  ) {
-    return "";
-  }
-
-  return value.trim();
-}
-
-function escapeHtml(
-  value: string,
-) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-function safeFileName(
-  fileName: string,
-) {
+function safeFileName(fileName: string) {
   return fileName
+    .trim()
     .replace(/[^a-zA-Z0-9._-]/g, "-")
     .replace(/-+/g, "-");
+}
+
+function getSupabaseAdmin() {
+  const supabaseUrl =
+    process.env.NEXT_PUBLIC_SUPABASE_URL;
+
+  const serviceRoleKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl) {
+    throw new Error(
+      "NEXT_PUBLIC_SUPABASE_URL is not configured.",
+    );
+  }
+
+  if (!serviceRoleKey) {
+    throw new Error(
+      "SUPABASE_SERVICE_ROLE_KEY is not configured.",
+    );
+  }
+
+  return createClient(
+    supabaseUrl,
+    serviceRoleKey,
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    },
+  );
+}
+
+function getResend() {
+  const apiKey =
+    process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    throw new Error(
+      "RESEND_API_KEY is not configured.",
+    );
+  }
+
+  return new Resend(apiKey);
 }
 
 export async function POST(
   request: NextRequest,
 ) {
   try {
-    if (
-      !SUPABASE_URL ||
-      !SUPABASE_SERVICE_ROLE_KEY
-    ) {
-      return NextResponse.json(
-        {
-          error:
-            "Supabase server configuration is missing.",
-        },
-        {
-          status: 500,
-        },
-      );
-    }
-
-    if (!RESEND_API_KEY) {
-      return NextResponse.json(
-        {
-          error:
-            "Email server configuration is missing.",
-        },
-        {
-          status: 500,
-        },
-      );
-    }
-
     const formData =
       await request.formData();
 
-    const name =
-      cleanString(
-        formData.get("name"),
-      );
+    const name = String(
+      formData.get("name") ?? "",
+    ).trim();
 
-    const businessName =
-      cleanString(
-        formData.get(
-          "businessName",
-        ),
-      );
+    const businessName = String(
+      formData.get("businessName") ?? "",
+    ).trim();
 
-    const email =
-      cleanString(
-        formData.get("email"),
-      ).toLowerCase();
+    const email = String(
+      formData.get("email") ?? "",
+    ).trim();
 
-    const phone =
-      cleanString(
-        formData.get("phone"),
-      );
+    const phone = String(
+      formData.get("phone") ?? "",
+    ).trim();
 
-    const projectType =
-      cleanString(
-        formData.get(
-          "projectType",
-        ),
-      );
+    const projectType = String(
+      formData.get("projectType") ?? "",
+    ).trim();
 
-    const imageCount =
-      cleanString(
-        formData.get(
-          "imageCount",
-        ),
-      );
+    const imageCount = String(
+      formData.get("imageCount") ?? "",
+    ).trim();
 
-    const panoramaCount =
-      cleanString(
-        formData.get(
-          "panoramaCount",
-        ),
-      );
+    const panoramaCount = String(
+      formData.get("panoramaCount") ?? "",
+    ).trim();
 
-    const projectDetails =
-      cleanString(
-        formData.get(
-          "projectDetails",
-        ),
-      );
+    const projectDetails = String(
+      formData.get("projectDetails") ?? "",
+    ).trim();
 
-    const deadline =
-      cleanString(
-        formData.get("deadline"),
-      );
+    const deadline = String(
+      formData.get("deadline") ?? "",
+    ).trim();
 
-    const privateProjectPage =
-      formData.get(
-        "privateProjectPage",
-      ) === "yes";
+    const presentationOptions =
+      formData
+        .getAll("presentationOptions")
+        .map((value) =>
+          String(value).trim(),
+        )
+        .filter(Boolean);
 
-    const qrCode =
-      formData.get(
-        "qrCode",
-      ) === "yes";
-
-    const printableSheets =
-      formData.get(
-        "printableSheets",
-      ) === "yes";
-
-    const ipadPresentation =
-      formData.get(
-        "ipadPresentation",
-      ) === "yes";
+    const files =
+      formData
+        .getAll("files")
+        .filter(
+          (item): item is File =>
+            item instanceof File &&
+            item.size > 0,
+        );
 
     if (!name) {
       return NextResponse.json(
         {
-          error:
+          ok: false,
+          message:
             "Please enter your name.",
         },
         {
@@ -186,14 +137,12 @@ export async function POST(
       );
     }
 
-    if (
-      !email ||
-      !email.includes("@")
-    ) {
+    if (!email) {
       return NextResponse.json(
         {
-          error:
-            "Please enter a valid email address.",
+          ok: false,
+          message:
+            "Please enter your email address.",
         },
         {
           status: 400,
@@ -204,7 +153,8 @@ export async function POST(
     if (!projectType) {
       return NextResponse.json(
         {
-          error:
+          ok: false,
+          message:
             "Please select a project type.",
         },
         {
@@ -216,8 +166,9 @@ export async function POST(
     if (!imageCount) {
       return NextResponse.json(
         {
-          error:
-            "Please select the approximate number of joinery views.",
+          ok: false,
+          message:
+            "Please select the approximate number of joinery images or views.",
         },
         {
           status: 400,
@@ -225,48 +176,16 @@ export async function POST(
       );
     }
 
-    const enquiryId =
-      crypto.randomUUID();
-
-    const folderName =
-      `${new Date()
-        .toISOString()
-        .slice(0, 10)}-${enquiryId}`;
-
-    const uploadedFiles: {
-      fileName: string;
-      path: string;
-      signedUrl: string;
-    }[] = [];
-
-    const files =
-      formData.getAll("files");
-
-    for (const entry of files) {
-      if (!(entry instanceof File)) {
-        continue;
-      }
-
-      if (entry.size === 0) {
-        continue;
-      }
-
-      const allowedTypes = [
-        "image/jpeg",
-        "image/png",
-        "image/webp",
-        "application/pdf",
-      ];
-
+    for (const file of files) {
       if (
-        !allowedTypes.includes(
-          entry.type,
+        !ALLOWED_FILE_TYPES.includes(
+          file.type,
         )
       ) {
         return NextResponse.json(
           {
-            error:
-              "Files must be JPG, PNG, WEBP or PDF.",
+            ok: false,
+            message: `${file.name} is not a supported file type. Please upload JPG, PNG, WEBP or PDF files.`,
           },
           {
             status: 400,
@@ -275,145 +194,151 @@ export async function POST(
       }
 
       if (
-        entry.size >
-        15 * 1024 * 1024
+        file.size >
+        MAX_FILE_SIZE
       ) {
         return NextResponse.json(
           {
-            error:
-              "Each uploaded file must be smaller than 15 MB.",
+            ok: false,
+            message: `${file.name} is larger than 15 MB.`,
           },
           {
             status: 400,
           },
         );
       }
+    }
 
-      const fileName =
-        safeFileName(
-          entry.name,
-        );
+    const supabase =
+      getSupabaseAdmin();
+
+    const resend =
+      getResend();
+
+    const enquiryId =
+      crypto.randomUUID();
+
+    const today =
+      new Date()
+        .toISOString()
+        .slice(0, 10);
+
+    const folder =
+      `joinery-enquiries/${today}-${enquiryId}`;
+
+    const uploadedFiles: {
+      name: string;
+      url: string;
+    }[] = [];
+
+    for (
+      let index = 0;
+      index < files.length;
+      index++
+    ) {
+      const file = files[index];
+
+      const cleanName =
+        safeFileName(file.name);
+
+      const storageName =
+        `${String(index + 1).padStart(
+          2,
+          "0",
+        )}-${cleanName}`;
 
       const storagePath =
-        `joinery-enquiries/${folderName}/${fileName}`;
+        `${folder}/${storageName}`;
 
-      const bytes =
-        await entry.arrayBuffer();
+      const arrayBuffer =
+        await file.arrayBuffer();
 
       const {
         error: uploadError,
-      } =
-        await supabase.storage
-          .from("customers")
-          .upload(
-            storagePath,
-            bytes,
-            {
-              contentType:
-                entry.type,
-              upsert: false,
-            },
-          );
+      } = await supabase.storage
+        .from("customers")
+        .upload(
+          storagePath,
+          arrayBuffer,
+          {
+            contentType:
+              file.type,
+            upsert: false,
+          },
+        );
 
       if (uploadError) {
         console.error(
-          "Upload error:",
-          uploadError.message,
+          "Joinery enquiry upload error:",
+          uploadError,
         );
 
-        return NextResponse.json(
-          {
-            error:
-              "One of the project files could not be uploaded.",
-          },
-          {
-            status: 500,
-          },
+        throw new Error(
+          `Could not upload ${file.name}.`,
         );
       }
 
       const {
-        data: signedUrlData,
-        error: signedUrlError,
-      } =
-        await supabase.storage
-          .from("customers")
-          .createSignedUrl(
-            storagePath,
-            60 * 60 * 24 * 7,
-          );
+        data: signedData,
+        error:
+          signedUrlError,
+      } = await supabase.storage
+        .from("customers")
+        .createSignedUrl(
+          storagePath,
+          60 * 60 * 24 * 7,
+        );
 
       if (
         signedUrlError ||
-        !signedUrlData?.signedUrl
+        !signedData?.signedUrl
       ) {
         console.error(
           "Signed URL error:",
-          signedUrlError?.message,
+          signedUrlError,
         );
 
-        continue;
+        throw new Error(
+          `Could not create a secure link for ${file.name}.`,
+        );
       }
 
       uploadedFiles.push({
-        fileName,
-        path: storagePath,
-        signedUrl:
-          signedUrlData.signedUrl,
+        name: file.name,
+        url: signedData.signedUrl,
       });
     }
 
-    const presentationOptions = [
-      privateProjectPage
-        ? "Private client project page"
-        : null,
-
-      qrCode
-        ? "QR code"
-        : null,
-
-      printableSheets
-        ? "Printable presentation sheets"
-        : null,
-
-      ipadPresentation
-        ? "iPad-friendly presentation"
-        : null,
-    ].filter(Boolean);
+    const optionsText =
+      presentationOptions.length
+        ? presentationOptions.join(
+            ", ",
+          )
+        : "None selected";
 
     const fileLinksHtml =
-      uploadedFiles.length > 0
+      uploadedFiles.length
         ? uploadedFiles
             .map(
               (file) => `
-                <li style="margin-bottom:8px;">
+                <li style="margin-bottom: 10px;">
                   <a
-                    href="${file.signedUrl}"
-                    style="color:#9c4a2e;"
+                    href="${file.url}"
+                    style="color: #9b4b37;"
                   >
-                    ${escapeHtml(file.fileName)}
+                    ${file.name}
                   </a>
                 </li>
               `,
             )
             .join("")
-        : "<li>No files uploaded</li>";
+        : `
+            <li>
+              No files uploaded
+            </li>
+          `;
 
-    const optionsHtml =
-      presentationOptions.length > 0
-        ? presentationOptions
-            .map(
-              (item) =>
-                `<li>${escapeHtml(
-                  String(item),
-                )}</li>`,
-            )
-            .join("")
-        : "<li>No additional options selected</li>";
-
-    const {
-      error: emailError,
-    } =
+    const ownerEmail =
       await resend.emails.send({
         from:
           "Real Estate Media House <rob@realestatemediahouse.net>",
@@ -425,205 +350,150 @@ export async function POST(
         replyTo: email,
 
         subject:
-          `New joinery quote request - ${businessName || name}`,
+          `New joinery enquiry — ${businessName || name}`,
 
         html: `
-          <div
-            style="
-              font-family: Arial, sans-serif;
-              max-width: 700px;
-              margin: 0 auto;
-              padding: 30px;
-              color: #222222;
-              line-height: 1.6;
-            "
-          >
-            <h1>
-              New Joinery Quote Request
+          <div style="font-family: Arial, sans-serif; max-width: 720px; margin: 0 auto; color: #222;">
+            <h1 style="font-size: 28px; margin-bottom: 24px;">
+              New joinery presentation enquiry
             </h1>
 
-            <h2>
-              Customer
-            </h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tbody>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Name</td>
+                  <td style="padding: 8px 0;">${name}</td>
+                </tr>
 
-            <p>
-              <strong>Name:</strong><br />
-              ${escapeHtml(name)}
-            </p>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Business</td>
+                  <td style="padding: 8px 0;">${businessName || "Not supplied"}</td>
+                </tr>
 
-            <p>
-              <strong>Business:</strong><br />
-              ${escapeHtml(
-                businessName ||
-                  "Not provided",
-              )}
-            </p>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Email</td>
+                  <td style="padding: 8px 0;">${email}</td>
+                </tr>
 
-            <p>
-              <strong>Email:</strong><br />
-              ${escapeHtml(email)}
-            </p>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Phone</td>
+                  <td style="padding: 8px 0;">${phone || "Not supplied"}</td>
+                </tr>
 
-            <p>
-              <strong>Phone:</strong><br />
-              ${escapeHtml(
-                phone ||
-                  "Not provided",
-              )}
-            </p>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Project type</td>
+                  <td style="padding: 8px 0;">${projectType}</td>
+                </tr>
 
-            <hr />
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Joinery images / views</td>
+                  <td style="padding: 8px 0;">${imageCount}</td>
+                </tr>
 
-            <h2>
-              Project
-            </h2>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">360° spaces</td>
+                  <td style="padding: 8px 0;">${panoramaCount || "Not selected"}</td>
+                </tr>
 
-            <p>
-              <strong>Type:</strong><br />
-              ${escapeHtml(
-                projectType,
-              )}
-            </p>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Deadline</td>
+                  <td style="padding: 8px 0;">${deadline || "Not supplied"}</td>
+                </tr>
+              </tbody>
+            </table>
 
-            <p>
-              <strong>Joinery images / views:</strong><br />
-              ${escapeHtml(
-                imageCount,
-              )}
-            </p>
+            <hr style="margin: 28px 0; border: 0; border-top: 1px solid #ddd;" />
 
-            <p>
-              <strong>360° panorama spaces:</strong><br />
-              ${escapeHtml(
-                panoramaCount ||
-                  "1",
-              )}
-            </p>
-
-            <p>
-              <strong>Preferred deadline:</strong><br />
-              ${escapeHtml(
-                deadline ||
-                  "Not specified",
-              )}
-            </p>
-
-            <h2>
+            <h2 style="font-size: 20px;">
               Presentation options
             </h2>
 
-            <ul>
-              ${optionsHtml}
-            </ul>
+            <p>
+              ${optionsText}
+            </p>
 
-            <h2>
+            <h2 style="font-size: 20px; margin-top: 28px;">
               Project details
             </h2>
 
-            <p>
-              ${escapeHtml(
-                projectDetails ||
-                  "No extra details provided.",
-              ).replace(
-                /\n/g,
-                "<br />",
-              )}
+            <p style="white-space: pre-wrap;">
+              ${projectDetails || "No additional details supplied."}
             </p>
 
-            <h2>
-              Uploaded project files
+            <h2 style="font-size: 20px; margin-top: 28px;">
+              Uploaded files
             </h2>
 
             <ul>
               ${fileLinksHtml}
             </ul>
 
-            <p
-              style="
-                margin-top:30px;
-                font-size:13px;
-                color:#777777;
-              "
-            >
-              File links expire after 7 days.
+            <p style="margin-top: 30px; font-size: 12px; color: #777;">
+              Secure file links expire after 7 days.
             </p>
           </div>
         `,
       });
 
-    if (emailError) {
+    if (ownerEmail.error) {
       console.error(
-        "Email error:",
-        emailError,
+        "Owner enquiry email error:",
+        ownerEmail.error,
       );
 
-      return NextResponse.json(
-        {
-          error:
-            "Your files uploaded, but the enquiry email could not be sent.",
-        },
-        {
-          status: 500,
-        },
+      throw new Error(
+        "The enquiry was uploaded but the notification email could not be sent.",
       );
     }
 
-    await resend.emails.send({
-      from:
-        "Real Estate Media House <rob@realestatemediahouse.net>",
+    const customerEmail =
+      await resend.emails.send({
+        from:
+          "Real Estate Media House <rob@realestatemediahouse.net>",
 
-      to: [email],
+        to: [email],
 
-      subject:
-        "We received your joinery project",
+        subject:
+          "We received your joinery project",
 
-      html: `
-        <div
-          style="
-            font-family: Arial, sans-serif;
-            max-width: 620px;
-            margin:0 auto;
-            padding:30px;
-            color:#222222;
-            line-height:1.7;
-          "
-        >
-          <h1>
-            Thanks ${escapeHtml(
-              name.split(" ")[0],
-            )}
-          </h1>
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 620px; margin: 0 auto; color: #222;">
+            <h1 style="font-size: 28px;">
+              Thanks ${name}
+            </h1>
 
-          <p>
-            We&apos;ve received your
-            joinery project and any
-            sketches or files you
-            uploaded.
-          </p>
+            <p style="font-size: 16px; line-height: 1.7;">
+              We've received your joinery presentation enquiry.
+            </p>
 
-          <p>
-            We&apos;ll review the
-            number of views, project
-            complexity and presentation
-            requirements before sending
-            you a quote.
-          </p>
+            <p style="font-size: 16px; line-height: 1.7;">
+              We'll review the sketches, project information and the number of visualisation views you need before preparing the next steps.
+            </p>
 
-          <p>
-            You don&apos;t need to
-            prepare anything else for
-            now.
-          </p>
+            <p style="font-size: 16px; line-height: 1.7;">
+              You do not need to prepare polished 3D drawings for us. The sketches, measurements, references and project information you already use are exactly where we can start.
+            </p>
 
-          <p>
-            Real Estate Media House
-          </p>
-        </div>
-      `,
-    });
+            <p style="margin-top: 32px; font-size: 16px; line-height: 1.7;">
+              Real Estate Media House
+            </p>
+          </div>
+        `,
+      });
+
+    if (
+      customerEmail.error
+    ) {
+      console.error(
+        "Customer receipt email error:",
+        customerEmail.error,
+      );
+    }
 
     return NextResponse.json({
-      success: true,
+      ok: true,
+      message:
+        "Thanks. Your project has been sent through and we'll be in touch.",
     });
   } catch (error) {
     console.error(
@@ -633,8 +503,11 @@ export async function POST(
 
     return NextResponse.json(
       {
-        error:
-          "We could not send your project. Please try again.",
+        ok: false,
+        message:
+          error instanceof Error
+            ? error.message
+            : "Something went wrong while sending your enquiry.",
       },
       {
         status: 500,
