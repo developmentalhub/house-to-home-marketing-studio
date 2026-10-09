@@ -1,145 +1,169 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  Hammer,
+  Layers3,
+  PencilRuler,
+  Scan,
+  Sofa,
+} from "lucide-react";
 
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Property Marketing Guides | Real Estate Media House",
+  title:
+    "Cabinet Making, Joinery & Design Insights | Real Estate Media House",
+
   description:
-    "Practical property marketing guides for real estate agents, commercial property professionals and developers. Learn how to get more from existing photography, visualise property potential and create moving campaign content.",
+    "Practical insights for cabinet makers, joinery businesses, interior designers and builders covering client presentations, cabinetry visualisation, 3D design, interactive panoramas and communicating design concepts.",
+
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
+
   openGraph: {
-    title: "Property Marketing Guides | Real Estate Media House",
+    title:
+      "Cabinet Making, Joinery & Design Insights",
     description:
-      "Practical guides covering commercial property marketing, residential property content, childcare development marketing and getting more from existing property media.",
+      "Insights for cabinet makers, joinery businesses, interior designers and builders who want to present design concepts more professionally.",
     url: `${SITE_URL}/blog`,
     type: "website",
-    images: [
-      {
-        url: `${SITE_URL}/images/commercial/warehouse-multiple-afters/warehouse-after-gym.png`,
-        alt: "Commercial property transformed into industry specific marketing content",
-      },
-    ],
   },
 };
 
-const commercialGuides = [
+const categories = [
   {
-    title: "How to Market a Vacant Commercial Property",
+    icon: Hammer,
+    title: "Cabinet Making & Joinery",
     description:
-      "Make an empty property easier for buyers and tenants to understand by showing relevant possible uses.",
-    href: "/blog/how-to-market-a-vacant-commercial-property",
-    label: "Vacant Property",
+      "Practical ideas for presenting kitchens, bathrooms, laundries, robes and custom cabinetry to clients.",
   },
   {
-    title: "How to Show Buyers Different Uses for a Commercial Property",
+    icon: PencilRuler,
+    title: "From Sketch to Presentation",
     description:
-      "Use one property campaign to speak more clearly to different buyers, tenants and industries.",
-    href: "/blog/how-to-show-buyers-different-uses-for-a-commercial-property",
-    label: "Multiple Uses",
+      "How to turn hand-drawn concepts, measurements and ideas into professional client-facing presentations.",
   },
   {
-    title: "How to Visualise an Empty Warehouse for Different Industries",
+    icon: Scan,
+    title: "3D & Interactive Visualisation",
     description:
-      "Turn one vacant warehouse into industry specific campaign visuals for different operator types.",
-    href: "/blog/how-to-visualise-an-empty-warehouse-for-different-industries",
-    label: "Industry Visualisation",
+      "Using renders, interactive panoramas and visual presentations to help clients understand a proposed design.",
   },
   {
-    title: "How to Market a Warehouse to Gym Operators",
+    icon: Sofa,
+    title: "Interior Design",
     description:
-      "Help fitness operators picture training zones, equipment, reception and activity inside a vacant warehouse.",
-    href: "/blog/how-to-market-a-warehouse-to-gym-operators",
-    label: "Fitness",
+      "Communicating finishes, cabinetry, spatial relationships and design intent clearly to clients.",
   },
   {
-    title: "How to Visualise an Empty Warehouse as a Gym",
+    icon: Building2,
+    title: "Building & Renovation",
     description:
-      "A practical guide for understanding how an empty warehouse could look and feel as a fitness facility.",
-    href: "/blog/how-to-visualise-an-empty-warehouse-as-a-gym",
-    label: "Gym Operators",
+      "Helping clients understand cabinetry and interior decisions before construction or manufacture begins.",
   },
   {
-    title: "How to Market a Warehouse to Mechanic Workshops",
+    icon: Layers3,
+    title: "Winning Higher-Value Projects",
     description:
-      "Show automotive operators work bays, vehicles, equipment and activity instead of only an empty shell.",
-    href: "/blog/how-to-market-a-warehouse-to-mechanic-workshops",
-    label: "Automotive",
-  },
-  {
-    title: "How to Market a Warehouse to Logistics Companies",
-    description:
-      "Help logistics and distribution operators picture stock, storage, movement and business activity.",
-    href: "/blog/how-to-market-a-warehouse-to-logistics-companies",
-    label: "Logistics",
-  },
-  {
-    title: "How to Market a Warehouse to Photographers and Production Companies",
-    description:
-      "Show creative operators how a vacant industrial property could function as a photography or production studio.",
-    href: "/blog/how-to-market-a-warehouse-to-photographers-and-production-companies",
-    label: "Creative",
-  },
-  {
-    title: "How to Turn Commercial Property Photos Into Video",
-    description:
-      "Turn existing commercial property photography into animated scenes and additional moving campaign content.",
-    href: "/blog/how-to-turn-commercial-property-photos-into-video",
-    label: "Commercial Video",
+      "Ways smaller cabinet making and joinery businesses can present their work at a more premium level.",
   },
 ];
 
-const campaignGuides = [
+const insights = [
   {
-    title: "How to Get More Marketing Content From One Property Shoot",
+    category: "Cabinet Making",
+    title:
+      "How to Present a Kitchen Design to a Client Without Using SketchUp",
     description:
-      "Extend the value of existing photography, renders and footage into additional campaign assets.",
-    href: "/blog/how-to-get-more-marketing-content-from-one-property-shoot",
-    label: "Campaign Mileage",
+      "A simpler way for cabinet makers to turn sketches and dimensions into a professional client presentation.",
+    href:
+      "/blog/how-to-present-a-kitchen-design-without-sketchup",
   },
   {
-    title: "How to Make a Property Listing Stand Out Without Another Photo Shoot",
+    category: "Client Presentation",
+    title:
+      "Why a Hand-Drawn Cabinetry Sketch Is No Longer Always Enough",
     description:
-      "Create another reason to notice the property without organising another photography session.",
-    href: "/blog/how-to-make-a-property-listing-stand-out-without-another-photo-shoot",
-    label: "Listing Attention",
+      "What clients may need to see before committing to a higher-value kitchen or joinery project.",
+    href:
+      "/blog/why-a-hand-drawn-cabinetry-sketch-is-not-always-enough",
   },
   {
-    title: "How to Refresh a Property Campaign That Has Gone Stale",
+    category: "Interactive 360°",
+    title:
+      "How Interactive 360° Presentations Help Clients Understand a Kitchen Design",
     description:
-      "Give an existing campaign another angle when buyers have already seen the same property story.",
-    href: "/blog/how-to-refresh-a-property-campaign-that-has-gone-stale",
-    label: "Campaign Refresh",
-  },
-];
-
-const childcareGuides = [
-  {
-    title: "How to Market a Childcare Centre Before It Is Built",
-    description:
-      "Use existing project media to make a future childcare development easier for people to understand before completion.",
-    href: "/blog/how-to-market-a-childcare-centre-before-it-is-built",
-    label: "Development Marketing",
+      "Why being able to look around a proposed room can make design conversations easier.",
+    href:
+      "/blog/how-interactive-360-presentations-help-clients-understand-a-kitchen-design",
   },
   {
-    title: "How to Market a Childcare Centre Before Opening Day",
+    category: "Joinery Business",
+    title:
+      "How Cabinet Makers Can Look More Professional Without Hiring an In-House 3D Designer",
     description:
-      "Build useful campaign content before opening using development visuals, interior scenes and moving property media.",
-    href: "/blog/how-to-market-a-childcare-centre-before-opening-day",
-    label: "Pre Opening",
+      "Using a backstage presentation partner instead of building an internal rendering department.",
+    href:
+      "/blog/how-cabinet-makers-can-look-more-professional-without-hiring-an-in-house-3d-designer",
+  },
+  {
+    category: "Interior Design",
+    title:
+      "How to Help Clients Visualise Cabinetry, Finishes and Materials Before They Commit",
+    description:
+      "Presenting cabinetry colours, benchtops and materials in context rather than as isolated samples.",
+    href:
+      "/blog/how-to-help-clients-visualise-cabinetry-finishes-and-materials",
+  },
+  {
+    category: "Whole-House Joinery",
+    title:
+      "How to Present Whole-House Joinery as One Cohesive Client Experience",
+    description:
+      "Bring kitchens, laundries, bathrooms, robes and custom cabinetry into one connected presentation.",
+    href:
+      "/blog/how-to-present-whole-house-joinery-as-one-client-experience",
+  },
+  {
+    category: "Higher-Value Projects",
+    title:
+      "How to Win Higher-End Cabinetry Projects When Your Competitor Has Better Renders",
+    description:
+      "Why presentation quality can influence how clients perceive professionalism and value.",
+    href:
+      "/blog/how-to-win-higher-end-cabinetry-projects-when-competitors-have-better-renders",
+  },
+  {
+    category: "Design Process",
+    title:
+      "From Pencil Sketch to Interactive Kitchen Presentation",
+    description:
+      "What information a cabinet maker actually needs to supply to create a professional visual presentation.",
+    href:
+      "/blog/from-pencil-sketch-to-interactive-kitchen-presentation",
+  },
+  {
+    category: "Client Meetings",
+    title:
+      "Using an iPad to Present Cabinetry Designs During Client Meetings",
+    description:
+      "A simple way to make cabinetry design meetings more visual without complicated presentation software.",
+    href:
+      "/blog/using-an-ipad-to-present-cabinetry-designs-during-client-meetings",
   },
 ];
 
 const hubJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Property Marketing Guides",
+  name:
+    "Cabinet Making, Joinery & Design Insights",
   description:
-    "Practical property marketing guides from Real Estate Media House.",
+    "Practical insights covering cabinet making, joinery, interior design, client presentation and interactive visualisation.",
   url: `${SITE_URL}/blog`,
   publisher: {
     "@type": "Organization",
@@ -148,50 +172,14 @@ const hubJsonLd = {
   },
 };
 
-function GuideCard({
-  title,
-  description,
-  href,
-  label,
-}: {
-  title: string;
-  description: string;
-  href: string;
-  label: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="group flex h-full flex-col rounded-[2rem] border border-black/10 bg-white p-7 transition hover:border-rust hover:shadow-soft md:p-8"
-    >
-      <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-rust">
-        {label}
-      </p>
-
-      <h3 className="mt-5 font-display text-2xl font-semibold leading-tight md:text-3xl">
-        {title}
-      </h3>
-
-      <p className="mt-4 flex-1 leading-7 text-black/50">{description}</p>
-
-      <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
-        Read guide
-        <ArrowRight
-          size={17}
-          className="transition group-hover:translate-x-1"
-        />
-      </div>
-    </Link>
-  );
-}
-
 export default function BlogPage() {
   return (
     <main className="bg-[#f7f5f1] text-ink">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(hubJsonLd),
+          __html:
+            JSON.stringify(hubJsonLd),
         }}
       />
 
@@ -200,98 +188,179 @@ export default function BlogPage() {
         <div className="container-shell py-20 md:py-28">
           <div className="max-w-5xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-              Property Marketing Guides
+              Cabinet Making & Design Insights
             </p>
 
             <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-              Solve the property marketing problem
+              Better ways to show
               <span className="block text-rust">
-                before creating more content.
+                what you&apos;re going to build.
               </span>
             </h1>
 
             <p className="mt-7 max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
-              Practical guides for real estate agents, commercial property
-              professionals and developers who already have property media and
-              need it to do more.
+              Practical ideas for cabinet makers,
+              joinery businesses, interior
+              designers and builders who need
+              clients to understand a design before
+              it becomes a finished space.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href="#commercial"
+                href="#topics"
                 className="rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-brassBright"
               >
-                Commercial property
+                Explore topics
               </a>
 
               <a
-                href="#campaign-content"
+                href="#insights"
                 className="rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white hover:text-ink"
               >
-                Campaign content
-              </a>
-
-              <a
-                href="#childcare"
-                className="rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white hover:text-ink"
-              >
-                Childcare development
+                Browse insights
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* START HERE */}
+      {/* INTRO */}
       <section className="bg-white py-20 md:py-28">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Start With The Problem
+                The communication gap
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                What does the property campaign need to do next?
+                You can see the finished design.
               </h2>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                {
-                  title: "The property is vacant",
-                  text: "Show buyers or tenants how the space could work for a relevant use.",
-                  href: "/blog/how-to-market-a-vacant-commercial-property",
-                },
-                {
-                  title: "The campaign feels stale",
-                  text: "Create another campaign angle from the media that already exists.",
-                  href: "/blog/how-to-refresh-a-property-campaign-that-has-gone-stale",
-                },
-                {
-                  title: "You need more content",
-                  text: "Turn one property shoot into several useful campaign assets.",
-                  href: "/blog/how-to-get-more-marketing-content-from-one-property-shoot",
-                },
-                {
-                  title: "The property needs movement",
-                  text: "Turn existing still photography into animated property content.",
-                  href: "/blog/how-to-turn-commercial-property-photos-into-video",
-                },
-              ].map((item) => (
-                <Link
+            <div className="max-w-4xl">
+              <p className="text-xl leading-9 text-black/60">
+                Experienced cabinet makers and
+                designers can often look at a
+                sketch, dimensions and finish
+                selections and immediately
+                understand how the finished space
+                will come together.
+              </p>
+
+              <p className="mt-6 text-xl leading-9 text-black/60">
+                The client may not have that same
+                ability.
+              </p>
+
+              <p className="mt-7 font-display text-3xl leading-10">
+                These insights are about closing
+                that gap.
+                <span className="text-rust">
+                  {" "}
+                  Helping clients see, understand
+                  and feel more confident about a
+                  design before it is manufactured.
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TOPICS */}
+      <section
+        id="topics"
+        className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28"
+      >
+        <div className="container-shell">
+          <div className="mb-12 max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              Insight topics
+            </p>
+
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+              Cabinetry, interiors and the way
+              ideas are presented.
+            </h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {categories.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article
                   key={item.title}
-                  href={item.href}
-                  className="group rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-7 transition hover:border-rust hover:bg-white hover:shadow-soft"
+                  className="rounded-[2rem] border border-black/10 bg-white p-7 md:p-8"
                 >
-                  <h3 className="font-display text-2xl font-semibold">
+                  <Icon
+                    size={25}
+                    className="text-rust"
+                  />
+
+                  <h3 className="mt-7 font-display text-2xl font-semibold">
                     {item.title}
                   </h3>
 
-                  <p className="mt-4 leading-7 text-black/50">{item.text}</p>
+                  <p className="mt-4 leading-7 text-black/50">
+                    {item.description}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-                  <div className="mt-6 inline-flex items-center gap-2 font-semibold text-rust">
-                    Solve this problem
+      {/* INSIGHTS */}
+      <section
+        id="insights"
+        className="bg-white py-20 md:py-28"
+      >
+        <div className="container-shell">
+          <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Insight library
+              </p>
+
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                Practical questions from real
+                cabinetry work.
+              </h2>
+
+              <p className="mt-6 leading-8 text-black/50">
+                Insights covering cabinetry,
+                joinery, interiors, visualisation
+                and better ways to present ideas to
+                clients.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              {insights.map((insight) => (
+                <Link
+                  key={insight.href}
+                  href={insight.href}
+                  className="group flex h-full flex-col rounded-[2rem] border border-black/10 bg-[#f7f5f1] p-7 transition hover:border-rust hover:bg-white hover:shadow-soft md:p-8"
+                >
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-rust">
+                    {insight.category}
+                  </p>
+
+                  <h3 className="mt-5 font-display text-2xl font-semibold leading-tight">
+                    {insight.title}
+                  </h3>
+
+                  <p className="mt-4 flex-1 leading-7 text-black/50">
+                    {insight.description}
+                  </p>
+
+                  <div className="mt-7 inline-flex items-center gap-2 font-semibold text-rust">
+                    Read insight
+
                     <ArrowRight
                       size={17}
                       className="transition group-hover:translate-x-1"
@@ -304,290 +373,149 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* COMMERCIAL */}
-      <section
-        id="commercial"
-        className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28"
-      >
+      {/* FEATURE */}
+      <section className="bg-ink py-20 text-white md:py-28">
         <div className="container-shell">
-          <div className="mb-12 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Commercial Property Marketing
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
+                Interactive presentation
               </p>
             </div>
 
             <div className="max-w-4xl">
               <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Help the right operator
+                A drawing explains the design.
                 <span className="block text-rust">
-                  see themselves in the property.
+                  A panorama lets the client
+                  experience it.
                 </span>
               </h2>
 
-              <p className="mt-6 text-lg leading-8 text-black/55">
-                These guides focus on vacant commercial and industrial
-                properties, industry specific marketing and turning existing
-                listing photography into more useful campaign content.
+              <p className="mt-6 text-lg leading-8 text-white/55">
+                Interactive 360° visualisation is
+                one way cabinet makers can help
+                clients understand a proposed room
+                without needing to become 3D
+                software experts themselves.
               </p>
-            </div>
-          </div>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {commercialGuides.map((guide) => (
-              <GuideCard key={guide.href} {...guide} />
-            ))}
+              <Link
+                href="/#interactive-presentation"
+                className="mt-8 inline-flex items-center gap-2 font-semibold text-brassBright"
+              >
+                See the interactive example
+                <ArrowRight size={17} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* COMMERCIAL PROOF */}
-      <section className="bg-ink py-20 text-white md:py-28">
+      {/* WHO IT IS FOR */}
+      <section className="bg-[#f7f5f1] py-20 md:py-28">
         <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr]">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Commercial Visual Proof
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+                Who these insights are for
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Do not just describe the possibility.
-                <br />
-                Show it.
+                People who design spaces without
+                necessarily wanting to become
+                rendering experts.
               </h2>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {[
-                {
-                  label: "Gym & Fitness",
-                  href: "/projects/warehouse-to-gym-visualisation",
-                },
-                {
-                  label: "Mechanic Workshop",
-                  href: "/projects/warehouse-to-mechanic-workshop-visualisation",
-                },
-                {
-                  label: "Logistics & Distribution",
-                  href: "/projects/warehouse-to-logistics-visualisation",
-                },
-                {
-                  label: "Photography Studio",
-                  href: "/projects/warehouse-to-photography-studio-visualisation",
-                },
-                {
-                  label: "Private Mancave",
-                  href: "/projects/warehouse-to-mancave-visualisation",
-                },
-                {
-                  label: "All Commercial Visualisation",
-                  href: "/commercial-property-visualisation",
-                },
+                "Cabinet makers",
+                "Joinery businesses",
+                "Kitchen designers",
+                "Bathroom designers",
+                "Interior designers",
+                "Builders",
+                "Renovation businesses",
+                "Custom furniture makers",
               ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex items-center justify-between gap-5 rounded-2xl border border-white/10 p-5 transition hover:border-brassBright hover:bg-white/5"
+                <div
+                  key={item}
+                  className="rounded-2xl border border-black/10 bg-white p-5 font-display text-xl font-semibold"
                 >
-                  <span className="font-display text-xl font-semibold">
-                    {item.label}
-                  </span>
-
-                  <ArrowRight
-                    size={18}
-                    className="shrink-0 text-brassBright transition group-hover:translate-x-1"
-                  />
-                </Link>
+                  {item}
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CAMPAIGN CONTENT */}
-      <section id="campaign-content" className="bg-white py-20 md:py-28">
+      {/* WHAT WE COVER */}
+      <section className="border-y border-black/10 bg-white py-20 md:py-28">
         <div className="container-shell">
-          <div className="mb-12 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+          <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Existing Property Media
+                What we explore
               </p>
-            </div>
 
-            <div className="max-w-4xl">
-              <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-                You already have the media.
-                <span className="block text-rust">
-                  What else can it become?
-                </span>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+                More than just rendering.
               </h2>
-
-              <p className="mt-6 text-lg leading-8 text-black/55">
-                These guides focus on getting more visibility, value and
-                campaign mileage from property photography, renders and footage
-                that have already been created.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {campaignGuides.map((guide) => (
-              <GuideCard key={guide.href} {...guide} />
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/image-library"
-              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-[#f7f5f1] px-6 py-3.5 font-semibold transition hover:border-rust"
-            >
-              Explore before and after images
-              <ArrowRight size={17} />
-            </Link>
-
-            <Link
-              href="/video-library"
-              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-[#f7f5f1] px-6 py-3.5 font-semibold transition hover:border-rust"
-            >
-              Explore property videos
-              <ArrowRight size={17} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CHILDCARE */}
-      <section
-        id="childcare"
-        className="border-y border-black/10 bg-[#f7f5f1] py-20 md:py-28"
-      >
-        <div className="container-shell">
-          <div className="mb-12 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Childcare Development Marketing
-              </p>
             </div>
 
-            <div className="max-w-4xl">
-              <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Market what the development
-                <span className="block text-rust">is going to become.</span>
-              </h2>
-
-              <p className="mt-6 text-lg leading-8 text-black/55">
-                Practical guides for childcare developers and project marketers
-                who need to communicate a centre before construction is
-                complete or before opening day.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            {childcareGuides.map((guide) => (
-              <GuideCard key={guide.href} {...guide} />
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/childcare-development-visualisation"
-              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-6 py-3.5 font-semibold transition hover:border-rust"
-            >
-              Childcare development visualisation
-              <ArrowRight size={17} />
-            </Link>
-
-            <Link
-              href="/projects/childcare-centre-development-transformation"
-              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-6 py-3.5 font-semibold transition hover:border-rust"
-            >
-              View childcare case study
-              <ArrowRight size={17} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* STRUCTURE */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="container-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                How The Site Is Organised
-              </p>
-            </div>
-
-            <div className="max-w-4xl">
-              <h2 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-                Guides explain the problem.
-                <br />
-                Services explain the solution.
-                <br />
-                Projects show the proof.
-              </h2>
-
-              <p className="mt-7 text-xl leading-9 text-black/60">
-                That makes it easier to move from a marketing question to a
-                relevant service and then see an actual visual example of the
-                work.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICE GATEWAY */}
-      <section className="bg-rust py-20 text-white md:py-28">
-        <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                Property Media Services
-              </p>
-
-              <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-                Already have the property media?
-              </h2>
-
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-                Explore what your existing photography, renders or footage can
-                become.
-              </p>
-            </div>
-
-            <div className="grid gap-3">
+            <div className="grid gap-4 sm:grid-cols-2">
               {[
                 {
-                  label: "Explore Services",
-                  href: "/services",
+                  title:
+                    "Client communication",
+                  text:
+                    "Helping customers understand layouts, finishes and cabinetry before they approve the job.",
                 },
                 {
-                  label: "Explore Packages",
-                  href: "/packages",
+                  title:
+                    "Kitchen presentation",
+                  text:
+                    "Ways to present kitchens professionally without spending your week inside design software.",
                 },
                 {
-                  label: "Explore Image Transformations",
-                  href: "/image-library",
+                  title:
+                    "Joinery visualisation",
+                  text:
+                    "Showing custom cabinetry, robes, laundries, offices and living-room joinery more clearly.",
                 },
                 {
-                  label: "Explore Property Animation",
-                  href: "/video-library",
+                  title:
+                    "Interior design",
+                  text:
+                    "Helping clients understand how cabinetry, materials and surrounding interiors work together.",
+                },
+                {
+                  title:
+                    "Building & renovation",
+                  text:
+                    "Communicating proposed interiors before manufacture or construction begins.",
+                },
+                {
+                  title:
+                    "Business presentation",
+                  text:
+                    "How better presentation can help smaller cabinet makers compete for premium work.",
                 },
               ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex items-center justify-between gap-5 rounded-2xl border border-white/20 px-6 py-5 font-semibold transition hover:bg-white hover:text-ink"
+                <article
+                  key={item.title}
+                  className="rounded-[1.75rem] border border-black/10 bg-[#f7f5f1] p-7"
                 >
-                  {item.label}
+                  <h3 className="font-display text-2xl font-semibold">
+                    {item.title}
+                  </h3>
 
-                  <ArrowRight
-                    size={18}
-                    className="transition group-hover:translate-x-1"
-                  />
-                </Link>
+                  <p className="mt-4 leading-7 text-black/50">
+                    {item.text}
+                  </p>
+                </article>
               ))}
             </div>
           </div>
@@ -595,28 +523,30 @@ export default function BlogPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink px-6 py-20 text-white md:py-28">
+      <section className="bg-rust px-6 py-20 text-white md:py-28">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-            Real Estate Media House
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+            Have a project now?
           </p>
 
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight md:text-7xl">
-            Tell us the property problem.
+            Send us the sketch.
             <br />
-            Show us the media you already have.
+            You present the vision.
           </h2>
 
-          <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/60">
-            We can help turn existing property photography, renders and footage
-            into more useful visual marketing content.
+          <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
+            Upload the drawings, measurements and
+            project information you already have
+            and we&apos;ll quote the visualisation
+            and presentation.
           </p>
 
           <Link
             href="/enquire"
-            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-rust hover:text-white"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-ink transition hover:bg-ink hover:text-white"
           >
-            Discuss your property campaign
+            Request a quote
             <ArrowRight size={18} />
           </Link>
         </div>
