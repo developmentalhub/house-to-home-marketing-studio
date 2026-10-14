@@ -66,11 +66,6 @@ export const metadata: Metadata = {
     "cabinet maker SketchUp alternative",
   ],
 
-  alternates: {
-    canonical:
-      "https://www.realestatemediahouse.net",
-  },
-
   openGraph: {
     title:
       "Interactive Cabinetry Presentations for Cabinet Makers",
