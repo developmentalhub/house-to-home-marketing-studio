@@ -11,6 +11,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import OrganizationSchema from "@/components/OrganizationSchema";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -35,29 +36,72 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    "https://www.realestatemediahouse.net",
+  ),
+
   title: {
-    default: "Real Estate Media House",
-    template: "%s | Real Estate Media House",
+    default:
+      "Interactive Cabinetry Presentations for Cabinet Makers | Real Estate Media House",
+    template:
+      "%s | Real Estate Media House",
   },
 
   description:
-    "Property imagery transformed into enhanced stills, cinematic animations, build reveals and finished Property Reels using the photography and renders you already have.",
+    "Turn cabinetry sketches into professional 3D visualisations, interactive 360 degree presentations and private client project pages. Presentation support for cabinet makers and joinery businesses across Australia.",
 
-  metadataBase: new URL(
-    "https://realestatemediahouse.net",
-  ),
+  keywords: [
+    "cabinet maker visualisation",
+    "cabinetry visualisation",
+    "joinery visualisation",
+    "kitchen visualisation",
+    "cabinet maker 3D rendering",
+    "3D rendering for cabinet makers",
+    "interactive kitchen design",
+    "360 kitchen visualisation",
+    "cabinetry presentation",
+    "joinery presentation",
+    "bathroom cabinetry visualisation",
+    "custom joinery rendering",
+    "cabinet maker SketchUp alternative",
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.realestatemediahouse.net",
+  },
 
   openGraph: {
-    title: "Real Estate Media House",
+    title:
+      "Interactive Cabinetry Presentations for Cabinet Makers",
 
     description:
-      "Enhanced property imagery, cinematic animation and finished Property Reels created from your existing photography and renders.",
+      "From hand-drawn cabinetry concepts to professional 3D visualisations, 360 degree panoramas and private client presentations.",
 
-    url: "https://realestatemediahouse.net",
+    url:
+      "https://www.realestatemediahouse.net",
 
-    siteName: "Real Estate Media House",
+    siteName:
+      "Real Estate Media House",
 
     type: "website",
+
+    locale: "en_AU",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title:
+      "Interactive Cabinetry Presentations for Cabinet Makers",
+
+    description:
+      "Turn cabinetry sketches into professional visualisations, interactive 360 degree presentations and private client project pages.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -68,10 +112,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-AU"
       className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}
     >
       <body>
+        <OrganizationSchema />
+
         <Header />
 
         {children}

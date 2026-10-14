@@ -21,6 +21,20 @@ export const projects: Record<string, ProjectConfig> = {
       "4.jpg",
     ],
   },
+
+  ga201: {
+    id: "ga201",
+    name: "Green Avenue – Bathroom Cabinetry",
+    subtitle: "Interactive cabinetry design presentation",
+    storageFolder: "customers/green-avenue",
+    panoramaFile: "bathroom-cabinetry-panorama-green-ave.jpg",
+    presentationFiles: [
+      "1.png",
+      "2.png",
+      "3.png",
+      "4.png",
+    ],
+  },
 };
 
 export function getProject(projectId: string) {
