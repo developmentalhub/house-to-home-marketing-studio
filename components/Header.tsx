@@ -66,6 +66,17 @@ export default function Header() {
             </Link>
 
             <Link
+              href="/preview"
+              className={`rounded-full px-4 py-2.5 text-sm font-semibold transition ${
+                pathname.startsWith("/preview")
+                  ? "bg-ink text-white"
+                  : "text-black/60 hover:bg-black/5 hover:text-ink"
+              }`}
+            >
+              Preview Projects
+            </Link>
+
+            <Link
               href="/#interactive-presentation"
               className="rounded-full px-4 py-2.5 text-sm font-semibold text-black/60 transition hover:bg-black/5 hover:text-ink"
             >
@@ -87,7 +98,7 @@ export default function Header() {
                   : "text-black/60 hover:bg-black/5 hover:text-ink"
               }`}
             >
-              Resources
+              Insights
             </Link>
           </nav>
 
@@ -144,6 +155,20 @@ export default function Header() {
               </Link>
 
               <Link
+                href="/preview"
+                onClick={closeMobileMenu}
+                className={`rounded-2xl px-5 py-4 font-display text-2xl font-semibold transition ${
+                  pathname.startsWith(
+                    "/preview",
+                  )
+                    ? "bg-ink text-white"
+                    : "hover:bg-white"
+                }`}
+              >
+                Preview Projects
+              </Link>
+
+              <Link
                 href="/#interactive-presentation"
                 onClick={closeMobileMenu}
                 className="rounded-2xl px-5 py-4 font-display text-2xl font-semibold transition hover:bg-white"
@@ -168,7 +193,7 @@ export default function Header() {
                     : "hover:bg-white"
                 }`}
               >
-                Resources
+                Insights
               </Link>
 
               <div className="mt-5 border-t border-black/10 pt-6">

@@ -177,6 +177,13 @@ export default function Footer() {
                 </Link>
 
                 <Link
+                  href="/preview"
+                  className="text-sm font-semibold text-brassBright transition hover:text-white"
+                >
+                  Preview Projects
+                </Link>
+
+                <Link
                   href="/#interactive-presentation"
                   className="text-sm text-white/50 transition hover:text-white"
                 >
@@ -194,7 +201,7 @@ export default function Footer() {
                   href="/blog"
                   className="text-sm text-white/50 transition hover:text-white"
                 >
-                  Resources
+                  Insights
                 </Link>
               </div>
             </div>

@@ -1,6 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+
+import {
+  ArrowRight,
+  Eye,
+} from "lucide-react";
 
 const projectTypes = [
   "Kitchen",
@@ -28,8 +34,7 @@ export default function EnquirePage() {
     setSubmitting(true);
     setMessage("");
 
-    const form =
-      event.currentTarget;
+    const form = event.currentTarget;
 
     const formData =
       new FormData(form);
@@ -71,8 +76,9 @@ export default function EnquirePage() {
 
   return (
     <main className="bg-[#f4f1eb] text-[#181818]">
+      {/* HERO */}
       <section className="bg-[#171717] text-white">
-        <div className="container-shell py-20 md:py-28">
+        <div className="container-shell py-16 md:py-22">
           <div className="max-w-4xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
               Request a quote
@@ -96,9 +102,50 @@ export default function EnquirePage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      {/* PREVIEW BANNER */}
+      <section className="border-b border-black/10 bg-rust text-white">
+        <div className="container-shell py-6">
+          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-start gap-4">
+              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15">
+                <Eye size={19} />
+              </div>
+
+              <div>
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                  See what your client could receive
+                </p>
+
+                <p className="mt-1 font-display text-2xl font-semibold md:text-3xl">
+                  Explore our interactive project
+                  previews first.
+                </p>
+
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-white/70">
+                  View sample Kitchen, Bathroom and
+                  Walk-in Robe presentations,
+                  including interactive 360° views
+                  and detailed project images.
+                </p>
+              </div>
+            </div>
+
+            <Link
+              href="/preview"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink transition hover:bg-ink hover:text-white"
+            >
+              View preview projects
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ENQUIRY FORM */}
+      <section className="py-16 md:py-24">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
+            {/* LEFT COLUMN */}
             <aside>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
                 What to send
@@ -120,18 +167,39 @@ export default function EnquirePage() {
                 <p>• Plans if available</p>
                 <p>• Finish selections</p>
                 <p>• Inspiration images</p>
+
                 <p>
                   • Notes about what the client
                   wants
                 </p>
               </div>
+
+              <div className="mt-10 rounded-[1.5rem] border border-black/10 bg-white p-6">
+                <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
+                  Not sure what to send?
+                </p>
+
+                <p className="mt-3 font-display text-2xl font-semibold">
+                  Start with what you have.
+                </p>
+
+                <p className="mt-3 text-sm leading-7 text-black/50">
+                  Your sketch does not need to be
+                  presentation-ready. We can review
+                  the information you already use
+                  with your customers and determine
+                  what is needed from there.
+                </p>
+              </div>
             </aside>
 
+            {/* FORM CARD */}
             <div className="rounded-[2rem] bg-white p-7 shadow-soft md:p-10">
               <form
                 onSubmit={handleSubmit}
                 className="space-y-10"
               >
+                {/* YOUR DETAILS */}
                 <fieldset>
                   <legend className="font-display text-3xl font-semibold">
                     Your details
@@ -166,6 +234,7 @@ export default function EnquirePage() {
                   </div>
                 </fieldset>
 
+                {/* PROJECT */}
                 <fieldset>
                   <legend className="font-display text-3xl font-semibold">
                     Project
@@ -207,6 +276,7 @@ export default function EnquirePage() {
                   </div>
                 </fieldset>
 
+                {/* JOINERY SIZE */}
                 <fieldset>
                   <legend className="font-display text-3xl font-semibold">
                     How much joinery needs to be
@@ -298,6 +368,7 @@ export default function EnquirePage() {
                   </div>
                 </fieldset>
 
+                {/* PRESENTATION OPTIONS */}
                 <fieldset>
                   <legend className="font-display text-3xl font-semibold">
                     Presentation options
@@ -320,11 +391,6 @@ export default function EnquirePage() {
                         label:
                           "Printable presentation sheets",
                       },
-                      {
-                        name: "ipadPresentation",
-                        label:
-                          "iPad-friendly presentation",
-                      },
                     ].map((item) => (
                       <label
                         key={item.name}
@@ -345,6 +411,7 @@ export default function EnquirePage() {
                   </div>
                 </fieldset>
 
+                {/* FILE UPLOAD */}
                 <fieldset>
                   <legend className="font-display text-3xl font-semibold">
                     Upload sketches and project
@@ -368,6 +435,7 @@ export default function EnquirePage() {
                   </div>
                 </fieldset>
 
+                {/* PROJECT DETAILS */}
                 <fieldset>
                   <legend className="font-display text-3xl font-semibold">
                     Tell us about the project
@@ -381,6 +449,7 @@ export default function EnquirePage() {
                   />
                 </fieldset>
 
+                {/* DEADLINE */}
                 <fieldset>
                   <legend className="font-display text-3xl font-semibold">
                     When do you need it?
@@ -395,6 +464,7 @@ export default function EnquirePage() {
                   </div>
                 </fieldset>
 
+                {/* QUOTE EXPLANATION */}
                 <div className="rounded-[1.5rem] border border-black/10 bg-[#f7f5f1] p-6">
                   <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-rust">
                     Quote process
@@ -415,6 +485,7 @@ export default function EnquirePage() {
                   </p>
                 </div>
 
+                {/* SUBMIT */}
                 <div className="border-t border-black/10 pt-8">
                   <button
                     type="submit"
