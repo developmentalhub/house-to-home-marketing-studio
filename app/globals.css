@@ -4,6 +4,10 @@
 
 :root {
   color-scheme: light;
+
+  --font-fraunces: Georgia, "Times New Roman", serif;
+  --font-inter: Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
 }
 
 * {
