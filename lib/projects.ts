@@ -13,7 +13,7 @@ export const projects: Record<string, ProjectConfig> = {
     name: "Beach St – Kitchen",
     subtitle: "Interactive architectural design presentation",
     storageFolder: "customers/beach-street",
-    panoramaFile: "Pano-BeachSt.jpg",
+    panoramaFile: "updated-kitchen-panorama-image.png",
     presentationFiles: [
       "1.jpg",
       "2.jpg",

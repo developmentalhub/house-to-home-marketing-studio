@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Interactive Cabinetry Presentations for Cabinet Makers | Real Estate Media House",
 
   description:
-    "Turn cabinet making sketches into professional interactive client presentations with 360 degree panoramas, high-resolution presentation sheets and private project pages. No SketchUp skills required.",
+    "Turn cabinet making sketches into professional interactive client presentations with 360 degree panoramas, high-resolution presentation sheets and private project pages for residential, commercial, hospitality, retail and shop fitout projects.",
 
   keywords: [
     "cabinet maker visualisation",
@@ -33,12 +33,15 @@ export const metadata: Metadata = {
     "joinery visualisation",
     "360 kitchen design",
     "kitchen rendering service",
-    "cabinet maker design presentation",
+    "commercial joinery visualisation",
+    "hospitality joinery visualisation",
+    "retail joinery visualisation",
+    "shop fitout visualisation",
+    "carpentry visualisation",
     "bathroom cabinetry visualisation",
     "laundry cabinetry design",
     "walk in robe visualisation",
     "custom joinery rendering",
-    "cabinet maker SketchUp alternative",
   ],
 
   alternates: {
@@ -50,21 +53,26 @@ export const metadata: Metadata = {
     title:
       "Interactive Cabinetry Presentations for Cabinet Makers",
     description:
-      "From hand-drawn cabinetry concepts to interactive 360 degree client presentations.",
+      "Residential, commercial, hospitality and retail joinery visualisation from hand-drawn concepts to interactive 360 degree presentations.",
     url:
       "https://www.realestatemediahouse.net",
     type: "website",
   },
 };
 
+const SUPABASE_PUBLIC_URL =
+  "https://icnplmgegficqmmsoqxt.supabase.co/storage/v1/object/public/website-images";
+
 const projectTypes = [
   "Kitchens",
   "Bathrooms",
   "Laundries",
   "Walk-in robes",
-  "TV & entertainment cabinetry",
-  "Home offices",
+  "Commercial joinery",
+  "Hospitality fitouts",
+  "Retail fitouts",
   "Custom joinery",
+  "Carpentry projects",
   "Whole-house cabinetry",
 ];
 
@@ -87,7 +95,7 @@ const process = [
   {
     number: "04",
     title: "You present it",
-    text: "Open the project on your iPad, send your customer their private link or QR code, or print the presentation sheets yourself.",
+    text: "Share the finished project with your customer using their private project page, QR code or printable presentation sheets.",
   },
 ];
 
@@ -95,11 +103,10 @@ const benefits = [
   "No SketchUp skills required",
   "No rendering software to learn",
   "Start with your hand-drawn sketch",
-  "Single room or full-house projects",
+  "Residential or commercial projects",
   "Interactive 360° panorama",
   "Private customer presentation page",
-  "High-resolution presentation sheets",
-  "Easy to present from an iPad",
+  "High-resolution presentation images",
   "Printable design sheets",
   "QR code access",
 ];
@@ -125,18 +132,17 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-8 max-w-2xl text-xl leading-9 text-white/70">
-                We turn your cabinetry concepts
-                into interactive 360° presentations
-                that make your business look
-                impressive in front of your
-                customers.
+                We turn cabinetry, joinery and
+                fitout concepts into interactive
+                360° presentations that help your
+                customers clearly see the finished
+                space.
               </p>
 
               <p className="mt-5 max-w-2xl leading-8 text-white/45">
-                You stay the expert. We stay
-                backstage and take care of the 3D
-                visualisation and presentation
-                technology.
+                Residential, commercial,
+                hospitality, retail and custom
+                joinery projects.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -149,33 +155,125 @@ export default function HomePage() {
                 </Link>
 
                 <Link
-                  href="#how-it-works"
+                  href="/preview"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-4 font-semibold text-white transition hover:border-white/60"
                 >
-                  How it works
+                  View project previews
                 </Link>
               </div>
 
               <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/10 pt-6 font-mono text-[9px] uppercase tracking-[0.15em] text-white/35">
                 <span>Hand sketches welcome</span>
                 <span>No SketchUp required</span>
-                <span>iPad ready</span>
+                <span>Residential + commercial</span>
               </div>
             </div>
 
-            {/* REAL INTERACTIVE PANORAMA */}
             <HomePanorama />
           </div>
         </div>
       </section>
 
+      {/* PROJECT RANGE */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container-shell">
+          <div className="mb-10 max-w-4xl">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
+              More than residential cabinetry
+            </p>
+
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+              From kitchens to hospitality,
+              retail and commercial fitouts.
+            </h2>
+
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-black/55">
+              We can create visual presentations
+              for cabinetry, joinery, shop fitout
+              and carpentry projects across
+              residential and commercial spaces.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {/* RESIDENTIAL */}
+            <article className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#171717] shadow-soft">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={`${SUPABASE_PUBLIC_URL}/preview/kitchen/updated-kitchen-panorama-image.png`}
+                  alt="Residential kitchen cabinetry visualisation"
+                  className="h-full w-full object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-7 text-white md:p-9">
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-brassBright">
+                    Residential
+                  </p>
+
+                  <h3 className="mt-2 font-display text-3xl font-semibold md:text-4xl">
+                    Kitchens, robes, bathrooms
+                    and whole-house cabinetry
+                  </h3>
+                </div>
+              </div>
+            </article>
+
+            {/* COMMERCIAL */}
+            <article className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#171717] shadow-soft">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={`${SUPABASE_PUBLIC_URL}/preview/hospitality/hospitality-panorama-image.png`}
+                  alt="Commercial hospitality joinery and fitout visualisation"
+                  className="h-full w-full object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-7 text-white md:p-9">
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-brassBright">
+                    Commercial
+                  </p>
+
+                  <h3 className="mt-2 font-display text-3xl font-semibold md:text-4xl">
+                    Hospitality, retail,
+                    shop fitout and carpentry
+                  </h3>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div className="mt-7 flex flex-wrap gap-2">
+            {[
+              "Residential",
+              "Commercial",
+              "Hospitality",
+              "Retail",
+              "Shop fitout",
+              "Joinery",
+              "Cabinetry",
+              "Carpentry",
+            ].map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-black/10 bg-[#f4f1eb] px-4 py-2 text-sm font-semibold text-black/60"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CORE POSITION */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-[#f4f1eb] py-20 md:py-28">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-[0.68fr_1.32fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Your skills are in cabinetry
+                Your skills are in making
               </p>
 
               <h2 className="mt-5 font-display text-4xl font-semibold leading-tight md:text-5xl">
@@ -186,27 +284,27 @@ export default function HomePage() {
 
             <div className="max-w-4xl">
               <p className="text-xl leading-9 text-black/60">
-                You can look at a hand-drawn
-                kitchen concept and understand
+                You can look at a drawing or
+                cabinetry concept and understand
                 exactly how it will come together.
                 Your customer often can&apos;t.
               </p>
 
               <p className="mt-6 text-xl leading-9 text-black/60">
-                And when they are considering a
-                high-value kitchen or whole-house
-                cabinetry project, they increasingly
-                expect more than a sketch before
-                making the decision.
+                Whether it is a kitchen, restaurant,
+                retail space or custom fitout, the
+                visual presentation can make the
+                finished concept much easier to
+                understand.
               </p>
 
               <p className="mt-7 font-display text-3xl leading-10">
                 We bridge that gap.
                 <span className="text-rust">
                   {" "}
-                  You bring the cabinetry
-                  knowledge. We help your customer
-                  see what you can already see.
+                  You bring the trade knowledge.
+                  We help your customer see what
+                  you can already see.
                 </span>
               </p>
             </div>
@@ -215,7 +313,7 @@ export default function HomePage() {
       </section>
 
       {/* BACKSTAGE PARTNER */}
-      <section className="border-y border-black/10 bg-[#f4f1eb] py-20 md:py-28">
+      <section className="border-y border-black/10 bg-white py-20 md:py-28">
         <div className="container-shell">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="rounded-[2rem] bg-[#171717] p-8 text-white md:p-12">
@@ -235,11 +333,9 @@ export default function HomePage() {
               </p>
 
               <p className="mt-5 leading-8 text-white/45">
-                You can sit beside the customer,
-                open their design on your iPad and
-                walk them through a polished
-                presentation as part of your own
-                service.
+                Share the finished visualisation
+                with your customer as part of your
+                own professional service.
               </p>
             </div>
 
@@ -261,7 +357,7 @@ export default function HomePage() {
               <div className="mt-8 space-y-5">
                 {[
                   "You keep the customer relationship.",
-                  "Your cabinetry concept stays at the centre.",
+                  "Your design stays at the centre.",
                   "We handle the technical presentation work.",
                   "You decide how and when you show it to the client.",
                 ].map((item) => (
@@ -286,7 +382,10 @@ export default function HomePage() {
       </section>
 
       {/* 360 FEATURE */}
-      <section className="bg-white py-20 md:py-28">
+      <section
+        id="interactive-presentation"
+        className="bg-[#f4f1eb] py-20 md:py-28"
+      >
         <div className="container-shell">
           <div className="max-w-5xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
@@ -295,18 +394,17 @@ export default function HomePage() {
 
             <h2 className="mt-5 font-display text-4xl font-semibold leading-tight md:text-6xl">
               Stop asking your customer to
-              imagine the room.
+              imagine the space.
               <span className="block text-rust">
                 Let them look around it.
               </span>
             </h2>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-black/55">
-              The interactive panorama gives your
-              customer a much clearer sense of the
-              proposed kitchen, bathroom, laundry,
-              robe or joinery design than a flat
-              sketch alone.
+              An interactive panorama gives your
+              customer a much clearer sense of a
+              proposed residential or commercial
+              space than a flat drawing alone.
             </p>
           </div>
 
@@ -322,52 +420,51 @@ export default function HomePage() {
               </p>
 
               <h3 className="mt-3 font-display text-3xl font-semibold">
-                Explore the proposed room.
+                Explore the proposed space.
               </h3>
 
               <p className="mt-4 max-w-xl leading-7 text-white/50">
                 Drag around the space on phone,
                 tablet or computer and understand
-                how the cabinetry feels in the
-                room.
+                how the design feels in context.
               </p>
             </article>
 
-            <article className="rounded-[1.75rem] border border-black/10 bg-[#f4f1eb] p-7">
+            <article className="rounded-[1.75rem] border border-black/10 bg-white p-7">
               <TabletSmartphone
                 size={25}
                 className="text-rust"
               />
 
               <h3 className="mt-7 font-display text-2xl font-semibold">
-                Present on iPad
+                Easy to present
               </h3>
 
               <p className="mt-4 leading-7 text-black/50">
                 Open the customer&apos;s project
-                during your meeting with no
-                specialist software required.
+                during a meeting with no specialist
+                software required.
               </p>
             </article>
 
-            <article className="rounded-[1.75rem] border border-black/10 bg-[#f4f1eb] p-7">
+            <article className="rounded-[1.75rem] border border-black/10 bg-white p-7">
               <FileImage
                 size={25}
                 className="text-rust"
               />
 
               <h3 className="mt-7 font-display text-2xl font-semibold">
-                Detailed sheets
+                Detailed images
               </h3>
 
               <p className="mt-4 leading-7 text-black/50">
                 Customers can open large
                 presentation images and inspect
-                cabinetry details clearly.
+                details clearly.
               </p>
             </article>
 
-            <article className="rounded-[1.75rem] border border-black/10 bg-[#f4f1eb] p-7">
+            <article className="rounded-[1.75rem] border border-black/10 bg-white p-7">
               <Printer
                 size={25}
                 className="text-rust"
@@ -384,7 +481,7 @@ export default function HomePage() {
               </p>
             </article>
 
-            <article className="rounded-[1.75rem] border border-black/10 bg-[#f4f1eb] p-7">
+            <article className="rounded-[1.75rem] border border-black/10 bg-white p-7">
               <QrCode
                 size={25}
                 className="text-rust"
@@ -401,7 +498,7 @@ export default function HomePage() {
               </p>
             </article>
 
-            <article className="rounded-[1.75rem] border border-black/10 bg-[#f4f1eb] p-7 lg:col-span-2">
+            <article className="rounded-[1.75rem] border border-black/10 bg-white p-7 lg:col-span-2">
               <ShieldCheck
                 size={25}
                 className="text-rust"
@@ -437,8 +534,9 @@ export default function HomePage() {
 
               <p className="mt-6 leading-8 text-white/50">
                 You don&apos;t have to learn
-                SketchUp before you can offer your
-                customers a modern presentation.
+                rendering software before you can
+                offer your customers a modern
+                presentation.
               </p>
             </div>
 
@@ -516,18 +614,17 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr]">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                One room or the whole house
+                Residential + commercial
               </p>
 
               <h2 className="mt-5 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Wherever your cabinetry goes.
+                Wherever your work goes.
               </h2>
 
               <p className="mt-6 leading-8 text-black/50">
-                Use us for one important kitchen
-                presentation or bring the entire
-                cabinetry package together for a
-                larger home.
+                Use us for a single cabinetry
+                project, a full home, a hospitality
+                fitout or larger commercial work.
               </p>
             </div>
 
@@ -642,35 +739,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BLOG */}
+      {/* INSIGHTS */}
       <section className="border-y border-black/10 bg-white py-18 md:py-24">
         <div className="container-shell">
           <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-center">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Cabinet maker resources
+                Insights
               </p>
             </div>
 
             <div>
               <h2 className="font-display text-4xl font-semibold leading-tight md:text-5xl">
-                Better ways to present cabinetry
+                Better ways to present your work
                 and help clients say yes.
               </h2>
 
               <p className="mt-5 max-w-3xl leading-8 text-black/50">
-                Our resource library is moving
-                toward cabinetry visualisation,
-                client presentations, design
-                communication and helping cabinet
-                makers compete for better projects.
+                Explore ideas around visualisation,
+                client presentation and helping
+                cabinetry, joinery and fitout
+                businesses communicate designs more
+                clearly.
               </p>
 
               <Link
                 href="/blog"
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-rust"
               >
-                Explore the resources
+                Explore the insights
                 <ArrowRight size={17} />
               </Link>
             </div>
@@ -692,9 +789,9 @@ export default function HomePage() {
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/70">
-            Start with your next kitchen,
-            bathroom, laundry, walk-in robe or
-            custom cabinetry project.
+            Residential, commercial, hospitality,
+            retail, shop fitout, joinery and
+            carpentry projects.
           </p>
 
           <Link

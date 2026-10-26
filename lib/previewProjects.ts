@@ -23,7 +23,7 @@ export const previewProjects: Record<
       "Explore an interactive kitchen presentation with a 360 degree panorama and four detailed client presentation views.",
     demoCode: "KITCHEN-DEMO",
     panoramaUrl:
-      `${SUPABASE_PUBLIC_URL}/preview/kitchen/Panorama-BeachSt.jpg`,
+      `${SUPABASE_PUBLIC_URL}/preview/kitchen/updated-kitchen-panorama-image.png`,
     imageUrls: [
       `${SUPABASE_PUBLIC_URL}/preview/kitchen/1.jpg`,
       `${SUPABASE_PUBLIC_URL}/preview/kitchen/2.jpg`,
