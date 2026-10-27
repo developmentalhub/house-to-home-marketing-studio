@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     );
 
     const files = [
-      "beach-street/Pano-BeachSt.jpg",
+      "beach-street/updated-kitchen-panorama-image.png",
       "beach-street/1.jpg",
       "beach-street/2.jpg",
       "beach-street/3.jpg",

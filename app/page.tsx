@@ -118,26 +118,27 @@ const benefits = [
 export default function HomePage() {
   return (
     <main className="bg-[#f4f1eb] text-[#181818]">
-      {/* RP IMAGES SISTER SITE BANNER */}
+      {/* RP IMAGES BRAND BANNER */}
       <a
         href="https://www.rpimages.com.au"
         target="_blank"
         rel="noopener noreferrer"
         className="block border-b border-white/10 bg-rust text-white transition hover:bg-[#171717]"
       >
-        <div className="container-shell flex items-center justify-center gap-2 py-2.5 text-center text-[11px] leading-5 md:text-xs">
-          <span>
-            Sister site of{" "}
-            <strong>RP Images</strong>
-            {" "}— property and development visualisation.
-            Two specialist arms helping take a project
-            from real estate through to custom joinery.
+        <div className="container-shell flex flex-col items-center justify-center gap-1 py-3 text-center sm:flex-row sm:gap-2">
+          <span className="text-[11px] leading-5 md:text-xs">
+            <strong>
+              Real Estate Media House
+            </strong>{" "}
+            is the cabinetry, joinery and fitout
+            specialist brand from{" "}
+            <strong>RP Images</strong>.
           </span>
 
-          <ExternalLink
-            size={13}
-            className="shrink-0"
-          />
+          <span className="inline-flex items-center gap-1 text-[11px] font-semibold underline underline-offset-4 md:text-xs">
+            Explore RP Images
+            <ExternalLink size={12} />
+          </span>
         </div>
       </a>
 
@@ -147,8 +148,8 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-brassBright">
-                Presentation support for cabinet
-                makers, joiners and shop fitters
+                The cabinetry, joinery & fitout
+                specialist brand from RP Images
               </p>
 
               <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.95] tracking-[-0.04em] md:text-7xl lg:text-[5.2rem]">
@@ -159,11 +160,12 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-8 max-w-2xl text-xl leading-9 text-white/70">
-                We turn cabinetry, joinery and
-                fitout concepts into interactive
-                360° presentations that help
-                clients understand the finished
-                space before it is built.
+                We bring the visualisation experience
+                behind RP Images into cabinetry,
+                joinery and fitout projects, turning
+                your concepts into interactive 360°
+                presentations your clients can
+                explore before anything is built.
               </p>
 
               <p className="mt-5 max-w-2xl leading-8 text-white/45">
@@ -227,7 +229,6 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {/* RESIDENTIAL INTERACTIVE */}
             <div>
               <div className="mb-4">
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-rust">
@@ -249,7 +250,6 @@ export default function HomePage() {
               />
             </div>
 
-            {/* COMMERCIAL INTERACTIVE */}
             <div>
               <div className="mb-4">
                 <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-rust">
@@ -294,48 +294,86 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TWO ARMS */}
-      <section className="border-y border-black/10 bg-[#f4f1eb] py-16 md:py-20">
+      {/* RP IMAGES RELATIONSHIP */}
+      <section className="border-y border-black/10 bg-[#f4f1eb] py-16 md:py-22">
         <div className="container-shell">
-          <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-rust">
-                Two specialist arms
+                One visualisation team
               </p>
 
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
-                One project journey.
+                Two specialist brands.
+                <span className="block text-rust">
+                  One project journey.
+                </span>
               </h2>
             </div>
 
             <div>
               <p className="text-lg leading-8 text-black/60">
-                RP Images supports real estate,
-                architectural and property
-                development visualisation. Real
-                Estate Media House supports the
-                cabinetry, joinery, shop fitout
-                and custom interior side of the
-                project.
+                Real Estate Media House grew from
+                RP Images to give cabinetry, joinery
+                and fitout businesses their own
+                specialist visualisation and client
+                presentation service.
               </p>
 
-              <p className="mt-5 text-lg leading-8 text-black/60">
-                Where a project moves from property
-                or development through to detailed
-                custom joinery, we&apos;d love to
-                help you see the whole project
-                through.
-              </p>
+              <div className="mt-8 grid gap-5 md:grid-cols-2">
+                <a
+                  href="https://www.rpimages.com.au"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-[1.75rem] border border-black/10 bg-white p-7 transition hover:border-rust"
+                >
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-rust">
+                    RP Images
+                  </p>
 
-              <a
-                href="https://www.rpimages.com.au"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 font-semibold text-rust"
-              >
-                Visit RP Images
-                <ExternalLink size={16} />
-              </a>
+                  <h3 className="mt-3 font-display text-2xl font-semibold">
+                    Property & development
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-black/50">
+                    Architectural visualisation for
+                    property developers, building
+                    designers and real estate projects.
+                  </p>
+
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-rust">
+                    Visit RP Images
+                    <ExternalLink size={15} />
+                  </span>
+                </a>
+
+                <div className="rounded-[1.75rem] border border-rust bg-[#171717] p-7 text-white">
+                  <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-brassBright">
+                    Real Estate Media House
+                  </p>
+
+                  <h3 className="mt-3 font-display text-2xl font-semibold">
+                    Cabinetry, joinery & fitout
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-white/50">
+                    Interactive visualisation and
+                    presentation support for cabinet
+                    makers, joiners, shop fitters,
+                    hospitality, retail and custom
+                    carpentry projects.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 border-l-2 border-rust pl-6">
+                <p className="font-display text-2xl leading-9">
+                  When a project moves from property
+                  development through to detailed
+                  custom interiors, we can help you
+                  visualise the whole journey.
+                </p>
+              </div>
             </div>
           </div>
         </div>
