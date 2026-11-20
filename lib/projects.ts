@@ -27,13 +27,24 @@ export const projects: Record<string, ProjectConfig> = {
     name: "Green Avenue – Bathroom Cabinetry",
     subtitle: "Interactive cabinetry design presentation",
     storageFolder: "customers/green-avenue",
-    panoramaFile: "bathroom-cabinetry-panorama-green-ave.jpg",
+    panoramaFile:
+      "bathroom-cabinetry-panorama-green-ave.jpg",
     presentationFiles: [
       "1.png",
       "2.png",
       "3.png",
       "4.png",
     ],
+  },
+
+  ws101: {
+    id: "ws101",
+    name: "Walsh Street – Bathroom",
+    subtitle: "Interactive bathroom design presentation",
+    storageFolder: "customers/walsh-street",
+    panoramaFile:
+      "walsh-street-bathroom-panorama.jpg",
+    presentationFiles: [],
   },
 };
 
